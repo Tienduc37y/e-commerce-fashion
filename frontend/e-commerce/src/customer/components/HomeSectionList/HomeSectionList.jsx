@@ -1,7 +1,7 @@
 import HomeSectionCard from "./HomeSectionCard";
 import EastIcon from '@mui/icons-material/East';
 
-const HomeSectionCarousel = ({ data, sectionName }) => {
+const HomeSectionList = ({ data, sectionName,haveImage }) => {
     const items = data?.slice(0, 8).map((item, index) => (
         <div
             key={index}
@@ -13,7 +13,9 @@ const HomeSectionCarousel = ({ data, sectionName }) => {
 
     return (
         <div className="px-4 md:px-0">
-            <img className="w-full h-auto object-cover" src="https://media.canifa.com/Simiconnector/Ao_phong_block_home_desktop-29.07.webp" alt="" />
+            {
+                haveImage ? <img className="w-full h-auto object-cover" src="https://media.canifa.com/Simiconnector/Ao_phong_block_home_desktop-29.07.webp" alt="" /> : ""
+            }
             <div className="mb-6 py-8 md:px-0">
                 {/* <div className="flex justify-between items-center">
                     <h3 className="text-2xl my-4 font-bold">{sectionName}</h3>
@@ -32,4 +34,4 @@ const HomeSectionCarousel = ({ data, sectionName }) => {
     );
 };
 
-export default HomeSectionCarousel;
+export default HomeSectionList;

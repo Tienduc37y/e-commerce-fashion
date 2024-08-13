@@ -1,0 +1,11 @@
+.productCard:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.css-ahj2mt-MuiTypography-root {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-left: 0.75rem;
+    font-family: initial !important;
+}

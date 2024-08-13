@@ -107,7 +107,7 @@ export const mens_kurta=[
           "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
     },
     {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th24s010-sb001-thumb.webp",
+        "imageUrl": "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/01/17/9fd9d961415159af74b7bd6fa05e2325.webp",
         "brand": "",
         "title": "Áo sơ mi nam linen cộc tay dáng suông",
         "color": "Dark Blue",

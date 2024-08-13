@@ -16,8 +16,12 @@ const HomeSectionCard = ({product}) => {
         <div className="mt-2 flex items-center space-x-2">
           <span className="text-lg font-bold text-red-600">{convertCurrency(product?.discountedPrice)}</span>
         </div>
-        <span className={product?.discountPersent == 0 ? "invisible" : "text-sm line-through text-gray-500 mr-2"}>{convertCurrency(product?.price)}</span>
-        <span className={product?.discountPersent == 0 ? "invisible" : "text-sm font-semibold text-red-500"}>-{product?.discountPersent}%</span>
+        {
+          product?.discountPersent == 0 ? "" : <>
+            <span className='text-sm line-through text-gray-500 mr-2'>{convertCurrency(product?.price)}</span>
+            <span className='text-sm font-semibold text-red-500'>-{product?.discountPersent}%</span>
+          </>
+        }
         <button className="float-right">
           <ShoppingCartIcon/>
         </button>
