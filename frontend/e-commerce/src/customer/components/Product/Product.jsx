@@ -16,7 +16,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { FormLabel, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-import ProductCard from './ProductCard'
+import HomeSectionCard from '../HomeSectionList/HomeSectionCard';
 import { mens_kurta } from '../../../Data/mens_kurta'
 import { filters, singleFilter } from './FilterData'
 import './ProductCard.css'
@@ -296,9 +296,16 @@ export default function Product() {
               </div>
 
               {/* Product grid */}
-              <div className="lg:col-span-4 w-full">
-                <div className='flex flex-wrap justify-center md:justify-start  bg-white py-5'>
-                  {mens_kurta.slice(0,5).map((item,index) => <ProductCard product={item} key={index}/>)}
+              <div className="col-span-2 lg:col-span-4 w-full">
+                <div className='flex flex-wrap justify-start bg-white py-5 gap-y-5 '>
+                  {mens_kurta.slice(0,5).map((item,index) => 
+                  <div
+                      key={index}
+                      className="px-2 flex-shrink-0 w-1/2 md:w-1/3 lg:w-1/4"
+                  >
+                      <HomeSectionCard product={item} />
+                  </div>
+                  )}
                 </div>
               </div>
             </div>

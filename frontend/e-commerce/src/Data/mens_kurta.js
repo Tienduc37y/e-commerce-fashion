@@ -1,7 +1,7 @@
 export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8ts24s015-sk317-thumb.webp",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -28,6 +28,7 @@ export const mens_kurta=[
               "quantity": 5
             },
           ],
+          "preserveClothes":"Giặt máy ở chế độ nhẹ, nhiệt độ thường. Không sử dụng hóa chất tẩy có chứa Clo. Phơi trong bóng mát. Sấy khô ở nhiệt độ thấp. Là ở nhiệt độ thấp 110 độ C. Giặt với sản phẩm cùng màu.Không là lên chi tiết trang trí",
           "quantity": 85,
           "topLavelCategory": "Nam",
           "secondLavelCategory": "Quần áo",
@@ -37,7 +38,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th24s010-sb001-thumb.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -73,7 +74,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th24s010-sb001-thumb.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -109,7 +110,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/01/17/9fd9d961415159af74b7bd6fa05e2325.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -145,7 +146,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
         "brand": "",
-        "title": "Áo sơ mi nam cổ dài tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Blue",
         "discountedPrice": 349300,
         "price": 499000,
@@ -181,7 +182,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -217,7 +218,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,
@@ -253,7 +254,7 @@ export const mens_kurta=[
     {
         "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
         "brand": "",
-        "title": "Áo sơ mi nam linen cộc tay dáng suông",
+        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
         "color": "Dark Blue",
         "discountedPrice": 699000,
         "price": 699000,

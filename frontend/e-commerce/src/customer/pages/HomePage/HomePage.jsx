@@ -14,11 +14,11 @@ const HomePage = () => {
             <PolicyProductSection className="my-4 md:my-6 lg:my-8"/>
             <div className="container mx-auto pb-8 md:px-8 lg:px-20">
                 <NewProductHomeSection/>
-                <HomeSectionList data={mens_kurta} sectionName="Hot Sale"/>
-                <HomeSectionList data={mens_kurta} sectionName="Áo Phông"/>
-                <HomeSectionList data={mens_kurta} sectionName="Áo Polo"/>
-                <HomeSectionList data={mens_kurta} sectionName="Áo Soóc"/>
-                <HomeSectionList data={mens_kurta} sectionName="Sản phẩm bán chạy"/>
+                <HomeSectionList data={mens_kurta} haveImage={true}/>
+                <HomeSectionList data={mens_kurta} haveImage={true}/>
+                <HomeSectionList data={mens_kurta} haveImage={true}/>
+                <HomeSectionList data={mens_kurta} haveImage={true}/>
+                <HomeSectionList data={mens_kurta} haveImage={true}/>
             </div>
         </div>
 

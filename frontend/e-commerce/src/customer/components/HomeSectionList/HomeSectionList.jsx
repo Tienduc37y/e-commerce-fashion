@@ -5,7 +5,7 @@ const HomeSectionList = ({ data, sectionName,haveImage }) => {
     const items = data?.slice(0, 8).map((item, index) => (
         <div
             key={index}
-            className="px-2 lg:px-4 flex-shrink-0 basis-1/2 md:basis-1/4 lg:basis-1/4"
+            className="px-2 md:px-4 flex-shrink-0 w-1/2 md:w-1/2 lg:w-1/4"
         >
             <HomeSectionCard product={item} />
         </div>
@@ -25,7 +25,7 @@ const HomeSectionList = ({ data, sectionName,haveImage }) => {
                     </div>
                 </div> */}
                 <div className="relative">
-                    <div className="flex flex-wrap gap-y-5 -mx-2 lg:-mx-4">
+                    <div className="flex flex-wrap gap-y-6 -mx-2 lg:-mx-4">
                         {items}
                     </div>
                 </div>

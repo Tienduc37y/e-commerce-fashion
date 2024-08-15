@@ -1,0 +1,16 @@
+.product-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+/* HomeSectionCard.css */
+.custom-tooltip .MuiTooltip-tooltip {
+    @apply bg-gray-700 text-white text-sm p-2 rounded;
+}
+.custom-tooltip .MuiTooltip-arrow {
+    @apply text-gray-700;
+}
+  
