@@ -44,7 +44,7 @@ const Footer = () => {
     <div>
       <h6 className="font-bold mb-4">PHƯƠNG THỨC THANH TOÁN</h6>
       <div className="flex space-x-4">
-        <img src="/path/to/payment-method-1.png" alt="Payment Method 1" />
+        <img className="w-15 h-10" src="vnpay-seeklogo.svg" alt="Payment Method 1" />
       </div>
     </div>
   </div>

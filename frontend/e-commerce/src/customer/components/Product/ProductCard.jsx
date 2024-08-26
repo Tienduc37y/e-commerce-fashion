@@ -4,7 +4,9 @@ import '../HomeSectionList/HomeSectionCard.css'
 import { convertCurrency } from '../../../common/convertCurrency'
 import { Tooltip } from '@mui/material'
 import { ShoppingCartIcon } from '@heroicons/react/20/solid'
+import { useNavigate } from 'react-router-dom';
 const ProductCard = ({product}) => {
+  const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState('');
 
   const handleSizeChange = (event) => {
@@ -47,7 +49,7 @@ const ProductCard = ({product}) => {
     //     </div>
     //   </div>
     // </div>
-    <div className="productCard rounded-lg overflow-hidden shadow-md cursor-pointer relative">
+    <div onClick={() => navigate(`/product/${5}`)} className="productCard rounded-lg overflow-hidden shadow-md cursor-pointer relative">
       <div className="overflow-hidden w-full h-[15rem] sm:h-[25rem]">
         <img
           className="w-full h-full object-cover object-top transition-transform duration-300 ease-in-out transform hover:scale-110"

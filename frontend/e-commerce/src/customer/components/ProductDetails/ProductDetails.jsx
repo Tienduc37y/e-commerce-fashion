@@ -8,6 +8,7 @@ import ProductReviewCard from './ProductReviewCard'
 import HomeSectionList from '../HomeSectionList/HomeSectionList'
 import { mens_kurta } from '../../../Data/mens_kurta'
 import HomeSectionCard from '../HomeSectionList/HomeSectionCard'
+import { useNavigate } from 'react-router-dom'
 const product = {
   name: 'Basic Tee 6-Pack',
   price: '$192',
@@ -66,7 +67,10 @@ function classNames(...classes) {
 export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-
+  const navigate = useNavigate()
+  const handleAddToCart = () => {
+    navigate("/cart")
+  }
   return (
     <div className="bg-white py-10 px-4 lg:px-20">
       <div className="pt-6">
@@ -230,7 +234,7 @@ export default function ProductDetails() {
                         </fieldset>
                     </div>
                 <div className='flex justify-center items-center'>
-                    <Button variant='contained' sx={{px:"2rem",mt:"2.5rem",py:"1rem"}}>
+                    <Button onClick={handleAddToCart} variant='contained' sx={{px:"2rem",mt:"2.5rem",py:"1rem"}}>
                         Thêm vào giỏ hàng
                     </Button>
                 </div>

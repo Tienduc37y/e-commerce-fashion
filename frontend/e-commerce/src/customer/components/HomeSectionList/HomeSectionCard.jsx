@@ -4,19 +4,23 @@ import { Tooltip } from '@mui/material';
 import './HomeSectionCard.css';
 import '../Product/ProductCard.css';
 import { convertCurrency } from '../../../common/convertCurrency';
+import { useNavigate } from 'react-router-dom';
 
 const HomeSectionCard = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState('');
-
+  const navigate = useNavigate()
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
   };
+  const handleAddToCart = () => {
+    navigate("/cart",{ replace: true })
+  }
 
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
   return (
     <div className="productCard rounded-lg overflow-hidden shadow-md cursor-pointer relative">
-      <div className="overflow-hidden w-full h-[15rem] sm:h-[25rem]">
+      <div  onClick={() => navigate(`/product/${5}`,{ replace: true })} className="overflow-hidden w-full h-[15rem] sm:h-[25rem]">
         <img
           className="w-full h-full object-cover object-top transition-transform duration-300 ease-in-out transform hover:scale-110"
           src={product?.imageUrl}
@@ -64,7 +68,7 @@ const HomeSectionCard = ({ product }) => {
 
         <Tooltip title="Mua hàng" placement="top">
           <div className="md:p-2 bg-blue-500 rounded-full hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
-            <button className='md:text-lg font-semibold text-white flex items-center justify-center'>
+            <button onClick={()=>handleAddToCart()} className='md:text-lg font-semibold text-white flex items-center justify-center'>
               Thêm vào giỏ hàng
             </button>
           </div>
