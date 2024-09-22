@@ -7,8 +7,10 @@ import Checkout from "../customer/components/Checkout/Checkout";
 import Order from "../customer/components/Order/Order";
 import OrderDetails from "../customer/components/Order/OrderDetails";
 import BaseLayout from "../layout/BaseLayout";
-import Login from "../customer/components/Login/Login";
-import Register from "../customer/components/register/Register";
+import Login from "../customer/pages/Login/Login";
+import Register from "../customer/pages/register/Register";
+import ForgotPassword from "../customer/pages/ForgotPassword/ForgotPassword";
+import UserProfile from "../customer/components/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -20,12 +22,8 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path:"login",
-        element:<Login/>
-      },
-      {
-        path:"register",
-        element:<Register/>
+        path: "/user-profile",
+        element: <UserProfile/>
       },
       {
         path: "cart",
@@ -52,5 +50,17 @@ export const router = createBrowserRouter([
         element: <Product />,
       },
     ],
+  },
+  {
+    path:"/login",
+    element:<Login/>
+  },
+  {
+    path:"/register",
+    element:<Register/>
+  },
+  {
+    path:"/forgot-password",
+    element:<ForgotPassword/>
   },
 ]);

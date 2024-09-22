@@ -10,8 +10,9 @@ import { navigation } from "./navigationData";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout, refreshTokenAuth } from "../../../redux/Auth/Action";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -19,12 +20,16 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate()
-
+  const {auth} = useSelector(store=>store)
+  const dispatch = useDispatch()
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
-  const jwt = localStorage.getItem("jwt");
+  const accessToken = localStorage.getItem('accessToken')
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -37,13 +42,22 @@ export default function Navigation() {
   };
   const handleClose = () => {
     setOpenAuthModal(false);
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+    navigate('/')
   };
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
-
+  useEffect(() => {
+    if(accessToken){
+      dispatch(getUser(accessToken))
+    }
+  },[accessToken,auth.accessToken])
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -147,7 +161,6 @@ export default function Navigation() {
                             >
                               {section.name}
                             </p>
-                            {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
                             <ul
                               role="list"
                               aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
@@ -181,7 +194,7 @@ export default function Navigation() {
                   ))}
                 </div>
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
                     <a
                       href="/"
@@ -190,9 +203,9 @@ export default function Navigation() {
                       Sign in
                     </a>
                   </div>
-                </div>
+                </div> */}
 
-                <div className="border-t border-gray-200 px-4 py-6">
+                {/* <div className="border-t border-gray-200 px-4 py-6">
                   <a href="/" className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -204,7 +217,7 @@ export default function Navigation() {
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -372,7 +385,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {true ? (
+                  {auth.user?.firstName ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -387,7 +400,7 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        R
+                        {auth.user?.lastName[0].toUpperCase()}
                       </Avatar>
                       {/* <Button
                         id="basic-button"
@@ -407,30 +420,29 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleCloseUserMenu}>
+                        <MenuItem onClick={() => navigate("/user-profile")}>
                           Profile
                         </MenuItem>
                         <MenuItem onClick={() => navigate("/account/order")}>
                           My Order
                         </MenuItem>
-                        <MenuItem>Logout</MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
-                    <Button
-                      onClick={handleOpen}
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      Signin
-                    </Button>
+                    <div className="flex gap-3">
+                      <Link to="/login" className="text-sm font-medium text-gray-700">Đăng nhập</Link>
+                      <Link to="/register" className="text-sm font-medium text-gray-700">Đăng ký</Link>
+                    </div>
                   )}
                 </div>
 
+                {/* User */}
                 {/* Search */}
                 <div className="flex items-center lg:ml-6">
                 
                   <p onClick={()=>navigate("/products/search")} className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
+                    <span className="sr-only">1</span>
                     
                     <MagnifyingGlassIcon
                       className="h-6 w-6"
@@ -438,7 +450,7 @@ export default function Navigation() {
                     />
                   </p>
                 </div>
-
+                  
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button

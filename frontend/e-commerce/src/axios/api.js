@@ -1,0 +1,59 @@
+import axios from "axios";
+import { setAccessToken, setRefreshToken } from "../utils/authFunction";
+import { store } from "../redux/store";
+import { refreshTokenAuth } from "../redux/Auth/Action";
+
+
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:5000',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+axiosInstance.interceptors.request.use((config) => {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    config.headers['Authorization'] = `Bearer ${accessToken}`;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
+axiosInstance.interceptors.response.use((response) => {
+  return response;
+}, async (error) => {
+  const originalRequest = error.config;
+  const refreshToken = localStorage.getItem('refreshToken');
+
+  if (!refreshToken) {
+    return Promise.reject(error);
+  }
+
+  if (error.response.status === 401 && !originalRequest._retry) {
+    originalRequest._retry = true;  
+
+    try {
+
+      const response = await store.dispatch(refreshTokenAuth(refreshToken)); 
+      if(response) {
+        setAccessToken(response);
+        setRefreshToken(refreshToken);
+      }
+      else {
+        throw new Error(response?.error)
+      }
+
+      originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+      return axiosInstance(originalRequest); 
+    } catch (refreshError) {
+      console.error('Error refreshing token:', refreshError);
+      return Promise.reject(refreshError);
+    }
+  }
+
+  return Promise.reject(error);
+});
+
+export default axiosInstance;
