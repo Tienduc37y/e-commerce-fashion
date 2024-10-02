@@ -1,5 +1,5 @@
 import axiosInstance from "../../axios/api"
-import { removeAccessToken, removeRefreshToken, setAccessToken, setRefreshToken} from "../../utils/authFunction"
+import { removeAccessToken, removeRefreshToken, removeRole, setAccessToken, setRefreshToken, setRole} from "../../utils/authFunction"
 import { GET_TOKEN_RESET_PASSWORD_FAILURE, GET_TOKEN_RESET_PASSWORD_REQUEST, GET_TOKEN_RESET_PASSWORD_SUCCESS, GET_USER_FAILURE, GET_USER_REQUESET, GET_USER_SUCCESS, LOGIN_FAILURE, LOGIN_REQUESET, LOGIN_SUCCESS, LOGOUT, REFRESH_TOKEN_FAILURE, REFRESH_TOKEN_REQUESET, REFRESH_TOKEN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUESET, REGISTER_SUCCESS, RESET_PASSWORD_FAILURE, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, CHANGE_PASSWORD_FAILURE, CHANGE_PASSWORD_REQUESET, CHANGE_PASSWORD_SUCCESS } from "./ActionType"
 
 const loginRequest = () => ({type:LOGIN_REQUESET})
@@ -41,8 +41,9 @@ export const login = (userData) => async (dispatch) => {
             const user = res.data?.data?.user;
             setAccessToken(user?.tokens?.access?.token)
             setRefreshToken(user?.tokens?.refresh?.token)
-            dispatch(loginSuccess(user.tokens));
-            return null;
+            setRole(user?.role)
+            dispatch(loginSuccess(user));
+            return user?.role;
         } else {
             const errorMessage = res.data?.error;
             dispatch(loginFailure(errorMessage));
@@ -63,7 +64,8 @@ export const register = (userData) => async (dispatch) => {
             const user = res?.data?.data?.user
             setAccessToken(user?.tokens?.access?.token)
             setRefreshToken(user?.tokens?.refresh?.token)
-            dispatch(registerSuccess(user?.tokens))
+            setRole(user?.role)
+            dispatch(registerSuccess(user))
             return null
         }
         else {
@@ -76,7 +78,7 @@ export const register = (userData) => async (dispatch) => {
     }
 }
 
-export const getUser = (token) => async (dispatch) => {
+export const getUser = () => async (dispatch) => {
     dispatch(getUserRequest())
     try {
         const res = await axiosInstance.get(`/api/users/profile`)
@@ -92,6 +94,7 @@ export const logout = () => (dispatch) => {
     dispatch(logOut())
     removeAccessToken()
     removeRefreshToken()
+    removeRole()
 }
 
 export const getTokenResetPassword = (email) => async (dispatch) => {
@@ -128,7 +131,7 @@ export const refreshTokenAuth = (token) => async (dispatch) => {
         const res = await axiosInstance.post('/auth/refresh-token',{token: token})
         if(res.data?.status === "200") {
             dispatch(refreshTokenSuccess(res.data?.data?.user))
-            return res.data?.data?.user?.tokens?.access?.token
+            return res.data?.data?.user
         }
         else {
             throw new Error(res.data?.error)
@@ -138,6 +141,7 @@ export const refreshTokenAuth = (token) => async (dispatch) => {
         throw new Error(error.response?.data?.error || error.message)
     }
 }
+
 export const changePassword = (password) => async (dispatch) => {
     dispatch(changePasswordRequest())
     try {
@@ -149,7 +153,7 @@ export const changePassword = (password) => async (dispatch) => {
             throw new Error(res.data?.error)
         }
     } catch (error) {
-        dispatch(refreshTokenFailure(error.message))
+        dispatch(changePasswordFailure(error.message))
         throw new Error(error.response?.data?.error || error.message)
     }
 }

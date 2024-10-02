@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html,
+body,
+#root,
+.app,
+.content {
+    height     : 100%;
+    width      : 100%;
+}
+
+.app {
+    display : flex;
+    position: relative;
+}
+
+
+/* For Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* For Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+/* For Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* For Scrollbar Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

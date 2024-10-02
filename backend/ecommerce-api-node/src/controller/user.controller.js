@@ -2,27 +2,19 @@ const userService = require('../services/user.service')
 
 const getUserProfile = async (req, res) => {
     try {
-      const jwt = req.headers.authorization?.split(" ")[1];
-  
-      if (!jwt) {
-        return res.status(404).send({
-            status: "404",
-            error: "Không có token",
-        });
-      }
-
-      const user = await userService.getUserProfileByToken(jwt);
-  
-      if (!user) {
-        return res.status(401).send({
-          status: "401",
-          error: "Token không hợp lệ hoặc đã hết hạn",
+      const user = req.user;
+      const dataUser = await userService.findUserById(user.userId)
+      if (!dataUser) {
+        return res.status(404).json({
+          status: "404",
+          error: "Không tìm thấy người dùng",
         });
       }
   
-      const { password: _, ...userInfo } = user._doc;
+      const userDoc = dataUser._doc || dataUser;
+      const { password: _, ...userInfo } = userDoc;
   
-      return res.status(200).send({
+      return res.status(200).json({
         status: "200",
         message: "Lấy thông tin user thành công",
         data: {
@@ -30,22 +22,32 @@ const getUserProfile = async (req, res) => {
         },
       });
     } catch (error) {
-      return res.status(401).send({
-        status: "401",
-        error: error.message || "Token hết hạn hoặc không hợp lệ",
+      console.error('Lỗi trong getUserProfile:', error);
+      return res.status(500).json({
+        status: "500",
+        error: error.message || "Lỗi server",
       });
     }
-  };
-  
+};
 
-const getAllUser = async (req,res) => {
+const editUser = async (req, res) => {
     try {
-        const users = await userService.getAllUser()
-        return res.status(200).send(users)
+        const userId = req.params.id;
+        const userData = req.body;
+        const updatedUser = await userService.editUser(userId, userData);
+        return res.status(200).send({
+            status: "200",    
+            message: "Cập nhật thông tin người dùng thành công",
+            data: {
+                user: updatedUser
+            }
+        });
     } catch (error) {
         return res.status(500).send({
-            error: error.message
-        })
+            status: "500",    
+            error: error.message || "Lỗi server", 
+        });
     }
-}
-module.exports = {getUserProfile,getAllUser}
+};
+
+module.exports = {getUserProfile, editUser}

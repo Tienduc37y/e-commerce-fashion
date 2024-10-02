@@ -12,7 +12,8 @@ import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, logout, refreshTokenAuth } from "../../../redux/Auth/Action";
+import { getUser, logout } from "../../../redux/Auth/Action";
+import { jwtDecode } from "jwt-decode";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -58,6 +59,7 @@ export default function Navigation() {
       dispatch(getUser(accessToken))
     }
   },[accessToken,auth.accessToken])
+  console.log(auth)
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -385,7 +387,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.user?.firstName ? (
+                  {auth.role ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -393,7 +395,6 @@ export default function Navigation() {
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
                         sx={{
                           bgcolor: deepPurple[500],
                           color: "white",
@@ -420,13 +421,27 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={() => navigate("/user-profile")}>
-                          Profile
-                        </MenuItem>
-                        <MenuItem onClick={() => navigate("/account/order")}>
-                          My Order
-                        </MenuItem>
-                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        {auth.role === "CUSTOMER" ? (
+                          <>
+                            <MenuItem onClick={() => navigate("/user-profile")}>
+                              Profile
+                            </MenuItem>
+                            <MenuItem onClick={() => navigate("/account/order")}>
+                              My Order
+                            </MenuItem>
+                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                          </>
+                          ) 
+                          : (
+                          <>
+                            <MenuItem onClick={() => navigate("/admin")}>
+                              Admin Dashboard
+                            </MenuItem>
+                            <MenuItem onClick={handleLogout}>
+                              Logout
+                            </MenuItem>
+                          </>
+                        )}
                       </Menu>
                     </div>
                   ) : (

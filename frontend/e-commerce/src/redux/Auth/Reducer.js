@@ -5,7 +5,8 @@ const initialState = {
     isLoading: false,
     error: null,
     accessToken: null,
-    refreshToken: null
+    refreshToken: null,
+    role: null
 }
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -15,9 +16,9 @@ export const authReducer = (state = initialState, action) => {
             return {...state, isLoading: true, error: null}
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
-            return {...state, isLoading: false, error: null, accessToken: action.payload.access.token, refreshToken: action.payload.refresh.token}
+            return {...state, isLoading: false, error: null, role: action.payload?.role, accessToken: action.payload?.tokens?.access?.token, refreshToken: action.payload?.tokens?.refresh?.token}
         case GET_USER_SUCCESS:
-            return {...state, isLoading: false, error: null, user: action.payload, accessToken: action.payload.tokens.access.token, refreshToken: action.payload.tokens.refresh.token}
+            return {...state, isLoading: false, error: null, role: action.payload?.role, user: action.payload, accessToken: action.payload?.tokens?.access?.token, refreshToken: action.payload?.tokens?.refresh?.token}
         case REGISTER_FAILURE:
         case LOGIN_FAILURE:
         case GET_USER_FAILURE:
@@ -31,7 +32,7 @@ export const authReducer = (state = initialState, action) => {
         case RESET_PASSWORD_REQUEST:
             return { ...state, loading: true, error: null, success: false };
         case REFRESH_TOKEN_SUCCESS:
-            return { ...state, loading: false, error: null, success: true, user: action.payload, accessToken: action.payload.tokens.access.token, refreshToken: action.payload.tokens.refresh.token };
+            return { ...state, loading: false, error: null, success: true, role: action.payload.role, user: action.payload, accessToken: action.payload?.tokens?.access?.token, refreshToken: action.payload?.tokens?.refresh?.token };
         case REFRESH_TOKEN_FAILURE:
             return { ...state, loading: false, error: action.payload, success: false };
         case CHANGE_PASSWORD_REQUESET:

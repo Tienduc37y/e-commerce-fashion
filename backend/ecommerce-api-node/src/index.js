@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const authRouters = require('./routes/auth.route')
 const userRouters = require('./routes/user.route')
+const adminRouter = require('./routes/admin.route')
 const productRouter = require('./routes/product.route')
 const adminProductRouter = require('./routes/adminProduct.route')
 const cartRouter = require('./routes/cart.route')
@@ -20,6 +21,8 @@ app.get("/",(req,res) => {
 app.use('/auth',authRouters)
 
 app.use('/api/users',userRouters)
+
+app.use('/api/admin',adminRouter)
 
 app.use('/api/products',productRouter)
 

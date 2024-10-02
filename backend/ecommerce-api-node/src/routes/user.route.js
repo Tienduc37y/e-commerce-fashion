@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const userController = require('../controller/user.controller')
-
-router.get('/profile',userController.getUserProfile)
-router.get('/',userController.getAllUser)
-
+const authMiddleware = require('../middlewares/auth.middleware')
+router.get('/profile',authMiddleware,userController.getUserProfile)
+router.put('/update_user/:id',authMiddleware,userController.editUser)
 module.exports = router

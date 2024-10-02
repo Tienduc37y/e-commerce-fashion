@@ -13,7 +13,10 @@ const authMiddleware = (req, res, next) => {
         req.user = decoded;
         next();
     } catch (error) {
-        return res.status(403).send({ message: 'Mã không hợp lệ' });
+        return res.status(403).send({ 
+            status: "403",
+            message: 'Mã không hợp lệ' 
+        });
     }
 };
 

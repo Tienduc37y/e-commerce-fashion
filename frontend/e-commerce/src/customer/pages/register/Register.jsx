@@ -18,7 +18,7 @@ export default function Register() {
     lastName: '',
     username: '',
     email: '',
-    phone: '',
+    mobile: '',
     password: '',
     confirmPassword: '',
   });
@@ -74,7 +74,7 @@ export default function Register() {
         lastName: '',
         username: '',
         email: '',
-        phone: '',
+        mobile: '',
         password: '',
         confirmPassword: ''
       });
@@ -181,14 +181,14 @@ export default function Register() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
-                  label="Phone"
-                  name="phone"
+                  label="Mobile"
+                  name="mobile"
                   variant="outlined"
                   className='rounded'
-                  value={formData.phone}
+                  value={formData.mobile}
                   onChange={handleChange}
-                  error={!!errors.phone}
-                  helperText={errors.phone}
+                  error={!!errors.mobile}
+                  helperText={errors.mobile}
                 />
               </Grid>
               <Grid item xs={12}>

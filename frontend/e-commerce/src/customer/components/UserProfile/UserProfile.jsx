@@ -5,13 +5,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { passwordChangeSchema } from '../../../utils/yupValidation';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changePassword } from '../../../redux/Auth/Action';
 
 
 export default function PasswordChangePage() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const {auth} = useSelector(store => store)
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -24,6 +25,7 @@ export default function PasswordChangePage() {
       navigate('/login')
     }
   },[navigate])
+  console.log(auth)
   const handleChange = async (e) => {
     const { name, value } = e.target;
     setFormData({

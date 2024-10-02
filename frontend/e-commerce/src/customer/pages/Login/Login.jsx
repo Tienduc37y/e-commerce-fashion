@@ -43,9 +43,16 @@ export default function Login() {
       await loginSchema.validate(formData, { abortEarly: false });
       setErrors({});
     
-      await dispatch(login(formData));
+      const role = await dispatch(login(formData));
       toast.success('Đăng nhập thành công', {
-        onClose: () => navigate('/'),
+        onClose: () => {
+          if(role === "ADMIN"){
+            return navigate("/admin")
+          }
+          else {
+            return navigate("/")
+          }
+        },
         autoClose: 1500,
       });
     } catch (err) {

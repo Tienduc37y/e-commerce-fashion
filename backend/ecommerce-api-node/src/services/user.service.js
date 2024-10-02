@@ -35,16 +35,13 @@ const createUser = async(userData) => {
 
 const findUserById = async (userId) => {
     try {
-        console.log("Tìm người dùng với ID:", userId);
         
         const user = await User.findById(userId);
         if (!user) {
             throw new Error("Không tìm thấy người dùng với id: " + userId);
         }
-        console.log(user)
         return user;
     } catch (error) {
-        console.error("Lỗi khi tìm người dùng:", error);
         throw new Error(error.message);
     }
 }
@@ -72,17 +69,6 @@ const getUserProfileByToken = async (token) => {
         }
 
         return user
-
-    } catch (error) {
-        throw new Error(error.message)
-    }
-}
-
-const getAllUser = async () => {
-    try {
-        const users = await User.find();
-
-        return users
 
     } catch (error) {
         throw new Error(error.message)
@@ -124,6 +110,16 @@ const deleteResetToken = async (email) => {
     );
 };
 
+const editUser = async (userId, userData) => {
+    try {
+        const user = await User.findByIdAndUpdate(userId, userData, { new: true });
+        if (!user) {
+            throw new Error("Không tìm thấy người dùng với id: " + userId);
+        }
+        return user;
+    } catch (error) {
+        throw new Error(error.message); 
+    }
+};
 
-
-module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, getAllUser, saveResetToken, verifyResetToken, updatePassword, deleteResetToken}
+module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, saveResetToken, verifyResetToken, updatePassword, deleteResetToken, editUser}

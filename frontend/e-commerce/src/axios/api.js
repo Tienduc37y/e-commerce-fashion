@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setAccessToken, setRefreshToken } from "../utils/authFunction";
+import { setAccessToken, setRefreshToken, setRole } from "../utils/authFunction";
 import { store } from "../redux/store";
 import { refreshTokenAuth } from "../redux/Auth/Action";
 
@@ -31,21 +31,22 @@ axiosInstance.interceptors.response.use((response) => {
     return Promise.reject(error);
   }
 
-  if (error.response.status === 401 && !originalRequest._retry) {
+  if (error.response.status === 403 && !originalRequest._retry) {
     originalRequest._retry = true;  
 
     try {
 
-      const response = await store.dispatch(refreshTokenAuth(refreshToken)); 
-      if(response) {
-        setAccessToken(response);
+      const res = await store.dispatch(refreshTokenAuth(refreshToken)); 
+      if(res) {
+        setAccessToken(res?.tokens?.access?.token);
         setRefreshToken(refreshToken);
+        setRole(res?.role)
       }
       else {
         throw new Error(response?.error)
       }
 
-      originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+      originalRequest.headers['Authorization'] = `Bearer ${res?.tokens?.access?.token}`;
       return axiosInstance(originalRequest); 
     } catch (refreshError) {
       console.error('Error refreshing token:', refreshError);

@@ -10,8 +10,8 @@ const { error } = require('console')
 const register = async (req, res) => {
     try {
         const user = await userService.createUser(req.body);
-        const accessToken = jwtProvider.generateAccessToken(user._id);
-        const refreshToken = jwtProvider.generateRefreshToken(user._id);
+        const accessToken = jwtProvider.generateAccessToken(user._id,user.role);
+        const refreshToken = jwtProvider.generateRefreshToken(user._id,user.role);
         user.tokens = {
             access: {
                 token: accessToken.token,
@@ -116,7 +116,7 @@ const refreshToken = async (req, res) => {
             });
         }
 
-        const newAccessToken = jwtProvider.generateAccessToken(decoded.userId);
+        const newAccessToken = jwtProvider.generateAccessToken(decoded.userId,decoded.role);
 
         const user = await userService.findUserById(decoded.userId)
 
