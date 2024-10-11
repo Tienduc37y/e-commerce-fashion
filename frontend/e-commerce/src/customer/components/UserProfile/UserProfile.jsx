@@ -1,49 +1,65 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Grid } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { passwordChangeSchema } from '../../../utils/yupValidation';
+import { changePasswordSchema } from '../../../utils/yupValidation';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePassword } from '../../../redux/Auth/Action';
-
 
 export default function PasswordChangePage() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const {auth} = useSelector(store => store)
   const [formData, setFormData] = useState({
-    currentPassword: '',
+    oldPassword: '',
     newPassword: '',
-    confirmPassword: ''
   });
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
+
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if(!accessToken) {
       navigate('/login')
     }
   },[navigate])
-  console.log(auth)
+
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    try {
-      await passwordChangeSchema.validateAt(name, { [name]: value });
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
-    } catch (validationError) {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: validationError.message }));
+    if (name === 'confirmPassword') {
+      setConfirmPassword(value);
+      if (value !== formData.newPassword) {
+        setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+      } else {
+        setErrors(prev => ({ ...prev, confirmPassword: '' }));
+      }
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+      try {
+        await changePasswordSchema.validateAt(name, { [name]: value });
+        setErrors(prev => ({ ...prev, [name]: '' }));
+        if (name === 'newPassword' && confirmPassword) {
+          if (value !== confirmPassword) {
+            setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+          } else {
+            setErrors(prev => ({ ...prev, confirmPassword: '' }));
+          }
+        }
+      } catch (validationError) {
+        setErrors(prev => ({ ...prev, [name]: validationError.message }));
+      }
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await passwordChangeSchema.validate(formData, { abortEarly: false });
+      await changePasswordSchema.validate(formData, { abortEarly: false });
+      if (formData.newPassword !== confirmPassword) {
+        setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+        return;
+      }
       setErrors({});
       
       await dispatch(changePassword(formData))
@@ -51,10 +67,10 @@ export default function PasswordChangePage() {
         autoClose: 1000,
       });
       setFormData({
-        currentPassword: '',
+        oldPassword: '',
         newPassword: '',
-        confirmPassword: ''
       });
+      setConfirmPassword('');
     } catch (err) {
       if (err.inner) {
         const validationErrors = {};
@@ -78,13 +94,13 @@ export default function PasswordChangePage() {
             <TextField
               fullWidth
               label="Mật khẩu hiện tại"
-              name="currentPassword"
+              name="oldPassword"
               type="password"
               variant="outlined"
-              value={formData.currentPassword}
+              value={formData.oldPassword}
               onChange={handleChange}
-              error={!!errors.currentPassword}
-              helperText={errors.currentPassword}
+              error={!!errors.oldPassword}
+              helperText={errors.oldPassword}
             />
           </Grid>
           <Grid item xs={12}>
@@ -107,7 +123,7 @@ export default function PasswordChangePage() {
               name="confirmPassword"
               type="password"
               variant="outlined"
-              value={formData.confirmPassword}
+              value={confirmPassword}
               onChange={handleChange}
               error={!!errors.confirmPassword}
               helperText={errors.confirmPassword}

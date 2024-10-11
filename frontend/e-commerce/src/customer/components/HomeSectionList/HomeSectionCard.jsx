@@ -1,83 +1,247 @@
-import React, { useState } from 'react';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Tooltip } from '@mui/material';
-import './HomeSectionCard.css';
-import '../Product/ProductCard.css';
-import { convertCurrency } from '../../../common/convertCurrency';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  Card, 
+  CardMedia, 
+  CardContent, 
+  Typography, 
+  Button, 
+  Box,
+  styled,
+  IconButton
+} from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { convertCurrency } from '../../../common/convertCurrency';
+import Tooltip from '@mui/material/Tooltip';
+
+const StyledCard = styled(Card)(({ theme }) => ({
+  borderRadius: theme.shape.borderRadius,
+  overflow: 'hidden',
+  boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+  position: 'relative',
+  '&:hover .add-to-cart': {
+    opacity: 1,
+  },
+}));
+
+const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
+  height: '23rem',
+  position: 'relative',
+  overflow: 'hidden',
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%)',
+  },
+  '& img': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'top',
+    transition: 'transform 0.3s ease-in-out',
+  },
+}));
+
+const SizeButton = styled(Button)(({ theme }) => ({
+  minWidth: 0,
+  padding: theme.spacing(0.5, 1),
+  margin: theme.spacing(0, 0.5),
+  backgroundColor: 'white',
+  color: theme.palette.text.primary,
+  '&:hover': {
+    backgroundColor: theme.palette.grey[200],
+  },
+}));
+
+const ColorButton = styled(IconButton)(({ theme, selected }) => ({
+  width: '1.5rem',
+  height: '1.5rem',
+  padding: 0,
+  border: selected ? `2px solid ${theme.palette.primary.main}` : 'none',
+  margin: theme.spacing(0, 0.5),
+  '&:hover': {
+    opacity: 0.8,
+  },
+}));
 
 const HomeSectionCard = ({ product }) => {
-  const [selectedSize, setSelectedSize] = useState('');
-  const navigate = useNavigate()
-  const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value);
-  };
-  const handleAddToCart = () => {
-    navigate("/cart",{ replace: true })
-  }
+  const navigate = useNavigate();
+  const cardRef = useRef(null);
 
-  const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+  // Lấy ra tất cả các màu duy nhất từ product
+  const uniqueColors = useMemo(() => {
+    const colorSet = new Set();
+    product?.sizes?.forEach(size => {
+      size.colors.forEach(colorObj => {
+        colorSet.add(colorObj.color);
+      });
+    });
+    return Array.from(colorSet);
+  }, [product]);
+
+  // Chọn ngẫu nhiên một màu từ uniqueColors
+  const [selectedColor, setSelectedColor] = useState(() => {
+    if (uniqueColors.length > 0) {
+      const randomIndex = Math.floor(Math.random() * uniqueColors.length);
+      return uniqueColors[randomIndex];
+    }
+    return '';
+  });
+
+  const [showSizes, setShowSizes] = useState(false);
+
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
+
+  const handleAddToCart = () => {
+    setShowSizes(true);
+  };
+
+  const handleSizeSelect = (size) => {
+    console.log(`Selected size: ${size}`);
+    navigate("/cart", { replace: true });
+  };
+
+  useEffect(() => {
+    const handleMouseLeave = () => {
+      setShowSizes(false);
+    };
+
+    const card = cardRef.current;
+    if (card) {
+      card.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    return () => {
+      if (card) {
+        card.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
 
   return (
-    <div className="productCard rounded-lg overflow-hidden shadow-md cursor-pointer relative">
-      <div  onClick={() => navigate(`/product/${5}`,{ replace: true })} className="overflow-hidden w-full h-[15rem] sm:h-[25rem]">
-        <img
-          className="w-full h-full object-cover object-top transition-transform duration-300 ease-in-out transform hover:scale-110"
-          src={product?.imageUrl}
-          alt={product?.title}
-        />
-      </div>
-      <div className="bg-white p-4 flex flex-col justify-between">
-        <div>
-          <Tooltip
-            title={product?.title}
-            placement="top-start"
-            classes={{ tooltip: 'custom-tooltip' }}
-          >
-            <p className="product-title font-semibold text-lg">{product?.title}</p>
-          </Tooltip>
-          <p className="text-gray-500 text-sm mb-2">{product?.category}</p>
-          <div className="flex flex-col items-start mb-2">
-            <span className="text-blue-600 font-semibold text-lg">
-              {convertCurrency(product?.discountedPrice)}
-            </span>
-            <span className="line-through text-gray-400 text-sm">
-              {convertCurrency(product?.price)}
-            </span>
-          </div>
-        </div>
-        {/* Size Selection */}
-        <div className="mb-4">
-          <div className="flex justify-center gap-2">
-            {sizes.map((size) => (
-              <label key={size} className={`cursor-pointer p-1 md:p-0 md:w-12 md:h-12 flex justify-center items-center border rounded-lg transition-colors
-                ${selectedSize === size ? 'border-blue-600 bg-blue-100' : 'border-gray-300'}
-              `}>
-                <input
-                  type="radio"
-                  value={size}
-                  checked={selectedSize === size}
-                  onChange={handleSizeChange}
-                  className="sr-only"
-                />
-                <span className="text-gray-700">{size}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <Tooltip title="Mua hàng" placement="top">
-          <div className="md:p-2 bg-blue-500 rounded-full hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
-            <button onClick={()=>handleAddToCart()} className='md:text-lg font-semibold text-white flex items-center justify-center'>
+    <StyledCard ref={cardRef}>
+      <Box sx={{ position: 'relative' }}>
+        <StyledCardMedia
+          title={product?.title}
+          onClick={() => navigate(`/product/${product?._id}`, { replace: true })}
+        >
+          <img src={product?.imageUrl[0].image} alt={product?.title} />
+        </StyledCardMedia>
+        {product?.discountedPersent > 0 && (
+          <Box
+            component="img"
+            src="/hotsale.svg"
+            alt="Sale"
+            sx={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              width: 50,
+              height: 50,
+            }}
+          />
+        )}
+        <Box
+          className="add-to-cart"
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            padding: 2,
+            opacity: 0,
+            transition: 'opacity 0.3s ease-in-out',
+          }}
+        >
+          {!showSizes ? (
+            <Button
+              variant="contained"
+              fullWidth
+              startIcon={<ShoppingCartIcon />}
+              onClick={handleAddToCart}
+              sx={{
+                borderRadius: '9999px',
+                px:0.5,
+                py:1,
+                fontWeight: 'bold',
+                textTransform: 'none',
+                fontSize: '1rem',
+                height: '2rem',
+              }}
+            >
               Thêm vào giỏ hàng
-            </button>
-          </div>
+            </Button>
+          ) : (
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+                <SizeButton
+                  key={size}
+                  variant="contained"
+                  onClick={() => handleSizeSelect(size)}
+                >
+                  {size}
+                </SizeButton>
+              ))}
+            </Box>
+          )}
+        </Box>
+      </Box>
+      <CardContent>
+        <Tooltip title={product?.title} placement="bottom-start">
+          <Typography onClick={()=>navigate(`/product/${product?._id}`, { replace: true })} sx={{cursor:'pointer',":hover":{color:'red'}}} variant="span" component="div" noWrap>
+            {product?.title}
+          </Typography>
         </Tooltip>
-      </div>
-      <div className="absolute top-0 right-0 md:m-2 md:px-2 py-1 rounded-full flex items-center">
-          <img src="hotsale.svg" alt="Hot Sale" className="size-10 md:size-14" />
-      </div>
-    </div>
+        <Typography variant="body2" color="text.secondary" >
+          {product?.brand}
+        </Typography>
+        <Box sx={{ height: '3.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          {product?.discountedPrice !== product?.price ? (
+            <>
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                {convertCurrency(product?.discountedPrice)}
+              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography variant="body2" color="text.secondary" sx={{ textDecoration: 'line-through', mr: 1 }}>
+                  {convertCurrency(product?.price)}
+                </Typography>
+                {product?.discountedPersent > 0 && (
+                  <Typography variant="body2" color="error" sx={{ fontWeight: 'bold' }}>
+                    -{product?.discountedPersent}%
+                  </Typography>
+                )}
+              </Box>
+            </>
+          ) : (
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              {convertCurrency(product?.price)}
+            </Typography>
+          )}
+        </Box>
+        {/* Thêm phần chọn màu sắc ở đây */}
+        <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+          {uniqueColors.map((color) => (
+            <Tooltip key={color} title={color.replace(/_/g, ' ')}>
+              <ColorButton
+                onClick={() => handleColorChange(color)}
+                selected={selectedColor === color}
+              >
+                <Typography variant="caption" sx={{ fontWeight: 'bold' }}>
+                  {color.charAt(0).toUpperCase()}
+                </Typography>
+              </ColorButton>
+            </Tooltip>
+          ))}
+        </Box>
+      </CardContent>
+    </StyledCard>
   );
 };
 

@@ -1,143 +1,170 @@
-
-import { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup, Disclosure } from '@headlessui/react'
-import { Rating, Button, Grid, LinearProgress, Box } from '@mui/material'
+import { Rating, Button, Grid, LinearProgress, Box, Typography, Tooltip,styled, IconButton, FormControl, FormControlLabel } from '@mui/material'
 import {PlusIcon,MinusIcon} from '@heroicons/react/20/solid'
 import ProductReviewCard from './ProductReviewCard'
 import HomeSectionList from '../HomeSectionList/HomeSectionList'
 import { mens_kurta } from '../../../Data/mens_kurta'
 import HomeSectionCard from '../HomeSectionList/HomeSectionCard'
-import { useNavigate } from 'react-router-dom'
-const product = {
-  name: 'Basic Tee 6-Pack',
-  price: '$192',
-  href: '#',
-  breadcrumbs: [
-    { id: 1, name: 'Men', href: '#' },
-    { id: 2, name: 'Clothing', href: '#' },
-  ],
-  images: [
-    {
-      src: 'https://canifa.com/img/1517/2000/resize/8/t/8ts24s001-sb001-thumb.webp',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
-    },
-    {
-      src: 'https://canifa.com/img/1517/2000/resize/8/t/8ts24s001-sb001-thumb.webp',
-      alt: 'Model wearing plain black basic tee.',
-    },
-    {
-      src: 'https://canifa.com/img/1517/2000/resize/8/t/8ts24s001-sb001-thumb.webp',
-      alt: 'Model wearing plain gray basic tee.',
-    },
-    {
-      src: 'https://canifa.com/img/1517/2000/resize/8/t/8ts24s001-sb001-thumb.webp',
-      alt: 'Model wearing plain white basic tee.',
-    },
-  ],
-  colors: [
-    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
-    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
-    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
-  ],
-  sizes: [
-    { name: 'S', inStock: true },
-    { name: 'M', inStock: true },
-    { name: 'L', inStock: true },
-    { name: 'XL', inStock: true },
-    { name: 'XXL', inStock: false },
-  ],
-  description:
-    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
-  highlights: [
-    'Hand cut and sewn locally',
-    'Dyed with our proprietary colors',
-    'Pre-washed & pre-shrunk',
-    'Ultra-soft 100% cotton',
-  ],
-  details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-}
-const reviews = { href: '#', average: 4, totalCount: 117 }
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { findProductsById } from '../../../redux/Product/Action'
+import { convertCurrency } from '../../../common/convertCurrency'
+import { addItemToCart } from '../../../redux/Cart/Action'
+import { toast, ToastContainer } from 'react-toastify'
+const ColorButton = styled(IconButton)(({ theme, selected }) => ({
+  width: '3rem',
+  height: '3rem',
+  padding: 0,
+  border: selected ? `2px solid ${theme.palette.primary.main}` : 'none',
+  margin: theme.spacing(0, 0.5),
+  '&:hover': {
+    opacity: 0.8,
+  },
+}));
+
+// Tạo một component Button tùy chỉnh cho kích thước
+const SizeButton = styled(Button)(({ theme, selected }) => ({
+  minWidth: '3rem',
+  height: '3rem',
+  margin: theme.spacing(0.5),
+  borderRadius: '50%',
+  border: '1px solid',
+  borderColor: selected ? theme.palette.primary.main : theme.palette.grey[300],
+  color: selected ? theme.palette.primary.main : theme.palette.text.primary,
+  fontWeight: selected ? 'bold' : 'normal',
+  '&:hover': {
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function ProductDetails() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const [selectedSize, setSelectedSize] = useState('')
+  const [selectedColor, setSelectedColor] = useState('')
+  const [availableSizes, setAvailableSizes] = useState([])
+  const [availableQuantity, setAvailableQuantity] = useState(0)
   const navigate = useNavigate()
-  const handleAddToCart = () => {
-    navigate("/cart")
-  }
+  const params = useParams()
+  const dispatch = useDispatch()
+  const {product} = useSelector(store => store)
+  const uniqueColors = useMemo(() => {
+    const colorSet = new Set();
+    product?.product?.sizes?.forEach(size => {
+      size.colors.forEach(colorObj => {
+        colorSet.add(colorObj.color);
+      });
+    });
+    return Array.from(colorSet);
+  }, [product]);
+
+  useEffect(() => {
+    dispatch(findProductsById(params.productId));
+  }, [params.productId, dispatch]);
+
+  useEffect(() => {
+    if (uniqueColors.length > 0) {
+      setSelectedColor(uniqueColors[0]);
+    }
+  }, [uniqueColors]);
+
+  useEffect(() => {
+    if (selectedColor && product?.product?.sizes) {
+      const sizes = product.product.sizes.filter(size => 
+        size.colors.some(colorObj => colorObj.color === selectedColor && colorObj.quantityItem > 0)
+      ).map(size => size.size);
+      setAvailableSizes(sizes);
+      setSelectedSize(''); // Reset selected size when color changes
+      
+      // Tính tổng số lượng cho màu được chọn
+      const totalQuantity = product.product.sizes.reduce((total, size) => {
+        const colorObj = size.colors.find(c => c.color === selectedColor);
+        return total + (colorObj ? colorObj.quantityItem : 0);
+      }, 0);
+      setAvailableQuantity(totalQuantity);
+    }
+  }, [selectedColor, product]);
+
+  useEffect(() => {
+    if (selectedColor && selectedSize && product?.product?.sizes) {
+      const sizeObj = product.product.sizes.find(s => s.size === selectedSize);
+      if (sizeObj) {
+        const colorObj = sizeObj.colors.find(c => c.color === selectedColor);
+        if (colorObj) {
+          setAvailableQuantity(colorObj.quantityItem);
+        }
+      }
+    }
+  }, [selectedColor, selectedSize, product]);
+
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+    setSelectedSize(''); // Reset size when color changes
+  };
+
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+  };
+
+  const handleAddToCart = async () => {
+    if (selectedSize && selectedColor) {
+      const cartItem = {
+        productId: product.product?._id,
+        size: selectedSize,
+        color: selectedColor,
+        quantity: 1,
+      };
+      try {
+        await dispatch(addItemToCart(cartItem))
+        toast.success("Sản phẩm đã được thêm vào giỏ hàng")
+        // navigate("/cart");
+      } catch (error) {
+        toast.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng: " + error.message)
+      }
+    } else {
+      toast.warn("Vui lòng chọn kích thước và màu sắc trước khi thêm vào giỏ hàng")
+    }
+  };
   return (
     <div className="bg-white py-10 px-4 lg:px-20">
       <div className="pt-6">
-        {/* <nav aria-label="Breadcrumb">
-          <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {product.breadcrumbs.map((breadcrumb) => (
-              <li key={breadcrumb.id}>
-                <div className="flex items-center">
-                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {breadcrumb.name}
-                  </a>
-                  <svg
-                    fill="currentColor"
-                    width={16}
-                    height={20}
-                    viewBox="0 0 16 20"
-                    aria-hidden="true"
-                    className="h-5 w-4 text-gray-300"
-                  >
-                    <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                  </svg>
-                </div>
-              </li>
-            ))}
-            <li className="text-sm">
-              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {product.name}
-              </a>
-            </li>
-          </ol>
-        </nav> */}
         {/* Product info */}
         <section className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             {/* Image gallery */}
             <div className="flex flex-col items-center">
             <div className="overflow-hidden rounded-lg w-full max-h-[48rem]">
                 <img
-                alt={product.images[0].alt}
-                src={product.images[0].src}
+                alt={product.product?.title}
+                src={product.product?.imageUrl[0].image}
                 className="h-full w-full object-cover object-top"
                 />
-            </div>
-            <div className="flex flex-wrap space-x-5 justify-center">
-                { product?.images.map((item,index) => <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
-                <img
-                    key={index}
-                    alt={item.alt}
-                    src={item.src}
-                    className="h-full w-full object-cover object-center"
-                />
-                </div>)}
             </div>
             </div>
 
             {/* Product info */}
             <div className="lg:col-span-1 mx-auto w-full px-4 pb-16 sm:px-6 lg:pb-24 lg:px-12">
             <div className="lg:col-span-2">
-                <h1 className="text-lg lg:text-xl font-semibold text-gray-900">{product.name}</h1>
+                <h1 className="text-lg lg:text-xl font-semibold text-gray-900">{product.product?.title}</h1>
+                <h1 className='text-xxl text-gray-900 mt-2'>{product.product?.brand}</h1>
             </div>
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
-                <h2 className="sr-only">Product information</h2>
-                <div className='flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6'>
-                    <p className='font-semibold'>500.000đ</p>
-                    <p className='opacity-50 line-through'>1.000.000đ</p>
-                    <p className='text-red-600 font-semibold'>-50%</p>
+                <h2 className="sr-only">Thông tin sản phẩm</h2>
+                <div className='flex flex-col space-y-2 text-lg lg:text-xl text-gray-900 mt-6'>
+                    <p className='font-semibold text-3xl'>{convertCurrency(product.product?.discountedPrice)}</p>
+                    <div className='flex items-center space-x-2'>
+                        {product.product?.discountedPersent > 0 ? (
+                          <>
+                            <p className='opacity-50 line-through'>{convertCurrency(product.product?.price)}</p>
+                            <p className='text-red-600 font-bold'>-{product.product?.discountedPersent}%</p>
+                          </>
+                        ) : null}
+                    </div>
                 </div>
 
                 {/* Reviews */}
@@ -151,93 +178,52 @@ export default function ProductDetails() {
 
                 <form className="mt-10">
                 {/* Colors */}
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-900">Color</h3>
-
-                        <fieldset aria-label="Choose a color" className="mt-4">
-                        <RadioGroup value={selectedColor} onChange={setSelectedColor} className="flex items-center space-x-3">
-                            {product.colors.map((color) => (
-                            <Radio
-                                key={color.name}
-                                value={color}
-                                aria-label={color.name}
-                                className={classNames(
-                                color.selectedClass,
-                                'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1',
-                                )}
-                            >
-                                <span
-                                aria-hidden="true"
-                                className={classNames(
-                                    color.class,
-                                    'h-8 w-8 rounded-full border border-black border-opacity-10',
-                                )}
-                                />
-                            </Radio>
-                            ))}
-                        </RadioGroup>
-                        </fieldset>
-                    </div>
+                <Box sx={{ mb: 3 }}>
+                  <Typography variant="subtitle1" gutterBottom>Màu sắc</Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                    {uniqueColors.map((color) => (
+                      <Tooltip key={color} title={color.replace(/_/g, ' ')}>
+                        <ColorButton
+                          onClick={() => handleColorChange(color)}
+                          selected={selectedColor === color}
+                        >
+                          <Typography variant="caption" sx={{ fontWeight: 'bold' }}>
+                            {color.charAt(0).toUpperCase()}
+                          </Typography>
+                        </ColorButton>
+                      </Tooltip>
+                    ))}
+                  </Box>
+                </Box>
 
                 {/* Sizes */}
-                    <div className="mt-10">
-                        <div className="flex items-center justify-between">
-                            <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                            <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                                Size guide
-                            </a>
-                        </div>
+                <Box sx={{ mb: 3 }}>
+                  <Typography variant="subtitle1" gutterBottom>Kích thước</Typography>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 1 }}>
+                    {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+                      <SizeButton
+                        key={size}
+                        onClick={() => handleSizeChange(size)}
+                        selected={selectedSize === size}
+                        disabled={!availableSizes.includes(size)}
+                      >
+                        {size}
+                      </SizeButton>
+                    ))}
+                  </Box>
+                </Box>
 
-                        <fieldset aria-label="Choose a size" className="mt-4">
-                            <RadioGroup
-                                value={selectedSize}
-                                onChange={setSelectedSize}
-                                className="grid grid-cols-3 gap-2 sm:grid-cols-5"
-                            >
-                                {product.sizes.map((size) => (
-                                    <Radio
-                                        key={size.name}
-                                        value={size}
-                                        disabled={!size.inStock}
-                                        className={classNames(
-                                            size.inStock
-                                                ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                                                : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                                            'group relative flex items-center justify-center rounded-md border text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500',
-                                            'w-20 h-10' // Adjust the width and height here
-                                        )}
-                                    >
-                                        <span>{size.name}</span>
-                                        {size.inStock ? (
-                                            <span
-                                                aria-hidden="true"
-                                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
-                                            />
-                                        ) : (
-                                            <span
-                                                aria-hidden="true"
-                                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                            >
-                                                <svg
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 100 100"
-                                                    preserveAspectRatio="none"
-                                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                                >
-                                                    <line x1={0} x2={100} y1={100} y2={0} vectorEffect="non-scaling-stroke" />
-                                                </svg>
-                                            </span>
-                                        )}
-                                    </Radio>
-                                ))}
-                            </RadioGroup>
-                        </fieldset>
-                    </div>
-                <div className='flex justify-center items-center'>
-                    <Button onClick={handleAddToCart} variant='contained' sx={{px:"2rem",mt:"2.5rem",py:"1rem"}}>
-                        Thêm vào giỏ hàng
-                    </Button>
-                </div>
+                  <Typography variant="body1" sx={{mb:2}}>
+                    Số lượng có sẵn: <strong className='text-red-600'>{availableQuantity}</strong>
+                  </Typography>
+                  <Button 
+                    onClick={handleAddToCart} 
+                    variant='contained' 
+                    sx={{px:"2rem", py:"1rem"}}
+                    disabled={!selectedSize || !selectedColor || availableQuantity === 0}
+                  >
+                    Thêm vào giỏ hàng
+                  </Button>
                 </form>
             </div>
 
@@ -256,7 +242,7 @@ export default function ProductDetails() {
                   <div className="space-y-4">
                       <div className="flex items-center">
                         <p className="text-sm text-gray-600">
-                        Áo phông nam basic dáng regular cổ tròn, có chi tiết đồ họa là điểm nhấn trên sản phẩm.
+                          {product?.product?.description}
                         </p>
                       </div>
                   </div>
@@ -288,37 +274,6 @@ export default function ProductDetails() {
                   </div>
                 </Disclosure.Panel>
               </Disclosure>
-    
-                {/* Description and details
-                <div>
-                <h3 className="sr-only">Description</h3>
-
-                <div className="space-y-6">
-                    <p className="text-base text-gray-900">{product.description}</p>
-                </div>
-                </div>
-
-                <div className="mt-10">
-                <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
-
-                <div className="mt-4">
-                    <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                    {product.highlights.map((highlight) => (
-                        <li key={highlight} className="text-gray-400">
-                        <span className="text-gray-600">{highlight}</span>
-                        </li>
-                    ))}
-                    </ul>
-                </div>
-                </div>
-
-                <div className="mt-10">
-                <h2 className="text-sm font-medium text-gray-900">Details</h2>
-
-                <div className="mt-4 space-y-6">
-                    <p className="text-sm text-gray-600">{product.details}</p>
-                </div>
-                </div> */}
             </div>
             </div>
         </section>
@@ -376,6 +331,17 @@ export default function ProductDetails() {
 
         
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   )
 }

@@ -55,18 +55,19 @@ export const login = (userData) => async (dispatch) => {
     }
 }
 
-export const register = (userData) => async (dispatch) => {
-
+export const register = (userData, isAdminCreating = false) => async (dispatch) => {
     dispatch(registerRequest())
     try {
-        const res = await axiosInstance.post(`/auth/signup`,userData)
-        if(res.data?.status === "200"){
+        const res = await axiosInstance.post(`/auth/signup`, userData)
+        if(res.data?.status === "201"){
             const user = res?.data?.data?.user
-            setAccessToken(user?.tokens?.access?.token)
-            setRefreshToken(user?.tokens?.refresh?.token)
-            setRole(user?.role)
+            if (!isAdminCreating) {
+                setAccessToken(user?.tokens?.access?.token)
+                setRefreshToken(user?.tokens?.refresh?.token)
+                setRole(user?.role)
+            }
             dispatch(registerSuccess(user))
-            return null
+            return { success: true, user }
         }
         else {
             dispatch(registerFailure(res.data?.error))

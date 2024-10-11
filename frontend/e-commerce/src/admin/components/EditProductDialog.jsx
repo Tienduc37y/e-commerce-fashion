@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -13,52 +13,81 @@ import {
   IconButton,
   Box,
   ThemeProvider,
-  createTheme,
   Typography,
   Paper,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
+import { styled } from '@mui/material/styles';
+import {theme} from '../theme/theme';
 
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#4dabf5',
-      light: '#80cbc4',
-      dark: '#087f23',
-    },
-    secondary: {
-      main: '#ff80ab',
-      light: '#ffb2dd',
-      dark: '#c94f7c',
-    },
-    error: {
-      main: '#ff6e6e',
-    },
-    background: {
-      default: '#121212',
-      paper: '#1e1e1e',
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#b3b3b3',
-    },
+const CustomDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialog-container': {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
   },
-});
+  '& .MuiDialog-paper': {
+    width: '50%',
+    height: '100%',
+    maxHeight: '100%',
+    margin: 0,
+    borderRadius: 0,
+    position: 'fixed',
+    top: 0,
+    right: 0,
+  },
+}));
 
 const EditProductDialog = ({ open, onClose, product, onSave }) => {
-  const [editedProduct, setEditedProduct] = React.useState(product);
+  const [editedProduct, setEditedProduct] = useState(product || {});
   const [selectedSize, setSelectedSize] = useState('');
 
-  React.useEffect(() => {
-    setEditedProduct(product);
+  useEffect(() => {
+    if (product) {
+      setEditedProduct(product);
+      updateDiscountedPrice(product.price, product.discountedPersent);
+    }
   }, [product]);
+
+  const updateDiscountedPrice = (price, discountPercent) => {
+    const discountedPrice = price - (price * discountPercent / 100);
+    setEditedProduct(prev => ({
+      ...prev,
+      discountedPrice: Math.round(discountedPrice)
+    }));
+  };
+
+  const updateTotalQuantity = (sizes) => {
+    const totalQuantity = sizes.reduce((total, size) => {
+      return total + size.colors.reduce((sizeTotal, color) => sizeTotal + Number(color.quantityItem || 0), 0);
+    }, 0);
+    setEditedProduct(prev => ({
+      ...prev,
+      quantity: totalQuantity
+    }));
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedProduct(prev => ({ ...prev, [name]: value }));
+    if (name === 'topLevelCategory' || name === 'secondLevelCategory' || name === 'thirdLevelCategory') {
+      setEditedProduct(prev => ({
+        ...prev,
+        category: {
+          ...prev.category,
+          [name]: value
+        }
+      }));
+    } else {
+      setEditedProduct(prev => ({ ...prev, [name]: value }));
+    }
+
+    if (name === 'price' || name === 'discountedPersent') {
+      updateDiscountedPrice(
+        name === 'price' ? Number(value) : editedProduct.price,
+        name === 'discountedPersent' ? Number(value) : editedProduct.discountedPersent
+      );
+    }
   };
 
   const handleAddSize = () => {
@@ -67,7 +96,7 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
         ...prev,
         sizes: [...prev.sizes, { size: selectedSize, colors: [] }]
       }));
-      setSelectedSize(''); // Reset selected size after adding
+      setSelectedSize('');
     }
   };
 
@@ -87,11 +116,13 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
   };
 
   const handleColorChange = (sizeIndex, colorIndex, field, value) => {
-    setEditedProduct(prev => {
-      const newSizes = [...prev.sizes];
-      newSizes[sizeIndex].colors[colorIndex][field] = value;
-      return { ...prev, sizes: newSizes };
-    });
+    const newSizes = [...editedProduct.sizes];
+    newSizes[sizeIndex].colors[colorIndex][field] = value;
+    setEditedProduct(prev => ({ 
+      ...prev, 
+      sizes: newSizes
+    }));
+    updateTotalQuantity(newSizes);
   };
 
   const handleRemoveColor = (sizeIndex, colorIndex) => {
@@ -130,108 +161,126 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
-        <Paper sx={{ minHeight: '100vh', overflow: 'auto' }}>
-          <DialogTitle>
-            <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Typography variant="h6" color="primary">Chỉnh sửa Sản phẩm</Typography>
-              <IconButton onClick={onClose}>
-                <CloseIcon />
-              </IconButton>
-            </Box>
+      <CustomDialog 
+        open={open} 
+        onClose={onClose} 
+        fullWidth 
+        maxWidth={false}
+      >
+        <Paper 
+          elevation={3} 
+          sx={{ 
+            backgroundColor: 'background.paper', 
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          }}
+        >
+          <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography variant="h5" color="primary">Chỉnh sửa Sản phẩm</Typography>
+            <IconButton onClick={onClose}><CloseIcon /></IconButton>
           </DialogTitle>
-          <DialogContent>
-            <Box p={2}>
+          <DialogContent sx={{ flexGrow: 1, overflow: 'auto' }}>
+            <Box sx={{ padding: 2 }}>
               <TextField
-                margin="dense"
+                fullWidth
+                margin="normal"
                 label="ID"
                 name="id"
                 value={editedProduct?.id || ""}
-                fullWidth
                 disabled
                 variant="outlined"
-                sx={{ mb: 2 }}
               />
               <TextField
-                margin="dense"
+                fullWidth
+                margin="normal"
                 label="Tiêu đề"
                 name="title"
                 value={editedProduct?.title || ""}
                 onChange={handleInputChange}
-                fullWidth
                 variant="outlined"
-                sx={{ mb: 2 }}
               />
               <TextField
-                margin="dense"
+                fullWidth
+                margin="normal"
                 label="Mô tả"
                 name="description"
                 value={editedProduct?.description || ""}
                 onChange={handleInputChange}
-                fullWidth
                 multiline
                 rows={4}
                 variant="outlined"
-                sx={{ mb: 2 }}
               />
               <TextField
-                margin="dense"
+                fullWidth
+                margin="normal"
                 label="Thương hiệu"
                 name="brand"
                 value={editedProduct?.brand || ""}
                 onChange={handleInputChange}
-                fullWidth
                 variant="outlined"
-                sx={{ mb: 2 }}
               />
               <TextField
-                margin="dense"
-                label="Danh mục"
-                name="category"
-                value={editedProduct?.category || ""}
+                margin="normal"
+                label="Danh mục cấp 1"
+                name="topLevelCategory"
+                value={editedProduct?.category?.topLevelCategory || ""}
                 onChange={handleInputChange}
-                fullWidth
                 variant="outlined"
-                sx={{ mb: 2 }}
+                sx={{ mr: 0.5 }}
               />
               <TextField
-                margin="dense"
+                margin="normal"
+                label="Danh mục cấp 2"
+                name="secondLevelCategory"
+                value={editedProduct?.category?.secondLevelCategory || ""}
+                onChange={handleInputChange}
+                variant="outlined"
+                sx={{ mr: 0.5 }}
+              />
+              <TextField
+                margin="normal"
+                label="Danh mục cấp 3"
+                name="thirdLevelCategory"
+                value={editedProduct?.category?.thirdLevelCategory || ""}
+                onChange={handleInputChange}
+                variant="outlined"
+              />
+              <TextField
+                margin="normal"
                 label="Giá"
                 name="price"
                 type="number"
                 value={editedProduct?.price || ""}
                 onChange={handleInputChange}
-                fullWidth
                 variant="outlined"
-                sx={{ mb: 2 }}
+                sx={{ mr: 0.5 }}
               />
               <TextField
-                margin="dense"
-                label="Giá sau giảm"
-                name="discountedPrice"
-                type="number"
-                value={editedProduct?.discountedPrice || ""}
-                onChange={handleInputChange}
-                fullWidth
-                variant="outlined"
-                sx={{ mb: 2 }}
-              />
-              <TextField
-                margin="dense"
+                margin="normal"
                 label="Phần trăm giảm giá"
                 name="discountedPersent"
                 type="number"
                 value={editedProduct?.discountedPersent || ""}
                 onChange={handleInputChange}
-                fullWidth
                 variant="outlined"
-                sx={{ mb: 2 }}
+                sx={{ mr: 0.5 }}
+              />
+              <TextField
+                disabled
+                margin="normal"
+                label="Giá sau giảm"
+                name="discountedPrice"
+                type="number"
+                value={editedProduct?.discountedPrice || ""}
+                variant="outlined"
               />
 
               <Box mt={3}>
                 <Typography variant="h6" color="primary">Kích thước và Màu sắc</Typography>
                 <Box display="flex" alignItems="center" mb={2}>
-                  <FormControl sx={{ minWidth: 120, mr: 2 }}>
+                  <FormControl fullWidth sx={{ mr: 2 }}>
                     <InputLabel>Kích thước</InputLabel>
                     <Select
                       value={selectedSize}
@@ -293,6 +342,18 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
                 ))}
               </Box>
 
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Tổng số lượng"
+                name="quantity"
+                type="number"
+                value={editedProduct?.quantity || 0}
+                disabled
+                variant="outlined"
+                sx={{ mt: 2 }}
+              />
+
               <Box mt={3}>
                 <Typography variant="h6" color="primary">Hình ảnh</Typography>
                 <Button 
@@ -320,12 +381,13 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
                       onChange={(e) => handleImageChange(index, 'color', e.target.value)}
                       sx={{ mr: 1 }}
                     />
-                    <TextField
-                      label="URL hình ảnh"
-                      value={image.image}
-                      onChange={(e) => handleImageChange(index, 'image', e.target.value)}
-                      sx={{ mr: 1, flexGrow: 1 }}
-                    />
+                    <Box sx={{ width: '60px', height: '60px', mr: 1, flexShrink: 0 }}>
+                       <img 
+                         src={image.image} 
+                         alt={`Product ${index + 1}`}
+                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                       />
+                     </Box>
                     <input
                       type="file"
                       onChange={(e) => {
@@ -377,7 +439,7 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
             </Button>
           </DialogActions>
         </Paper>
-      </Dialog>
+      </CustomDialog>
     </ThemeProvider>
   );
 };

@@ -112,14 +112,37 @@ const deleteResetToken = async (email) => {
 
 const editUser = async (userId, userData) => {
     try {
+        const { email, mobile } = userData;
+
+        // Kiểm tra xem email mới có trùng với user khác không
+        if (email) {
+            const existingUserWithEmail = await User.findOne({ email, _id: { $ne: userId } });
+            if (existingUserWithEmail) {
+                throw new Error("Email đã được sử dụng bởi người dùng khác");
+            }
+        }
+
+        // Kiểm tra xem số điện thoại mới có trùng với user khác không
+        if (mobile) {
+            const existingUserWithMobile = await User.findOne({ mobile, _id: { $ne: userId } });
+            if (existingUserWithMobile) {
+                throw new Error("Số điện thoại đã được sử dụng bởi người dùng khác");
+            }
+        }
+
+        // Nếu không có trùng lặp, tiến hành cập nhật
         const user = await User.findByIdAndUpdate(userId, userData, { new: true });
         if (!user) {
             throw new Error("Không tìm thấy người dùng với id: " + userId);
         }
         return user;
     } catch (error) {
-        throw new Error(error.message); 
+        throw new Error(error.message);
     }
 };
 
-module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, saveResetToken, verifyResetToken, updatePassword, deleteResetToken, editUser}
+const findUserByEmail = async (email) => {
+    return await User.findOne({ email });
+};
+
+module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, saveResetToken, verifyResetToken, updatePassword, deleteResetToken, editUser, findUserByEmail}

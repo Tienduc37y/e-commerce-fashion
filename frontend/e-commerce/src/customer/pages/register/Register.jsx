@@ -20,8 +20,8 @@ export default function Register() {
     email: '',
     mobile: '',
     password: '',
-    confirmPassword: '',
   });
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
   const {auth} = useSelector(store=>store)
 
@@ -33,29 +33,28 @@ export default function Register() {
   },[navigate])
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  
-    // Validate từng trường
-    try {
-      await registerSchema.validateAt(name, { [name]: value });
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
-  
-      // Kiểm tra nếu cả password và confirmPassword đều đã có giá trị
-      if (name === 'password' || name === 'confirmPassword') {
-        if (formData.confirmPassword && value !== formData.confirmPassword) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            confirmPassword: 'Mật khẩu xác nhận không khớp',
-          }));
-        } else if (name === 'confirmPassword' && value === formData.password) {
-          setErrors((prevErrors) => ({ ...prevErrors, confirmPassword: '' }));
-        }
+    if (name === 'confirmPassword') {
+      setConfirmPassword(value);
+      if (value !== formData.password) {
+        setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+      } else {
+        setErrors(prev => ({ ...prev, confirmPassword: '' }));
       }
-    } catch (validationError) {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: validationError.message }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+      try {
+        await registerSchema.validateAt(name, { [name]: value });
+        setErrors(prev => ({ ...prev, [name]: '' }));
+        if (name === 'password' && confirmPassword) {
+          if (value !== confirmPassword) {
+            setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+          } else {
+            setErrors(prev => ({ ...prev, confirmPassword: '' }));
+          }
+        }
+      } catch (validationError) {
+        setErrors(prev => ({ ...prev, [name]: validationError.message }));
+      }
     }
   };
   
@@ -65,19 +64,13 @@ export default function Register() {
     e.preventDefault();
     try {
       await registerSchema.validate(formData, { abortEarly: false });
+      if (formData.password !== confirmPassword) {
+        setErrors(prev => ({ ...prev, confirmPassword: 'Mật khẩu xác nhận không khớp' }));
+        return;
+      }
       setErrors({});
       
       console.log('Form data hợp lệ:', formData);
-
-      setFormData({ 
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        mobile: '',
-        password: '',
-        confirmPassword: ''
-      });
 
       await dispatch(register(formData))
       toast.success('Đăng ký thành công', {
@@ -225,7 +218,7 @@ export default function Register() {
                   name="confirmPassword"
                   variant="outlined"
                   type={showConfirmPassword ? 'text' : 'password'}
-                  value={formData.confirmPassword}
+                  value={confirmPassword}
                   onChange={handleChange}
                   error={!!errors.confirmPassword}
                   helperText={errors.confirmPassword}
@@ -265,6 +258,3 @@ export default function Register() {
     </div>
   );
 }
-
-
-

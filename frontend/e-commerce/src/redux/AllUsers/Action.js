@@ -72,23 +72,23 @@ export const findUserByName = (name) => async (dispatch) => {
         throw new Error(errorMessage);
     }
 }
+
 export const updateUser = (user) => async (dispatch) => {
     dispatch(updateUserRequest())
     try {
         const res = await axiosInstance.put(`/api/users/update_user/${user.id}`, user);
         if (res.data?.status === "200") {
             const updatedUser = res.data.data;
-            // Đảm bảo updatedUser có _id
             if (!updatedUser._id) {
                 updatedUser._id = user.id;
             }
             dispatch(updateUserSuccess(updatedUser))
-            return updatedUser;
+            return { success: true, user: updatedUser };
         } else {
             throw new Error(res.data?.error || "Cập nhật không thành công");
         }
     } catch (error) {
         dispatch(updateUserFailure(error.message));
-        throw error;
+        return { success: false, error: error.response?.data?.error || error.message };
     }
 }   

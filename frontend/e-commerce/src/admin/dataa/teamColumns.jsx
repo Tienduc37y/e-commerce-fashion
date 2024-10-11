@@ -4,8 +4,8 @@ import { Box, Typography } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-const teamColumns = (colors, handleDelete, handleEdit) => {
 
+const teamColumns = (colors, handleDelete, handleEdit) => {
     return [
         { 
             field: "id",
@@ -15,19 +15,19 @@ const teamColumns = (colors, handleDelete, handleEdit) => {
         {
             field: "username",
             headerName: "Username",
-            flex: 0.75,
+            flex: 0.5,
             cellClassName: "name-column--cell",
         },
         {
             field: "firstName",
             headerName: "Họ",
-            flex: 0.5,
+            flex: 0.35,
             cellClassName: "name-column--cell",
         },
         {
             field: "lastName",
             headerName: "Tên",
-            flex: 0.5,
+            flex: 0.35,
             cellClassName: "name-column--cell",
         },
         {
@@ -44,7 +44,7 @@ const teamColumns = (colors, handleDelete, handleEdit) => {
             field: "accessLevel",
             headerName: "Quyền",
             flex: 0.75,
-            renderCell: ({ row: { access } }) => {
+            renderCell: ({ row: { role } }) => {
                 return (
                     <div className="flex items-center h-full">
                         <Box
@@ -54,16 +54,16 @@ const teamColumns = (colors, handleDelete, handleEdit) => {
                             display="flex"
                             justifyContent="center"
                             backgroundColor={
-                                access === "ADMIN"
+                                role === "ADMIN"
                                     ? colors.greenAccent[800]
                                     : colors.greenAccent[500]
                             }
                             borderRadius="4px"
                         >
-                            {access === "ADMIN" && <AdminPanelSettingsOutlinedIcon />}
-                            {access === "USER" && <LockOpenOutlinedIcon />}
+                            {role === "ADMIN" && <AdminPanelSettingsOutlinedIcon />}
+                            {role === "USER" && <LockOpenOutlinedIcon />}
                             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-                                {access}
+                                {role}
                             </Typography>
                         </Box>
                     </div>
@@ -75,18 +75,18 @@ const teamColumns = (colors, handleDelete, handleEdit) => {
             headerName: '',
             flex: 0.5,
             renderCell: (params) => (
-                params.row.access === "ADMIN" ? "" : ( 
+                params.row.role === "ADMIN" ? "" : ( 
                     <>
                         <IconButton onClick={() => handleEdit(params.row)} size="large">
                             <EditIcon fontSize="inherit" />
                         </IconButton>
-                        <IconButton onClick={() => handleDelete(params.row.id)} size="large">
+                        <IconButton onClick={() => handleDelete(params.row)} size="large">
                             <DeleteIcon fontSize="inherit" />
                         </IconButton>
                     </>             
                 )
             ),
-          },
+        },
     ];
 }
 

@@ -11,6 +11,7 @@ const orderRouter = require('./routes/order.route')
 const adminOrderRouter = require('./routes/adminOrder.route')
 const reviewRouter = require('./routes/review.route')
 const ratingRouter = require('./routes/rating.route')
+const categoryRouter = require('./routes/category.route')
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -40,4 +41,5 @@ app.use('/api/reviews',reviewRouter)
 
 app.use('/api/ratings',ratingRouter)
 
+app.use('/api/categories',categoryRouter)
 module.exports = app

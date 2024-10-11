@@ -49,7 +49,7 @@ export const singleFilter = [
         ]
     },
     {
-        id: "disccount",
+        id: "discount",
         name: "Giảm giá",
         options: [
             { value:"10", label: "10% and above" },

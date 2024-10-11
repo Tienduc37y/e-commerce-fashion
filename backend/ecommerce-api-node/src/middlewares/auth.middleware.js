@@ -5,7 +5,10 @@ const authMiddleware = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-        return res.status(401).send({ message: 'Bạn cần có quyền truy cập' });
+        return res.status(401).send({ 
+            status: "401",
+            message: 'Bạn cần có quyền truy cập' 
+        });
     }
 
     try {

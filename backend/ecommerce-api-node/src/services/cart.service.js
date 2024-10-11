@@ -16,6 +16,10 @@ async function findUserCart(userId) {
     try {
         let cart = await Cart.findOne({user:userId})
 
+        if (!cart) {
+            throw new Error("Giỏ hàng không tồn tại")
+        }
+
         let cartItems = await CartItem.find({cart:cart._id}).populate("product")
 
         cart.cartItems = cartItems
@@ -25,13 +29,14 @@ async function findUserCart(userId) {
         let totalItem = 0
         
         for(let cartItem of cart.cartItems) {
-            totalPrice += cartItem.price 
-            totalDiscountedPrice += cartItem.discountedPrice 
+            totalPrice += cartItem.price
+            totalDiscountedPrice += cartItem.discountedPrice
             totalItem += cartItem.quantity
         }
 
         cart.totalPrice = totalPrice
         cart.totalItem = totalItem
+        cart.totalDiscountedPrice = totalDiscountedPrice
         cart.discounte = totalPrice - totalDiscountedPrice
 
         return cart
@@ -40,28 +45,46 @@ async function findUserCart(userId) {
     }
 }
 
-async function addCartItem(userId,req) {
+async function addCartItem(userId, req) {
     try {
-        const cart = await Cart.findOne({user:userId})
+        let cart = await Cart.findOne({user: userId})
+        if (!cart) {
+            cart = await createCart(userId)
+        }
         const product = await Product.findById(req.productId)
-        const isPresent = await CartItem.findOne({cart:cart._id,product:product._id,userId})
+        if (!product) {
+            throw new Error("Sản phẩm không tồn tại")
+        }
+        
+        let cartItem = await CartItem.findOne({
+            cart: cart._id, 
+            product: product._id, 
+            userId,
+            size: req.size,
+            color: req.color
+        })
 
-        if(!isPresent) {
-            const cartItem = new CartItem({
-                product:product._id,
+        if (cartItem) {
+            // Nếu sản phẩm đã tồn tại với cùng size và color, cập nhật số lượng
+            cartItem.quantity += req.quantity
+            await cartItem.save()
+        } else {
+            // Nếu sản phẩm chưa tồn tại hoặc khác size/color, tạo mới
+            cartItem = new CartItem({
+                product: product._id,
                 cart: cart._id,
-                quantity: 1,
-                color:req.color,
+                quantity: req.quantity,
+                color: req.color,
                 userId,
                 price: product.price,
                 size: req.size,
                 discountedPrice: product.discountedPrice
             })
-            const createdCartItem = await cartItem.save();
-            cart.cartItems.push(createdCartItem)
+            await cartItem.save()
+            cart.cartItems.push(cartItem)
             await cart.save()
-            return "Item added to cart"
         }
+        return "Sản phẩm đã được thêm vào giỏ hàng"
     } catch (error) {
         throw new Error(error.message)
     }

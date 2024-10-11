@@ -2,10 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 const orderController = require('../controller/order.controller')
-const authenticate = require('../middlewares/authenticate')
+const authMiddleware = require('../middlewares/auth.middleware')
 
-router.post("/", authenticate, orderController.createOrder)
-router.get("/user", authenticate, orderController.orderHistory)
-router.get("/:id", authenticate, orderController.findOrderById)
+router.post("/", authMiddleware, orderController.createOrder)
+router.get("/user", authMiddleware, orderController.orderHistory)
+router.get("/:id", authMiddleware, orderController.findOrderById)
 
 module.exports = router

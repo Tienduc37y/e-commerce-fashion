@@ -24,7 +24,6 @@ const createProduct = async (req, res) => {
             }
         }
 
-        // Đảm bảo mỗi imageUrl có trường color
         if (Array.isArray(productData.imageUrl)) {
             productData.imageUrl = productData.imageUrl.map((img, index) => {
                 if (typeof img === 'string') {
@@ -53,10 +52,10 @@ const createProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     const productId = req.params.id
     try {
-        const product = await productService.deleteProduct(productId)
+        const message = await productService.deleteProduct(productId)
         return res.status(200).send({
             status: "200",
-            message: product,
+            message: message,
         })
     } catch (error) {
         return res.status(500).send({
@@ -67,28 +66,58 @@ const deleteProduct = async (req, res) => {
 }
 
 const updateProduct = async (req, res) => {
-    const productId = req.params.id
+    const productId = req.params.id;
     try {
-        const product = await productService.updateProduct(productId, req.body)
-        return res.status(200).send({
+        let productData = req.body;
+
+        if (typeof productData.sizes === 'string') {
+            productData.sizes = JSON.parse(productData.sizes);
+        }
+
+        if (req.files && req.files.length > 0) {
+            const newImages = req.files.map((file, index) => ({
+                color: productData.color[index] || 'default',
+                image: file.path
+            }));
+            
+            if (productData.imageUrl && Array.isArray(productData.imageUrl)) {
+                productData.imageUrl = [...productData.imageUrl, ...newImages];
+            } else {
+                productData.imageUrl = newImages;
+            }
+        }
+
+        if (productData.imageUrl && typeof productData.imageUrl === 'string') {
+            try {
+                productData.imageUrl = JSON.parse(productData.imageUrl);
+            } catch (error) {
+                console.error('Error parsing imageUrl:', error);
+                productData.imageUrl = [{ color: productData.color[0] || 'default', image: productData.imageUrl }];
+            }
+        }
+
+        delete productData.color;
+
+        const updatedProduct = await productService.updateProduct(productId, productData);
+        res.status(200).send({
             status: "200",
             message: "Cập nhật sản phẩm thành công",
-            product
-        })
+            product: updatedProduct
+        });
     } catch (error) {
-        return res.status(500).send({
+        res.status(500).send({
             status: "500",
-            error: error.message
-        })
+            error: error.message,
+        });
     }
-}
+};
 
 const findProductById = async (req, res) => {
     const productId = req.params.id
     try {
         const products = await productService.findProductById(productId)
-        return res.status(201).send({
-            status: "201",
+        return res.status(200).send({
+            status: "200",
             message: "Lấy sản phẩm thành công",
             products
         })

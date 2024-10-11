@@ -70,8 +70,18 @@ const productSchema = new mongoose.Schema({
         default: 0
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "categories"
+        topLevelCategory: {
+            type: String,
+            required: true
+        },
+        secondLevelCategory: {
+            type: String,
+            required: true
+        },
+        thirdLevelCategory: {
+            type: String,
+            required: true
+        }
     },
     createdAt: {
         type: Date,

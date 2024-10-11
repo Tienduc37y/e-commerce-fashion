@@ -223,3 +223,30 @@ export const useMode = () => {
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
     return [theme, colorMode];
 };
+
+export const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#4dabf5',
+      light: '#80cbc4',
+      dark: '#087f23',
+    },
+    secondary: {
+      main: '#ff80ab',
+      light: '#ffb2dd',
+      dark: '#c94f7c',
+    },
+    error: {
+      main: '#ff6e6e',
+    },
+    background: {
+      default: '#121212',
+      paper: '#1e1e1e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#b3b3b3',
+    },
+  },
+});

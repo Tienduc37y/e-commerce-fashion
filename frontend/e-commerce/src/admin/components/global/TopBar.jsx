@@ -19,20 +19,6 @@ const Topbar = () => {
   return (
     <Box display="flex" justifyContent="flex-end" p={2}>
 
-      {/* 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 SEARCH BAR 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 */}
-      {/* <Box
-        display="flex"
-        borderRadius="3px"
-        backgroundColor={colors.primary[400]}
-      >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
-      </Box> */}
-
-
       {/* 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 ICONS 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 */}
       <Box display="flex">
 
@@ -45,18 +31,6 @@ const Topbar = () => {
               <LightModeOutlinedIcon />
             )
           }
-        </IconButton>
-
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-
-        <IconButton>
-          <PersonOutlinedIcon />
         </IconButton>
 
       </Box>

@@ -1,1354 +1,458 @@
 export const mens_kurta=[
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8ts24s015-sk317-thumb.webp",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 20
-            },
-            {
-              "name": "L",
-              "quantity": 20
-            },
-            {
-              "name": "XL",
-              "quantity": 20
-            },
-            {
-              "name": "XXL",
-              "quantity": 5
-            },
-          ],
-          "preserveClothes":"Giặt máy ở chế độ nhẹ, nhiệt độ thường. Không sử dụng hóa chất tẩy có chứa Clo. Phơi trong bóng mát. Sấy khô ở nhiệt độ thấp. Là ở nhiệt độ thấp 110 độ C. Giặt với sản phẩm cùng màu.Không là lên chi tiết trang trí",
-          "quantity": 85,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Quần áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+  {
+    "category": {
+        "topLevelCategory": "nam",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_dai_tay"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th24s010-sb001-thumb.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704a7c479c1c237e5ee352c",
+    "title": "Áo jersey Regular Fit",
+    "description": "Áo dáng thường bằng cotton jersey mềm có cổ tròn và tay dài.\r\nThành phần\r\nBông 100%\r\nChất liệu: Cotton, Jersey\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\n\r\n",
+    "price": 299000,
+    "discountedPrice": 149500,
+    "discountedPersent": 50,
+    "quantity": 4,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "trang",
+                    "quantityItem": 1,
+                    "_id": "6704a7c479c1c237e5ee352e"
+                }
+            ],
+            "_id": "6704a7c479c1c237e5ee352d"
+        },
+        {
+            "size": "XL",
+            "colors": [
+                {
+                    "color": "den",
+                    "quantityItem": 3,
+                    "_id": "6704a7c479c1c237e5ee3530"
+                }
+            ],
+            "_id": "6704a7c479c1c237e5ee352f"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "trang",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358339/ecommerce_products/pe1ltlme45rcfjqbwyyx.jpg",
+            "_id": "6704a7c479c1c237e5ee3531"
+        },
+        {
+            "color": "den",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358339/ecommerce_products/vvbbu32whilhrgz4aasw.jpg",
+            "_id": "6704a7c479c1c237e5ee3532"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T03:32:20.564Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nam",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_dai_tay"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th24s010-sb001-thumb.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704f778497d23cc783fe426",
+    "title": "Áo jersey Slim Fit",
+    "description": "Áo bằng jersey nhẹ làm từ cotton pha có cổ tròn, viền gân nổi, tay dài và vạt ngang. Dáng ôm gọn các đường cong trên cơ thể tạo dáng vừa vặn.\r\nThành phần\r\nBông 95%, Vải thun Elastan 5%\r\nChất liệu: Jersey\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\nVải thun Elastan\r\nElastan là một loại sợi tổng hợp đàn hồi làm từ dầu mỏ (một nguồn tài nguyên hóa thạch).",
+    "price": 299000,
+    "discountedPrice": 299000,
+    "discountedPersent": 0,
+    "quantity": 11,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "den",
+                    "quantityItem": 8,
+                    "_id": "6704f778497d23cc783fe428"
+                }
+            ],
+            "_id": "6704f778497d23cc783fe427"
+        },
+        {
+            "size": "L",
+            "colors": [
+                {
+                    "color": "trang",
+                    "quantityItem": 3,
+                    "_id": "6704f778497d23cc783fe42a"
+                }
+            ],
+            "_id": "6704f778497d23cc783fe429"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "den",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728378741/ecommerce_products/ly8dg2yqoxnhsikbrpuu.webp",
+            "_id": "6704f778497d23cc783fe42b"
+        },
+        {
+            "color": "trang",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728378742/ecommerce_products/b8qwtqdgra7hov9evfgs.jpg",
+            "_id": "6704f778497d23cc783fe42c"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T09:12:24.402Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nu",
+        "secondLevelCategory": "quan",
+        "thirdLevelCategory": "quan_dai"
     },
-    {
-        "imageUrl": "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/01/17/9fd9d961415159af74b7bd6fa05e2325.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704a6c679c1c237e5ee34e1",
+    "title": "Quần nỉ",
+    "description": "Quần nỉ bằng vải nỉ nhẹ với cạp co giãn may xếp nếp có dây rút ẩn. Túi chìm hai bên và ống suông.\r\nThành phần\r\nBông 60%, Pôlyexte 40%\r\nThông tin bổ sung về chất liệu\r\nTổng trọng lượng của sản phẩm này bao gồm:\r\n\r\n40% Polyester tái chế\r\nChúng tôi loại trừ trọng lượng của các thành phần phụ như, nhưng không hoàn toàn: đường chỉ, nút, khóa kéo, chi tiết trang trí và hình in.\r\n\r\nTổng trọng lượng của sản phẩm được tính bằng cách cộng trọng lượng của tất cả các lớp và thành phần chính lại với nhau. Trên cơ sở đó, chúng tôi tính toán xem mỗi vật liệu tạo ra bao nhiêu phần trăm trọng lượng đó. Đối với các sản phẩm theo set & bộ bao gồm nhiều món, tất cả các món sẽ được tính là một sản phẩm trong phép tính.\r\n\r\nChất liệu: Vải thun vảy cá\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\nPolyester tái chế\r\nPolyester tái chế là polyester được làm từ chai PET hoặc vải phế liệu hết hạn sử dụng. Các chai PET hoặc vải phế liệu được tái chế cơ học và xử lý thành sợi mới.\r\nPôlyexte\r\nPolyester là sợi tổng hợp được làm từ dầu thô (một nguồn tài nguyên hóa thạch).",
+    "price": 399000,
+    "discountedPrice": 359100,
+    "discountedPersent": 10,
+    "quantity": 5,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "xam_nhat_dom",
+                    "quantityItem": 4,
+                    "_id": "6704a6c679c1c237e5ee34e3"
+                }
+            ],
+            "_id": "6704a6c679c1c237e5ee34e2"
+        },
+        {
+            "size": "XL",
+            "colors": [
+                {
+                    "color": "den",
+                    "quantityItem": 1,
+                    "_id": "6704a6c679c1c237e5ee34e5"
+                }
+            ],
+            "_id": "6704a6c679c1c237e5ee34e4"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "xam_nhat_dom",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358085/ecommerce_products/qy7jswlqhddabrhhgmaf.jpg",
+            "_id": "6704a6c679c1c237e5ee34e6"
+        },
+        {
+            "color": "den",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358085/ecommerce_products/xpzx9s6loy08v1wlz3fn.jpg",
+            "_id": "6704a6c679c1c237e5ee34e7"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T03:28:06.731Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nu",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_kieu"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Blue",
-        "discountedPrice": 349300,
-        "price": 499000,
-        "discountPersent": 30,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704a8aa79c1c237e5ee3583",
+    "title": "Áo kiểu tay bóng bay",
+    "description": "Áo kiểu dáng rộng bằng cotton mềm dệt thoi có cổ Tàu, phần mở chữ V phía trước và tay dài ráp lăng kiểu bóng bay với măng sét cài khuy. Vạt tròn với thân sau hơi dài hơn.\r\nChất liệu: Cotton\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\n\r\n",
+    "price": 499000,
+    "discountedPrice": 499000,
+    "discountedPersent": 0,
+    "quantity": 15,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "xanh_tim_than",
+                    "quantityItem": 10,
+                    "_id": "6704a8aa79c1c237e5ee3585"
+                },
+                {
+                    "color": "trang",
+                    "quantityItem": 5,
+                    "_id": "6704a8aa79c1c237e5ee3586"
+                }
+            ],
+            "_id": "6704a8aa79c1c237e5ee3584"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "xanh_tim_than",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358569/ecommerce_products/zsc2leaqwnoubm7bl7td.jpg",
+            "_id": "6704a8aa79c1c237e5ee3587"
+        },
+        {
+            "color": "trang",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728358562/ecommerce_products/cv9inqvw46gcqp6rs0od.jpg",
+            "_id": "6704a8aa79c1c237e5ee3588"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T03:36:10.152Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nu",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_so_mi"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704a41479c1c237e5ee346b",
+    "title": "Áo sơ mi dáng vừa",
+    "description": "Áo sơ mi bằng vải dệt thoi, có cổ, khuy dọc thân trước và cầu vai hai lớp với một ly hộp sau lưng. Vai ráp trễ và tay dài với măng sét cài khuy. Vạt hơi tròn.\r\nThành phần\r\nSợi vít-cô 77%, Poliamit 23%\r\nThông tin bổ sung về chất liệu\r\nTổng trọng lượng của sản phẩm này bao gồm:\r\n\r\n82% Viscose LivaEco™\r\nChúng tôi loại trừ trọng lượng của các thành phần phụ như, nhưng không hoàn toàn: đường chỉ, nút, khóa kéo, chi tiết trang trí và hình in.\r\n\r\nTổng trọng lượng của sản phẩm được tính bằng cách cộng trọng lượng của tất cả các lớp và thành phần chính lại với nhau. Trên cơ sở đó, chúng tôi tính toán xem mỗi vật liệu tạo ra bao nhiêu phần trăm trọng lượng đó. Đối với các sản phẩm theo set & bộ bao gồm nhiều món, tất cả các món sẽ được tính là một sản phẩm trong phép tính.\r\n\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nPoliamit\r\nPolyamide, còn gọi là nylon, là một loại sợi tổng hợp được làm từ dầu mỏ (một nguồn tài nguyên hóa thạch).\r\nSợi vít-cô\r\nVải Viscose là loại sợi cellulose tái sinh thường lấy từ gỗ, nhưng nguyên liệu thô cũng có thể chứa các vật liệu cellulose khác.\r\nViscose LivaEco™\r\nLivaEco™ viscose là một loại xơ viscose có thương hiệu, được làm từ bột gỗ.",
+    "price": 599000,
+    "discountedPrice": 599000,
+    "discountedPersent": 0,
+    "quantity": 13,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "M",
+            "colors": [
+                {
+                    "color": "kem",
+                    "quantityItem": 2,
+                    "_id": "6704a41479c1c237e5ee346d"
+                },
+                {
+                    "color": "xanh_duong_nhat",
+                    "quantityItem": 1,
+                    "_id": "6704a41479c1c237e5ee346e"
+                },
+                {
+                    "color": "trang_ke_den",
+                    "quantityItem": 4,
+                    "_id": "6704a41479c1c237e5ee346f"
+                }
+            ],
+            "_id": "6704a41479c1c237e5ee346c"
+        },
+        {
+            "size": "L",
+            "colors": [
+                {
+                    "color": "trang_ke_den",
+                    "quantityItem": 4,
+                    "_id": "6704a41479c1c237e5ee3471"
+                },
+                {
+                    "color": "xanh_duong_nhat",
+                    "quantityItem": 2,
+                    "_id": "6704a41479c1c237e5ee3472"
+                }
+            ],
+            "_id": "6704a41479c1c237e5ee3470"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "xanh_duong_nhat",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728357395/ecommerce_products/s9gz4y5v3kjgb8thkznt.jpg",
+            "_id": "6704a41479c1c237e5ee3473"
+        },
+        {
+            "color": "trang_ke_den",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728357395/ecommerce_products/ovwl2gelg7rnu5mkt8fv.jpg",
+            "_id": "6704a41479c1c237e5ee3474"
+        },
+        {
+            "color": "kem",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728357395/ecommerce_products/syopd32jdfrfmwpmv2le.jpg",
+            "_id": "6704a41479c1c237e5ee3475"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T03:16:36.411Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nam",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_so_mi"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6703f415cb10ded7cebe048d",
+    "title": "Áo sơ mi dệt kim có họa tiết Regular Fit",
+    "description": "Áo sơ mi ngắn tay bằng vải dệt kim có họa tiết làm từ vải cotton pha, có cổ, cài cúc phía trước và viền thẳng. Kiểu dáng vừa vặn để mặc thoải mái và kiểu dáng cổ điển.\r\nThành phần: Bông 77%, Pôlyexte 23%\r\nTổng trọng lượng của sản phẩm này bao gồm:\r\n23% Polyester tái chế\r\nChúng tôi loại trừ trọng lượng của các thành phần phụ như, nhưng không hoàn toàn: đường chỉ, nút, khóa kéo, chi tiết trang trí và hình in.\r\n\r\nTổng trọng lượng của sản phẩm được tính bằng cách cộng trọng lượng của tất cả các lớp và thành phần chính lại với nhau. Trên cơ sở đó, chúng tôi tính toán xem mỗi vật liệu tạo ra bao nhiêu phần trăm trọng lượng đó. Đối với các sản phẩm theo set & bộ bao gồm nhiều món, tất cả các món sẽ được tính là một sản phẩm trong phép tính.\r\n\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\nPolyester tái chế\r\nPolyester tái chế là polyester được làm từ chai PET hoặc vải phế liệu hết hạn sử dụng. Các chai PET hoặc vải phế liệu được tái chế cơ học và xử lý thành sợi mới.\r\nPôlyexte\r\nPolyester là sợi tổng hợp được làm từ dầu thô (một nguồn tài nguyên hóa thạch).",
+    "price": 699000,
+    "discountedPrice": 699000,
+    "discountedPersent": 0,
+    "quantity": 45,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "den",
+                    "quantityItem": 20,
+                    "_id": "6703f415cb10ded7cebe048f"
+                },
+                {
+                    "color": "trang",
+                    "quantityItem": 10,
+                    "_id": "6703f415cb10ded7cebe0490"
+                }
+            ],
+            "_id": "6703f415cb10ded7cebe048e"
+        },
+        {
+            "size": "M",
+            "colors": [
+                {
+                    "color": "trang",
+                    "quantityItem": 10,
+                    "_id": "6703f415cb10ded7cebe0492"
+                },
+                {
+                    "color": "den",
+                    "quantityItem": 5,
+                    "_id": "6703f415cb10ded7cebe0493"
+                }
+            ],
+            "_id": "6703f415cb10ded7cebe0491"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "den",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728312340/ecommerce_products/suywwoaxukb7bvkzcjyt.jpg",
+            "_id": "6703f415cb10ded7cebe0494"
+        },
+        {
+            "color": "trang",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728312340/ecommerce_products/fkqdqlaqjjfgxditqtfk.jpg",
+            "_id": "6703f415cb10ded7cebe0495"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-07T14:45:41.498Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nam",
+        "secondLevelCategory": "quan",
+        "thirdLevelCategory": "quan_dai"
     },
-    {
-        "imageUrl": "https://canifa.com/img/500/750/resize/8/t/8th23s008-sl172-2-thumb-a.webp",
-        "brand": "",
-        "title": "Áo sơ mi nam linen cổ dài tay dáng suông",
-        "color": "Dark Blue",
-        "discountedPrice": 699000,
-        "price": 699000,
-        "discountPersent": 0,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 10
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            },
-            {
-              "name": "XL",
-              "quantity": 50
-            },
-            {
-              "name": "XXL",
-              "quantity": 20
-            }
-          ],
-          "quantity": 160,
-          "topLavelCategory": "Nam",
-          "secondLavelCategory": "Áo",
-          "thirdLavelCategory": "Áo sơ mi",
-          "description":"Áo sơ mi nam phom regular kết hợp kiểu dáng basic phù hợp nhiều hoàn cảnh và dễ dàng kết hợp."
+    "_id": "6704a5d079c1c237e5ee34a2",
+    "title": "Quần dài Slim Fit",
+    "description": "Quần dài dáng ôm gọn dệt chéo có cài khoá móc cài ẩn ở bản cạp và nẹp khoá kéo. Túi hai bên và túi sau mổ viền cài khuy.\r\nThành phần\r\nLớp lót:Pôlyexte 65%, Bông 35%\r\nMặt ngoài:Pôlyexte 67%, Sợi vít-cô 29%, Vải thun Elastan 4%\r\nThông tin bổ sung về chất liệu\r\nTổng trọng lượng của sản phẩm này bao gồm:\r\n\r\n56% Polyester tái chế\r\n24% Viscose LivaEco™\r\nChúng tôi loại trừ trọng lượng của các thành phần phụ như, nhưng không hoàn toàn: đường chỉ, nút, khóa kéo, chi tiết trang trí và hình in.\r\n\r\nTổng trọng lượng của sản phẩm được tính bằng cách cộng trọng lượng của tất cả các lớp và thành phần chính lại với nhau. Trên cơ sở đó, chúng tôi tính toán xem mỗi vật liệu tạo ra bao nhiêu phần trăm trọng lượng đó. Đối với các sản phẩm theo set & bộ bao gồm nhiều món, tất cả các món sẽ được tính là một sản phẩm trong phép tính.\r\n\r\nChất liệu: Vải dệt chéo\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.\r\nPolyester tái chế\r\nPolyester tái chế là polyester được làm từ chai PET hoặc vải phế liệu hết hạn sử dụng. Các chai PET hoặc vải phế liệu được tái chế cơ học và xử lý thành sợi mới.\r\nPôlyexte\r\nPolyester là sợi tổng hợp được làm từ dầu thô (một nguồn tài nguyên hóa thạch).\r\nSợi vít-cô\r\nVải Viscose là loại sợi cellulose tái sinh thường lấy từ gỗ, nhưng nguyên liệu thô cũng có thể chứa các vật liệu cellulose khác.\r\nViscose LivaEco™\r\nLivaEco™ viscose là một loại xơ viscose có thương hiệu, được làm từ bột gỗ.\r\nVải thun Elastan\r\nElastan là một loại sợi tổng hợp đàn hồi làm từ dầu mỏ (một nguồn tài nguyên hóa thạch).",
+    "price": 699000,
+    "discountedPrice": 699000,
+    "discountedPersent": 0,
+    "quantity": 10,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "xam_nhat",
+                    "quantityItem": 2,
+                    "_id": "6704a5d079c1c237e5ee34a4"
+                }
+            ],
+            "_id": "6704a5d079c1c237e5ee34a3"
+        },
+        {
+            "size": "M",
+            "colors": [
+                {
+                    "color": "den_caro",
+                    "quantityItem": 8,
+                    "_id": "6704a5d079c1c237e5ee34a6"
+                }
+            ],
+            "_id": "6704a5d079c1c237e5ee34a5"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "xam_nhat",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728357839/ecommerce_products/nqixshl2d564bvws8bkt.jpg",
+            "_id": "6704a5d079c1c237e5ee34a7"
+        },
+        {
+            "color": "den_caro",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728357839/ecommerce_products/xiyb12ranizaq5ve2rtf.jpg",
+            "_id": "6704a5d079c1c237e5ee34a8"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T03:24:00.584Z",
+    "__v": 0
+},
+{
+    "category": {
+        "topLevelCategory": "nu",
+        "secondLevelCategory": "ao",
+        "thirdLevelCategory": "ao_kieu"
     },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70",
-        "brand": "FUBAR",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Blue",
-        "discountedPrice": 399,
-        "price": 1499,
-        "discountPersent": 73,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/i/v/x/xxl-br-ad-kt-105-adwyn-peter-original-imagj4zyd2q7t6cg.jpeg?q=70",
-        "brand": "ALY JOHN",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "White",
-        "discountedPrice": 474,
-        "price": 1999,
-        "discountPersent": 76,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/j/a/r/l-poch521835-peter-england-original-imag7jg47g7cxhg3-bb.jpeg?q=70",
-        "brand": "PETER ENGLAND",
-        "title": "Men Woven Design Pure Cotton Straight Kurta",
-        "color": "Grey",
-        "discountedPrice": 524,
-        "price": 1049,
-        "discountPersent": 50,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/y/c/x/xl-kast107hp-majestic-man-original-imafw49u5uty4agx-bb.jpeg?q=70",
-        "brand": "Majestic Man",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Pink",
-        "discountedPrice": 499,
-        "price": 1499,
-        "discountPersent": 66,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/kpodocw0/t-shirt/x/o/4/xl-wr-64-wrodss-original-imag3upwgq9n9fbv.jpeg?q=70",
-        "brand": "WRODSS",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Black",
-        "discountedPrice": 277,
-        "price": 999,
-        "discountPersent": 72,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/l4zxn680/kurta/i/g/u/s-mtml0039-341-manthan-original-imagfrz3gwgdtczm.jpeg?q=70",
-        "brand": "Manthan",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Blue",
-        "discountedPrice": 765,
-        "price": 1049,
-        "discountPersent": 27,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/m/e/e/s-kurta-rahul-look-original-imaga2g6qmhbywdf-bb.jpeg?q=70",
-        "brand": "RAHUL LOOK",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Green",
-        "discountedPrice": 499,
-        "price": 1599,
-        "discountPersent": 68,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/u/v/m/l-grey-106-yellow-freluro-original-imagc26vdpwxgztu-bb.jpeg?q=70",
-        "brand": "FRELURO",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Yellow",
-        "discountedPrice": 429,
-        "price": 999,        
-        "discountPersent": 57,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/jsj90280/kurta/j/z/g/l-mtmkos0004-326-manthan-original-imafe35wha5ry36p.jpeg?q=70",
-        "brand": "Manthan",
-        "title": "Men Self Design Cotton Blend Straight Kurta",
-        "color": "Light Blue",
-        "discountedPrice": 729,
-        "price": 909,        
-        "discountPersent": 27,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/f/f/xl-grey-sws4503-allan-peter-original-imag6xxgvvh59gh5-bb.jpeg?q=70",
-        "brand": "allan peter",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Green",
-        "discountedPrice": 449,
-        "price": 1749,
-        "discountPersent": 74,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/u/g/z/xl-8button-kurta-elepants-original-imagk57kfg2bwvhd.jpeg?q=70",
-        "brand": "COMBRAIDED",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Dark Blue",
-        "discountedPrice": 449,
-        "price": 1499,
-        "discountPersent": 70,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/7/b/q/xl-short-button-yellow-101-deal4mens-original-imagf6nzhwufyygg.jpeg?q=70",
-        "brand": "FOLGEN",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Yellow",
-        "discountedPrice": 385,
-        "price": 1299,
-        "discountPersent": 70,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/l3lx8cw0/kurta/d/o/m/l-kurta-mr-button-tap-in-original-imagezztuysgufsh.jpeg?q=70",
-        "brand": "Tap in",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Orange",
-        "discountedPrice": 395,
-        "price": 1495,
-        "discountPersent": 73,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/a/m/4/xl-sksh-dt1105-navy-fubar-original-imafuyzzh7fx6kaw-bb.jpeg?q=70",
-        "brand": "FUBAR",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Dark Blue",
-        "discountedPrice": 399,
-        "price": 1648,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/7/m/3/xxl-vlsd-a0ltpk-vida-loca-original-imagk5ggvxf97dwz.jpeg?q=70",
-        "brand": "Vida Loca",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "White",
-        "discountedPrice": 599,
-        "price": 2499,
-        "discountPersent": 76,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/kxkqavk0/kurta/l/w/t/xxl-vlsd-a0lt-vida-loca-original-imagay8hcrqax2uv.jpeg?q=70",
-        "brand": "Vida Loca",
-        "title": "Men Self Design Pure Cotton Straight Kurta",
-        "color": "White",
-        "discountedPrice": 629,
-        "price": 2499,
-        "discountPersent": 74,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/n/p/q/xxl-white-kurta-lilen-spoque-original-imagnk2zzcgqst3r.jpeg?q=70",
-        "brand": "Nofilter",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "White",
-        "discountedPrice": 370,
-        "price": 1499,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/l/9/r/xxl-ksh-p-kurta-yellow-ksh-trendz-original-imafyq4h7q5gpkzk-bb.jpeg?q=70",
-        "brand": "KSH Trendz",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Yellow",
-        "discountedPrice": 363,
-        "price": 1499,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/kxkqavk0/kurta/c/p/f/xxl-vlsd-a0lt-vida-loca-original-imagay8hjdc9cdzh.jpeg?q=70",
-        "brand": "Vida Loca",
-        "title": "Men Self Design Pure Cotton Straight Kurta",
-        "color": "Beige",
-        "discountedPrice": 629,
-        "price": 2499,
-        "discountPersent": 74,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/5/w/o/l-vlsd-a0lt-vida-loca-original-imagay8hg3nydjuh-bb.jpeg?q=70",
-        "brand": "Vida Loca",
-        "title": "Men Self Design Pure Cotton Straight Kurta",
-        "color": "Light Blue",
-        "discountedPrice": 629,
-        "price": 2499,
-        "discountPersent": 74,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/v/7/w/xl-sksh-dt1105-pur-fubar-original-imafuy3z57uqgdrp-bb.jpeg?q=70",
-        "brand": "FUBAR",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Purple",
-        "discountedPrice": 399,
-        "price": 1648,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/kfpq5jk0-0/kurta/e/g/i/m-kast109pp-majestic-man-original-imafw49u8vyzygpn.jpeg?q=70",
-        "brand": "Majestic Man",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Pink",
-        "discountedPrice": 499,
-        "price": 1499,
-        "discountPersent": 66,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/y/r/m/xxs-sada-plain-kurta-ksh-trendz-original-imag4baggdt7txju-bb.jpeg?q=70",
-        "brand": "KSH Trendz",
-        "title": "Men Solid Cotton Blend Straight Kurta",
-        "color": "Yellow",
-        "discountedPrice": 265,
-        "price": 1499,
-        "discountPersent": 82,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/t/g/w/xxl-ae08sk42-blue-aew-designs-original-imagg8npatfky9wg.jpeg?q=70",
-        "brand": "ARMAAN ETHNIC",
-        "title": "Men Self Design Cotton Blend Straight Kurta",
-        "color": "Blue",
-        "discountedPrice": 483,
-        "price": 1999,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/b/0/5/m-kast-fern-lit-green-majestic-man-original-imagzrafzhtbnz7s.jpeg?q=70",
-        "brand": "Majestic Man",
-        "title": "Men Printed Pure Cotton Straight Kurta",
-        "color": "Light Green",
-        "discountedPrice": 499,
-        "price": 1499,
-        "discountPersent": 66,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/e/o/4/m-kast-hukum-orange-majestic-man-original-imagzra2fzadkyrz.jpeg?q=70",
-        "brand": "Majestic Man",
-        "title": "Men Printed Pure Cotton Straight Kurta",
-        "color": "Orange",
-        "discountedPrice": 499,
-        "price": 1499,
-        "discountPersent": 66,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/s/p/a/l-kcsh-krt-103-mao-fubar-original-imag7fpesvngbwyy-bb.jpeg?q=70",
-        "brand": "FUBAR",
-        "title": "Men Printed Cotton Blend Straight Kurta",
-        "color": "Maroon",
-        "discountedPrice": 399,
-        "price": 1648,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/8/u/r/xl-sws2701-allan-peter-original-imafvxcfcsg4dzab-bb.jpeg?q=70",
-        "brand": "allan peter",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Pink",
-        "discountedPrice": 449,
-        "price": 1749,
-        "discountPersent": 74,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/x/u/y/s-smpl04-deemoon-original-imagk5mnr9ufeha2.jpeg?q=70",
-        "brand": "DEEMOON",
-        "title": "Men Floral Print Cotton Blend Straight Kurta",
-        "color": "Dark Blue",
-        "discountedPrice": 468,
-        "price": 1599,
-        "discountPersent": 70,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/z/l/b/xl-grey-sws2902-allan-peter-original-imag3y6tzaaxwkhy-bb.jpeg?q=70",
-        "brand": "allan peter",
-        "title": "Men Printed Pure Cotton Straight Kurta",
-        "color": "Dark Blue",
-        "discountedPrice": 499,
-        "price": 1749,
-        "discountPersent": 71,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/e/j/j/l-jcardkurta-yellow-divra-clothing-original-imaggjhfgjqhuwtk.jpeg?q=70",
-        "brand": "More & More",
-        "title": "Men Self Design Cotton Blend Straight Kurta",
-        "color": "Yellow",
-        "discountedPrice": 467,
-        "price": 2199,
-        "discountPersent": 78,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/o/u/d/s-up-kurta-31035-phone-sg-leman-original-imagzu7tgzgtmnvb.jpeg?q=70",
-        "brand": "SG LEMAN",
-        "title": "Men Printed Pure Silk Straight Kurta",
-        "color": "Gold",
-        "discountedPrice": 810,
-        "price": 2499,
-        "discountPersent": 67,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/kybvo280/kurta/v/i/i/xxl-aly2502-aly-john-original-imagah6me94dugrs.jpeg?q=70",
-        "brand": "ALY JOHN",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Maroon",
-        "discountedPrice": 478,
-        "price": 1279,
-        "discountPersent": 62,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/6/y/v/m-sksh-dt1105-black-fubar-original-imag4cpwzmhbufg4-bb.jpeg?q=70",
-        "brand": "FUBAR",
-        "title": "Men Striped Cotton Blend Straight Kurta",
-        "color": "Black",
-        "discountedPrice": 399,
-        "price": 1648,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/l3khsi80/kurta/1/c/6/l-mtml0042-328-manthan-original-imagenvzkm3v9vxh.jpeg?q=70",
-        "brand": "Manthan",
-        "title": "Men Printed Cotton Blend Ethnic Dress",
-        "color": "Orange",
-        "discountedPrice": 948,
-        "price": 1299,
-        "discountPersent": 27,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/s/w/c/xl-vlmk-combzip02-vida-loca-original-imagkc4hhm4fxhjb.jpeg?q=70",
-        "brand": "Vida Loca",
-        "title": "Pack of 2 Men Solid Pure Cotton Straight Kurta",
-        "color": "Multicolor",
-        "discountedPrice": 994,
-        "price": 2499,
-        "discountPersent": 60,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/t/j/u/s-pink-kurta-lilen-spoque-original-imagnfkwk5gpfmzx.jpeg?q=70",
-        "brand": "SPOQUE",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "Pink",
-        "discountedPrice": 362,
-        "price": 1499,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    },
-    {
-        "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/x/f/6/xxl-new-white-nofilter-original-imaghzggudfezpr8.jpeg?q=70",
-        "brand": "Nofilter",
-        "title": "Men Solid Pure Cotton Straight Kurta",
-        "color": "White",
-        "discountedPrice": 393,
-        "price": 1599,
-        "discountPersent": 75,
-        "size": [
-            {
-              "name": "S",
-              "quantity": 20
-            },
-            {
-              "name": "M",
-              "quantity": 30
-            },
-            {
-              "name": "L",
-              "quantity": 50
-            }
-          ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "mens_kurta",
-          "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
-    }
+    "_id": "6704f47c497d23cc783fe3c2",
+    "title": "Áo kiểu thêu ren lỗ",
+    "description": "Áo kiểu dáng rộng bằng cotton mỏng nhẹ dệt thoi thêu ren lỗ. Cổ chữ V sâu, khuy bọc phía trước và tay bóng bay, cắt ráp lăng, dài ngang khuỷu tay. Cổ tay và eo có chun co giãn và gấu peplum.\r\nThành phần\r\nLớp lót:Bông 100%\r\nMặt ngoài:Bông 100%\r\nChất liệu: Cotton\r\nGiải thích cho vật liệu được dùng trong sản phẩm này\r\nBông\r\nBông là loại sợi tự nhiên mềm và linh hoạt được thu hoạch từ cây bông.",
+    "price": 699000,
+    "discountedPrice": 699000,
+    "discountedPersent": 0,
+    "quantity": 4,
+    "brand": "H&M",
+    "sizes": [
+        {
+            "size": "S",
+            "colors": [
+                {
+                    "color": "kem",
+                    "quantityItem": 4,
+                    "_id": "670545acdfd87aafb657bf78"
+                }
+            ],
+            "_id": "670545acdfd87aafb657bf77"
+        }
+    ],
+    "imageUrl": [
+        {
+            "color": "kem",
+            "image": "https://res.cloudinary.com/dmeggoabc/image/upload/v1728377979/ecommerce_products/iwhczbdxajuhxy6fyco6.webp",
+            "_id": "670545acdfd87aafb657bf76"
+        }
+    ],
+    "ratings": [],
+    "reviews": [],
+    "numRatings": 0,
+    "createdAt": "2024-10-08T08:59:40.266Z",
+    "__v": 0
+}
 ]

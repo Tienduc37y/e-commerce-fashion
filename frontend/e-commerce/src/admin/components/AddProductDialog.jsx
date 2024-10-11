@@ -23,32 +23,7 @@ import { useDispatch } from 'react-redux';
 import { createProduct } from '../../redux/Product/Action';
 import { toast } from 'react-toastify';
 import CloseIcon from '@mui/icons-material/Close';
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#4dabf5',
-      light: '#80cbc4',
-      dark: '#087f23',
-    },
-    secondary: {
-      main: '#ff80ab',
-      light: '#ffb2dd',
-      dark: '#c94f7c',
-    },
-    error: {
-      main: '#ff6e6e',
-    },
-    background: {
-      default: '#121212',
-      paper: '#1e1e1e',
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#b3b3b3',
-    },
-  },
-});
+import {theme} from '../theme/theme';
 
 const AddProductDialog = ({ onClose, onProductCreated }) => {
   const dispatch = useDispatch();
@@ -229,7 +204,7 @@ const AddProductDialog = ({ onClose, onProductCreated }) => {
               label="Mô tả"
               name="description"
               multiline
-              rows={4}
+              rows={10}
               value={productData.description}
               onChange={handleInputChange}
               variant="outlined"

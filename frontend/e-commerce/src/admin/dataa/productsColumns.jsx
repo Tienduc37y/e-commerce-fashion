@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const productColumns = (colors, handleDelete, handleEdit) => {
+const productColumns = (colors, handleDeleteClick, handleEdit) => {
     return [
         { 
             field: "id",
@@ -61,8 +61,15 @@ const productColumns = (colors, handleDelete, handleEdit) => {
         {
             field: "category",
             headerName: "Danh mục",
-            flex: 0.5,
-            cellClassName: "name-column--cell",
+            flex: 0.75,
+            renderCell: (params) => (
+                <Box>
+                    <Chip 
+                        label={params.row.category.thirdLevelCategory} 
+                        style={{ margin: '2px', backgroundColor: colors.greenAccent[700] }}
+                    />
+                </Box>
+            ),
         },
         {
             field: "sizes",
@@ -83,19 +90,19 @@ const productColumns = (colors, handleDelete, handleEdit) => {
         {
             field: "price",
             headerName: "Giá gốc",
-            flex: 0.5,
+            flex: 0.45,
             cellClassName: "name-column--cell",
         },
         {
             field: "discountedPrice",
             headerName: "Giá sale",
-            flex: 0.5,
+            flex: 0.45,
             cellClassName: "name-column--cell",
         },
         {
             field: "discountedPersent",
-            headerName: "Giảm giá",
-            flex: 0.5,
+            headerName: "%",
+            flex: 0.25,
             cellClassName: "name-column--cell",
         },
         {
@@ -107,7 +114,7 @@ const productColumns = (colors, handleDelete, handleEdit) => {
                     <IconButton onClick={() => handleEdit(params.row)} size="large">
                         <EditIcon fontSize="inherit" />
                     </IconButton>
-                    <IconButton onClick={() => handleDelete(params.row.id)} size="large">
+                    <IconButton onClick={() => handleDeleteClick(params.row.id)} size="large">
                         <DeleteIcon fontSize="inherit" />
                     </IconButton>
                 </>             

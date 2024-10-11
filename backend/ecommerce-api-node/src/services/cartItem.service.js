@@ -13,7 +13,6 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
         if(!user) {
             throw new Error("User không tồn tại: ", userId)
         }
-
         if(user._id.toString() === userId.toString()){
             item.quantity = cartItemData.quantity
             item.price = item.quantity * item.product.price
@@ -30,19 +29,27 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
     }
 }
 
-async function removeCartItem(userId,cartItemId) {
+async function removeCartItem(userId, cartItemId) {
     try {
         const cartItem = await findCartItemById(cartItemId)
         const user = await userService.findUserById(userId)
 
-        if(user._id.toString() === cartItem.userId.toString()) {
-            await CartItem.findByIdAndUpdate(cartItemId)
+        if (user._id.toString() === cartItem.userId.toString()) {
+            // Sử dụng findByIdAndDelete thay vì findByIdAndUpdate
+            await CartItem.findByIdAndDelete(cartItemId)
+            
+            return {
+                status: "200",
+                message: "Xóa thành công"
+            }
+        } else {
+            throw new Error("Không có quyền xóa cart item này")
         }
-        return "Xóa thành công"
     } catch (error) {
         throw new Error(error.message)
     }
 }
+
 async function findCartItemById(cartItemId) {
     const cartItem = await CartItem.findById(cartItemId).populate("product");
     if(cartItem) {

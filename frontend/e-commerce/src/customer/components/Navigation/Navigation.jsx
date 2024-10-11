@@ -13,7 +13,6 @@ import TextField from "@mui/material/TextField";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../redux/Auth/Action";
-import { jwtDecode } from "jwt-decode";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -22,6 +21,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate()
   const {auth} = useSelector(store=>store)
+  const {cart} = useSelector(store => store)
   const dispatch = useDispatch()
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -59,7 +59,6 @@ export default function Navigation() {
       dispatch(getUser(accessToken))
     }
   },[accessToken,auth.accessToken])
-  console.log(auth)
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -386,98 +385,87 @@ export default function Navigation() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.role ? (
-                    <div>
-                      <Avatar
-                        className="text-white"
-                        onClick={handleUserClick}
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        sx={{
-                          bgcolor: deepPurple[500],
-                          color: "white",
-                          cursor: "pointer",
-                        }}
-                      >
-                        {auth.user?.lastName[0].toUpperCase()}
-                      </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
-                      <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={openUserMenu}
-                        onClose={handleCloseUserMenu}
-                        MenuListProps={{
-                          "aria-labelledby": "basic-button",
-                        }}
-                      >
-                        {auth.role === "CUSTOMER" ? (
-                          <>
-                            <MenuItem onClick={() => navigate("/user-profile")}>
-                              Profile
-                            </MenuItem>
-                            <MenuItem onClick={() => navigate("/account/order")}>
-                              My Order
-                            </MenuItem>
-                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                          </>
-                          ) 
-                          : (
-                          <>
-                            <MenuItem onClick={() => navigate("/admin")}>
-                              Admin Dashboard
-                            </MenuItem>
-                            <MenuItem onClick={handleLogout}>
-                              Logout
-                            </MenuItem>
-                          </>
-                        )}
-                      </Menu>
-                    </div>
-                  ) : (
-                    <div className="flex gap-3">
-                      <Link to="/login" className="text-sm font-medium text-gray-700">Đăng nhập</Link>
-                      <Link to="/register" className="text-sm font-medium text-gray-700">Đăng ký</Link>
-                    </div>
-                  )}
-                </div>
+                {/* User menu */}
+                {auth.role ? (
+                  <div className="relative mr-4">
+                    <Avatar
+                      className="text-white"
+                      onClick={handleUserClick}
+                      aria-controls={openUserMenu ? "user-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={openUserMenu ? "true" : undefined}
+                      sx={{
+                        bgcolor: deepPurple[500],
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {auth.user?.lastName[0].toUpperCase()}
+                    </Avatar>
+                    <Menu
+                      id="user-menu"
+                      anchorEl={anchorEl}
+                      open={openUserMenu}
+                      onClose={handleCloseUserMenu}
+                      MenuListProps={{
+                        "aria-labelledby": "user-button",
+                      }}
+                      PaperProps={{
+                        style: {
+                          width: '200px',
+                          maxWidth: '100%',
+                        },
+                      }}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'left',
+                      }}
+                    >
+                      {auth.role === "CUSTOMER" ? [
+                        <MenuItem key="profile" onClick={() => navigate("/user-profile")}>
+                          Profile
+                        </MenuItem>,
+                        <MenuItem key="order" onClick={() => navigate("/account/order")}>
+                          My Order
+                        </MenuItem>,
+                        <MenuItem key="logout" onClick={handleLogout}>Logout</MenuItem>
+                      ] : [
+                        <MenuItem key="admin" onClick={() => navigate("/admin")}>
+                          Admin Dashboard
+                        </MenuItem>,
+                        <MenuItem key="logout" onClick={handleLogout}>
+                          Logout
+                        </MenuItem>
+                      ]}
+                    </Menu>
+                  </div>
+                ) : (
+                  <div className="flex gap-2 mr-4">
+                    <Link to="/login" className="text-sm font-medium text-gray-700 hover:text-gray-800 px-2 py-1">Đăng nhập</Link>
+                    <Link to="/register" className="text-sm font-medium text-gray-700 hover:text-gray-800 px-2 py-1">Đăng ký</Link>
+                  </div>
+                )}
 
-                {/* User */}
                 {/* Search */}
-                <div className="flex items-center lg:ml-6">
-                
-                  <p onClick={()=>navigate("/products/search")} className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">1</span>
-                    
-                    <MagnifyingGlassIcon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    />
+                <div className="flex items-center">
+                  <p onClick={() => navigate("/products/search")} className="p-2 text-gray-400 hover:text-gray-500">
+                    <span className="sr-only">Search</span>
+                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
                   </p>
                 </div>
-                  
+
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <Button
-                    className="group -m-2 flex items-center p-2"
-                  >
+                <div className="ml-4 flow-root" onClick={() => navigate("/cart")}>
+                  <Button className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart?.cartItems.length}</span>
                   </Button>
                 </div>
               </div>

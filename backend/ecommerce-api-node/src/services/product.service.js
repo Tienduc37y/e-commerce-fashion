@@ -1,6 +1,7 @@
 const Category = require('../models/category.model')
 const Product = require('../models/product.model')
 const unidecode = require('unidecode')
+const { cloudinary } = require('../config/cloudinary');
 
 function processString(str, isThirdLevel = false) {
     let processed = unidecode(str).toLowerCase();
@@ -17,48 +18,34 @@ function processColorString(str) {
     return unidecode(str).toLowerCase().trim().replace(/\s+/g, '_');
 }
 
+function roundToInteger(number) {
+    return Math.round(number);
+}
+
 async function createProduct(reqData) {
-    const topLevelName = processString(reqData.topLevelCategory);
-    const secondLevelName = processString(reqData.secondLevelCategory);
-    const thirdLevelName = processString(reqData.thirdLevelCategory, true);
+    const topLevel = processString(reqData.topLevelCategory);
+    const secondLevel = processString(reqData.secondLevelCategory);
+    const thirdLevel = processString(reqData.thirdLevelCategory, true);
 
-    let topLevel = await Category.findOne({name: topLevelName})
-
-    if(!topLevel) {
-        topLevel = new Category({
-            name: topLevelName,
-            level: 1
-        })
-        await topLevel.save()
+    let category = await Category.findOne();
+    if (!category) {
+        category = new Category({
+            topLevelCategory: [{ name: topLevel }],
+            secondLevelCategory: [{ name: secondLevel }],
+            thirdLevelCategory: [{ name: thirdLevel }]
+        });
+    } else {
+        if (!category.topLevelCategory.some(item => item.name === topLevel)) {
+            category.topLevelCategory.push({ name: topLevel });
+        }
+        if (!category.secondLevelCategory.some(item => item.name === secondLevel)) {
+            category.secondLevelCategory.push({ name: secondLevel });
+        }
+        if (!category.thirdLevelCategory.some(item => item.name === thirdLevel)) {
+            category.thirdLevelCategory.push({ name: thirdLevel });
+        }
     }
-
-    let secondLevel = await Category.findOne({
-        name: secondLevelName,
-        parentCategory: topLevel._id
-    })
-
-    if(!secondLevel) {
-        secondLevel = new Category({
-            name: secondLevelName,
-            parentCategory: topLevel._id,
-            level: 2
-        })
-        await secondLevel.save()
-    }
-
-    let thirdLevel = await Category.findOne({
-        name: thirdLevelName,
-        parentCategory: secondLevel._id
-    })
-
-    if(!thirdLevel){
-        thirdLevel = new Category({
-            name: thirdLevelName,
-            parentCategory: secondLevel._id,
-            level: 3
-        })
-        await thirdLevel.save()
-    } 
+    await category.save();
 
     if (reqData.sizes && Array.isArray(reqData.sizes)) {
         reqData.sizes = reqData.sizes.map(size => ({
@@ -80,14 +67,18 @@ async function createProduct(reqData) {
     const product = new Product({
         title: reqData.title,
         description: reqData.description,
-        discountedPrice: reqData.discountedPrice,
+        discountedPrice: roundToInteger(reqData.discountedPrice),
         discountedPersent: reqData.discountedPersent,
         imageUrl: reqData.imageUrl,
         brand: reqData.brand,
-        price: reqData.price,
+        price: roundToInteger(reqData.price),
         sizes: reqData.sizes,
         quantity: reqData.quantity,
-        category: thirdLevel._id,
+        category: {
+            topLevelCategory: topLevel,
+            secondLevelCategory: secondLevel,
+            thirdLevelCategory: thirdLevel
+        },
     })
 
     return await product.save()
@@ -95,12 +86,89 @@ async function createProduct(reqData) {
 
 async function deleteProduct(productId) {
     const product = await findProductById(productId)
-    await Product.findByIdAndDelete(product)
-    return "Xóa sản phẩm thành công"
+    
+    if (product.imageUrl && Array.isArray(product.imageUrl)) {
+        for (let img of product.imageUrl) {
+            if (img.image) {
+                try {
+                    const publicId = img.image.split('/').slice(-2).join('/').split('.')[0];
+                    await cloudinary.uploader.destroy(publicId);
+                } catch (error) {
+                    console.error('Lỗi khi xóa ảnh từ Cloudinary:', error);
+                }
+            }
+        }
+    }
+    await Product.findByIdAndDelete(product._id)
+    return "Xóa sản phẩm và ảnh liên quan thành công"
 }
 
 async function updateProduct(productId, reqData) {
-    return await Product.findByIdAndUpdate(productId,reqData)
+    const product = await Product.findById(productId);
+    if (!product) {
+        throw new Error("Không tìm thấy sản phẩm");
+    }
+    
+    const topLevel = processString(reqData.category.topLevelCategory);
+    const secondLevel = processString(reqData.category.secondLevelCategory);
+    const thirdLevel = processString(reqData.category.thirdLevelCategory, true);
+
+    let category = await Category.findOne();
+    if (!category) {
+            category = new Category({
+                topLevelCategory: [{ name: topLevel }],
+                secondLevelCategory: [{ name: secondLevel }],
+                thirdLevelCategory: [{ name: thirdLevel }]
+            });
+    } else {
+        if (!category.topLevelCategory.some(item => item.name === topLevel)) {
+            category.topLevelCategory.push({ name: topLevel });
+        }
+        if (!category.secondLevelCategory.some(item => item.name === secondLevel)) {
+            category.secondLevelCategory.push({ name: secondLevel });
+        }
+        if (!category.thirdLevelCategory.some(item => item.name === thirdLevel)) {
+            category.thirdLevelCategory.push({ name: thirdLevel });
+        }
+    }
+    await category.save();
+
+    // Xử lý sizes và colors
+    if (reqData.sizes && Array.isArray(reqData.sizes)) {
+        reqData.sizes = reqData.sizes.map(size => ({
+            ...size,
+            colors: size.colors.map(color => ({
+                ...color,
+                color: processColorString(color.color)
+            }))
+        }));
+    }
+
+    // Xử lý imageUrl
+    if (reqData.imageUrl && Array.isArray(reqData.imageUrl)) {
+        reqData.imageUrl = reqData.imageUrl.map(img => ({
+            ...img,
+            color: processColorString(img.color)
+        }));
+    }
+
+    const updatedProduct = await Product.findByIdAndUpdate(productId, {
+        title: reqData.title,
+        description: reqData.description,
+        discountedPrice: roundToInteger(reqData.discountedPrice),
+        discountedPersent: reqData.discountedPersent,
+        imageUrl: reqData.imageUrl,
+        brand: reqData.brand,
+        price: roundToInteger(reqData.price),
+        sizes: reqData.sizes,
+        quantity: reqData.quantity,
+        category: {
+            topLevelCategory: topLevel,
+            secondLevelCategory: secondLevel,
+            thirdLevelCategory: thirdLevel
+        },
+    }, { new: true });
+    return updatedProduct;
 }
 
 async function findProductById(productId) {
@@ -127,21 +195,19 @@ async function findProductByName(productName) {
 }
 
 async function getAllProducts(reqQuery) {
-    let {category, color, sizes, minPrice, maxPrice, minDiscount, sort, stock, pageNumber, pageSize} = reqQuery;
+    let {topLevelCategory, secondLevelCategory, thirdLevelCategory, color, sizes, minPrice, maxPrice, minDiscount, sort, stock, pageNumber, pageSize} = reqQuery;
     pageSize = pageSize || 10;
     pageNumber = pageNumber || 1;
 
-    let query = Product.find().populate('category');
+    let query = Product.find();
 
     // Category filter
-    if (category) {
-        const existCategory = await Category.findOne({name: category});
-        if (existCategory) {
-            query = query.where("category").equals(existCategory._id);
-        } else {
-            
-            return {content: [], currentPage: 1, totalPages: 0}; // Return empty response
-        }
+    if (topLevelCategory && secondLevelCategory && thirdLevelCategory) {
+        query = query.where({
+            "category.topLevelCategory": topLevelCategory,
+            "category.secondLevelCategory": secondLevelCategory,
+            "category.thirdLevelCategory": thirdLevelCategory
+        });
     }
 
     // Color filter
@@ -166,7 +232,7 @@ async function getAllProducts(reqQuery) {
 
     // Discount filter
     if (minDiscount) {
-        query = query.where("discountedPersent").gt(minDiscount);
+        query = query.where("discountedPersent").gte(minDiscount);
     }    
 
     // Stock filter

@@ -1,14 +1,18 @@
 import { Box, IconButton, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { sidebarMenu } from "../../constants/sideBarMenu";
-import { useLocation } from "react-router-dom";
-import { tokens } from "../../theme/theme";
+import { useLocation, useNavigate } from "react-router-dom";
+import { tokens, } from "../../theme/theme";
 import { useState, useEffect } from "react";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SidebarMenuItem from "./SidebarItem";
 import 'react-pro-sidebar/dist/css/styles.css'
-const SidebarMenu = () => {
+import { logout } from '../../../redux/Auth/Action';
+import { useDispatch } from 'react-redux';
 
+const SidebarMenu = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const urlPathName = location.pathname;
 
@@ -27,6 +31,11 @@ const SidebarMenu = () => {
 
   const handleToggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/'); 
   };
 
   return (
@@ -143,6 +152,7 @@ const SidebarMenu = () => {
                       selected={selected}
                       setSelected={setSelected}
                       isCollapsed={isCollapsed}
+                      onLogout={menu.action === 'logout' ? handleLogout : undefined}
                     />
                   )
               )
