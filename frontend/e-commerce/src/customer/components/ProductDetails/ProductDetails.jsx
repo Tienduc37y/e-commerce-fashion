@@ -9,22 +9,21 @@ import { mens_kurta } from '../../../Data/mens_kurta'
 import HomeSectionCard from '../HomeSectionList/HomeSectionCard'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { findProductsById } from '../../../redux/Product/Action'
+import { findProductsById, findProducts, incrementProductView } from '../../../redux/Product/Action'
 import { convertCurrency } from '../../../common/convertCurrency'
-import { addItemToCart } from '../../../redux/Cart/Action'
+import { addItemToCart, getCart } from '../../../redux/Cart/Action'
 import { toast, ToastContainer } from 'react-toastify'
 const ColorButton = styled(IconButton)(({ theme, selected }) => ({
   width: '3rem',
   height: '3rem',
   padding: 0,
-  border: selected ? `2px solid ${theme.palette.primary.main}` : 'none',
+  border: selected ? `3px solid ${theme.palette.primary.main}` : '1px solid #e0e0e0',
   margin: theme.spacing(0, 0.5),
   '&:hover': {
     opacity: 0.8,
   },
 }));
 
-// Tạo một component Button tùy chỉnh cho kích thước
 const SizeButton = styled(Button)(({ theme, selected }) => ({
   minWidth: '3rem',
   height: '3rem',
@@ -51,20 +50,38 @@ export default function ProductDetails() {
   const navigate = useNavigate()
   const params = useParams()
   const dispatch = useDispatch()
-  const {product} = useSelector(store => store)
-  const uniqueColors = useMemo(() => {
-    const colorSet = new Set();
-    product?.product?.sizes?.forEach(size => {
-      size.colors.forEach(colorObj => {
-        colorSet.add(colorObj.color);
-      });
-    });
-    return Array.from(colorSet);
-  }, [product]);
+  const product = useSelector(store => store.product)
+  useEffect(() => {
+    if (params.productId) {
+      dispatch(findProductsById(params.productId));
+      dispatch(incrementProductView(params.productId));
+    }
+  }, [params.productId, dispatch]);
 
   useEffect(() => {
-    dispatch(findProductsById(params.productId));
-  }, [params.productId, dispatch]);
+    if (product.product?.category?.thirdLevelCategory?.slugCategory) {
+      const slugCategory = product.product.category.thirdLevelCategory.slugCategory;
+      const data = {
+        topLevelCategory: "",
+        secondLevelCategory: "",
+        thirdLevelCategory: slugCategory,
+        colors: [],
+        sizes: [],
+        minPrice: 0,
+        maxPrice: 100000000000,
+        minDiscount: 0,
+        sort: "price_low",
+        pageNumber: 1,
+        pageSize: 10,
+        stock: ""
+      };
+      dispatch(findProducts(data));
+    }
+  }, [product.product, dispatch]);
+
+  const uniqueColors = useMemo(() => {
+    return product?.product?.variants?.map(variant => variant.color) || [];
+  }, [product]);
 
   useEffect(() => {
     if (uniqueColors.length > 0) {
@@ -73,33 +90,35 @@ export default function ProductDetails() {
   }, [uniqueColors]);
 
   useEffect(() => {
-    if (selectedColor && product?.product?.sizes) {
-      const sizes = product.product.sizes.filter(size => 
-        size.colors.some(colorObj => colorObj.color === selectedColor && colorObj.quantityItem > 0)
-      ).map(size => size.size);
-      setAvailableSizes(sizes);
-      setSelectedSize(''); // Reset selected size when color changes
-      
-      // Tính tổng số lượng cho màu được chọn
-      const totalQuantity = product.product.sizes.reduce((total, size) => {
-        const colorObj = size.colors.find(c => c.color === selectedColor);
-        return total + (colorObj ? colorObj.quantityItem : 0);
-      }, 0);
-      setAvailableQuantity(totalQuantity);
+    if (selectedColor && product?.product?.variants) {
+      const variant = product.product.variants.find(v => v.color === selectedColor);
+      if (variant) {
+        const sizes = variant.sizes.map(s => s.size);
+        setAvailableSizes(sizes);
+        setSelectedSize('');
+        
+        // Tính tổng số lượng cho màu được chọn
+        const totalQuantity = variant.sizes.reduce((total, size) => total + size.quantityItem, 0);
+        setAvailableQuantity(totalQuantity);
+      }
     }
   }, [selectedColor, product]);
 
   useEffect(() => {
-    if (selectedColor && selectedSize && product?.product?.sizes) {
-      const sizeObj = product.product.sizes.find(s => s.size === selectedSize);
-      if (sizeObj) {
-        const colorObj = sizeObj.colors.find(c => c.color === selectedColor);
-        if (colorObj) {
-          setAvailableQuantity(colorObj.quantityItem);
+    if (selectedColor && selectedSize && product?.product?.variants) {
+      const variant = product.product.variants.find(v => v.color === selectedColor);
+      if (variant) {
+        const sizeObj = variant.sizes.find(s => s.size === selectedSize);
+        if (sizeObj) {
+          setAvailableQuantity(sizeObj.quantityItem);
         }
       }
     }
   }, [selectedColor, selectedSize, product]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
@@ -120,8 +139,8 @@ export default function ProductDetails() {
       };
       try {
         await dispatch(addItemToCart(cartItem))
+        await dispatch(getCart())
         toast.success("Sản phẩm đã được thêm vào giỏ hàng")
-        // navigate("/cart");
       } catch (error) {
         toast.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng: " + error.message)
       }
@@ -129,6 +148,7 @@ export default function ProductDetails() {
       toast.warn("Vui lòng chọn kích thước và màu sắc trước khi thêm vào giỏ hàng")
     }
   };
+
   return (
     <div className="bg-white py-10 px-4 lg:px-20">
       <div className="pt-6">
@@ -139,24 +159,35 @@ export default function ProductDetails() {
             <div className="overflow-hidden rounded-lg w-full max-h-[48rem]">
                 <img
                 alt={product.product?.title}
-                src={product.product?.imageUrl[0].image}
-                className="h-full w-full object-cover object-top"
+                src={product.product?.variants.find(v => v.color === selectedColor)?.imageUrl || product.product?.variants[0]?.imageUrl}
+                className="h-full w-full object-contain "
                 />
+            </div>
+            {/* Thêm phần hiển thị các ảnh nhỏ */}
+            <div className="mt-4 flex space-x-2 overflow-x-auto">
+              {product.product?.variants.map((variant) => (
+                <img
+                  key={variant.color}
+                  src={variant.imageUrl}
+                  alt={variant.nameColor}
+                  className={`w-16 h-16 object-cover cursor-pointer ${selectedColor === variant.color ? 'border-2 border-blue-500' : ''}`}
+                  onClick={() => handleColorChange(variant.color)}
+                />
+              ))}
             </div>
             </div>
 
             {/* Product info */}
             <div className="lg:col-span-1 mx-auto w-full px-4 pb-16 sm:px-6 lg:pb-24 lg:px-12">
             <div className="lg:col-span-2">
-                <h1 className="text-lg lg:text-xl font-semibold text-gray-900">{product.product?.title}</h1>
-                <h1 className='text-xxl text-gray-900 mt-2'>{product.product?.brand}</h1>
+                <h1 className="text-lg lg:text-[3rem] font-semibold text-gray-900">{product.product?.title}</h1>
+                <h1 className='text-[2rem] text-gray-900 mt-2'>{product.product?.brand}</h1>
             </div>
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
                 <h2 className="sr-only">Thông tin sản phẩm</h2>
                 <div className='flex flex-col space-y-2 text-lg lg:text-xl text-gray-900 mt-6'>
-                    <p className='font-semibold text-3xl'>{convertCurrency(product.product?.discountedPrice)}</p>
                     <div className='flex items-center space-x-2'>
                         {product.product?.discountedPersent > 0 ? (
                           <>
@@ -165,6 +196,7 @@ export default function ProductDetails() {
                           </>
                         ) : null}
                     </div>
+                    <p className='font-semibold text-3xl'>{convertCurrency(product.product?.discountedPrice)}</p>
                 </div>
 
                 {/* Reviews */}
@@ -173,6 +205,7 @@ export default function ProductDetails() {
                         <Rating name="read-only" value={5.5} readOnly />
                         <p className='opacity-50 text-sm'>56654 Ratings</p>
                         <p className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>3870 Reviews</p>
+                        <p className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>{product.product?.view} Views</p>
                     </div>
                 </div>
 
@@ -181,16 +214,13 @@ export default function ProductDetails() {
                 <Box sx={{ mb: 3 }}>
                   <Typography variant="subtitle1" gutterBottom>Màu sắc</Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                    {uniqueColors.map((color) => (
-                      <Tooltip key={color} title={color.replace(/_/g, ' ')}>
+                    {product.product?.variants.map((variant) => (
+                      <Tooltip key={variant.color} title={variant.nameColor}>
                         <ColorButton
-                          onClick={() => handleColorChange(color)}
-                          selected={selectedColor === color}
-                        >
-                          <Typography variant="caption" sx={{ fontWeight: 'bold' }}>
-                            {color.charAt(0).toUpperCase()}
-                          </Typography>
-                        </ColorButton>
+                          onClick={() => handleColorChange(variant.color)}
+                          selected={selectedColor === variant.color}
+                          style={{ backgroundColor: variant.color }}
+                        />
                       </Tooltip>
                     ))}
                   </Box>
@@ -320,7 +350,7 @@ export default function ProductDetails() {
         <section className='pt-10'>
           <h1 className='py-5 text-xl font-semibold'>Sản phẩm cùng loại</h1>
           <div className='flex flex-wrap gap-y-6 -mx-2 lg:-mx-4'>
-            {mens_kurta.slice(0,8).map((item,index) => <div
+            {product.products?.slice(0,8).map((item,index) => <div
             key={index}
             className="px-2 md:px-4 flex-shrink-0 w-1/2 md:w-1/2 lg:w-1/4"
         >
@@ -333,7 +363,7 @@ export default function ProductDetails() {
       </div>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

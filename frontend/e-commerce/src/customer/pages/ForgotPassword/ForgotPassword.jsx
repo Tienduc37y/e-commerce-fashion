@@ -58,7 +58,7 @@ export default function ForgotPassword() {
         dispatch(resetPassword(formData));
         toast.success('Mật khẩu mới đã được gửi đến email của bạn', {
           onClose: () => navigate('/login'),
-          autoClose: 1500,
+          autoClose: 1000,
         });
         setFormData({ email: '', token: '' });
         setIsResetMode(false);
@@ -77,7 +77,7 @@ export default function ForgotPassword() {
         setErrors(validationErrors);
       } else {
         toast.error(err.message, {
-          autoClose: 1500
+          autoClose: 1000
         });
       }
     }
@@ -88,12 +88,12 @@ export default function ForgotPassword() {
       setTimer(60);
       await dispatch(getTokenResetPassword(formData.email));
       toast.success('Token đã được gửi thành công!', {
-        autoClose: 1500
+        autoClose: 1000
       });
     } catch (error) {
       setTimer(0)
       toast.error('Đã xảy ra lỗi khi gửi token.', {
-        autoClose: 1500
+        autoClose: 1000
       });
     }
   };

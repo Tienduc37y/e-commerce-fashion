@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import teamColumns from "../dataa/teamColumns";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserById, getAllUsers, findUserByName, updateUser } from "../../redux/AllUsers/Action";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import useDebounce from "../../hooks/useDebounce";
@@ -265,7 +265,7 @@ const CustomersTable = () => {
       </Box>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

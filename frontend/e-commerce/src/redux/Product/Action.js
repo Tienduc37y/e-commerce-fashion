@@ -1,4 +1,4 @@
-import { DELETE_PRODUCT_BY_ID_FAILURE, DELETE_PRODUCT_BY_ID_REQUEST, DELETE_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCT_BY_ID_FAILURE, FIND_PRODUCT_BY_ID_REQUEST, FIND_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCTS_FAILURE, FIND_PRODUCTS_REQUEST, FIND_PRODUCTS_SUCCESS,FIND_PRODUCTS_BY_NAME_FAILURE,FIND_PRODUCTS_BY_NAME_REQUEST,FIND_PRODUCTS_BY_NAME_SUCCESS, CREATE_PRODUCT_FAILURE,CREATE_PRODUCT_REQUEST,CREATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE } from "./ActionType"
+import { INCREMENT_PRODUCT_VIEW_FAILURE, INCREMENT_PRODUCT_VIEW_REQUEST, INCREMENT_PRODUCT_VIEW_SUCCESS, DELETE_PRODUCT_BY_ID_FAILURE, DELETE_PRODUCT_BY_ID_REQUEST, DELETE_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCT_BY_ID_FAILURE, FIND_PRODUCT_BY_ID_REQUEST, FIND_PRODUCT_BY_ID_SUCCESS, FIND_PRODUCTS_FAILURE, FIND_PRODUCTS_REQUEST, FIND_PRODUCTS_SUCCESS,FIND_PRODUCTS_BY_NAME_FAILURE,FIND_PRODUCTS_BY_NAME_REQUEST,FIND_PRODUCTS_BY_NAME_SUCCESS, CREATE_PRODUCT_FAILURE,CREATE_PRODUCT_REQUEST,CREATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE } from "./ActionType"
 import axiosInstance from "../../axios/api"
 
 const findProductsRequest = () => ({type: FIND_PRODUCTS_REQUEST})
@@ -24,6 +24,10 @@ const createProductFailure = (error) => ({type: CREATE_PRODUCT_FAILURE, payload:
 const updateProductRequest = () => ({type: UPDATE_PRODUCT_REQUEST})
 const updateProductSuccess = (data) => ({type: UPDATE_PRODUCT_SUCCESS, payload: data})
 const updateProductFailure = (error) => ({type: UPDATE_PRODUCT_FAILURE, payload: error})
+
+const incrementProductViewRequest = () => ({type: INCREMENT_PRODUCT_VIEW_REQUEST})
+const incrementProductViewSuccess = (data) => ({type: INCREMENT_PRODUCT_VIEW_SUCCESS, payload: data})
+const incrementProductViewFailure = (error) => ({type: INCREMENT_PRODUCT_VIEW_FAILURE, payload: error})
 
 export const findProducts = (reqData) => async(dispatch) => {
     dispatch(findProductsRequest())
@@ -146,4 +150,23 @@ export const updateProduct = (productId, productData) => async(dispatch) => {
         throw new Error(error.response?.data?.error || error.message);
     }
 };
+
+export const incrementProductView = (productId) => async(dispatch) => {
+    dispatch(incrementProductViewRequest())
+    try {
+        const res = await axiosInstance.post(`/api/products/increment-view/${productId}`)
+        if(res.data?.status === "200") {
+            dispatch(incrementProductViewSuccess(res.data?.product))
+            return res.data?.product
+        }
+        else {
+            const errorMessage = res.data?.error;
+            dispatch(incrementProductViewFailure(errorMessage));
+            throw new Error(errorMessage);
+        }
+    } catch (error) {
+        dispatch(incrementProductViewFailure(error.message));
+        throw new Error(error.response?.data?.error || error.message)
+    }
+}
 

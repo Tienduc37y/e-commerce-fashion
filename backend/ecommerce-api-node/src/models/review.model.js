@@ -11,6 +11,9 @@ const reviewSchema = new mongoose.Schema({
         ref: "products",
         required: true
     },
+    imgUrl: [{
+        type: String,
+    }],
     review: {
         type: String,
         required: true

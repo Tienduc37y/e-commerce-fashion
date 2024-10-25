@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../redux/Auth/Action';
 import { toast, ToastContainer } from 'react-toastify';
-import { getAccessToken } from '../../../utils/authFunction';
 
 
 export default function Login() {
@@ -53,7 +52,7 @@ export default function Login() {
             return navigate("/")
           }
         },
-        autoClose: 1500,
+        autoClose: 1000,
       });
     } catch (err) {
       if (err.inner) {
@@ -64,7 +63,7 @@ export default function Login() {
         setErrors(validationErrors);
       } else {
         toast.error(err.message,{
-          autoClose:1500
+          autoClose:1000
         });
       }
     }

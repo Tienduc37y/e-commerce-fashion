@@ -12,8 +12,10 @@ const adminOrderRouter = require('./routes/adminOrder.route')
 const reviewRouter = require('./routes/review.route')
 const ratingRouter = require('./routes/rating.route')
 const categoryRouter = require('./routes/category.route')
+const paymentRouter = require('./routes/payment.route')
 const app = express()
-app.use(express.json())
+app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 app.use(cors())
 app.get("/",(req,res) => {
     return res.status(200).send({message : "Welcome to ecommerce api -node",status:true})
@@ -42,4 +44,6 @@ app.use('/api/reviews',reviewRouter)
 app.use('/api/ratings',ratingRouter)
 
 app.use('/api/categories',categoryRouter)
+
+app.use('/api/payment',paymentRouter)
 module.exports = app

@@ -134,15 +134,29 @@ const schemas = {
     brand: Joi.string().messages({
       'string.empty': 'Thương hiệu không được để trống'
     }),
-    sizes: Joi.array().items(Joi.object({
-      size: Joi.string().required().messages({
-        'string.empty': 'Kích thước không được để trống',
-        'any.required': 'Kích thước là bắt buộc'
+    variants: Joi.array().items(Joi.object({
+      color: Joi.string().required().messages({
+        'string.empty': 'Màu sắc không được để trống',
+        'any.required': 'Màu sắc là bắt buộc'
       }),
-      colors: Joi.array().items(Joi.object({
-        color: Joi.string().required().messages({
-          'string.empty': 'Màu sắc không được để trống',
-          'any.required': 'Màu sắc là bắt buộc'
+      nameColor: Joi.string().required().messages({
+        'string.empty': 'Tên màu sắc không được để trống',
+        'any.required': 'Tên màu sắc là bắt buộc'
+      }),
+      imageUrl: Joi.alternatives().try(
+        Joi.string().uri().messages({
+          'string.uri': 'URL ảnh không hợp lệ'
+        }),
+        Joi.object().messages({
+          'object.base': 'File ảnh không hợp lệ'
+        })
+      ).required().messages({
+        'any.required': 'Ảnh là bắt buộc'
+      }),
+      sizes: Joi.array().items(Joi.object({
+        size: Joi.string().required().messages({
+          'string.empty': 'Kích thước không được để trống',
+          'any.required': 'Kích thước là bắt buộc'
         }),
         quantityItem: Joi.number().integer().min(0).required().messages({
           'number.base': 'Số lượng phải là một số nguyên',
@@ -151,25 +165,12 @@ const schemas = {
           'any.required': 'Số lượng là bắt buộc'
         })
       })).min(1).required().messages({
-        'array.min': 'Phải có ít nhất một màu sắc cho mỗi kích thước',
-        'any.required': 'Danh sách màu sắc là bắt buộc'
+        'array.min': 'Phải có ít nhất một kích thước cho mỗi biến thể',
+        'any.required': 'Danh sách kích thước là bắt buộc'
       })
     })).min(1).required().messages({
-      'array.min': 'Phải có ít nhất một kích thước',
-      'any.required': 'Danh sách kích thước là bắt buộc'
-    }),
-    imageUrl: Joi.array().items(Joi.object({
-      color: Joi.string().required().messages({
-        'string.empty': 'Màu sắc của ảnh không được để trống',
-        'any.required': 'Màu sắc của ảnh là bắt buộc'
-      }),
-      image: Joi.string().required().messages({
-        'string.empty': 'URL ảnh không được để trống',
-        'any.required': 'URL ảnh là bắt buộc'
-      })
-    })).min(1).required().messages({
-      'array.min': 'Phải có ít nhất một ảnh',
-      'any.required': 'Danh sách ảnh là bắt buộc'
+      'array.min': 'Phải có ít nhất một biến thể',
+      'any.required': 'Danh sách biến thể là bắt buộc'
     }),
     category: Joi.object({
       topLevelCategory: Joi.string().required().messages({
@@ -187,6 +188,96 @@ const schemas = {
     }).required().messages({
       'any.required': 'Thông tin danh mục là bắt buộc'
     })
+  }).custom((value, helpers) => {
+    const totalQuantityItems = value.variants.reduce((sum, variant) => 
+      sum + variant.sizes.reduce((sizeSum, size) => sizeSum + size.quantityItem, 0), 0
+    );
+    if (totalQuantityItems > value.quantity) {
+      return helpers.error('custom.quantityExceeded');
+    }
+    return value;
+  }, 'Kiểm tra tổng số lượng các sản phẩm').message({
+    'custom.quantityExceeded': 'Tổng số lượng của các sản phẩm không được vượt quá số lượng tổng của sản phẩm'
+  }),
+
+  updateProduct: Joi.object({
+    title: Joi.string().messages({
+      'string.empty': 'Tiêu đề sản phẩm không được để trống'
+    }),
+    description: Joi.string().messages({
+      'string.empty': 'Mô tả sản phẩm không được để trống'
+    }),
+    price: Joi.number().positive().messages({
+      'number.base': 'Giá phải là một số',
+      'number.positive': 'Giá phải là số dương'
+    }),
+    discountedPrice: Joi.number().positive().max(Joi.ref('price')).messages({
+      'number.base': 'Giá khuyến mãi phải là một số',
+      'number.positive': 'Giá khuyến mãi phải là số dương',
+      'number.max': 'Giá khuyến mãi không được lớn hơn giá gốc'
+    }),
+    discountedPersent: Joi.number().min(0).max(100).messages({
+      'number.base': 'Phần trăm giảm giá phải là một số',
+      'number.min': 'Phần trăm giảm giá không được nhỏ hơn 0',
+      'number.max': 'Phần trăm giảm giá không được lớn hơn 100'
+    }),
+    quantity: Joi.number().integer().min(0).messages({
+      'number.base': 'Số lượng phải là một số nguyên',
+      'number.integer': 'Số lượng phải là một số nguyên',
+      'number.min': 'Số lượng không được nhỏ hơn 0'
+    }),
+    brand: Joi.string().messages({
+      'string.empty': 'Thương hiệu không được để trống'
+    }),
+    variants: Joi.array().items(Joi.object({
+      color: Joi.string().messages({
+        'string.empty': 'Màu sắc không được để trống'
+      }),
+      nameColor: Joi.string().messages({
+        'string.empty': 'Tên màu sắc không được để trống'
+      }),
+      imageUrl: Joi.alternatives().try(
+        Joi.string().uri().messages({
+          'string.uri': 'URL ảnh không hợp lệ'
+        }),
+        Joi.object().messages({
+          'object.base': 'File ảnh không hợp lệ'
+        })
+      ),
+      sizes: Joi.array().items(Joi.object({
+        size: Joi.string().messages({
+          'string.empty': 'Kích thước không được để trống'
+        }),
+        quantityItem: Joi.number().integer().min(0).messages({
+          'number.base': 'Số lượng phải là một số nguyên',
+          'number.integer': 'Số lượng phải là một số nguyên',
+          'number.min': 'Số lượng không được nhỏ hơn 0'
+        })
+      }))
+    })),
+    category: Joi.object({
+      topLevelCategory: Joi.string().messages({
+        'string.empty': 'Danh mục cấp 1 không được để trống'
+      }),
+      secondLevelCategory: Joi.string().messages({
+        'string.empty': 'Danh mục cấp 2 không được để trống'
+      }),
+      thirdLevelCategory: Joi.string().messages({
+        'string.empty': 'Danh mục cấp 3 không được để trống'
+      })
+    })
+  }).custom((value, helpers) => {
+    if (value.variants) {
+      const totalQuantityItems = value.variants.reduce((sum, variant) => 
+        sum + (variant.sizes ? variant.sizes.reduce((sizeSum, size) => sizeSum + (size.quantityItem || 0), 0) : 0), 0
+      );
+      if (value.quantity !== undefined && totalQuantityItems > value.quantity) {
+        return helpers.error('custom.quantityExceeded');
+      }
+    }
+    return value;
+  }, 'Kiểm tra tổng số lượng các sản phẩm').message({
+    'custom.quantityExceeded': 'Tổng số lượng của các sản phẩm không được vượt quá số lượng tổng của sản phẩm'
   })
 };
 

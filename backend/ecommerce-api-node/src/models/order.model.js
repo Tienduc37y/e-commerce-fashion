@@ -21,12 +21,46 @@ const orderSchema = new mongoose.Schema({
         type: Date,
     },
     shippingAddress: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "addresses"
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "address"
+        },
+        address: {
+            firstName:{
+                type:String,
+                required:true
+            },
+            lastName:{
+                type:String,
+                required:true
+            },
+            streetAddress:{
+                type:String,
+                required:true
+            },
+            city:{
+                type:String,
+                required:true
+            },
+            district:{
+                type:String,
+                required:true
+            },
+            ward:{
+                type:String,
+                required:true
+            },
+            mobile: {
+                type:Number,
+                required:true,
+            }
+        }
     },
     paymentDetails: {
         paymentMethod: {
-            type: String
+            type: String,
+            required: true,
+            enum: ['COD', 'ZALOPAY'],
         },
         transactionId: {
             type: String
@@ -36,7 +70,7 @@ const orderSchema = new mongoose.Schema({
         },
         paymentStatus: {
             type: String,
-            default:"Pending"
+            enum: ['Pending', 'Completed'],
         }
     },
     totalPrice: {
@@ -64,8 +98,6 @@ const orderSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-
-    
 })
 
 const Order = mongoose.model("orders",orderSchema)

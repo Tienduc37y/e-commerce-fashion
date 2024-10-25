@@ -13,10 +13,10 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'ecommerce_products',
     allowed_formats: ['jpg', 'png', 'jpeg', 'gif','jfif','webp'],
-    transformation: [{ width: 500, height: 500, crop: 'limit' }]
+    transformation: [{ width: 800, height: 800, crop: 'limit' }]
   }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage }, { limits: { fileSize: 10 * 1024 * 1024, fieldSize: 30 * 1024 * 1024 } });
 
 module.exports = { cloudinary, upload };

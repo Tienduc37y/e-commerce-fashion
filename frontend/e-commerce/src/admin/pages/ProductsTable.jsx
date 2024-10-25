@@ -127,9 +127,9 @@ const ProductsTable = () => {
     setSelectedProduct(null);
   }, []);
 
-  const handleSave = useCallback(async (editedProduct) => {
+  const handleSave = useCallback(async (formData) => {
     try {
-      await dispatch(updateProduct(editedProduct.id, editedProduct));
+      await dispatch(updateProduct(formData.get('id'), formData));
       toast.success("Cập nhật sản phẩm thành công");
       setOpenEditDialog(false);
       fetchAllProducts();
@@ -168,16 +168,29 @@ const ProductsTable = () => {
   const convertDataProducts = useCallback((data) => {
     return data.map((item) => ({
       id: item?._id,
-      description: item?.description,
-      imageUrl: item?.imageUrl.map(image => ({image: image.image, color: image.color})),
       title: item?.title,
-      brand: item?.brand,
-      category: item?.category || "",
-      sizes: item?.sizes.map(s => ({size: s.size, colors: s.colors.map(c => ({color: c.color, quantityItem: c.quantityItem}))})),
+      description: item?.description,
       price: item?.price,
       discountedPrice: item?.discountedPrice,
       discountedPersent: item?.discountedPersent,
-      quantity: item?.quantity
+      brand: item?.brand,
+      quantity: item?.quantity,
+      variants: item?.variants.map(variant => ({
+        color: variant.color,
+        nameColor: variant.nameColor,
+        imageUrl: variant.imageUrl,
+        sizes: variant.sizes.map(size => ({
+          size: size.size,
+          quantityItem: size.quantityItem
+        }))
+      })),
+      category: {
+        topLevelCategory: item?.category?.topLevelCategory?.name,
+        secondLevelCategory: item?.category?.secondLevelCategory?.name,
+        thirdLevelCategory: item?.category?.thirdLevelCategory?.name
+      },
+      numRatings: item?.numRatings,
+      createdAt: item?.createdAt
     }));
   }, []);
 
@@ -293,7 +306,7 @@ const ProductsTable = () => {
       </Box>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

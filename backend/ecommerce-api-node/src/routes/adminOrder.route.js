@@ -1,7 +1,7 @@
 const express = require('express')
 const authMiddleware = require('../middlewares/auth.middleware')
 const router = express.Router()
-const orderController = require('../controller/adminOrder.controller')
+const orderController = require('../controllers/adminOrder.controller')
 
 router.get('/',authMiddleware,orderController.getAllOrders)
 router.put('/:orderId/confirmed', authMiddleware, orderController.confirmedOrders)

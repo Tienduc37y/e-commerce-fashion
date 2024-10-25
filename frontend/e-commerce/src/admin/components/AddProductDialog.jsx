@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
@@ -13,9 +12,9 @@ import {
   IconButton,
   Box,
   ThemeProvider,
-  createTheme,
   Typography,
   Paper,
+  Grid,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
@@ -30,117 +29,159 @@ const AddProductDialog = ({ onClose, onProductCreated }) => {
   const [productData, setProductData] = useState({
     title: '',
     description: '',
-    brand: '',
-    topLevelCategory: '',
-    secondLevelCategory: '',
-    thirdLevelCategory: '',
     price: '',
-    discountedPersent: '',
     discountedPrice: '',
-    sizes: [],
+    discountedPersent: '',
+    brand: '',
     quantity: 0,
-    images: [],
+    category: {
+      topLevelCategory: '',
+      secondLevelCategory: '',
+      thirdLevelCategory: '',
+    },
+    variants: [],
   });
 
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('#000000');
+  const [colorName, setColorName] = useState('');
+  const [variantInputs, setVariantInputs] = useState([]);
+
+  const calculateTotalQuantity = (variants) => {
+    return variants.reduce((total, variant) => 
+      total + variant.sizes.reduce((sizeTotal, size) => sizeTotal + Number(size.quantityItem), 0), 0
+    );
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setProductData(prev => ({
-      ...prev,
-      [name]: value,
-      ...(name === 'price' || name === 'discountedPersent' ? {
-        discountedPrice: name === 'price' ? 
-          value * (1 - productData.discountedPersent / 100) : 
-          productData.price * (1 - value / 100)
-      } : {})
-    }));
-  };
-
-  const handleSizeSelect = (event) => {
-    setSelectedSize(event.target.value);
-  };
-
-  const handleAddSize = () => {
-    if (selectedSize && !productData.sizes.some(s => s.size === selectedSize)) {
+    if (['topLevelCategory', 'secondLevelCategory', 'thirdLevelCategory'].includes(name)) {
       setProductData(prev => ({
         ...prev,
-        sizes: [...prev.sizes, { size: selectedSize, colors: [] }]
+        category: {
+          ...prev.category,
+          [name]: value
+        }
       }));
-      setSelectedSize('');
+    } else {
+      setProductData(prev => ({
+        ...prev,
+        [name]: value,
+        ...(name === 'price' || name === 'discountedPersent' ? {
+          discountedPrice: name === 'price' ? 
+            value * (1 - productData.discountedPersent / 100) : 
+            productData.price * (1 - value / 100)
+        } : {})
+      }));
     }
   };
 
-  const handleSizeChange = (index, value) => {
-    const newSizes = [...productData.sizes];
-    newSizes[index].size = value;
-    setProductData(prev => ({ ...prev, sizes: newSizes }));
+  const handleAddVariant = () => {
+    if (colorName && !productData.variants.some(v => v.nameColor === colorName)) {
+      setProductData(prev => ({
+        ...prev,
+        variants: [...prev.variants, { nameColor: colorName, color: selectedColor, imageUrl: null, sizes: [] }],
+        quantity: calculateTotalQuantity([...prev.variants, { sizes: [] }])
+      }));
+      setVariantInputs(prev => [...prev, { selectedSize: '', selectedQuantity: '' }]);
+      setSelectedColor('#000000');
+      setColorName('');
+    }
   };
 
-  const handleAddColor = (sizeIndex) => {
-    const newSizes = [...productData.sizes];
-    newSizes[sizeIndex].colors.push({ color: '', quantityItem: 0 });
-    setProductData(prev => ({ ...prev, sizes: newSizes }));
+  const handleVariantChange = (index, field, value) => {
+    const newVariants = [...productData.variants];
+    newVariants[index][field] = value;
+    if (field === 'imageUrl' && value instanceof File) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        newVariants[index].imagePreview = e.target.result;
+        setProductData(prev => ({ ...prev, variants: newVariants }));
+      };
+      reader.readAsDataURL(value);
+    } else {
+      setProductData(prev => ({ ...prev, variants: newVariants }));
+    }
   };
 
-  const handleColorChange = (sizeIndex, colorIndex, field, value) => {
-    const newSizes = [...productData.sizes];
-    newSizes[sizeIndex].colors[colorIndex][field] = value;
+  const handleVariantInputChange = (variantIndex, field, value) => {
+    const newVariantInputs = [...variantInputs];
+    if (!newVariantInputs[variantIndex]) {
+      newVariantInputs[variantIndex] = {};
+    }
+    newVariantInputs[variantIndex][field] = value;
+    setVariantInputs(newVariantInputs);
+  };
+
+  const handleAddSize = (variantIndex) => {
+    const { selectedSize, selectedQuantity } = variantInputs[variantIndex] || {};
+    if (selectedSize && selectedQuantity && !productData.variants[variantIndex].sizes.some(s => s.size === selectedSize)) {
+      const newVariants = [...productData.variants];
+      newVariants[variantIndex].sizes.push({ size: selectedSize, quantityItem: Number(selectedQuantity) });
+      setProductData(prev => ({ 
+        ...prev, 
+        variants: newVariants,
+        quantity: calculateTotalQuantity(newVariants)
+      }));
+      handleVariantInputChange(variantIndex, 'selectedSize', '');
+      handleVariantInputChange(variantIndex, 'selectedQuantity', '');
+    }
+  };
+
+  const handleSizeChange = (variantIndex, sizeIndex, field, value) => {
+    const newVariants = [...productData.variants];
+    newVariants[variantIndex].sizes[sizeIndex][field] = value;
     setProductData(prev => ({ 
       ...prev, 
-      sizes: newSizes,
-      quantity: newSizes.reduce((total, size) => 
-        total + size.colors.reduce((sizeTotal, color) => sizeTotal + Number(color.quantityItem), 0), 0
-      )
+      variants: newVariants,
+      quantity: calculateTotalQuantity(newVariants)
     }));
   };
 
-  const handleRemoveColor = (sizeIndex, colorIndex) => {
-    const newSizes = [...productData.sizes];
-    newSizes[sizeIndex].colors.splice(colorIndex, 1);
-    setProductData(prev => ({ ...prev, sizes: newSizes }));
-  };
-
-  const handleRemoveSize = (index) => {
-    const newSizes = [...productData.sizes];
-    newSizes.splice(index, 1);
-    setProductData(prev => ({ ...prev, sizes: newSizes }));
-  };
-
-  const handleAddImage = () => {
-    setProductData(prev => ({
-      ...prev,
-      images: [...prev.images, { file: null, color: '' }]
+  const handleRemoveSize = (variantIndex, sizeIndex) => {
+    const newVariants = [...productData.variants];
+    newVariants[variantIndex].sizes.splice(sizeIndex, 1);
+    setProductData(prev => ({ 
+      ...prev, 
+      variants: newVariants,
+      quantity: calculateTotalQuantity(newVariants)
     }));
   };
 
-  const handleImageChange = (index, field, value) => {
-    const newImages = [...productData.images];
-    newImages[index][field] = value;
-    setProductData(prev => ({ ...prev, images: newImages }));
-  };
-
-  const handleRemoveImage = (index) => {
-    const newImages = [...productData.images];
-    newImages.splice(index, 1);
-    setProductData(prev => ({ ...prev, images: newImages }));
+  const handleRemoveVariant = (index) => {
+    const newVariants = [...productData.variants];
+    newVariants.splice(index, 1);
+    setProductData(prev => ({ 
+      ...prev, 
+      variants: newVariants,
+      quantity: calculateTotalQuantity(newVariants)
+    }));
   };
 
   const handleSubmit = () => {
     const formData = new FormData();
     Object.keys(productData).forEach(key => {
-      if (key === 'images') {
-        productData.images.forEach((img, index) => {
-          formData.append(`images`, img.file);
-          formData.append(`color[${index}]`, img.color);
+      if (key === 'variants') {
+        formData.append('variants', JSON.stringify(productData.variants.map(variant => ({
+          ...variant,
+          imageUrl: '' // Đặt lại imageUrl để tránh gửi đối tượng File
+        }))));
+        productData.variants.forEach((variant, index) => {
+          if (variant.imageUrl instanceof File) {
+            formData.append(`images`, variant.imageUrl);
+          }
         });
-      } else if (key === 'sizes') {
-        formData.append('sizes', JSON.stringify(productData.sizes));
+      } else if (key === 'category') {
+        formData.append('category', JSON.stringify(productData.category));
       } else {
         formData.append(key, productData[key]);
       }
     });
 
+    console.log("FormData contents:");
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+    console.log(productData.variants)
     dispatch(createProduct(formData))
       .then(() => {
         console.log('create success');
@@ -156,202 +197,210 @@ const AddProductDialog = ({ onClose, onProductCreated }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper 
-        elevation={3} 
-        sx={{ 
-          backgroundColor: 'background.paper', 
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-        }}
-      >
+      <Paper elevation={3} sx={{ backgroundColor: 'background.paper', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
         <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="h5" color="primary">Thêm mới sản phẩm</Typography>
           <IconButton onClick={onClose}><CloseIcon /></IconButton>
-          
         </DialogTitle>
         <DialogContent sx={{ flexGrow: 1, overflow: 'auto' }}>
           <Box sx={{ padding: 2 }}>
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Tiêu đề"
-              name="title"
-              value={productData.title}
-              onChange={handleInputChange}
-              variant="outlined"
-              sx={{ 
-                '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
-                    borderColor: 'rgba(255, 255, 255, 0.23)',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(255, 255, 255, 0.5)',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: theme.palette.primary.main,
-                  },
-                },
-                '& .MuiInputLabel-root': {
-                  color: 'text.secondary',
-                },
-              }}
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Mô tả"
-              name="description"
-              multiline
-              rows={10}
-              value={productData.description}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Thương hiệu"
-              name="brand"
-              value={productData.brand}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              sx={{mr:0.5}}
-              margin="normal"
-              label="Danh mục cấp 1"
-              name="topLevelCategory"
-              value={productData.topLevelCategory}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              sx={{mr:0.5}}
-              margin="normal"
-              label="Danh mục cấp 2"
-              name="secondLevelCategory"
-              value={productData.secondLevelCategory}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              margin="normal"
-              label="Danh mục cấp 3"
-              name="thirdLevelCategory"
-              value={productData.thirdLevelCategory}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              sx={{mr:0.5}}
-              margin="normal"
-              label="Giá"
-              name="price"
-              type="number"
-              value={productData.price}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              sx={{mr:0.5}}
-              margin="normal"
-              label="Phần trăm giảm giá"
-              name="discountedPersent"
-              type="number"
-              value={productData.discountedPersent}
-              onChange={handleInputChange}
-              variant="outlined"
-            />
-            <TextField
-              margin="normal"
-              label="Giá sau giảm"
-              name="discountedPrice"
-              type="number"
-              value={productData.discountedPrice}
-              disabled
-              variant="outlined"
-            />         
+            <TextField fullWidth margin="normal" label="Tiêu đề" name="title" value={productData.title} onChange={handleInputChange} variant="outlined" />
+            <TextField fullWidth margin="normal" label="Mô tả" name="description" multiline rows={4} value={productData.description} onChange={handleInputChange} variant="outlined" />
+            <TextField fullWidth margin="normal" label="Thương hiệu" name="brand" value={productData.brand} onChange={handleInputChange} variant="outlined" />
+            
+            {/* Grid cho các trường danh mục */}
+            <Grid container spacing={2} sx={{ mt: 2 }}>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth 
+                  label="Danh mục cấp 1" 
+                  name="topLevelCategory" 
+                  value={productData.category.topLevelCategory} 
+                  onChange={handleInputChange} 
+                  variant="outlined" 
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth 
+                  label="Danh mục cấp 2" 
+                  name="secondLevelCategory" 
+                  value={productData.category.secondLevelCategory} 
+                  onChange={handleInputChange} 
+                  variant="outlined" 
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth 
+                  label="Danh mục cấp 3" 
+                  name="thirdLevelCategory" 
+                  value={productData.category.thirdLevelCategory} 
+                  onChange={handleInputChange} 
+                  variant="outlined" 
+                />
+              </Grid>
+            </Grid>
+
+            {/* Grid mới cho các trường giá */}
+            <Grid container spacing={2} sx={{ mt: 2 }}>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth
+                  label="Giá" 
+                  name="price" 
+                  type="number" 
+                  value={productData.price} 
+                  onChange={handleInputChange} 
+                  variant="outlined" 
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth
+                  label="Phần trăm giảm giá" 
+                  name="discountedPersent" 
+                  type="number" 
+                  value={productData.discountedPersent} 
+                  onChange={handleInputChange} 
+                  variant="outlined" 
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField 
+                  fullWidth
+                  label="Giá sau giảm" 
+                  name="discountedPrice" 
+                  type="number" 
+                  value={productData.discountedPrice} 
+                  disabled 
+                  variant="outlined" 
+                />
+              </Grid>
+            </Grid>
+
+            {/* Phần còn lại của form */}
             <Box mt={3} display="flex" alignItems="center">
-              <FormControl fullWidth sx={{ mr: 2 }}>
-                <InputLabel>Chọn kích thước</InputLabel>
-                <Select
-                  value={selectedSize}
-                  onChange={handleSizeSelect}
-                  label="Chọn kích thước"
-                >
-                  <MenuItem value="S">S</MenuItem>
-                  <MenuItem value="M">M</MenuItem>
-                  <MenuItem value="L">L</MenuItem>
-                  <MenuItem value="XL">XL</MenuItem>
-                </Select>
-              </FormControl>
+              <TextField
+                label="Tên màu"
+                value={colorName}
+                onChange={(e) => setColorName(e.target.value)}
+                variant="outlined"
+                sx={{ mr: 1 }}
+              />
+              <input
+                type="color"
+                value={selectedColor}
+                onChange={(e) => setSelectedColor(e.target.value)}
+                style={{ width: '50px', height: '50px', padding: 0, border: 'none' }}
+              />
               <Button 
                 variant="contained" 
                 color="primary" 
-                onClick={handleAddSize}
+                onClick={handleAddVariant}
                 startIcon={<AddIcon />}
-                disabled={!selectedSize}
-                sx={{ 
-                  fontWeight: 'bold',
-                  boxShadow: '0 3px 5px 2px rgba(77, 171, 245, .3)',
-                  '&:hover': {
-                    backgroundColor: theme.palette.primary.light,
-                    boxShadow: '0 6px 10px 4px rgba(77, 171, 245, .3)',
-                  },
-                }}
+                disabled={!colorName}
+                sx={{ ml: 1 }}
               >
-                Thêm kích thước
+                Thêm màu
               </Button>
             </Box>
             
-            {productData.sizes.map((size, sizeIndex) => (
-              <Box key={sizeIndex} mt={2} p={2} border={1} borderRadius={2} borderColor="primary.light">
-                <Typography variant="h6">{`Kích thước: ${size.size}`}</Typography>
-                
-                {size.colors.map((color, colorIndex) => (
-                  <Box key={colorIndex} display="flex" alignItems="center" mt={1}>
-                    <TextField
-                      label="Màu sắc"
-                      value={color.color}
-                      onChange={(e) => handleColorChange(sizeIndex, colorIndex, 'color', e.target.value)}
-                      variant="outlined"
-                      sx={{ mr: 1 }}
+            {productData.variants.map((variant, variantIndex) => (
+              <Box key={variantIndex} mt={2} p={2} border={1} borderRadius={2} borderColor="primary.light">
+                <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
+                  <Box display="flex" alignItems="center">
+                    <Typography variant="subtitle1" sx={{ mr: 2 }}>Tên màu: {variant.nameColor}</Typography>
+                    <Box 
+                      sx={{ 
+                        width: '30px', 
+                        height: '30px', 
+                        backgroundColor: variant.color,
+                        border: '1px solid #000',
+                        mr: 2
+                      }}
                     />
+                    <Typography variant="subtitle1">Mã màu: {variant.color}</Typography>
+                  </Box>
+                  <IconButton onClick={() => handleRemoveVariant(variantIndex)} color="error">
+                    <DeleteIcon />
+                  </IconButton>
+                </Box>
+                <Box mt={2}>
+                  <Typography sx={{mb:2}} variant="subtitle1">Kích thước và số lượng:</Typography>
+                  {variant.sizes.map((size, sizeIndex) => (
+                    <Box key={sizeIndex} display="flex" alignItems="center" mb={1}>
+                      <Typography variant="body1" sx={{ mr: 2, minWidth: '30px' }}>{size.size}</Typography>
+                      <TextField
+                        label="Số lượng"
+                        type="number"
+                        value={size.quantityItem}
+                        onChange={(e) => handleSizeChange(variantIndex, sizeIndex, 'quantityItem', e.target.value)}
+                        variant="outlined"
+                        sx={{ mr: 2, width: '100px' }}
+                      />
+                      <IconButton onClick={() => handleRemoveSize(variantIndex, sizeIndex)} color="error">
+                        <DeleteIcon />
+                      </IconButton>
+                    </Box>
+                  ))}
+                  
+                  <Box display="flex" alignItems="center" mt={2}>
+                    <FormControl sx={{ mr: 3, minWidth: 200 }}>
+                      <InputLabel>Kích thước</InputLabel>
+                      <Select
+                        value={variantInputs[variantIndex]?.selectedSize || ''}
+                        onChange={(e) => handleVariantInputChange(variantIndex, 'selectedSize', e.target.value)}
+                        label="Kích thước"
+                      >
+                        <MenuItem value="S">S</MenuItem>
+                        <MenuItem value="M">M</MenuItem>
+                        <MenuItem value="L">L</MenuItem>
+                        <MenuItem value="XL">XL</MenuItem>
+                        <MenuItem value="XXL">XXL</MenuItem>
+                      </Select>
+                    </FormControl>
                     <TextField
                       label="Số lượng"
                       type="number"
-                      value={color.quantityItem}
-                      onChange={(e) => handleColorChange(sizeIndex, colorIndex, 'quantityItem', e.target.value)}
+                      value={variantInputs[variantIndex]?.selectedQuantity || ''}
+                      onChange={(e) => handleVariantInputChange(variantIndex, 'selectedQuantity', e.target.value)}
                       variant="outlined"
-                      sx={{ mr: 1 }}
+                      sx={{ mr: 3, width: '150px' }}
                     />
-                    <IconButton 
-                      onClick={() => handleRemoveColor(sizeIndex, colorIndex)}
-                      color="error"
+                    <Button 
+                      variant="contained" 
+                      color="primary" 
+                      onClick={() => handleAddSize(variantIndex)}
+                      startIcon={<AddIcon />}
+                      disabled={!variantInputs[variantIndex]?.selectedSize || !variantInputs[variantIndex]?.selectedQuantity}
                     >
-                      <DeleteIcon />
-                    </IconButton>
+                      Thêm kích thước
+                    </Button>
                   </Box>
-                ))}
-                
-                <Box mt={1}>
-                  <Button 
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => handleAddColor(sizeIndex)}
-                    startIcon={<AddIcon />}
-                    sx={{ mr: 1 }}
-                  >
-                    Thêm màu
-                  </Button>
-                  <IconButton 
-                    onClick={() => handleRemoveSize(sizeIndex)} 
-                    color="error"
-                  >
-                    <DeleteIcon />
-                  </IconButton>
+                </Box>
+                <Box mt={2} display="flex" alignItems="center">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleVariantChange(variantIndex, 'imageUrl', e.target.files[0])}
+                    style={{ display: 'none' }}
+                    id={`variant-image-${variantIndex}`}
+                  />
+                  {variant.imagePreview && (
+                    <Box width={50} height={50} overflow="hidden" borderRadius={1}>
+                      <img 
+                        src={variant.imagePreview} 
+                        alt={`Variant ${variantIndex}`} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                      />
+                    </Box>
+                  )}
+                  <label className='ml-5' htmlFor={`variant-image-${variantIndex}`}>
+                    <Button variant="contained" component="span">
+                      Tải ảnh lên
+                    </Button>
+                  </label>
                 </Box>
               </Box>
             ))}
@@ -365,71 +414,11 @@ const AddProductDialog = ({ onClose, onProductCreated }) => {
               disabled
               variant="outlined"
             />
-            <Box mt={2}>
-              <Button 
-                variant="contained" 
-                color="primary"
-                onClick={handleAddImage}
-                startIcon={<AddIcon />}
-                sx={{ 
-                  fontWeight: 'bold',
-                  boxShadow: '0 3px 5px 2px rgba(33, 150, 243, .3)',
-                  '&:hover': {
-                    backgroundColor: '#1976d2',
-                    boxShadow: '0 6px 10px 4px rgba(33, 150, 243, .3)',
-                  },
-                }}
-              >
-                Thêm ảnh
-              </Button>
-            </Box>
-            
-            {productData.images.map((image, index) => (
-              <Box key={index} mt={2} display="flex" alignItems="center">
-                <TextField
-                  label="Màu sắc"
-                  value={image.color}
-                  onChange={(e) => handleImageChange(index, 'color', e.target.value)}
-                />
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(index, 'file', e.target.files[0])}
-                />
-                <IconButton onClick={() => handleRemoveImage(index)}>
-                  <DeleteIcon />
-                </IconButton>
-              </Box>
-            ))}
           </Box>
         </DialogContent>
-        <DialogActions sx={{ padding: 2, backgroundColor: 'background.paper' }}> {/* Đảm bảo màu nền cho phần actions */}
-          <Button 
-            onClick={onClose} 
-            color="secondary"
-            sx={{ 
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: theme.palette.secondary.dark,
-              },
-            }}
-          >
-            Hủy
-          </Button>
-          <Button 
-            onClick={handleSubmit} 
-            variant="contained" 
-            color="primary"
-            sx={{ 
-              fontWeight: 'bold',
-              boxShadow: '0 3px 5px 2px rgba(77, 171, 245, .3)',
-              '&:hover': {
-                backgroundColor: theme.palette.primary.light,
-                boxShadow: '0 6px 10px 4px rgba(77, 171, 245, .3)',
-              },
-            }}
-          >
-            Tạo sản phẩm
-          </Button>
+        <DialogActions sx={{ padding: 2, backgroundColor: 'background.paper' }}>
+          <Button onClick={onClose} color="secondary">Hủy</Button>
+          <Button onClick={handleSubmit} variant="contained" color="primary">Tạo sản phẩm</Button>
         </DialogActions>
       </Paper>
     </ThemeProvider>

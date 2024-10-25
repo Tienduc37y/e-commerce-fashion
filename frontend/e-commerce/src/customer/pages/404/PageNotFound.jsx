@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const PageNotFound = () => {
   return (
 <main class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
@@ -16,7 +16,7 @@ const PageNotFound = () => {
         ></span>
 
         <span class="relative block px-8 py-3 bg-[#1A2238] border border-current">
-          <router-link to="/">Go Home</router-link>
+          <Link to="/">Go Home</Link>
         </span>
       </a>
     </button>

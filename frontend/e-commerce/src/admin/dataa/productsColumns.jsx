@@ -1,4 +1,4 @@
-import { Box, Typography, Chip } from "@mui/material";
+import { Box, Typography, Chip, Tooltip } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -11,14 +11,14 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
             flex: 0.5 
         },
         {
-            field: "imageUrl",
+            field: "productImage",
             headerName: "Ảnh",
             flex: 0.75,
             renderCell: (params) => {
-                const images = params.row.imageUrl;
+                const variants = params.row.variants;
         
                 return (
-                    Array.isArray(images) && images.length > 0 ? (
+                    Array.isArray(variants) && variants.length > 0 ? (
                         <Box 
                             display="flex" 
                             alignItems="center"
@@ -26,18 +26,20 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
                             height="100%"
                             width="100%"
                         >
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img.image}
-                                    alt={`${params.row.title} - ${img.color}`}
-                                    style={{
-                                        width: "35px",
-                                        height: "35px",
-                                        borderRadius: "50%",
-                                        marginRight: index !== images.length - 1 ? "5px" : "0",
-                                    }}
-                                />
+                            {variants.map((variant, index) => (
+                                <Tooltip key={index} title={variant.nameColor}>
+                                    <img
+                                        src={variant.imageUrl}
+                                        alt={`${params.row.title} - ${variant.nameColor}`}
+                                        style={{
+                                            width: "35px",
+                                            height: "35px",
+                                            borderRadius: "50%",
+                                            marginRight: index !== variants.length - 1 ? "5px" : "0",
+                                            objectFit: "cover"
+                                        }}
+                                    />
+                                </Tooltip>
                             ))}
                         </Box>
                     ) : (
@@ -72,17 +74,18 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
             ),
         },
         {
-            field: "sizes",
-            headerName: "Kích thước và Màu sắc",
+            field: "variantInfo",
+            headerName: "Màu sắc và kích thước",
             flex: 1,
             renderCell: (params) => (
                 <Box>
-                    {params.row.sizes.map((size, index) => (
-                        <Chip 
-                            key={index} 
-                            label={`${size.size}: ${size.colors.map(c => c.color).join(', ')}`} 
-                            style={{ margin: '2px' }}
-                        />
+                    {params.row.variants.map((variant, index) => (
+                        <Tooltip key={index} title={`Số lượng: ${variant.sizes.reduce((acc, size) => acc + size.quantityItem, 0)}`}>
+                            <Chip 
+                                label={`${variant.nameColor}: ${variant.sizes.map(s => s.size).join(', ')}`} 
+                                style={{ margin: '2px' }}
+                            />
+                        </Tooltip>
                     ))}
                 </Box>
             ),
@@ -103,6 +106,12 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
             field: "discountedPersent",
             headerName: "%",
             flex: 0.25,
+            cellClassName: "name-column--cell",
+        },
+        {
+            field: "quantity",
+            headerName: "Tổng số lượng",
+            flex: 0.35,
             cellClassName: "name-column--cell",
         },
         {

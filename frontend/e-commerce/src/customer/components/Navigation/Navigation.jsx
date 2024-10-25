@@ -13,6 +13,9 @@ import TextField from "@mui/material/TextField";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../redux/Auth/Action";
+import { getCart } from "../../../redux/Cart/Action";
+import CartDialog from '../CartProduct/CartDialog';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -20,13 +23,14 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate()
-  const {auth} = useSelector(store=>store)
-  const {cart} = useSelector(store => store)
+  const auth = useSelector(store=>store.auth)
+  const cart = useSelector(store => store.cart)
   const dispatch = useDispatch()
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const accessToken = localStorage.getItem('accessToken')
+  const [cartDialogOpen, setCartDialogOpen] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -54,11 +58,26 @@ export default function Navigation() {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
+
+  const handleCartClick = () => {
+    setCartDialogOpen(true);
+  };
+
+  const handleCloseCartDialog = () => {
+    setCartDialogOpen(false);
+  };
+
   useEffect(() => {
     if(accessToken){
       dispatch(getUser(accessToken))
     }
   },[accessToken,auth.accessToken])
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(getCart())
+    }
+  },[cart.updatedCartItem, cart.deletedCartItem, accessToken])
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -459,13 +478,13 @@ export default function Navigation() {
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root" onClick={() => navigate("/cart")}>
+                <div className="ml-4 flow-root" onClick={handleCartClick}>
                   <Button className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart?.cartItems.length}</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart?.cart?.cartItems?.length}</span>
                   </Button>
                 </div>
               </div>
@@ -473,6 +492,9 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
+
+      {/* Cart Dialog */}
+      <CartDialog open={cartDialogOpen} onClose={handleCloseCartDialog} />
     </div>
   );
 }

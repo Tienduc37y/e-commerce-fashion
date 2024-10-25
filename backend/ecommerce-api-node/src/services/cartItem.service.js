@@ -17,6 +17,7 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
             item.quantity = cartItemData.quantity
             item.price = item.quantity * item.product.price
             item.discountedPrice = item.quantity * item.product.discountedPrice
+            item.discountedPersent = item.product.discountedPersent
 
             const updateCartItem = await item.save()
             return updateCartItem

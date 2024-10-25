@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const categoryController = require('../controller/category.controller');
+const categoryController = require('../controllers/category.controller');
 
 router.get('/all', categoryController.findAllCategory);
-router.get('/getThirdCategory', categoryController.findAllThirdLevelCategories);
+router.get('/getThirdLevelCategory', categoryController.findAllThirdLevelCategories);
 
 module.exports = router;

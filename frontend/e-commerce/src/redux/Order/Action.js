@@ -16,8 +16,8 @@ const getOrderHistoryFailure = (error) => ({type: GET_ORDER_HISTORY_FAILURE, pay
 export const createOrder = (reqData) => async (dispatch) => {
     dispatch(createOrderRequest());
     try {
-        const {data} = await axiosInstance.post('/api/orders/', reqData.address)
-        if(data.data?.status === "200") {
+        const {data} = await axiosInstance.post('/api/orders/', reqData)
+        if(data?.status === "201") {
             dispatch(createOrderSuccess(data))
             return data
         }
@@ -36,7 +36,7 @@ export const getOrderById = (orderId) => async (dispatch) => {
     dispatch(getOrderByIdRequest());
     try {
         const {data} = await axiosInstance.get(`/api/orders/${orderId}`)
-        if(data.data?.status === "200") {
+        if(data?.status === "200") {
             dispatch(getOrderByIdSuccess(data))
             return data
         }

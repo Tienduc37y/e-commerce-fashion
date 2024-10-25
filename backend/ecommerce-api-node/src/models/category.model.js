@@ -1,24 +1,21 @@
 const mongoose = require('mongoose')
 
-const categoryItemSchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         maxlength: 50
-    }
-}, { _id: false });
-
-const categorySchema = new mongoose.Schema({
-    topLevelCategory: {
-        type: [categoryItemSchema],
+    },
+    parentCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'categories',
+    },
+    level: {
+        type: Number,
         required: true
     },
-    secondLevelCategory: {
-        type: [categoryItemSchema],
-        required: true
-    },
-    thirdLevelCategory: {
-        type: [categoryItemSchema],
+    slugCategory: {
+        type: String,
         required: true
     }
 });

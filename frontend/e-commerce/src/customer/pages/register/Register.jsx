@@ -75,7 +75,7 @@ export default function Register() {
       await dispatch(register(formData))
       toast.success('Đăng ký thành công', {
         onClose: () => navigate('/'),
-        autoClose: 1500,
+        autoClose: 1000,
       });
     } catch (err) {
       if (err.inner) {
@@ -86,7 +86,7 @@ export default function Register() {
         setErrors(validationErrors);
       } else {
         toast.error(err.message,{
-          autoClose:1500
+          autoClose:1000
         });
       }
     }

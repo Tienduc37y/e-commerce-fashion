@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../redux/Auth/Action';
-
 const AuthMiddleware = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -36,7 +35,9 @@ const AuthMiddleware = () => {
     return <Navigate to="/" replace />;
   }
 
-  return <Outlet />;
+  return (
+      <Outlet />
+  );
 };
 
 export default AuthMiddleware;

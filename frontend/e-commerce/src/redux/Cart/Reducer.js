@@ -4,7 +4,6 @@ const initialState = {
     cart: null,
     loading: false,
     error: null,
-    cartItems: [],
     deletedCartItem: null,
     updatedCartItem: null,
 }
@@ -14,13 +13,13 @@ export const cartReducer = (state = initialState, action) => {
         case ADD_ITEM_TO_CART_REQUEST:
             return {...state, loading: true, error: null}
         case ADD_ITEM_TO_CART_SUCCESS:
-            return {...state, cartItems: [...state.cartItems, action.payload.cartItems], loading: false}
+            return {...state, cart: action.payload, loading: false}
         case ADD_ITEM_TO_CART_FAILURE:
             return {...state, loading: false, error: action.payload}
         case GET_CART_REQUEST:
             return {...state, loading: true, error: null}
         case GET_CART_SUCCESS:
-            return {...state, cart: action.payload,cartItems: action.payload.cartItems, loading: false}
+            return {...state, cart: action.payload, loading: false}
         case GET_CART_FAILURE:
             return {...state, loading: false, error: action.payload}
         case REMOVE_CART_ITEM_REQUEST:

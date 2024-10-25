@@ -19,39 +19,39 @@ const productSchema = new mongoose.Schema({
     discountedPersent: {
         type: Number,
     },
-    quantity: {
-        type: Number,
-        required: true,
-    },
     brand: {
         type: String,
     },
-    sizes: [{
-        size : {
+    quantity: {
+        type: Number,
+        required: true
+    },
+    variants: [{
+        color: {
             type: String,
             required: true
         },
-        colors: [{
-            color:{
+        slugColor: {
+            type: String,
+        },
+        nameColor: {
+            type: String,
+            required: true
+        },
+        imageUrl: {
+            type: String,
+            required: true
+        },
+        sizes: [{
+            size: {
                 type: String,
-                required: true,
+                required: true
             },
             quantityItem: {
                 type: Number,
                 required: true
             }
         }]
-        
-    }],
-    imageUrl: [{
-        color: {
-            type: String,
-            required: true
-        },
-        image: {
-            type: String,
-            required: true
-        }   
     }],
     ratings: [
         {
@@ -69,27 +69,41 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    slugProduct: {
+        type: String,
+    },
     category: {
         topLevelCategory: {
-            type: String,
-            required: true
+            _id: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' },
+            name: String,
+            level: Number,
+            slugCategory: String,
+            parentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' }
         },
         secondLevelCategory: {
-            type: String,
-            required: true
+            _id: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' },
+            name: String,
+            level: Number,
+            slugCategory: String,
+            parentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' }
         },
         thirdLevelCategory: {
-            type: String,
-            required: true
+            _id: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' },
+            name: String,
+            level: Number,
+            slugCategory: String,
+            parentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'categories' }
         }
+    },
+    view: {
+        type: Number,
+        default: 0
     },
     createdAt: {
         type: Date,
         default: Date.now
     }
-
-    
 })
 
-const Product = mongoose.model("products",productSchema)
+const Product = mongoose.model("products", productSchema)
 module.exports = Product

@@ -1,6 +1,7 @@
 const Cart = require('../models/cart.model')
 const CartItem = require('../models/cartItem.model')
 const Product = require('../models/product.model')
+
 async function createCart(user) {
     try {
         const cart  = new Cart({user})
@@ -65,8 +66,10 @@ async function addCartItem(userId, req) {
         })
 
         if (cartItem) {
-            // Nếu sản phẩm đã tồn tại với cùng size và color, cập nhật số lượng
+            // Nếu sản phẩm đã tồn tại với cùng size và color, cập nhật số lượng và giá
             cartItem.quantity += req.quantity
+            cartItem.price = cartItem.quantity * product.price
+            cartItem.discountedPrice = cartItem.quantity * product.discountedPrice
             await cartItem.save()
         } else {
             // Nếu sản phẩm chưa tồn tại hoặc khác size/color, tạo mới
@@ -76,17 +79,28 @@ async function addCartItem(userId, req) {
                 quantity: req.quantity,
                 color: req.color,
                 userId,
-                price: product.price,
+                price: product.price * req.quantity,
                 size: req.size,
-                discountedPrice: product.discountedPrice
+                discountedPrice: product.discountedPrice * req.quantity,
+                discountedPersent: product.discountedPersent
             })
             await cartItem.save()
             cart.cartItems.push(cartItem)
-            await cart.save()
         }
-        return "Sản phẩm đã được thêm vào giỏ hàng"
+
+        // Cập nhật tổng giá trị của giỏ hàng
+        cart.totalPrice += cartItem.price
+        cart.totalDiscountedPrice += cartItem.discountedPrice
+        cart.totalItem += req.quantity
+        cart.discounte = cart.totalPrice - cart.totalDiscountedPrice
+
+        await cart.save()
+
+        return cart
     } catch (error) {
         throw new Error(error.message)
     }
 }
-module.exports = {createCart, findUserCart,addCartItem}
+
+
+module.exports = {createCart, findUserCart, addCartItem}

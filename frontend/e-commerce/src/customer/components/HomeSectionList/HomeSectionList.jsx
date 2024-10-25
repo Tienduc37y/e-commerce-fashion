@@ -1,7 +1,8 @@
 import HomeSectionCard from "./HomeSectionCard";
 import EastIcon from '@mui/icons-material/East';
+import { Typography } from "@mui/material";
 
-const HomeSectionList = ({ data, sectionName, haveImage }) => {
+const HomeSectionList = ({ data, categoryName }) => {
     const items = data?.slice(0, 8).map((item, index) => (
         <div
             key={index}
@@ -13,15 +14,9 @@ const HomeSectionList = ({ data, sectionName, haveImage }) => {
 
     return (
         <div className="px-4 md:px-0">
-            {haveImage ? (
-                <img
-                    className="w-full h-auto object-cover"
-                    src="https://media.canifa.com/Simiconnector/Ao_phong_block_home_desktop-29.07.webp"
-                    alt=""
-                />
-            ) : (
-                ""
-            )}
+            <Typography variant="h4" className="text-center">
+                {categoryName}
+            </Typography>
             <div className="py-8 md:px-0">
                 <div className="relative">
                     <div className="flex flex-wrap gap-y-6 -mx-2 lg:-mx-4">

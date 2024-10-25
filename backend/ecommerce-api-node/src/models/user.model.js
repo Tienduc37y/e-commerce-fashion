@@ -32,10 +32,11 @@ const userSchema = new mongoose.Schema({
         enum: ['CUSTOMER', 'ADMIN'],
         default:"CUSTOMER"
     },
-    address:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "adresses"
-    }],
+    address: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "address",
+        default: null
+    },
     tokens:{
         access:{
             token: {
@@ -54,12 +55,6 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    paymentInfomation:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: "payment_infomation"
-        }
-    ],
     ratings: [
         {
             type: mongoose.Schema.Types.ObjectId,

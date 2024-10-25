@@ -79,7 +79,9 @@ export default function PasswordChangePage() {
         });
         setErrors(validationErrors);
       } else {
-        toast.error(err.message);
+        toast.error(err.message,{
+          autoClose: 1000,
+        });
       }
     }
   };
