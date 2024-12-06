@@ -65,6 +65,16 @@ async function createProduct(reqData) {
         }));
     }
 
+    // Tính tổng quantity từ variants
+    if (reqData.variants && Array.isArray(reqData.variants)) {
+        const totalQuantity = reqData.variants.reduce((total, variant) => {
+            return total + variant.sizes.reduce((sizeTotal, size) => {
+                return sizeTotal + (size.quantityItem || 0);
+            }, 0);
+        }, 0);
+        reqData.quantity = totalQuantity;
+    }
+
     const product = new Product({
         title: reqData.title,
         slugProduct: createSlug(reqData.title),
@@ -127,7 +137,31 @@ async function updateProduct(productId, reqData) {
     if (!product) {
         throw new Error("Không tìm thấy sản phẩm");
     }
-    
+
+    // Tìm và xóa ảnh của các variant bị loại bỏ
+    if (product.variants && Array.isArray(product.variants)) {
+        // Lấy danh sách imageUrl của các variant mới
+        const newVariantImageUrls = reqData.variants
+            .filter(v => v.imageUrl)
+            .map(v => v.imageUrl);
+
+        // Tìm các variant cũ có ảnh không còn trong danh sách mới
+        const removedVariants = product.variants.filter(oldVariant => 
+            oldVariant.imageUrl && !newVariantImageUrls.includes(oldVariant.imageUrl)
+        );
+
+        // Xóa ảnh của các variant bị loại bỏ
+        for (let variant of removedVariants) {
+            try {
+                const publicId = variant.imageUrl.split('/').slice(-2).join('/').split('.')[0];
+                await cloudinary.uploader.destroy(publicId);
+            } catch (error) {
+                console.error('Lỗi khi xóa ảnh từ Cloudinary:', error);
+            }
+        }
+    }
+
+    // Tiếp tục xử lý categories
     let topLevel = await Category.findOne({name: reqData.category.topLevelCategory})
     if(!topLevel) {
         topLevel = new Category({
@@ -177,6 +211,16 @@ async function updateProduct(productId, reqData) {
         }));
     }
 
+    // Tính tổng quantity từ variants
+    if (reqData.variants && Array.isArray(reqData.variants)) {
+        const totalQuantity = reqData.variants.reduce((total, variant) => {
+            return total + variant.sizes.reduce((sizeTotal, size) => {
+                return sizeTotal + (size.quantityItem || 0);
+            }, 0);
+        }, 0);
+        reqData.quantity = totalQuantity;
+    }
+
     const updatedProduct = await Product.findByIdAndUpdate(productId, {
         title: reqData.title,
         slugProduct: createSlug(reqData.title),
@@ -223,19 +267,62 @@ async function findProductById(productId) {
     return product
 }
 
-async function findProductByName(productName) {
-    const normalizedSearchTerm = unidecode(productName).toLowerCase();
+async function findProductByName(productName, pageNumber, pageSize) {
+    try {
+        const skip = (pageNumber - 1) * pageSize;
+        
+        // Hàm chuẩn hóa text: bỏ dấu và chuyển thành chữ thường
+        const normalizeText = (text) => {
+            return unidecode(text)
+                .toLowerCase()
+                .trim();
+        };
+        
+        // Chuẩn hóa từ khóa tìm kiếm
+        const normalizedSearchTerm = normalizeText(productName);
 
-    const products = await Product.find().populate('category');
+        // Tìm sản phẩm với title đã được chuẩn hóa
+        const products = await Product.find().lean();
+        
+        // Lọc sản phẩm dựa trên title đã chuẩn hóa
+        const filteredProducts = products.filter(product => {
+            const normalizedTitle = normalizeText(product.title);
+            
+            // Nếu searchTerm chỉ có 1 ký tự, tìm kiếm ký tự đó trong title
+            if (normalizedSearchTerm.length === 1) {
+                return normalizedTitle.includes(normalizedSearchTerm);
+            }
+            
+            // Nếu searchTerm có nhiều ký tự, tìm kiếm theo từ
+            const searchWords = normalizedSearchTerm.split(/\s+/);
+            const titleWords = normalizedTitle.split(/\s+/);
+            
+            return searchWords.every(searchWord => 
+                // Tìm kiếm từ hoàn chỉnh hoặc một phần của từ
+                titleWords.some(titleWord => 
+                    titleWord.includes(searchWord) || searchWord.includes(titleWord)
+                )
+            );
+        });
 
-    const filteredProducts = products.filter(product => 
-        unidecode(product.title).toLowerCase().includes(normalizedSearchTerm)
-    );
+        // Tính toán phân trang
+        const totalItems = filteredProducts.length;
+        const totalPages = Math.ceil(totalItems / pageSize);
+        
+        // Lấy sản phẩm theo trang
+        const paginatedProducts = filteredProducts
+            .slice(skip, skip + pageSize);
 
-    if (filteredProducts.length === 0) {
-        throw new Error("Không có sản phẩm");
+        return {
+            content: paginatedProducts,
+            currentPage: parseInt(pageNumber),
+            totalPages,
+            totalItems
+        };
+
+    } catch (error) {
+        throw new Error("Lỗi khi tìm kiếm sản phẩm: " + error.message);
     }
-    return filteredProducts;
 }
 
 async function getAllProducts(reqQuery) {
@@ -262,9 +349,15 @@ async function getAllProducts(reqQuery) {
 
     // Color filter
     if (color) {
-        const colorSet = new Set(color.split("_").map(c => c.trim().toLowerCase()));
+        const colorSet = new Set(color.split("_").map(c => createSlug(c.trim()))); // Sử dụng createSlug để chuẩn hóa
         if (colorSet.size > 0) {
-            query = query.where("variants.slugColor").in([...colorSet]);
+            query = query.where({
+                'variants': {
+                    $elemMatch: {
+                        'slugColor': { $in: [...colorSet] }
+                    }
+                }
+            });
         }
     }
 
@@ -272,7 +365,18 @@ async function getAllProducts(reqQuery) {
     if (sizes) {
         const sizesSet = new Set(sizes.split("_").map(s => s.trim()));
         if (sizesSet.size > 0) {
-            query = query.where("variants.sizes.size").in([...sizesSet]);
+            query = query.where({
+                'variants': {
+                    $elemMatch: {
+                        'sizes': {
+                            $elemMatch: {
+                                'size': { $in: [...sizesSet] },
+                                'quantityItem': { $gt: 0 }
+                            }
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -288,10 +392,34 @@ async function getAllProducts(reqQuery) {
 
     // Stock filter
     if (stock) {
-        if (stock === 'in_of_stock') {
-            query = query.where("variants.sizes.quantityItem").gt(0);
-        } else if (stock === 'out_of_stock') {
-            query = query.where("variants.sizes.quantityItem").lte(0);
+        switch(stock) {
+            case 'in_stock':
+                // Lấy các sản phẩm có quantity > 0
+                query = query.where('quantity').gt(0);
+                break;
+            case 'out_of_stock':
+                // Lấy các sản phẩm có quantity = 0
+                query = query.where('quantity').equals(0);
+                break;
+            case 'low_stock':
+                // Lấy các sản phẩm có ít nhất một size trong variants có quantityItem < 5
+                query = query.where({
+                    'variants': {
+                        $elemMatch: {
+                            'sizes': {
+                                $elemMatch: {
+                                    'quantityItem': { 
+                                        $gt: 0,  // Vẫn còn hàng
+                                        $lt: 5   // Nhưng ít hơn 5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                break;
+            default:
+                break;
         }
     }
 
@@ -306,6 +434,9 @@ async function getAllProducts(reqQuery) {
                 break;
             case "newest":
                 query = query.sort({createdAt: -1});
+                break;
+            case "best_selling":
+                query = query.sort({sellQuantity: -1});
                 break;
             default:
                 // Mặc định sắp xếp theo createdAt giảm dần (mới nhất trước)
@@ -325,18 +456,25 @@ async function getAllProducts(reqQuery) {
     const products = await query.exec();
     const totalPages = Math.ceil(totalProducts / pageSize);
 
+    // Tính tổng quantity của tất cả sản phẩm
+    const totalQuantity = await Product.aggregate([
+        { 
+            $group: {
+                _id: null,
+                total: { $sum: "$quantity" }
+            }
+        }
+    ]);
+
     return {
         content: products,
         currentPage: pageNumber,
-        totalPages
+        totalPages,
+        totalProducts,
+        totalQuantity: totalQuantity[0]?.total || 0
     };
 }
 
-async function createMultipleProduct(products) {
-    for(let product of products) {
-        await createProduct(product)
-    }
-}
 
 async function incrementProductView(productId) {
     const product = await Product.findByIdAndUpdate(
@@ -357,6 +495,5 @@ module.exports = {
     getAllProducts,
     findProductById,
     findProductByName,
-    createMultipleProduct,
     incrementProductView
 }

@@ -3,7 +3,7 @@ import { Box, Typography, Divider, Button, Paper } from '@mui/material';
 import { convertCurrency } from '../../../common/convertCurrency';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const OrderSummary = ({ orderTotal, discounte, total, onCheckout }) => {
+const OrderSummary = ({ orderTotal, discounte, total, promotionDiscount, promotionCode, onCheckout, isCheckoutDisabled }) => {
   return (
     <Paper elevation={3} sx={{ 
       borderRadius: 2,
@@ -26,10 +26,16 @@ const OrderSummary = ({ orderTotal, discounte, total, onCheckout }) => {
           <Typography>Giá trị đơn hàng</Typography>
           <Typography fontWeight="medium">{convertCurrency(orderTotal)}</Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-          <Typography color="error.main">Chiết khấu</Typography>
-          <Typography color="error.main" fontWeight="medium">{convertCurrency(discounte)}</Typography>
-        </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+            <Typography>Chiết khấu</Typography>
+            <Typography color="green" fontWeight="medium">{convertCurrency(discounte)}</Typography>
+          </Box>
+        {promotionCode && promotionDiscount > 0 && (
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+            <Typography>Mã giảm giá ({promotionCode})</Typography>
+            <Typography color="green" fontWeight="medium">{convertCurrency(promotionDiscount)}</Typography>
+          </Box>
+        )}
         <Divider sx={{ my: 2 }} />
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
           <Typography variant="subtitle1" fontWeight="bold">Tổng tiền thanh toán</Typography>
@@ -43,6 +49,7 @@ const OrderSummary = ({ orderTotal, discounte, total, onCheckout }) => {
           fullWidth 
           size="large"
           onClick={onCheckout}
+          disabled={isCheckoutDisabled}
           sx={{ 
             py: 1.5,
             fontSize: '1.1rem',

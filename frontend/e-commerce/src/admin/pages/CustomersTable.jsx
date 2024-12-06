@@ -16,6 +16,8 @@ import ConfirmDeleteDialog from '../components/ConfirmDeleteDialog';
 import AddIcon from '@mui/icons-material/Add';
 import AddUserDialog from '../components/AddUserDialog';
 import { green } from '@mui/material/colors';
+import { Pagination, Stack } from '@mui/material';
+
 const CustomersTable = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -34,49 +36,32 @@ const CustomersTable = () => {
 
   const [openAddUserDialog, setOpenAddUserDialog] = useState(false);
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [rowsPerPage] = useState(7);
 
   useEffect(() => {
-    if (users?.users && Array.isArray(users.users)) {
-      setFilteredUsers(users.users);
-    } else {
-      setFilteredUsers([]);
-    }
-  }, [users]);
+    const fetchData = async () => {
+      try {
+        let response;
+        if (debouncedSearchTerm) {
+          response = await dispatch(findUserByName(debouncedSearchTerm, page, rowsPerPage));
+        } else {
+          response = await dispatch(getAllUsers(page, rowsPerPage));
+        }
 
-  useEffect(() => {
-    if (searchQuery && users?.users && Array.isArray(users.users)) {
-      const localFilteredUsers = users.users.filter(item => 
-        item.username.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredUsers(localFilteredUsers);
-    } else if (users?.users && Array.isArray(users.users)) {
-      setFilteredUsers(users.users);
-    } else {
-      setFilteredUsers([]);
-    }
-  }, [searchQuery, users.users]);
+        if (response?.pagination) {
+          setTotalPages(response.pagination.totalPages);
+          setFilteredUsers(response.data || []);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setFilteredUsers([]);
+      }
+    };
 
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      dispatch(findUserByName(debouncedSearchTerm))
-        .then(result => {
-          if (Array.isArray(result) && result.length > 0) {
-            setFilteredUsers(result);
-          } else {
-            setFilteredUsers([]);
-          }
-        })
-        .catch(error => {
-          toast.error("Lỗi khi tìm kiếm người dùng: " + error.message);
-          setFilteredUsers([]);
-        });
-    } else {
-      dispatch(getAllUsers());
-    }
-  }, [debouncedSearchTerm, dispatch]);
+    fetchData();
+  }, [debouncedSearchTerm, page, rowsPerPage, dispatch]);
 
   const handleEdit = (user) => {
     setSelectedUser(user);
@@ -94,6 +79,7 @@ const CustomersTable = () => {
       if (result.success) {
         toast.success("Cập nhật thông tin người dùng thành công");
         setOpen(false);
+        setPage(1); // Reset về page 1
         setFilteredUsers(prevUsers => {
           if (Array.isArray(prevUsers)) {
             return prevUsers.map(user => 
@@ -146,12 +132,13 @@ const CustomersTable = () => {
       ...user,
       id: user._id || user.id,
       role: user.role === "ADMIN" ? "ADMIN" : "USER",
-      username: user.username // Thêm username vào đây
+      username: user.username
     }));
   };
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
+    setPage(1); // Reset về trang 1 khi search
   };
 
   const handleOpenAddUserDialog = () => {
@@ -162,13 +149,32 @@ const CustomersTable = () => {
     setOpenAddUserDialog(false);
   };
 
-  const handleUserCreated = () => {
-    dispatch(getAllUsers());
+  const handleUserCreated = async () => {
+    try {
+      const response = await dispatch(getAllUsers(page, rowsPerPage));
+      
+      if (response?.pagination) {
+        setTotalPages(response.pagination.totalPages);
+        setFilteredUsers(response.data || []);
+        
+        if (page > response.pagination.totalPages) {
+          setPage(response.pagination.totalPages);
+        }
+      }
+      
+      handleCloseAddUserDialog();
+    } catch (error) {
+      console.error("Error updating users after creation:", error);
+    }
+  };
+
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
   };
 
   return (
     <>
-      <Box m="15px">
+      <Box m="5px">
         <div className="flex justify-between items-center">
           <Header title="Người Dùng" subtitle="Quản lý người dùng" />
 
@@ -208,11 +214,13 @@ const CustomersTable = () => {
         </Box>
 
         <Box
-          m="20px 0 0 0"
-          height="70vh"
+          m="10px 0 0 0"
+          height="auto"
           sx={{
             "& .MuiDataGrid-root": {
               border: "none",
+              minHeight: "400px",
+              maxHeight: "calc(100vh - 200px)",
             },
             "& .MuiDataGrid-cell": {
               borderBottom: "none",
@@ -237,10 +245,62 @@ const CustomersTable = () => {
           }}
         >
           <DataGrid
-            rows={convertDataUsers(filteredUsers || [])}
+            rows={convertDataUsers(filteredUsers)}
             columns={teamColumns(colors, handleDeleteClick, handleEdit)}
-            getRowId={(row) => row.id || row._id} // Thêm getRowId prop
+            getRowId={(row) => row.id || row._id}
+            hideFooter={true}
+            autoHeight
           />
+        </Box>
+
+        <Box display="flex" 
+          sx={{ 
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px', // Thay đổi từ left sang right và bỏ transform
+            backgroundColor: colors.primary[400],
+            padding: '10px 20px',
+            borderRadius: '8px',
+            boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+            zIndex: 1000,
+            marginRight: '20px', // Thêm margin để tránh sát mép
+          }}>
+          <Stack spacing={2}>
+            <Pagination 
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+              showFirstButton 
+              showLastButton
+              size="medium"
+              sx={{
+                "& .MuiPaginationItem-root": {
+                  color: colors.grey[100],
+                },
+                "& .Mui-selected": {
+                  backgroundColor: `${colors.blueAccent[500]} !important`,
+                  color: '#fff !important',
+                  fontWeight: 'bold',
+                  "&:hover": {
+                    backgroundColor: `${colors.blueAccent[400]} !important`,
+                  },
+                },
+                "& .MuiPaginationItem-previousNext": {
+                  color: colors.grey[100],
+                  "&:hover": {
+                    backgroundColor: colors.blueAccent[700],
+                  },
+                },
+                "& .MuiPaginationItem-firstLast": {
+                  color: colors.grey[100],
+                  "&:hover": {
+                    backgroundColor: colors.blueAccent[700],
+                  },
+                },
+              }}
+            />
+          </Stack>
         </Box>
 
         <EditUserDialog 

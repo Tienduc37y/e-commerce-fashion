@@ -8,15 +8,39 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+// Storage cho products
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'ecommerce_products',
-    allowed_formats: ['jpg', 'png', 'jpeg', 'gif','jfif','webp'],
-    transformation: [{ width: 800, height: 800, crop: 'limit' }]
+    allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'jfif', 'webp'],
   }
 });
 
-const upload = multer({ storage: storage }, { limits: { fileSize: 10 * 1024 * 1024, fieldSize: 30 * 1024 * 1024 } });
+// Storage cho banners với kích thước phù hợp cho banner
+const bannerStorage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'ecommerce_banners',
+    allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'jfif', 'webp'],
+  }
+});
 
-module.exports = { cloudinary, upload };
+const reviewStorage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'ecommerce_reviews',
+    allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'jfif', 'webp'],
+  }
+});
+
+const upload = multer({ storage: storage });
+const uploadBanner = multer({ storage: bannerStorage });
+const uploadReview = multer({ storage: reviewStorage });
+
+module.exports = { 
+  cloudinary, 
+  upload, 
+  uploadBanner,
+  uploadReview 
+};

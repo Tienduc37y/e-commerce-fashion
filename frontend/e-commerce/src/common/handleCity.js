@@ -24,7 +24,7 @@ export const useCities = () => {
     return event.target.value;
   };
 
-  return { cities, selectedCityId, handleCityChange };
+  return { cities, selectedCityId, handleCityChange, setSelectedCityId };
 };
 
 export const useDistricts = (selectedCityId) => {
@@ -53,7 +53,7 @@ export const useDistricts = (selectedCityId) => {
     return event.target.value;
   };
 
-  return { districts, selectedDistrictId, handleDistrictChange };
+  return { districts, selectedDistrictId, handleDistrictChange, setSelectedDistrictId };
 };
 
 export const useWards = (selectedDistrictId) => {

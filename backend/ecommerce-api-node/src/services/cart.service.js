@@ -15,7 +15,7 @@ async function createCart(user) {
 
 async function findUserCart(userId) {
     try {
-        let cart = await Cart.findOne({user:userId})
+        let cart = await Cart.findOne({user:userId}).populate("promotion")
 
         if (!cart) {
             throw new Error("Giỏ hàng không tồn tại")
@@ -23,22 +23,74 @@ async function findUserCart(userId) {
 
         let cartItems = await CartItem.find({cart:cart._id}).populate("product")
 
-        cart.cartItems = cartItems
-
-        let totalPrice = 0
-        let totalDiscountedPrice = 0
-        let totalItem = 0
-        
-        for(let cartItem of cart.cartItems) {
-            totalPrice += cartItem.price
-            totalDiscountedPrice += cartItem.discountedPrice
-            totalItem += cartItem.quantity
+        // Nếu không có cartItem nào, reset promotion và discountCode
+        if (cartItems.length === 0) {
+            await Cart.updateOne(
+                { _id: cart._id },
+                {
+                    $set: {
+                        totalPrice: 0,
+                        totalItem: 0,
+                        discounte: 0,
+                        totalDiscountedPrice: 0,
+                        promotion: null,
+                        discountCode: 0,
+                        cartItems: []
+                    }
+                }
+            )
+            
+            cart = await Cart.findOne({user:userId})
+            return cart
         }
 
-        cart.totalPrice = totalPrice
-        cart.totalItem = totalItem
-        cart.totalDiscountedPrice = totalDiscountedPrice
-        cart.discounte = totalPrice - totalDiscountedPrice
+        const cartData = {
+            totalPrice: 0,
+            totalDiscountedPrice: 0,
+            totalItem: 0,
+            cartItems: cartItems
+        }
+        
+        for(let cartItem of cartItems) {
+            cartData.totalPrice += cartItem.price
+            cartData.totalDiscountedPrice += cartItem.discountedPrice
+            cartData.totalItem += cartItem.quantity
+        }
+
+        // Cập nhật cart bằng updateOne để tránh xung đột version
+        await Cart.updateOne(
+            { _id: cart._id },
+            {
+                $set: {
+                    totalPrice: cartData.totalPrice,
+                    totalItem: cartData.totalItem,
+                    discounte: cartData.totalPrice - cartData.totalDiscountedPrice,
+                    totalDiscountedPrice: cart.promotion && 
+                        cart.promotion.endDate > new Date(new Date().getTime() + 7 * 60 * 60 * 1000) 
+                        ? cartData.totalDiscountedPrice - cart.discountCode 
+                        : cartData.totalDiscountedPrice,
+                    cartItems: cartItems.map(item => item._id),
+                    discountCode: cart.promotion && 
+                        cart.promotion.endDate > new Date(new Date().getTime() + 7 * 60 * 60 * 1000) 
+                        ? cart.discountCode 
+                        : 0,
+                    promotion: cart.promotion && 
+                        cart.promotion.endDate > new Date(new Date().getTime() + 7 * 60 * 60 * 1000) 
+                        ? cart.promotion 
+                        : null
+                }
+            }
+        )
+
+        // Lấy cart đã cập nhật
+        cart = await Cart.findOne({user:userId})
+            .populate("promotion")
+            .populate({
+                path: "cartItems",
+                populate: {
+                    path: "product"
+                }
+            })
 
         return cart
     } catch (error) {
@@ -48,14 +100,11 @@ async function findUserCart(userId) {
 
 async function addCartItem(userId, req) {
     try {
-        let cart = await Cart.findOne({user: userId})
-        if (!cart) {
-            cart = await createCart(userId)
-        }
+        let cart = await Cart.findOne({user: userId}).populate("promotion")
+        if (!cart) cart = await createCart(userId)
+
         const product = await Product.findById(req.productId)
-        if (!product) {
-            throw new Error("Sản phẩm không tồn tại")
-        }
+        if (!product) throw new Error("Sản phẩm không tồn tại")
         
         let cartItem = await CartItem.findOne({
             cart: cart._id, 
@@ -66,13 +115,11 @@ async function addCartItem(userId, req) {
         })
 
         if (cartItem) {
-            // Nếu sản phẩm đã tồn tại với cùng size và color, cập nhật số lượng và giá
             cartItem.quantity += req.quantity
             cartItem.price = cartItem.quantity * product.price
             cartItem.discountedPrice = cartItem.quantity * product.discountedPrice
             await cartItem.save()
         } else {
-            // Nếu sản phẩm chưa tồn tại hoặc khác size/color, tạo mới
             cartItem = new CartItem({
                 product: product._id,
                 cart: cart._id,
@@ -88,19 +135,65 @@ async function addCartItem(userId, req) {
             cart.cartItems.push(cartItem)
         }
 
-        // Cập nhật tổng giá trị của giỏ hàng
-        cart.totalPrice += cartItem.price
-        cart.totalDiscountedPrice += cartItem.discountedPrice
-        cart.totalItem += req.quantity
-        cart.discounte = cart.totalPrice - cart.totalDiscountedPrice
-
-        await cart.save()
-
-        return cart
+        return await recalculateCart(cart)
     } catch (error) {
         throw new Error(error.message)
     }
 }
 
+// Thêm hàm helper để tính toán và cập nhật giỏ hàng
+async function recalculateCart(cart) {
+    const cartItems = await CartItem.find({cart: cart._id}).populate("product")
+    
+    let totalPrice = 0
+    let totalDiscountedPrice = 0
+    let totalItem = 0
 
-module.exports = {createCart, findUserCart, addCartItem}
+    // Nếu không có cartItem nào, reset promotion và discountCode
+    if (cartItems.length === 0) {
+        cart.totalPrice = 0
+        cart.totalItem = 0
+        cart.discounte = 0
+        cart.totalDiscountedPrice = 0
+        cart.promotion = null
+        cart.discountCode = 0
+        return await cart.save()
+    }
+
+    for(let item of cartItems) {
+        totalPrice += item.price
+        totalDiscountedPrice += item.discountedPrice
+        totalItem += item.quantity
+    }
+
+    cart.totalPrice = totalPrice
+    cart.totalItem = totalItem
+    cart.discounte = totalPrice - totalDiscountedPrice
+
+    // Kiểm tra và áp dụng promotion
+    if (cart.promotion) {
+        // Kiểm tra hạn sử dụng và giá trị đơn hàng tối thiểu
+        if (cart.promotion.endDate > new Date(new Date().getTime() + 7 * 60 * 60 * 1000) && 
+            totalDiscountedPrice >= cart.promotion.minOrderValue) {
+            const discountValue = Math.floor((totalDiscountedPrice * cart.promotion.discountPercentage) / 100)
+            cart.discountCode = discountValue
+            cart.totalDiscountedPrice = totalDiscountedPrice - discountValue
+        } else {
+            // Nếu không đủ điều kiện, xóa promotion
+            cart.promotion = null
+            cart.discountCode = 0
+            cart.totalDiscountedPrice = totalDiscountedPrice
+        }
+    } else {
+        cart.totalDiscountedPrice = totalDiscountedPrice
+    }
+
+    return await cart.save()
+}
+
+module.exports = {
+    createCart,
+    findUserCart,
+    addCartItem,
+    recalculateCart
+}

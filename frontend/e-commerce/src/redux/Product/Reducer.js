@@ -3,6 +3,7 @@ import { INCREMENT_PRODUCT_VIEW_FAILURE, INCREMENT_PRODUCT_VIEW_REQUEST, INCREME
 const initialState = {
     products:[],
     product:null,
+    searchResults: [],
     loading: false,
     error: null
 }
@@ -27,7 +28,12 @@ export const productReducer = (state = initialState, action) => {
         case FIND_PRODUCTS_BY_NAME_REQUEST:
             return {...state, loading: true, error: null}
         case FIND_PRODUCTS_BY_NAME_SUCCESS:
-            return {...state, loading: false, error: null, products:action.payload}
+            return {
+                ...state, 
+                loading: false, 
+                error: null, 
+                searchResults: action.payload
+            }
         case FIND_PRODUCTS_BY_NAME_FAILURE:
             return {...state, loading: false, error: action.payload}
         case CREATE_PRODUCT_REQUEST:

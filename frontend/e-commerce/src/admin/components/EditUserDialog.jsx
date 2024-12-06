@@ -131,7 +131,7 @@ const EditUserDialog = ({ open, onClose, user, onSave }) => {
               <CustomTextField
                 fullWidth
                 margin="normal"
-                label="Tên"
+                label="Họ"
                 name="firstName"
                 value={editedUser?.firstName || ""}
                 onChange={handleChange}
@@ -143,7 +143,7 @@ const EditUserDialog = ({ open, onClose, user, onSave }) => {
               <CustomTextField
                 fullWidth
                 margin="normal"
-                label="Họ"
+                label="Tên"
                 name="lastName"
                 value={editedUser?.lastName || ""}
                 onChange={handleChange}

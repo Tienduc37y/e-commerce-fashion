@@ -3,8 +3,8 @@ const orderService = require('../services/order.service')
 const createOrder = async(req, res) => {
     const user = await req.user
     try {
-        const { shippingAddress, paymentMethod } = req.body;
-        let createdOrder = await orderService.createOrder(user, shippingAddress, paymentMethod)
+        const { shippingAddress, paymentMethod, code } = req.body;
+        let createdOrder = await orderService.createOrder(user, shippingAddress, paymentMethod, code)
         return res.status(201).send({
             status: "201",
             message: "Tạo order thành công",
@@ -19,7 +19,6 @@ const createOrder = async(req, res) => {
 }
 
 const findOrderById = async(req, res) => {
-    const user = await req.user
     try {
         let createdOrder = await orderService.findOrderById(req.params.id)
         return res.status(200).send({
@@ -36,24 +35,32 @@ const findOrderById = async(req, res) => {
 }
 
 const orderHistory = async(req, res) => {
-    const user = await req.user
     try {
-        let createdOrder = await orderService.usersOrderHistory(user._id)
-        return res.status(201).send({
-            status: "201",
-            message: "Lấy order thành công",
-            createdOrder
-        })
+        const user = req.user;
+        const { status, page = 1, limit = 10 } = req.query;
+
+        const orders = await orderService.usersOrderHistory(
+            user.userId,
+            status,
+            parseInt(page),
+            parseInt(limit)
+        );
+
+        return res.status(200).json({
+            status: "200",
+            message: "Lấy order history thành công",
+            data: orders
+        });
     } catch (error) {
-        return res.status(500).send({
+        return res.status(500).json({
             status: "500",
             error: error.message
-        })
+        });
     }
 }
 
 module.exports = {
     createOrder,
     findOrderById,
-    orderHistory
+    orderHistory,
 }

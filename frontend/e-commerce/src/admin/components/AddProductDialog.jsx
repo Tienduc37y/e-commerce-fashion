@@ -176,15 +176,8 @@ const AddProductDialog = ({ onClose, onProductCreated }) => {
         formData.append(key, productData[key]);
       }
     });
-
-    console.log("FormData contents:");
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
-    console.log(productData.variants)
     dispatch(createProduct(formData))
       .then(() => {
-        console.log('create success');
         toast.success('Sản phẩm đã được tạo thành công!');
         onProductCreated();
         onClose();

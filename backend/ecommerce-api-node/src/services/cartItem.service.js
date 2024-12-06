@@ -1,5 +1,7 @@
 const CartItem = require('../models/cartItem.model')
 const userService = require('../services/user.service')
+const Cart = require('../models/cart.model')
+const { recalculateCart } = require('./cart.service')
 
 async function updateCartItem(userId, cartItemId, cartItemData) {
     try {
@@ -19,8 +21,13 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
             item.discountedPrice = item.quantity * item.product.discountedPrice
             item.discountedPersent = item.product.discountedPersent
 
-            const updateCartItem = await item.save()
-            return updateCartItem
+            await item.save()
+
+            // Cập nhật lại giỏ hàng
+            const cart = await Cart.findById(item.cart).populate("promotion")
+            await recalculateCart(cart)
+            
+            return item
         }
         else {
             throw new Error("Không thể cập nhật lại cartitem")
@@ -36,16 +43,13 @@ async function removeCartItem(userId, cartItemId) {
         const user = await userService.findUserById(userId)
 
         if (user._id.toString() === cartItem.userId.toString()) {
-            // Sử dụng findByIdAndDelete thay vì findByIdAndUpdate
+            const cart = await Cart.findById(cartItem.cart).populate("promotion")
             await CartItem.findByIdAndDelete(cartItemId)
+            await recalculateCart(cart)
             
-            return {
-                status: "200",
-                message: "Xóa thành công"
-            }
-        } else {
-            throw new Error("Không có quyền xóa cart item này")
+            return { status: "200", message: "Xóa thành công" }
         }
+        throw new Error("Không có quyền xóa cart item này")
     } catch (error) {
         throw new Error(error.message)
     }

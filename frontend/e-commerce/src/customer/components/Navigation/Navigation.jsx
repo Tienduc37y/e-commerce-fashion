@@ -1,12 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useCallback } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
   XMarkIcon,
+  ChevronUpIcon,
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import { navigation } from "./navigationData";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import TextField from "@mui/material/TextField";
@@ -15,6 +16,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../redux/Auth/Action";
 import { getCart } from "../../../redux/Cart/Action";
 import CartDialog from '../CartProduct/CartDialog';
+import { findProductsByName } from "../../../redux/Product/Action";
+import { convertCurrency } from "../../../common/convertCurrency";
+import SearchDialog from './SearchDialog';
+import useDebounce from '../../../hooks/useDebounce';
+import { useNavigationData } from './navigationData';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -31,7 +37,19 @@ export default function Navigation() {
   const openUserMenu = Boolean(anchorEl);
   const accessToken = localStorage.getItem('accessToken')
   const [cartDialogOpen, setCartDialogOpen] = useState(false);
-
+  const [searchValue, setSearchValue] = useState("");
+  const debouncedSearchValue = useDebounce(searchValue, 1500);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const [searchResults, setSearchResults] = useState({
+    content: [],
+    currentPage: 1,
+    totalPages: 1,
+    totalItems: 0
+  });
+  const navigationData = useNavigationData();
+  const [searchDialogOpen, setSearchDialogOpen] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [expandedSection, setExpandedSection] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -53,10 +71,13 @@ export default function Navigation() {
     dispatch(logout())
     navigate('/')
   };
+  const handleCategoryClick = (categoryName) => {
+    setExpandedCategory(expandedCategory === categoryName ? null : categoryName);
+    setExpandedSection(null);
+  };
 
-  const handleCategoryClick = (category, section, item, close) => {
-    navigate(`/${category.id}/${section.id}/${item.id}`);
-    close();
+  const handleSectionClick = (sectionName) => {
+    setExpandedSection(expandedSection === sectionName ? null : sectionName);
   };
 
   const handleCartClick = () => {
@@ -78,6 +99,50 @@ export default function Navigation() {
       dispatch(getCart())
     }
   },[cart.updatedCartItem, cart.deletedCartItem, accessToken])
+
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  useEffect(() => {
+    const searchProducts = async () => {
+      if (debouncedSearchValue.trim()) {
+        try {
+          const results = await dispatch(findProductsByName(debouncedSearchValue, 1, 1000));
+          setSearchResults(results);
+          setShowSearchResults(true);
+        } catch (error) {
+          console.error("Lỗi khi tìm kiếm:", error);
+        }
+      } else {
+        setShowSearchResults(false);
+        setSearchResults({
+          content: [],
+          currentPage: 1,
+          totalPages: 1,
+          totalItems: 0
+        });
+      }
+    };
+
+    searchProducts();
+  }, [debouncedSearchValue, dispatch]);
+
+  const handleSearchProductClick = (product) => {
+    navigate(`/product/${product?.slugProduct}/${product?._id}`);
+    setSearchDialogOpen(false);
+    setSearchValue("");
+    setShowSearchResults(false);
+  };
+
+  const handleCategoryNavigate = (category, section, item) => {
+    if (item && section && category) {
+      const path = `/${category.id}/${section.id}/${item.id}`;
+      navigate(path);
+      setOpen(false);
+    }
+  };
+
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -106,6 +171,7 @@ export default function Navigation() {
               leaveTo="-translate-x-full"
             >
               <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                {/* Header của mobile menu */}
                 <div className="flex px-4 pb-2 pt-5">
                   <button
                     type="button"
@@ -117,127 +183,97 @@ export default function Navigation() {
                   </button>
                 </div>
 
-                {/* Links */}
-                <Tab.Group as="div" className="mt-2">
-                  <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex space-x-8 px-4">
-                      {navigation.categories.map((category) => (
-                        <Tab
-                          key={category.name}
-                          className={({ selected }) =>
-                            classNames(
-                              selected
-                                ? "border-indigo-600 text-indigo-600"
-                                : "border-transparent text-gray-900",
-                              "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium border-none"
-                            )
-                          }
-                        >
-                          {category.name}
-                        </Tab>
-                      ))}
-                    </Tab.List>
-                  </div>
-                  <Tab.Panels as={Fragment}>
-                    {navigation.categories.map((category) => (
-                      <Tab.Panel
-                        key={category.name}
-                        className="space-y-10 px-4 pb-8 pt-10"
+                {/* Navigation Links */}
+                <div className="space-y-2 px-4 py-6">
+                  {/* Categories */}
+                  {navigationData?.categories?.map((category) => (
+                    <div key={category.name} className="border-b">
+                      <button
+                        onClick={() => handleCategoryClick(category.name)}
+                        className="flex w-full items-center justify-between py-3 text-gray-900 hover:text-gray-600"
                       >
-                        <div className="grid grid-cols-2 gap-x-4">
-                          {category.featured.map((item) => (
-                            <div
-                              key={item.name}
-                              className="group relative text-sm"
-                            >
-                              <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img
-                                  src={item.imageSrc}
-                                  alt={item.imageAlt}
-                                  className="object-cover object-center"
-                                />
-                              </div>
-                              <a
-                                href={item.href}
-                                className="mt-6 block font-medium text-gray-900"
+                        <span className="font-medium">{category.name}</span>
+                        <span className="ml-6 flex items-center">
+                          {expandedCategory === category.name ? (
+                            <ChevronUpIcon className="h-5 w-5" />
+                          ) : (
+                            <ChevronDownIcon className="h-5 w-5" />
+                          )}
+                        </span>
+                      </button>
+
+                      {expandedCategory === category.name && (
+                        <div className="space-y-2 pl-4 pb-3">
+                          {category.sections.map((section) => (
+                            <div key={section.name}>
+                              <button
+                                onClick={() => handleSectionClick(section.name)}
+                                className="flex w-full items-center justify-between py-2 text-gray-700 hover:text-gray-900"
                               >
-                                <span
-                                  className="absolute inset-0 z-10"
-                                  aria-hidden="true"
-                                />
-                                {item.name}
-                              </a>
-                              <p aria-hidden="true" className="mt-1">
-                                Shop now
-                              </p>
+                                <span className="font-medium text-lg">{section.name}</span>
+                                <span className="ml-6 flex items-center">
+                                  {expandedSection === section.name ? (
+                                    <ChevronUpIcon className="h-5 w-5" />
+                                  ) : (
+                                    <ChevronDownIcon className="h-5 w-5" />
+                                  )}
+                                </span>
+                              </button>
+
+                              {expandedSection === section.name &&
+                                <ul className="space-y-2 pl-4 pt-2">
+                                  {section.items.map((item) => (
+                                    <li key={item.name}>
+                                      <p
+                                        onClick={() => handleCategoryNavigate(category, section, item)}
+                                        className="text-gray-500 hover:text-gray-700 cursor-pointer text-base py-1"
+                                      >
+                                        {item.name}
+                                      </p>
+                                    </li>
+                                  ))}
+                                </ul>
+                              }
                             </div>
                           ))}
                         </div>
-                        {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <p
-                              id={`${category.id}-${section.id}-heading-mobile`}
-                              className="font-medium text-gray-900"
-                            >
-                              {section.name}
-                            </p>
-                            <ul
-                              role="list"
-                              aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className="mt-6 flex flex-col space-y-6"
-                            >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                  <p className="-m-2 block p-2 text-gray-500">
-                                    {"item.name"}
-                                  </p>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </Tab.Panel>
-                    ))}
-                  </Tab.Panels>
-                </Tab.Group>
+                      )}
+                    </div>
+                  ))}
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
+                  {/* Pages */}
+                  <div className="pt-4">
+                    {navigationData.pages.map((page) => (
                       <a
+                        key={page.name}
                         href={page.href}
-                        className="-m-2 block p-2 font-medium text-gray-900"
+                        className="block py-2 text-gray-700 hover:text-gray-900"
                       >
                         {page.name}
                       </a>
-                    </div>
-                  ))}
-                </div>
-
-                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a
-                      href="/"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
-                      Sign in
-                    </a>
+                    ))}
                   </div>
-                </div> */}
 
-                {/* <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="/" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-base font-medium text-gray-900">
-                      CAD
-                    </span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div> */}
+                  {/* User Actions */}
+                  {!auth.user ? (
+                    <div className="border-t pt-4 space-y-2">
+                      <Link 
+                        to="/login" 
+                        className="block py-2 text-gray-700 hover:text-gray-900"
+                        onClick={() => setOpen(false)}
+                      >
+                        Đăng nhập
+                      </Link>
+                      <Link 
+                        to="/register" 
+                        className="block py-2 text-gray-700 hover:text-gray-900"
+                        onClick={() => setOpen(false)}
+                      >
+                        Đăng ký
+                      </Link>
+                    </div>
+                  ) : null}
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -246,15 +282,15 @@ export default function Navigation() {
 
       <header className="relative bg-white">
         <p className="uppercase flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Đổi trả hàng miễn phí trong vòng 30 ngày
+          Đổi trả hàng miễn phí trong vòng 7 ngày
         </p>
 
-        <nav aria-label="Top" className="mx-auto">
+        <nav aria-label="Top">
           <div className="border-b border-gray-200">
-            <div className="flex h-16 items-center px-11">
+            <div className="flex h-16 items-center px-2 sm:px-4 lg:px-11">
               <button
                 type="button"
-                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="rounded-md bg-white p-1 sm:p-2 text-gray-400 lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="sr-only">Open menu</span>
@@ -262,19 +298,30 @@ export default function Navigation() {
               </button>
 
               {/* Logo */}
-              <div onClick={()=> navigate("/",{ replace: true })} className="ml-4 flex lg:ml-0 cursor-pointer">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                    alt="Shop"
-                    className="h-8 w-8 mr-2"
-                  />
+              <div 
+                onClick={() => navigate("/", { replace: true })} 
+                className="ml-2 sm:ml-4 flex lg:ml-0 cursor-pointer"
+              >
+                <span className="sr-only">Your Company</span>
+                <div className="logo-container relative">
+                  <span className="text-xl sm:text-2xl font-bold flex items-center">
+                    <span className="gin-text bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 
+                      bg-size-200 animate-gradient">
+                      GIN
+                    </span>
+                    <span className="store-text relative text-gray-800">
+                      STORE
+                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-600 to-pink-600"></span>
+                    </span>
+                  </span>
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
+                </div>
               </div>
 
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-10">
                 <div className="flex h-full space-x-8">
-                  {navigation.categories.map((category) => (
+                  {navigationData.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       {({ open, close }) => (
                         <>
@@ -309,7 +356,7 @@ export default function Navigation() {
 
                               <div className="relative bg-white">
                                 <div className="mx-auto max-w-7xl px-8">
-                                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-12">
                                     <div className="col-start-2 grid grid-cols-2 gap-x-8">
                                       {category.featured.map((item) => (
                                         <div
@@ -342,39 +389,28 @@ export default function Navigation() {
                                         </div>
                                       ))}
                                     </div>
-                                    <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
+                                    <div className="row-start-1 grid grid-cols-2 gap-x-8">
                                       {category.sections.map((section) => (
                                         <div key={section.name}>
-                                          <p
-                                            id={`${section.name}-heading`}
-                                            className="font-medium text-gray-900"
-                                          >
+                                          <p className="font-medium text-xl text-gray-900 mb-4">
                                             {section.name}
                                           </p>
-                                          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
                                           <ul
                                             role="list"
-                                            aria-labelledby={`${section.name}-heading`}
-                                            className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                            aria-labelledby={`${category.id}-${section.id}-heading`}
+                                            className="mt-2 space-y-4"
                                           >
                                             {section.items.map((item) => (
-                                              <li
-                                                key={item.name}
-                                                className="flex"
-                                              >
-                                                <p
-                                                  onClick={() =>
-                                                    handleCategoryClick(
-                                                      category,
-                                                      section,
-                                                      item,
-                                                      close
-                                                    )
-                                                  }
-                                                  className="cursor-pointer hover:text-gray-800"
+                                              <li key={item.name} className="flex">
+                                                <button
+                                                  onClick={() => {
+                                                    handleCategoryNavigate(category, section, item);
+                                                    close();
+                                                  }}
+                                                  className="hover:text-gray-800 text-lg"
                                                 >
                                                   {item.name}
-                                                </p>
+                                                </button>
                                               </li>
                                             ))}
                                           </ul>
@@ -391,7 +427,7 @@ export default function Navigation() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {navigationData.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -403,10 +439,75 @@ export default function Navigation() {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center">
+              <div className="ml-auto flex items-center gap-1 sm:gap-2 md:gap-8">
+
+                {/* Search - Desktop */}
+                <div className="hidden md:flex items-center relative">
+                  <div className="flex items-center border rounded-md w-[500px]">
+                    <input
+                      type="text"
+                      value={searchValue}
+                      onChange={(e) => handleSearchChange(e)}
+                      placeholder="Tìm kiếm sản phẩm..."
+                      className="p-2 outline-none w-full"
+                    />
+                    <MagnifyingGlassIcon className="h-6 w-6 text-gray-400 mr-2 flex-shrink-0" />
+                  </div>
+
+                  {/* Dropdown kết quả tìm kiếm */}
+                  {showSearchResults && searchResults.content?.length > 0 && (
+                    <div className="absolute top-full left-0 mt-1 w-[500px] bg-white border rounded-md shadow-lg z-50">
+                      <div className="max-h-[320px] overflow-y-auto">
+                        {searchResults.content.map((product) => (
+                          <div
+                            key={product._id}
+                            className="p-3 hover:bg-gray-100 cursor-pointer flex items-center border-b last:border-b-0"
+                            onClick={() => {
+                              navigate(`/product/${product?.slugProduct}/${product?._id}`);
+                              setShowSearchResults(false);
+                              setSearchValue("");
+                            }}
+                          >
+                            <div className="w-16 h-16 flex-shrink-0">
+                              <img
+                                src={product?.variants[0]?.imageUrl}
+                                alt={product?.title}
+                                className="w-full h-full object-cover rounded-md"
+                              />
+                            </div>
+                            <div className="ml-3 flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">
+                                {product?.title}
+                              </p>
+                              <p className="text-sm text-gray-500 mt-1">
+                                {convertCurrency(product?.discountedPrice)}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className="p-2 text-xs text-gray-500 border-t text-center bg-gray-50">
+                        Tìm thấy {searchResults.content.length} sản phẩm
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Search Icon - Mobile */}
+                <div className="md:hidden">
+                  <button
+                    type="button"
+                    className="p-2"
+                    onClick={() => setSearchDialogOpen(true)}
+                  >
+                    <MagnifyingGlassIcon className="h-6 w-6 text-gray-400" />
+                  </button>
+                </div>
+
                 {/* User menu */}
                 {auth.role ? (
-                  <div className="relative mr-4">
+                  <div className="relative">
                     <Avatar
                       className="text-white"
                       onClick={handleUserClick}
@@ -417,6 +518,8 @@ export default function Navigation() {
                         bgcolor: deepPurple[500],
                         color: "white",
                         cursor: "pointer",
+                        width: { xs: 32, sm: 40 },
+                        height: { xs: 32, sm: 40 },
                       }}
                     >
                       {auth.user?.lastName[0].toUpperCase()}
@@ -431,8 +534,10 @@ export default function Navigation() {
                       }}
                       PaperProps={{
                         style: {
-                          width: '200px',
-                          maxWidth: '100%',
+                          width: 'auto',
+                          minWidth: '160px',
+                          maxWidth: '90vw',
+                          marginTop: '8px',
                         },
                       }}
                       anchorOrigin={{
@@ -441,50 +546,89 @@ export default function Navigation() {
                       }}
                       transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'left',
+                        horizontal: 'right',
+                      }}
+                      slotProps={{
+                        paper: {
+                          className: 'mt-1 sm:mt-2'
+                        }
                       }}
                     >
                       {auth.role === "CUSTOMER" ? [
-                        <MenuItem key="profile" onClick={() => navigate("/user-profile")}>
+                        <MenuItem 
+                          key="profile" 
+                          onClick={() => {
+                            navigate("/user-profile");
+                            handleCloseUserMenu();
+                          }}
+                          className="px-4 py-2 text-sm"
+                        >
                           Profile
                         </MenuItem>,
-                        <MenuItem key="order" onClick={() => navigate("/account/order")}>
+                        <MenuItem 
+                          key="order" 
+                          onClick={() => {
+                            navigate("/account/order");
+                            handleCloseUserMenu();
+                          }}
+                          className="px-4 py-2 text-sm"
+                        >
                           My Order
                         </MenuItem>,
-                        <MenuItem key="logout" onClick={handleLogout}>Logout</MenuItem>
+                        <MenuItem 
+                          key="logout" 
+                          onClick={() => {
+                            handleLogout();
+                            handleCloseUserMenu();
+                          }}
+                          className="px-4 py-2 text-sm"
+                        >
+                          Logout
+                        </MenuItem>
                       ] : [
-                        <MenuItem key="admin" onClick={() => navigate("/admin")}>
+                        <MenuItem 
+                          key="admin" 
+                          onClick={() => {
+                            navigate("/admin");
+                            handleCloseUserMenu();
+                          }}
+                          className="px-4 py-2 text-sm"
+                        >
                           Admin Dashboard
                         </MenuItem>,
-                        <MenuItem key="logout" onClick={handleLogout}>
+                        <MenuItem 
+                          key="logout" 
+                          onClick={() => {
+                            handleLogout();
+                            handleCloseUserMenu();
+                          }}
+                          className="px-4 py-2 text-sm"
+                        >
                           Logout
                         </MenuItem>
                       ]}
                     </Menu>
                   </div>
                 ) : (
-                  <div className="flex gap-2 mr-4">
-                    <Link to="/login" className="text-sm font-medium text-gray-700 hover:text-gray-800 px-2 py-1">Đăng nhập</Link>
-                    <Link to="/register" className="text-sm font-medium text-gray-700 hover:text-gray-800 px-2 py-1">Đăng ký</Link>
+                  <div className="flex gap-2">
+                    <Link to="/login" className="text-sm font-medium text-gray-700 hover:text-gray-800 sm:px-2 py-1">Đăng nhập</Link>
+                    <Link to="/register" className="text-sm font-medium text-gray-700 hover:text-gray-800 sm:px-2 py-1">Đăng ký</Link>
                   </div>
                 )}
 
-                {/* Search */}
-                <div className="flex items-center">
-                  <p onClick={() => navigate("/products/search")} className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-                  </p>
-                </div>
-
                 {/* Cart */}
-                <div className="ml-4 flow-root" onClick={handleCartClick}>
-                  <Button className="group -m-2 flex items-center p-2">
+                <div className="flow-root">
+                  <Button 
+                    onClick={handleCartClick}
+                    className="group -m-2 flex items-center p-2"
+                  >
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart?.cart?.cartItems?.length}</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                      {cart?.cart?.cartItems?.length}
+                    </span>
                   </Button>
                 </div>
               </div>
@@ -495,6 +639,16 @@ export default function Navigation() {
 
       {/* Cart Dialog */}
       <CartDialog open={cartDialogOpen} onClose={handleCloseCartDialog} />
+
+      {/* Search Dialog for Mobile */}
+      <SearchDialog
+        open={searchDialogOpen}
+        onClose={() => setSearchDialogOpen(false)}
+        searchValue={searchValue}
+        onSearchChange={handleSearchChange}
+        searchResults={searchResults}
+        onProductClick={handleSearchProductClick}
+      />
     </div>
   );
 }

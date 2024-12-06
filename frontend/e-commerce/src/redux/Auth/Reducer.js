@@ -1,4 +1,4 @@
-import { CHANGE_PASSWORD_FAILURE, CHANGE_PASSWORD_REQUESET, CHANGE_PASSWORD_SUCCESS, GET_TOKEN_RESET_PASSWORD_FAILURE, GET_TOKEN_RESET_PASSWORD_REQUEST, GET_TOKEN_RESET_PASSWORD_SUCCESS, GET_USER_FAILURE, GET_USER_REQUESET, GET_USER_SUCCESS, LOGIN_FAILURE, LOGIN_REQUESET, LOGIN_SUCCESS, LOGOUT, REFRESH_TOKEN_FAILURE, REFRESH_TOKEN_REQUESET, REFRESH_TOKEN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUESET, REGISTER_SUCCESS, RESET_PASSWORD_REQUEST } from "./ActionType";
+import { CHANGE_PASSWORD_FAILURE, CHANGE_PASSWORD_REQUESET, CHANGE_PASSWORD_SUCCESS, GET_TOKEN_RESET_PASSWORD_FAILURE, GET_TOKEN_RESET_PASSWORD_REQUEST, GET_TOKEN_RESET_PASSWORD_SUCCESS, GET_USER_FAILURE, GET_USER_REQUESET, GET_USER_SUCCESS, LOGIN_FAILURE, LOGIN_REQUESET, LOGIN_SUCCESS, LOGOUT, REFRESH_TOKEN_FAILURE, REFRESH_TOKEN_REQUESET, REFRESH_TOKEN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUESET, REGISTER_SUCCESS, RESET_PASSWORD_REQUEST, UPDATE_ADDRESS_REQUEST, UPDATE_ADDRESS_SUCCESS, UPDATE_ADDRESS_FAILURE } from "./ActionType";
 
 const initialState = {
     user: null,
@@ -43,6 +43,17 @@ export const authReducer = (state = initialState, action) => {
             return {...state, laoding: false, error: action.payload, success: false}
         case LOGOUT:
             return {...initialState}
+        case UPDATE_ADDRESS_REQUEST:
+            return {...state, isLoading: true, error: null}
+        case UPDATE_ADDRESS_SUCCESS:
+            return {
+                ...state, 
+                isLoading: false, 
+                error: null,
+                user: action.payload
+            }
+        case UPDATE_ADDRESS_FAILURE:
+            return {...state, isLoading: false, error: action.payload}
         default:
             return state;
     }

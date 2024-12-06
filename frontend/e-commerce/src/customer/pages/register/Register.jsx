@@ -69,8 +69,6 @@ export default function Register() {
         return;
       }
       setErrors({});
-      
-      console.log('Form data hợp lệ:', formData);
 
       await dispatch(register(formData))
       toast.success('Đăng ký thành công', {

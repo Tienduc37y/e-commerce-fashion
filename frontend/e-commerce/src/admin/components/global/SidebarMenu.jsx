@@ -10,7 +10,7 @@ import 'react-pro-sidebar/dist/css/styles.css'
 import { logout } from '../../../redux/Auth/Action';
 import { useDispatch } from 'react-redux';
 
-const SidebarMenu = () => {
+const SidebarMenu = ({ isCollapsed, setIsCollapsed }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,15 +19,13 @@ const SidebarMenu = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [selected, setSelected] = useState(urlPathName);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     if (isMobile) {
       setIsCollapsed(true);
     }
-  }, [isMobile]);
+  }, [isMobile, setIsCollapsed]);
 
   const handleToggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -41,8 +39,20 @@ const SidebarMenu = () => {
   return (
     <Box
       sx={{
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        zIndex: 1000,
+        transition: 'width 0.3s ease-in-out',
+        width: isCollapsed ? '80px' : '250px',
+        "& .pro-sidebar": {
+          width: '100% !important',
+          minWidth: '100% !important',
+        },
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
+          height: '100vh',
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -56,15 +66,6 @@ const SidebarMenu = () => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
-        ...(isMobile && {
-          position: 'fixed',
-          zIndex: 1000,
-          height: '100%',
-          '& .pro-sidebar': {
-            width: isCollapsed ? '80px' : '250px',
-            minWidth: isCollapsed ? '80px' : '250px',
-          },
-        }),
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
@@ -72,7 +73,7 @@ const SidebarMenu = () => {
         <Menu iconShape="square">
 
           {/* LOGO AND MENU ICON */}
-          {/* 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 */}
+          {/* 🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧 */}
           <MenuItem
             onClick={handleToggleSidebar}
             icon={<MenuOutlinedIcon />}
@@ -104,10 +105,10 @@ const SidebarMenu = () => {
 
                 <Box display="flex" justifyContent="center" alignItems="center">
                   <img
-                    alt="profile-user"
+                    alt="avatar-admin"
                     width="100px"
                     height="100px"
-                    src={`https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/304160329_189120553489433_140427851683381080_n.jpg?stp=cp6_dst-jpg&_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeETaRHkLMkFZC2lii3STvA2K5BtOK198McrkG04rX3wx68XgbR1Vv7Iu9Cth0SI7xeK2KtOSk5dL_yQQZbbhuBq&_nc_ohc=ucLpR2dOeDUQ7kNvgHH6Hww&_nc_ht=scontent.fhan20-1.fna&_nc_gid=ApLDE6yfzeMbvozc63hJG6F&oh=00_AYB9QWrgfkjHO99_Ws7CmkRtxBPt2o8jbpUPcL3sG1A2hA&oe=66FEA84B`}
+                    src='/logoadmin.jpg'
                     style={{ cursor: "pointer", borderRadius: "50%" }}
                   />
                 </Box>

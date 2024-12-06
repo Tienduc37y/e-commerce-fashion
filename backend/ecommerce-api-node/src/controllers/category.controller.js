@@ -1,11 +1,11 @@
 const categoryService = require('../services/category.service')
 
-const findAllCategory = async (req, res) => {
+const findAllThirdLevelCategory = async (req, res) => {
     try {
-        const categories = await categoryService.findAllCategory();
+        const categories = await categoryService.findAllThirdLevelCategory();
         return res.status(200).send({
             status: "200",
-            message: "Lấy danh mục thành công",
+            message: "Lấy danh mục cấp 3 thành công",
             categories: categories
         });
     } catch (error) {
@@ -16,13 +16,93 @@ const findAllCategory = async (req, res) => {
     }
 };
 
-const findAllThirdLevelCategories = async (req, res) => {
+const findMenShirtCategories = async (req, res) => {
     try {
-        const thirdLevelCategories = await categoryService.findAllThirdLevelCategories();
+        const categories = await categoryService.findCategoriesByGenderAndType('nam', 'ao');
         return res.status(200).send({
             status: "200",
-            message: "Lấy danh sách danh mục cấp 3 thành công",
-            thirdLevelCategories: thirdLevelCategories
+            message: "Lấy danh mục áo nam thành công",
+            categories: categories
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+};
+
+const findMenPantCategories = async (req, res) => {
+    try {
+        const categories = await categoryService.findCategoriesByGenderAndType('nam', 'quan');
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy danh mục quần nam thành công",
+            categories: categories
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+};
+
+const findWomenShirtCategories = async (req, res) => {
+    try {
+        const categories = await categoryService.findCategoriesByGenderAndType('nu', 'ao');
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy danh mục áo nữ thành công",
+            categories: categories
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+};
+
+const findWomenPantCategories = async (req, res) => {
+    try {
+        const categories = await categoryService.findCategoriesByGenderAndType('nu', 'quan');
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy danh mục quần nữ thành công",
+            categories: categories
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+};
+
+const findAllTopLevelCategory = async (req, res) => {
+    try {
+        const categories = await categoryService.findAllTopLevelCategory();
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy danh mục cấp 1 thành công",
+            categories: categories
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+};
+
+const findAllSecondLevelCategory = async (req, res) => {
+    try {
+        const categories = await categoryService.findAllSecondLevelCategory();
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy danh mục cấp 2 thành công",
+            categories: categories
         });
     } catch (error) {
         return res.status(500).send({
@@ -33,6 +113,11 @@ const findAllThirdLevelCategories = async (req, res) => {
 };
 
 module.exports = {
-    findAllCategory,
-    findAllThirdLevelCategories
+    findAllTopLevelCategory,
+    findAllSecondLevelCategory,
+    findAllThirdLevelCategory,
+    findMenShirtCategories,
+    findMenPantCategories,
+    findWomenShirtCategories,
+    findWomenPantCategories
 };

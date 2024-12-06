@@ -47,8 +47,7 @@ const updateProduct = async (req, res) => {
     const productId = req.params.id;
     try {
         let productData = req.body;
-        productData.id = productId; // Thêm id vào productData để validate
-
+        productData.id = productId;
         if (typeof productData.variants === 'string') {
             productData.variants = JSON.parse(productData.variants);
         }
@@ -59,13 +58,19 @@ const updateProduct = async (req, res) => {
         if (Array.isArray(productData.variants)) {
             productData.variants = await Promise.all(productData.variants.map(async (variant, index) => {
                 const oldVariant = oldProduct.variants[index];
-                if (req.files && req.files[index]) {
-                    // Nếu có ảnh mới, xóa ảnh cũ và cập nhật URL mới
+                
+                // Tìm file dựa vào fieldname images{index}
+                const variantImage = req.files?.find(file => file.fieldname === `images${index}`);
+
+                if (variantImage) {
+                    // Nếu có ảnh mới được upload cho variant này
                     if (oldVariant && oldVariant.imageUrl) {
+                        // Xóa ảnh cũ trên cloudinary nếu tồn tại
                         const publicId = oldVariant.imageUrl.split('/').slice(-2).join('/').split('.')[0];
                         await cloudinary.uploader.destroy(publicId);
                     }
-                    variant.imageUrl = req.files[index].path;
+                    // Cập nhật URL mới
+                    variant.imageUrl = variantImage.path;
                 } else {
                     // Nếu không có ảnh mới, giữ nguyên ảnh cũ
                     variant.imageUrl = oldVariant ? oldVariant.imageUrl : variant.imageUrl;
@@ -106,27 +111,24 @@ const findProductById = async (req, res) => {
 }
 
 const findProductByName = async (req, res) => {
-    const { productName } = req.body
-    if (!productName) {
-        return res.status(400).send({
-            status: "400",
-            error: "Tên sản phẩm là bắt buộc"
-        })
-    }
+    const { productName, pageNumber = 1, pageSize = 7 } = req.body;
     try {
-        const products = await productService.findProductByName(productName)
-        return res.status(200).send({
+        const result = await productService.findProductByName(productName, pageNumber, pageSize);
+        res.status(200).json({
             status: "200",
-            message: "Lấy sản phẩm thành công",
-            products
-        })
+            message: "Tìm kiếm sản phẩm thành công",
+            products: result.content,
+            currentPage: result.currentPage,
+            totalPages: result.totalPages,
+            totalItems: result.totalItems
+        });
     } catch (error) {
-        return res.status(404).send({
-            status: "404",
-            error: error.message
-        })
+        res.status(400).json({
+            status: "400",
+            message: error.message
+        });
     }
-}
+};
 
 const getAllProducts = async (req, res) => {
     try {
@@ -136,21 +138,6 @@ const getAllProducts = async (req, res) => {
             status: "200",
             message: "Lấy sản phẩm thành công",
             data : products
-        })
-    } catch (error) {
-        return res.status(500).send({
-            status: "500",
-            error: error.message
-        })
-    }
-}
-
-const createMultipleProduct = async (req, res) => {
-    try {
-        const products = await productService.createMultipleProduct(req.body)
-        return res.status(201).send({
-            status: "201",
-            message: "Tạo sản phẩm thành công multiple",
         })
     } catch (error) {
         return res.status(500).send({
@@ -183,7 +170,6 @@ module.exports = {
     updateProduct,
     getAllProducts,
     findProductByName,
-    createMultipleProduct,
     findProductById,
     incrementProductView
 }

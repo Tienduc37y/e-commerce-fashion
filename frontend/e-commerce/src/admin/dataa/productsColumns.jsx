@@ -74,23 +74,6 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
             ),
         },
         {
-            field: "variantInfo",
-            headerName: "Màu sắc và kích thước",
-            flex: 1,
-            renderCell: (params) => (
-                <Box>
-                    {params.row.variants.map((variant, index) => (
-                        <Tooltip key={index} title={`Số lượng: ${variant.sizes.reduce((acc, size) => acc + size.quantityItem, 0)}`}>
-                            <Chip 
-                                label={`${variant.nameColor}: ${variant.sizes.map(s => s.size).join(', ')}`} 
-                                style={{ margin: '2px' }}
-                            />
-                        </Tooltip>
-                    ))}
-                </Box>
-            ),
-        },
-        {
             field: "price",
             headerName: "Giá gốc",
             flex: 0.45,
@@ -110,7 +93,13 @@ const productColumns = (colors, handleDeleteClick, handleEdit) => {
         },
         {
             field: "quantity",
-            headerName: "Tổng số lượng",
+            headerName: "Số lượng",
+            flex: 0.35,
+            cellClassName: "name-column--cell",
+        },
+        {
+            field: "sellQuantity",
+            headerName: "Đã bán",
             flex: 0.35,
             cellClassName: "name-column--cell",
         },

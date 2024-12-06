@@ -1,0 +1,105 @@
+.section-title-container {
+    text-align: center;
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    background: #fff;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.title-underline {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    transform: translateX(-50%);
+    animation: expandLine 1s ease-out forwards;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+.section-title::before {
+    left: -40px;
+    transform: translateX(-20px);
+}
+
+.section-title::after {
+    right: -40px;
+    transform: translateX(20px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hover effect */
+.section-title-container:hover .title-underline {
+    background: linear-gradient(90deg, #f9d423, #ff4e50);
+    transition: background 0.3s ease;
+}
+
+.section-title-container:hover .section-title {
+    color: #ff4e50;
+    transition: color 0.3s ease;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .title-underline {
+        height: 2px;
+    }
+}

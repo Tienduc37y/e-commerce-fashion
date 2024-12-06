@@ -30,10 +30,10 @@ const addressSchema = new mongoose.Schema({
         ref: "users"
     },
     mobile: {
-        type:Number,
-        required:true,
+        type: String,
+        required: true
     }
 })
 
-const Address = mongoose.model("address",addressSchema)
+const Address = mongoose.model("addresses", addressSchema)
 module.exports = Address

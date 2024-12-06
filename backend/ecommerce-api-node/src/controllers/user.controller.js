@@ -50,4 +50,25 @@ const editUser = async (req, res) => {
     }
 };
 
-module.exports = {getUserProfile, editUser}
+const updateAddress = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const addressData = req.body;
+        const updatedUser = await userService.updateAddress(userId, addressData);
+        
+        return res.status(200).send({
+            status: "200",    
+            message: "Cập nhật địa chỉ thành công",
+            data: {
+                user: updatedUser
+            }
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",    
+            error: error.message || "Lỗi server", 
+        });
+    }
+};
+
+module.exports = {getUserProfile, editUser, updateAddress}

@@ -23,7 +23,7 @@ const infoPolicyProduct = [
 
 const PolicyProductSection = () => {
     return (
-        <div className="flex flex-col sm:flex-row sm:justify-start md:justify-center items-start sm:items-center py-4 px-4 lg:px-8 border-b-[1px] border-solid border-gray-300 gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-start md:justify-center items-start sm:items-center py-4 px-4 lg:px-8 border-b-[1px] border-solid border-gray-300 gap-4 overflow-x-hidden">
             {infoPolicyProduct.map((item, index) => (
                 <PolicyProductCard
                     key={index}

@@ -44,7 +44,8 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
         ...product,
         category: product.category || { topLevelCategory: '', secondLevelCategory: '', thirdLevelCategory: '' },
         variants: product.variants || [],
-        quantity: initialQuantity
+        quantity: initialQuantity,
+        sellQuantity: product.sellQuantity || 0
       });
     }
   }, [product]);
@@ -168,7 +169,7 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
         }))));
         editedProduct.variants.forEach((variant, index) => {
           if (variant.imageUrl instanceof File) {
-            formData.append(`images`, variant.imageUrl);
+            formData.append(`images${index}`, variant.imageUrl);
           }
         });
       } else if (key === 'category') {
@@ -393,15 +394,29 @@ const EditProductDialog = ({ open, onClose, product, onSave }) => {
                 </Box>
               ))}
               
-              <TextField
-                margin="normal"
-                label="Tổng số lượng"
-                name="quantity"
-                type="number"
-                value={editedProduct.quantity}
-                disabled
-                variant="outlined"
-              />
+              <Box display="flex" gap={2}>
+                <TextField
+                  margin="normal"
+                  label="Tổng số lượng"
+                  name="quantity"
+                  type="number"
+                  value={editedProduct.quantity}
+                  disabled
+                  variant="outlined"
+                  sx={{ flex: 1 }}
+                />
+                
+                <TextField
+                  margin="normal"
+                  label="Đã bán"
+                  name="sellQuantity"
+                  type="number"
+                  value={editedProduct.sellQuantity}
+                  disabled
+                  variant="outlined"
+                  sx={{ flex: 1 }}
+                />
+              </Box>
             </Box>
           </DialogContent>
           <DialogActions sx={{ padding: 2, backgroundColor: 'background.paper' }}>

@@ -27,7 +27,12 @@ const CartDialog = ({ open, onClose }) => {
   const cart = useSelector(store => store.cart)
 
   const handleUpdateQuantity = (item, newQuantity) => {
-    if (newQuantity >= 1) {
+    const variant = item?.product?.variants?.find(v => v?.color === item?.color);
+    const sizeInfo = variant?.sizes?.find(s => s?.size === item?.size);
+    
+    const maxQuantity = sizeInfo?.quantityItem || 0;
+
+    if (newQuantity >= 1 && newQuantity <= maxQuantity) {
       dispatch(updateCartItem({ cartItemId: item._id, quantity: newQuantity }));
     }
   };
@@ -43,7 +48,7 @@ const CartDialog = ({ open, onClose }) => {
       TransitionComponent={Transition}
       PaperProps={{
         sx: {
-          width: '25%',
+          width: { xs: '100%', sm: '80%', md: '50%', lg: '25%' },
           height: '100%',
           maxWidth: '100%',
           maxHeight: '100%',
@@ -55,7 +60,7 @@ const CartDialog = ({ open, onClose }) => {
         }
       }}
     >
-      <DialogTitle sx={{ m: 0, p: 2 }}>
+      <DialogTitle sx={{ m: 0, p: { xs: 1.5, sm: 2 }, fontSize: { xs: '1.1rem', sm: '1.25rem' } }}>
         Giỏ hàng ({cart?.cart?.cartItems?.length || 0})
         <IconButton
           aria-label="close"
@@ -70,55 +75,97 @@ const CartDialog = ({ open, onClose }) => {
           <CloseIcon />
         </IconButton>
       </DialogTitle>
-      <DialogContent dividers sx={{ p: 2, overflowY: 'auto' }}>
+      <DialogContent dividers sx={{ p: { xs: 1, sm: 2 }, overflowY: 'auto' }}>
         <List>
           {cart?.cart?.cartItems?.map((item) => (
-            <ListItem key={item?._id} sx={{ py: 2, borderBottom: '1px solid #eee', flexDirection: 'column', alignItems: 'stretch' }}>
-              <Box sx={{ display: 'flex', mb: 2 }}>
+            <ListItem key={item?._id} sx={{ 
+              py: { xs: 1.5, sm: 2 }, 
+              px: { xs: 1, sm: 2 },
+              borderBottom: '1px solid #eee', 
+              flexDirection: 'column', 
+              alignItems: 'stretch' 
+            }}>
+              <Box sx={{ display: 'flex', mb: { xs: 1, sm: 2 } }}>
                 <Box 
                   component="img"
                   src={item?.product?.variants?.find(v => v?.color === item?.color)?.imageUrl}
                   alt={item?.product?.title}
                   sx={{ 
-                    width: 80, 
-                    height: 120, 
+                    width: { xs: 60, sm: 80 }, 
+                    height: { xs: 90, sm: 120 }, 
                     objectFit: 'cover',
-                    mr: 2 
+                    mr: { xs: 1, sm: 2 }
                   }}
                 />
                 <Box sx={{ flexGrow: 1 }}>
-                  <Typography sx={{fontSize: 18, fontWeight: 'bold'}}>{item?.product?.title}</Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                  <Typography sx={{
+                    fontSize: { xs: 14, sm: 16, md: 18 }, 
+                    fontWeight: 'bold',
+                    lineHeight: 1.2,
+                    mb: 0.5
+                  }}>
+                    {item?.product?.title}
+                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                     <Box 
                       sx={{ 
-                        width: 20, 
-                        height: 20, 
+                        width: { xs: 16, sm: 20 }, 
+                        height: { xs: 16, sm: 20 }, 
                         borderRadius: '50%', 
                         backgroundColor: item?.color, 
                         mr: 1, 
                         border: '1px solid #ccc' 
                       }} 
                     />
-                    <Typography variant="body2">{item?.product?.variants?.find(v => v?.color === item?.color)?.nameColor}</Typography>
-                    <Typography variant="body2" sx={{ ml: 2 }}>Size: {item?.size}</Typography>
+                    <Typography variant="body2" sx={{ fontSize: { xs: 12, sm: 14 } }}>
+                      {item?.product?.variants?.find(v => v?.color === item?.color)?.nameColor}
+                    </Typography>
+                    <Typography variant="body2" sx={{ ml: 2, fontSize: { xs: 12, sm: 14 } }}>
+                      Size: {item?.size}
+                    </Typography>
                   </Box>
-                  <Typography variant="body2" sx={{mt: 1 }}> 
+                  <Typography variant="body2" sx={{ mt: 0.5, fontSize: { xs: 12, sm: 14 } }}> 
                     <span className='line-through mr-2'>{convertCurrency(item?.price)}</span>
                     <span className='text-red-500 font-bold'>- {item?.discountedPersent}%</span>
-                    </Typography>
-                  <Typography sx={{fontWeight:'bold'}} variant="body1">{convertCurrency(item?.discountedPrice)}</Typography>
+                  </Typography>
+                  <Typography sx={{
+                    fontWeight:'bold',
+                    fontSize: { xs: 14, sm: 16 }
+                  }}>
+                    {convertCurrency(item?.discountedPrice)}
+                  </Typography>
                 </Box>
-                <IconButton edge="end" aria-label="delete" onClick={() => handleRemoveItem(item?._id)} sx={{ alignSelf: 'flex-start' }}>
+                <IconButton 
+                  edge="end" 
+                  aria-label="delete" 
+                  onClick={() => handleRemoveItem(item?._id)} 
+                  sx={{ 
+                    alignSelf: 'flex-start',
+                    p: { xs: 0.5, sm: 0.75 }
+                  }}
+                >
                   <CloseIcon />
                 </IconButton>
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ccc', borderRadius: 4 }}>
-                  <IconButton size="small" onClick={() => handleUpdateQuantity(item, item?.quantity - 1)}>
+                  <IconButton 
+                    size="small" 
+                    onClick={() => handleUpdateQuantity(item, item?.quantity - 1)}
+                  >
                     <RemoveIcon />
                   </IconButton>
                   <Typography sx={{ mx: 2 }}>{item?.quantity}</Typography>
-                  <IconButton size="small" onClick={() => handleUpdateQuantity(item, item?.quantity + 1)}>
+                  <IconButton 
+                    size="small" 
+                    onClick={() => handleUpdateQuantity(item, item?.quantity + 1)}
+                    disabled={item?.quantity >= (
+                      item?.product?.variants
+                        ?.find(v => v?.color === item?.color)
+                        ?.sizes?.find(s => s?.size === item?.size)
+                        ?.quantityItem || 0
+                    )}
+                  >
                     <AddIcon />
                   </IconButton>
                 </Box>
@@ -137,7 +184,7 @@ const CartDialog = ({ open, onClose }) => {
         </Typography>
         <Typography variant="body1" sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, color: 'green' }}>
           <span>Tiết kiệm:</span>
-          <span>-{convertCurrency(cart?.cart?.discounte || 0)}</span>
+          <span>{convertCurrency(cart?.cart?.discounte)}</span>
         </Typography>
         <Typography variant="h6" sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, fontWeight: 'bold' }}>
           <span>Tổng cộng:</span>

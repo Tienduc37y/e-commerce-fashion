@@ -2,10 +2,14 @@ import { Typography, useTheme, Tooltip } from "@mui/material";
 import { MenuItem } from "react-pro-sidebar";
 import { tokens } from "../../theme/theme";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const SidebarMenuItem = ({ menu, selected, setSelected, isCollapsed, onLogout }) => {
 	const themes = useTheme();
 	const color = tokens(themes.palette.mode);
+	const location = useLocation();
+
+	const isActive = location.pathname === menu.path;
 
 	const handleClick = () => {
 		if (onLogout) {
@@ -18,9 +22,11 @@ const SidebarMenuItem = ({ menu, selected, setSelected, isCollapsed, onLogout })
 	const menuItem = (
 		<MenuItem
 			icon={<menu.icon />}
-			active={selected === menu.path}
+			active={isActive}
 			onClick={handleClick}
-			style={{ color: color.primary[100] }}
+			style={{ 
+				color: isActive ? color.blueAccent[500] : color.primary[100],
+			}}
 		>
 			{!isCollapsed && <Typography>{menu.title}</Typography>}
 			{!onLogout && <Link to={menu.path} />}

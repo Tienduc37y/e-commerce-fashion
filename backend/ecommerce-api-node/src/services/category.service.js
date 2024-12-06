@@ -1,13 +1,8 @@
 const Category = require('../models/category.model');
 
-const findAllCategory = async () => {
-    const categories = await Category.find();
-    return categories;
-};
-
-const findAllThirdLevelCategories = async () => {
+const findAllThirdLevelCategory = async () => {
     try {
-        const thirdLevelCategories = await Category.find({ level: 3 })
+        const categories = await Category.find({ level: 3 })
             .populate({
                 path: 'parentCategory',
                 populate: {
@@ -15,46 +10,113 @@ const findAllThirdLevelCategories = async () => {
                 }
             });
 
-        // Sử dụng Set để loại bỏ các bản sao
-        const uniqueCategories = new Set();
-
-        const formattedCategories = thirdLevelCategories.reduce((acc, category) => {
-            const categoryKey = category.slugCategory; // Sử dụng slugCategory làm key duy nhất
-
-            if (!uniqueCategories.has(categoryKey)) {
-                uniqueCategories.add(categoryKey);
-
-                acc.push({
+        // Lọc trùng dựa trên slugCategory
+        const uniqueCategories = [...new Set(categories.map(cat => cat.slugCategory))]
+            .map(slug => {
+                const category = categories.find(cat => cat.slugCategory === slug);
+                return {
                     _id: category._id,
                     name: category.name,
                     slugCategory: category.slugCategory,
                     level: category.level,
-                    secondLevelCategory: {
-                        _id: category.parentCategory._id,
-                        name: category.parentCategory.name,
-                        slugCategory: category.parentCategory.slugCategory,
-                        level: category.parentCategory.level
-                    },
-                    topLevelCategory: {
-                        _id: category.parentCategory.parentCategory._id,
-                        name: category.parentCategory.parentCategory.name,
-                        slugCategory: category.parentCategory.parentCategory.slugCategory,
-                        level: category.parentCategory.parentCategory.level
-                    }
-                });
-            }
+                    parentCategory: category.parentCategory
+                };
+            });
 
-            return acc;
-        }, []);
-
-        return formattedCategories;
+        return uniqueCategories;
     } catch (error) {
-        console.error('Error in findAllThirdLevelCategories:', error);
+        throw error;
+    }
+};
+
+const findCategoriesByGenderAndType = async (gender, type) => {
+    try {
+        const categories = await Category.find({ level: 3 })
+            .populate({
+                path: 'parentCategory',
+                match: { slugCategory: type },
+                populate: {
+                    path: 'parentCategory',
+                    match: { slugCategory: gender }
+                }
+            });
+
+        // Lọc ra các categories có đủ cả parentCategory (type) và parentCategory.parentCategory (gender)
+        const filteredCategories = categories.filter(
+            category => category.parentCategory?.parentCategory
+        );
+
+        // Sử dụng Set để loại bỏ trùng lặp
+        const uniqueCategories = [...new Set(filteredCategories.map(category => category.slugCategory))]
+            .map(slug => {
+                const category = filteredCategories.find(cat => cat.slugCategory === slug);
+                return {
+                    name: category.name,
+                    slugCategory: category.slugCategory
+                };
+            });
+
+        return uniqueCategories;
+    } catch (error) {
+        console.error(`Error in findCategoriesByGenderAndType (${gender}, ${type}):`, error);
+        throw error;
+    }
+};
+
+const findAllTopLevelCategory = async () => {
+    try {
+        const categories = await Category.find({ level: 1 })
+            .select('name slugCategory level');
+
+        // Lọc trùng dựa trên slugCategory
+        const uniqueCategories = [...new Set(categories.map(cat => cat.slugCategory))]
+            .map(slug => {
+                const category = categories.find(cat => cat.slugCategory === slug);
+                return {
+                    _id: category._id,
+                    name: category.name,
+                    slugCategory: category.slugCategory,
+                    level: category.level
+                };
+            });
+
+        return uniqueCategories;
+    } catch (error) {
+        throw error;
+    }
+};
+
+const findAllSecondLevelCategory = async () => {
+    try {
+        const categories = await Category.find({ level: 2 })
+            .populate({
+                path: 'parentCategory',
+                select: 'name slugCategory'
+            })
+            .select('name slugCategory level parentCategory');
+
+        // Lọc trùng dựa trên slugCategory
+        const uniqueCategories = [...new Set(categories.map(cat => cat.slugCategory))]
+            .map(slug => {
+                const category = categories.find(cat => cat.slugCategory === slug);
+                return {
+                    _id: category._id,
+                    name: category.name,
+                    slugCategory: category.slugCategory,
+                    level: category.level,
+                    parentCategory: category.parentCategory
+                };
+            });
+
+        return uniqueCategories;
+    } catch (error) {
         throw error;
     }
 };
 
 module.exports = {
-    findAllCategory,
-    findAllThirdLevelCategories
+    findAllTopLevelCategory,
+    findAllSecondLevelCategory,
+    findAllThirdLevelCategory,
+    findCategoriesByGenderAndType
 };

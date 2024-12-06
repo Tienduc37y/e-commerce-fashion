@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
 import { Radio, RadioGroup, Disclosure } from '@headlessui/react'
 import { Rating, Button, Grid, LinearProgress, Box, Typography, Tooltip,styled, IconButton, FormControl, FormControlLabel } from '@mui/material'
 import {PlusIcon,MinusIcon} from '@heroicons/react/20/solid'
 import ProductReviewCard from './ProductReviewCard'
-import HomeSectionList from '../HomeSectionList/HomeSectionList'
-import { mens_kurta } from '../../../Data/mens_kurta'
 import HomeSectionCard from '../HomeSectionList/HomeSectionCard'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,6 +10,8 @@ import { findProductsById, findProducts, incrementProductView } from '../../../r
 import { convertCurrency } from '../../../common/convertCurrency'
 import { addItemToCart, getCart } from '../../../redux/Cart/Action'
 import { toast, ToastContainer } from 'react-toastify'
+import { getProductReviews } from '../../../redux/Review/Action'
+
 const ColorButton = styled(IconButton)(({ theme, selected }) => ({
   width: '3rem',
   height: '3rem',
@@ -51,6 +50,8 @@ export default function ProductDetails() {
   const params = useParams()
   const dispatch = useDispatch()
   const product = useSelector(store => store.product)
+  const { reviews, loading: reviewLoading } = useSelector(state => state.review);
+
   useEffect(() => {
     if (params.productId) {
       dispatch(findProductsById(params.productId));
@@ -78,6 +79,12 @@ export default function ProductDetails() {
       dispatch(findProducts(data));
     }
   }, [product.product, dispatch]);
+
+  useEffect(() => {
+    if (params.productId) {
+      dispatch(getProductReviews(params.productId));
+    }
+  }, [params.productId, dispatch]);
 
   const uniqueColors = useMemo(() => {
     return product?.product?.variants?.map(variant => variant.color) || [];
@@ -116,10 +123,6 @@ export default function ProductDetails() {
     }
   }, [selectedColor, selectedSize, product]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleColorChange = (color) => {
     setSelectedColor(color);
     setSelectedSize(''); // Reset size when color changes
@@ -142,12 +145,33 @@ export default function ProductDetails() {
         await dispatch(getCart())
         toast.success("Sản phẩm đã được thêm vào giỏ hàng")
       } catch (error) {
-        toast.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng: " + error.message)
+        toast.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng")
       }
     } else {
       toast.warn("Vui lòng chọn kích thước và màu sắc trước khi thêm vào giỏ hàng")
     }
   };
+
+  // Tính toán tổng số rating và rating trung bình
+  const calculateRatings = () => {
+    if (!reviews?.length) return { average: 0, total: 0, ratingCounts: {} };
+    
+    const total = reviews.length;
+    const sum = reviews.reduce((acc, review) => acc + (review?.rating || 0), 0);
+    const average = total > 0 ? sum / total : 0;
+    
+    // Tính số lượng cho mỗi rating
+    const ratingCounts = reviews.reduce((acc, review) => {
+      if (review?.rating) {
+        acc[review.rating] = (acc[review.rating] || 0) + 1;
+      }
+      return acc;
+    }, {});
+    
+    return { average, total, ratingCounts };
+  };
+
+  const { average, total, ratingCounts } = calculateRatings();
 
   return (
     <div className="bg-white py-10 px-4 lg:px-20">
@@ -180,7 +204,7 @@ export default function ProductDetails() {
             {/* Product info */}
             <div className="lg:col-span-1 mx-auto w-full px-4 pb-16 sm:px-6 lg:pb-24 lg:px-12">
             <div className="lg:col-span-2">
-                <h1 className="text-lg lg:text-[3rem] font-semibold text-gray-900">{product.product?.title}</h1>
+                <h1 className="text-2xl lg:text-[2rem] font-semibold text-gray-900">{product.product?.title}</h1>
                 <h1 className='text-[2rem] text-gray-900 mt-2'>{product.product?.brand}</h1>
             </div>
 
@@ -202,11 +226,9 @@ export default function ProductDetails() {
                 {/* Reviews */}
                 <div className="mt-6">
                     <div className='flex items-center space-x-3'>
-                        <Rating name="read-only" value={5.5} readOnly />
-                        <p className='opacity-50 text-sm'>56654 Ratings</p>
-                        <p className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>3870 Reviews</p>
-                        <p className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>{product.product?.view} Views</p>
+                        <p>Số lượng đã bán: {product.product?.sellQuantity}</p>
                     </div>
+                    <p className='mt-6 text-sm font-medium text-indigo-600 hover:text-indigo-500'>{product.product?.view} Lượt xem</p>
                 </div>
 
                 <form className="mt-10">
@@ -288,21 +310,6 @@ export default function ProductDetails() {
                     </span>
                   </Disclosure.Button>
                 </h3>
-                <Disclosure.Panel className="pt-6 w-full">
-                  <div className="space-y-4">
-                      <div className="flex items-center">
-                        <p className="text-sm text-gray-600">
-                          Giặt máy ở chế độ nhẹ, nhiệt độ thường.
-                          Không sử dụng hóa chất tẩy có chứa Clo.
-                          Phơi trong bóng mát.
-                          Sấy khô ở nhiệt độ thấp.
-                          Là ở nhiệt độ thấp 110 độ C.
-                          Giặt với sản phẩm cùng màu.
-                          Không là lên chi tiết trang trí.
-                        </p>
-                      </div>
-                  </div>
-                </Disclosure.Panel>
               </Disclosure>
             </div>
             </div>
@@ -313,30 +320,54 @@ export default function ProductDetails() {
       <div className='border p-5'>
         <Grid container spacing={4}>
           <Grid item xs={12} md={7}>
-            <div className='space-y-5'>
-              {[1, 1, 1, 1, 1].map((item, index) => (
-                <ProductReviewCard key={index} />
+            {/* Thêm div có scroll */}
+            <div className='space-y-5 max-h-[600px] overflow-y-auto pr-4' 
+              style={{ 
+                scrollbarWidth: 'thin',
+                '&::-webkit-scrollbar': {
+                  width: '6px',
+                },
+                '&::-webkit-scrollbar-track': {
+                  background: '#f1f1f1',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: '#888',
+                  borderRadius: '4px',
+                },
+                '&::-webkit-scrollbar-thumb:hover': {
+                  background: '#555',
+                },
+              }}
+            >
+              {reviews?.map((review) => (
+                review && <ProductReviewCard key={review._id} review={review} />
               ))}
             </div>
           </Grid>
           <Grid item xs={12} md={5}>
             <h1 className='text-xl font-semibold pb-1'>Đánh giá</h1>
             <div className='flex items-center space-x-3'>
-              <Rating name='read-only' value={4.6} precision={0.5} readOnly />
-              <p className='opacity-60'>21443 đánh giá</p>
+              <Rating name='read-only' value={average} precision={0.5} readOnly />
+              <p className='opacity-60'>{total} đánh giá</p>
             </div>
             <Box className="mt-5 space-y-4">
-              {['Tốt', 'Khá', 'Trung bình', 'Kém', 'Rất kém'].map((label, index) => (
-                <Grid container className='items-center gap-2' key={index}>
+              {[5, 4, 3, 2, 1].map((rating) => (
+                <Grid container className='items-center gap-2' key={rating}>
                   <Grid item xs={3} sm={2}>
-                    <p>{label}</p>
+                    <p>{rating} sao</p>
                   </Grid>
                   <Grid item xs={9} sm={10}>
                     <LinearProgress
-                      sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                      sx={{ 
+                        bgcolor: "#d0d0d0", 
+                        borderRadius: 4, 
+                        height: 7,
+                        "& .MuiLinearProgress-bar": {
+                          bgcolor: "#faaf00" // Màu vàng cho tất cả rating
+                        }
+                      }}
                       variant='determinate'
-                      value={40}
-                      color='success'
+                      value={total > 0 ? ((ratingCounts[rating] || 0) / total * 100) : 0}
                     />
                   </Grid>
                 </Grid>
@@ -350,7 +381,7 @@ export default function ProductDetails() {
         <section className='pt-10'>
           <h1 className='py-5 text-xl font-semibold'>Sản phẩm cùng loại</h1>
           <div className='flex flex-wrap gap-y-6 -mx-2 lg:-mx-4'>
-            {product.products?.slice(0,8).map((item,index) => <div
+            {product.products?.content?.slice(0,8).map((item,index) => <div
             key={index}
             className="px-2 md:px-4 flex-shrink-0 w-1/2 md:w-1/2 lg:w-1/4"
         >

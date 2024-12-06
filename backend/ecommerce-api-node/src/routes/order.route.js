@@ -5,7 +5,7 @@ const orderController = require('../controllers/order.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 
 router.post("/", authMiddleware, orderController.createOrder)
-router.get("/user", authMiddleware, orderController.orderHistory)
-router.get("/:id", authMiddleware, orderController.findOrderById)
+router.get("/user/history", authMiddleware, orderController.orderHistory)
+router.get("/:id",authMiddleware, orderController.findOrderById)
 
 module.exports = router

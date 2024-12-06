@@ -1,208 +1,109 @@
-export const navigation = {
-    categories: [
-      {
-        id: 'nu',
-        name: 'Nữ',
-        featured: [
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMenCategories, getWomenCategories } from '../../../redux/Category/Action';
+
+export const useNavigationData = () => {
+    const dispatch = useDispatch();
+    const { menCategories, womenCategories } = useSelector(state => state.categories);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                await Promise.all([
+                    dispatch(getMenCategories()),
+                    dispatch(getWomenCategories())
+                ]);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+        fetchCategories();
+    }, [dispatch]);
+
+    const navigationData = {
+        categories: [
+            {
+                id: 'nu',
+                name: 'Nữ',
+                featured: [
+                    {
+                        name: 'Nữ thần 1',
+                        href: '/top-level-category/nu',
+                        imageSrc: 'https://i.pinimg.com/736x/09/71/c0/0971c0964b8a5a0daa1a984eced9bf24.jpg',
+                        imageAlt: 'Nữ thần 1',
+                        id: 'nu-than-1'
+                    },
+                    {
+                        name: 'Nữ thần 2',
+                        href: '/top-level-category/nu',
+                        imageSrc: 'https://i.pinimg.com/736x/e7/33/7a/e7337ab5b7489c218c4910c20067139a.jpg',
+                        imageAlt: 'Nữ thần 2',
+                        id: 'nu-than-2'
+                    }
+                ],
+                sections: [
+                    {
+                        id: 'ao',
+                        name: 'Áo',
+                        items: womenCategories.shirts?.map(cat => ({
+                            name: cat.name,
+                            id: cat.slugCategory
+                        })) || []
+                    },
+                    {
+                        id: 'quan',
+                        name: 'Quần',
+                        items: womenCategories.pants?.map(cat => ({
+                            name: cat.name,
+                            id: cat.slugCategory
+                        })) || []
+                    }
+                ]
+            },
+            {
+                id: 'nam',
+                name: 'Nam',
+                featured: [
+                    {
+                        name: 'Nam thần 1',
+                        href: '/top-level-category/nam',
+                        imageSrc: 'https://i.pinimg.com/736x/69/82/0a/69820ada163f923f3e3b009b56867ec0.jpg',
+                        imageAlt: 'Nam thần 1',
+                        id: 'nam-than-1'
+                    },
+                    {
+                        name: 'Nam thần 2',
+                        href: '/top-level-category/nam',
+                        imageSrc: 'https://i.pinimg.com/736x/f6/af/82/f6af82c40d0b630bd0a927b486f205db.jpg',
+                        imageAlt: 'Nam thần 2',
+                        id: 'nam-than-2'
+                    }
+                ],
+                sections: [
+                    {
+                        id: 'ao',
+                        name: 'Áo',
+                        items: menCategories.shirts?.map(cat => ({
+                            name: cat.name,
+                            id: cat.slugCategory
+                        })) || []
+                    },
+                    {
+                        id: 'quan',
+                        name: 'Quần',
+                        items: menCategories.pants?.map(cat => ({
+                            name: cat.name,
+                            id: cat.slugCategory
+                        })) || []
+                    }
+                ]
+            }
         ],
-        sections: [
-          {
-            id: 'ao',
-            name: 'Áo',
-            items: [
-              { name: 'Áo phông', id:"ao-phong" },
-              { name: 'Áo polo', id:"ao-polo" },
-              { name: 'Áo sơ mi', id: 'ao-so-mi' },
-              { name: 'Áo cộc', id: 'ao-coc' },
-              { name: 'Áo dài tay', id: 'ao-dai-tay' },
-              { name: 'Áo khoác', id: 'ao-khoac' },
-              { name: 'Áo len', id: 'ao-len' },
-            ],
-          },
-          {
-            id: 'quan',
-            name: 'Quần',
-            items: [
-              { name: 'Quần dài', id: 'quan-dai' },
-              { name: 'Quần short', id: 'quan-short' },
-              { name: 'Quần đùi', id: 'quan-dui' },
-            ],
-          },
-          {
-            id: 'khac',
-            name: 'Khác',
-            items: [
-              { name: 'Đồ lót', id: 'do-lot' },
-              { name: 'Tất', id: 'tat' },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'nam',
-        name: 'Nam',
-        featured: [
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-        ],
-        sections: [
-          {
-            id: 'ao',
-            name: 'Áo',
-            items: [
-              { name: 'Áo phông', id:"ao-phong" },
-              { name: 'Áo polo', id:"ao-polo" },
-              { name: 'Áo sơ mi', id: 'ao-so-mi' },
-              { name: 'Áo cộc', id: 'ao-coc' },
-              { name: 'Áo dài tay', id: 'ao-dai-tay' },
-              { name: 'Áo khoác', id: 'ao-khoac' },
-              { name: 'Áo len', id: 'ao-len' },
-            ],
-          },
-          {
-            id: 'quan',
-            name: 'Quần',
-            items: [
-              { name: 'Quần dài', id: 'quan-dai' },
-              { name: 'Quần short', id: 'quan-short' },
-              { name: 'Quần đùi', id: 'quan-dui' },
-            ],
-          },
-          {
-            id: 'khac',
-            name: 'Khác',
-            items: [
-              { name: 'Đồ lót', id: 'do-lot' },
-              { name: 'Tất', id: 'tat' },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'be-trai',
-        name: 'Bé trai',
-        featured: [
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-        ],
-        sections: [
-          {
-            id: 'ao',
-            name: 'Áo',
-            items: [
-              { name: 'Áo phông', id:"ao-phong" },
-              { name: 'Áo polo', id:"ao-polo" },
-              { name: 'Áo sơ mi', id: 'ao-so-mi' },
-              { name: 'Áo cộc', id: 'ao-coc' },
-              { name: 'Áo dài tay', id: 'ao-dai-tay' },
-              { name: 'Áo khoác', id: 'ao-khoac' },
-              { name: 'Áo len', id: 'ao-len' },
-            ],
-          },
-          {
-            id: 'quan',
-            name: 'Quần',
-            items: [
-              { name: 'Quần dài', id: 'quan-dai' },
-              { name: 'Quần short', id: 'quan-short' },
-              { name: 'Quần đùi', id: 'quan-dui' },
-            ],
-          },
-          {
-            id: 'khac',
-            name: 'Khác',
-            items: [
-              { name: 'Đồ lót', id: 'do-lot' },
-              { name: 'Tất', id: 'tat' },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'be-gai',
-        name: 'Bé gái',
-        featured: [
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-          {
-            name: 'Basic Tees',
-            href: '/',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-            imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          },
-        ],
-        sections: [
-          {
-            id: 'ao',
-            name: 'Áo',
-            items: [
-              { name: 'Áo phông', id:"ao-phong" },
-              { name: 'Áo polo', id:"ao-polo" },
-              { name: 'Áo sơ mi', id: 'ao-so-mi' },
-              { name: 'Áo cộc', id: 'ao-coc' },
-              { name: 'Áo dài tay', id: 'ao-dai-tay' },
-              { name: 'Áo khoác', id: 'ao-khoac' },
-              { name: 'Áo len', id: 'ao-len' },
-            ],
-          },
-          {
-            id: 'quan',
-            name: 'Quần',
-            items: [
-              { name: 'Quần dài', id: 'quan-dai' },
-              { name: 'Quần short', id: 'quan-short' },
-              { name: 'Quần đùi', id: 'quan-dui' },
-            ],
-          },
-          {
-            id: 'khac',
-            name: 'Khác',
-            items: [
-              { name: 'Đồ lót', id: 'do-lot' },
-              { name: 'Tất', id: 'tat' },
-            ],
-          },
-        ],
-      },
-    ],
-    pages: [
-      { name: 'Thông tin', id: '/' },
-      { name: 'Liên hệ', id: '/' },
-    ],
-}
+        pages: [
+            { name: 'Thông tin', id: '/' },
+            { name: 'Liên hệ', id: '/' },
+        ]
+    };
+
+    return navigationData;
+};

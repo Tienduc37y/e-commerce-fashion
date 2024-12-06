@@ -26,9 +26,21 @@ const cartSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
+    totalPriceAfterDiscount: {
+        type: Number,
+        default: 0
+    },
     discounte: {
         type: Number,
         required: true,
+        default: 0
+    },
+    promotion: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "promotions",
+    },
+    discountCode: {
+        type: Number,
         default: 0
     }
     

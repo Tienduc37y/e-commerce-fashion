@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
 const userSchema = new mongoose.Schema({
     firstName:{
         type:String,
@@ -24,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     mobile: {
         type: String,
-        require: true
+        required: true
     },
     role: {
         type: String,
@@ -34,7 +33,7 @@ const userSchema = new mongoose.Schema({
     },
     address: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "address",
+        ref: "addresses",
         default: null
     },
     tokens:{
@@ -55,18 +54,6 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    ratings: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "ratings"
-        }
-    ],
-    reviews: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "reviews"
-        }
-    ],
     tokenResetPassword: {
         token:{
             type: String
@@ -75,9 +62,12 @@ const userSchema = new mongoose.Schema({
             type: Date
         }
     },
-    createdAt:{
-        type:Date,
-        default: Date.now()
+    createdAt: {
+        type: Date,
+        default: () => {
+            const now = new Date();
+            return new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        }
     }
 })
 

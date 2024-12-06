@@ -1,99 +1,168 @@
 import React, { useEffect, useState } from 'react';
 import MainCarousel from "../../components/HomeCarousel/MainCarousel";
 import HomeSectionList from "../../components/HomeSectionList/HomeSectionList";
-import NewProductHomeSection from "../../components/NewProductHome/NewProductHomeSection";
 import PolicyProductSection from "../../components/PolicyProduct/PolicyProductSection";
 import { getThirdLevelCategory } from "../../../redux/Category/Action";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../redux/Product/Action";
-import { Skeleton } from '@mui/material';
+import VoucherList from '../../components/VoucherList/VoucherList';
+import NewProductHomeSection from '../../components/NewProductHome/NewProductHomeSection';
+import FeedbackForm from '../../components/Feedback/FeedbackForm';
+import ParallaxSection from '../../components/ParallaxSection/ParallaxSection';
+import BestSellerSection from '../../components/BestSeller/BestSellerSection';
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
 
 const HomePage = () => {
     const dispatch = useDispatch();
     const { categories } = useSelector(store => store.categories);
-    const [categorizedProducts, setCategorizedProducts] = useState([]);
+    const [products, setProducts] = useState({
+        bestSeller: [],
+        categorized: [],
+    });
     const [loading, setLoading] = useState(true);
 
+    // Tạo hàm chung để tạo request data
+    const createRequestData = (sort = '', category = '', pageSize = 8) => ({
+        topLevelCategory: "",
+        secondLevelCategory: "",
+        thirdLevelCategory: category,
+        colors: [],
+        sizes: [],
+        minPrice: 0,
+        maxPrice: 100000000000,
+        minDiscount: 0,
+        sort,
+        pageNumber: 1,
+        pageSize,
+        stock: ""
+    });
+
     useEffect(() => {
-        dispatch(getThirdLevelCategory());
+        const fetchAllData = async () => {
+            try {
+                // Fetch categories trước
+                await dispatch(getThirdLevelCategory());
+            } catch (error) {
+                console.error("Lỗi khi tải danh mục:", error);
+            }
+        };
+        fetchAllData();
     }, [dispatch]);
 
     useEffect(() => {
-        const data = {
-            topLevelCategory: "",
-            secondLevelCategory: "",
-            thirdLevelCategory: "",
-            colors: [],
-            sizes: [],
-            minPrice: 0,
-            maxPrice: 100000000000,
-            minDiscount: 0,
-            sort: "price_low",
-            pageNumber: 1,
-            pageSize: 8,
-            stock: ""
-        };
-        const fetchProductsForCategories = async () => {
-            if (categories && categories.length > 0) {
-                const productsData = await Promise.all(
-                    categories.map(async (category) => {
-                        const products = await dispatch(findProducts({ ...data, thirdLevelCategory: category.slugCategory }));
-                        return { category, products };
-                    })
-                );
-                const filteredProductsData = productsData.filter(item => item.products && item.products.length > 0);
-                setCategorizedProducts(filteredProductsData);
+        const fetchAllProducts = async () => {
+            if (!categories?.length) return;
+
+            try {
+                setLoading(true);
+
+                // Random chọn 5 categories trước khi fetch
+                const randomCategories = shuffleArray([...categories]).slice(0, 5);
+
+                // Fetch song song best seller và sản phẩm theo category
+                const [bestSellerResponse, ...categoryResponses] = await Promise.all([
+                    // Fetch best seller products
+                    dispatch(findProducts(createRequestData('best_selling'))),
+                    
+                    // Chỉ fetch 5 categories đã random
+                    ...randomCategories.map(category => 
+                        dispatch(findProducts(createRequestData('price_low', category.slugCategory)))
+                    )
+                ]);
+
+                // Xử lý kết quả với kiểm tra null/undefined
+                const categorizedProducts = categoryResponses
+                    .filter(response => response && response.content)
+                    .map((response, index) => ({
+                        category: randomCategories[index], // Sử dụng randomCategories thay vì categories
+                        products: response.content || []
+                    }))
+                    .filter(item => item.products.length > 0);
+
+                setProducts({
+                    bestSeller: bestSellerResponse?.content || [],
+                    categorized: categorizedProducts
+                });
+            } catch (error) {
+                console.error("Lỗi khi tải sản phẩm:", error);
+                setProducts({
+                    bestSeller: [],
+                    categorized: []
+                });
+            } finally {
                 setLoading(false);
             }
         };
 
-        fetchProductsForCategories();
+        fetchAllProducts();
     }, [categories, dispatch]);
 
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <MainCarousel/>
-            <PolicyProductSection className="my-4 md:my-6 lg:my-8"/>
-            <div className="container mx-auto pb-8 md:px-8 lg:px-20">
-                <NewProductHomeSection/>
-                {loading ? (
-                    [1,2,3,4].map((item,index)=>(
-                        <div key={index} className="px-4 md:px-0">
-                    {/* Skeleton for the category name */}
-                    <div className="h-8 w-1/3 bg-gray-300 mx-auto mb-4 rounded"></div>
-                
-                    <div className="py-8 md:px-0">
-                        <div className="relative">
-                            <div className="flex flex-wrap gap-y-6 -mx-2 lg:-mx-4">
-                                {/* Skeleton items for loading */}
-                                {Array(8).fill("").map((_, index) => (
-                                    <div key={index} className="w-full md:w-1/2 lg:w-1/4 px-2 lg:px-4">
-                                        {/* Skeleton Card */}
-                                        <div className="bg-white shadow rounded-lg p-4">
-                                            {/* Skeleton Image */}
-                                            <div className="h-40 bg-gray-300 rounded-lg mb-2"></div>
-                                            {/* Skeleton Text Lines */}
-                                            <div className="h-6 w-3/4 bg-gray-300 rounded mb-1"></div>
-                                            <div className="h-6 w-1/2 bg-gray-300 rounded"></div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                            </div>
-                        </div>
-                    ))
+            <div>
+                <PolicyProductSection />
+            </div>
+            <div className="container mx-auto px-4 md:px-8 lg:px-20">
+                <div className="py-6 sm:py-8">
+                    <VoucherList />
+                </div>
 
-    
-                ) : (
-                    categorizedProducts.map(({ category, products }) => (
-                        <HomeSectionList 
-                            key={category._id} 
-                            data={products}
-                            categoryName={category.name}
+                {/* Best Seller Section */}
+                <div className="py-6 sm:py-8">
+                    <div className="mb-6 sm:mb-8">
+                        <BestSellerSection 
+                            data={products.bestSeller} 
+                            loading={loading}
                         />
-                    ))
-                )}
+                    </div>
+                </div>
+
+                <div className="py-6 sm:py-8">
+                    <NewProductHomeSection />
+                </div>
+
+                {/* Categorized Products Sections */}
+                <div className="py-6 sm:py-8">
+                    {loading ? (
+                        <div className="mb-6 sm:mb-8">
+                            <HomeSectionList loading={true} />
+                        </div>
+                    ) : (
+                        products.categorized?.length > 0 && (
+                            products.categorized
+                                .filter(({ products }) => products?.length > 0)
+                                .map(({ category, products }, index, array) => (
+                                    <div 
+                                        key={`${category._id}-${index}`} 
+                                        className={index !== array.length - 1 ? "mb-6 sm:mb-8" : ""}
+                                    >
+                                        <HomeSectionList 
+                                            data={products}
+                                            categoryName={category.name}
+                                            loading={false}
+                                        />
+                                    </div>
+                                ))
+                        )
+                    )}
+                </div>
+            </div>
+            <div className="py-6 sm:py-8">
+                <ParallaxSection />
+            </div>
+            <div className="container mx-auto px-4 md:px-8 lg:px-20">
+                <div className="py-6 sm:py-8">
+                    <div className="border-t border-gray-200">
+                        <FeedbackForm />
+                    </div>
+                </div>
             </div>
         </div>
     );

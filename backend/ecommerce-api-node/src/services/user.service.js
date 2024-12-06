@@ -1,6 +1,7 @@
 const User = require('../models/user.model')
 const bcrypt = require('bcrypt')
 const jwtProvider = require('../config/jwtProvider')
+const Address = require('../models/address.model')
 
 const createUser = async(userData) => {
     try {
@@ -14,7 +15,6 @@ const createUser = async(userData) => {
                 if(!isMobileExist){
                     password = await bcrypt.hash(password,10)
                     const user = await User.create({firstName, lastName, email, username, password, mobile})
-                    console.log("created user ",user)
                     return user
                 }
                 else {
@@ -36,7 +36,7 @@ const createUser = async(userData) => {
 const findUserById = async (userId) => {
     try {
         
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).populate("address");
         if (!user) {
             throw new Error("Không tìm thấy người dùng với id: " + userId);
         }
@@ -131,7 +131,7 @@ const editUser = async (userId, userData) => {
         }
 
         // Nếu không có trùng lặp, tiến hành cập nhật
-        const user = await User.findByIdAndUpdate(userId, userData, { new: true });
+        const user = await User.findByIdAndUpdate(userId, userData, { new: true }).populate("address");
         if (!user) {
             throw new Error("Không tìm thấy người dùng với id: " + userId);
         }
@@ -145,4 +145,46 @@ const findUserByEmail = async (email) => {
     return await User.findOne({ email });
 };
 
-module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, saveResetToken, verifyResetToken, updatePassword, deleteResetToken, editUser, findUserByEmail}
+const updateAddress = async (userId, addressData) => {
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            throw new Error("Không tìm thấy người dùng");
+        }
+
+        let address;
+        if (user.address) {
+            // Nếu user đã có địa chỉ, cập nhật địa chỉ cũ
+            address = await Address.findByIdAndUpdate(
+                user.address,
+                {
+                    firstName: addressData.firstName,
+                    lastName: addressData.lastName,
+                    streetAddress: addressData.streetAddress,
+                    city: addressData.city,
+                    district: addressData.district,
+                    ward: addressData.ward,
+                    mobile: addressData.mobile
+                },
+                { new: true }
+            );
+        } else {
+            // Nếu user chưa có địa chỉ, tạo địa chỉ mới
+            address = new Address(addressData);
+            await address.save();
+            address.user = user;
+            await address.save();
+
+            // Cập nhật reference địa chỉ cho user
+            user.address = address._id;
+            await user.save();
+        }
+
+        // Trả về user đã được populate address
+        return await User.findById(userId).populate("address");
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
+module.exports = {createUser, findUserById, findUserByUserName, getUserProfileByToken, saveResetToken, verifyResetToken, updatePassword, deleteResetToken, editUser, findUserByEmail, updateAddress}

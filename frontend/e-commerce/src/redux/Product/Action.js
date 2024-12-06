@@ -35,8 +35,8 @@ export const findProducts = (reqData) => async(dispatch) => {
     try {
         const res = await axiosInstance.get(`/api/products?color=${colors}&sizes=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&topLevelCategory=${topLevelCategory}&secondLevelCategory=${secondLevelCategory}&thirdLevelCategory=${thirdLevelCategory}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`)
         if(res.data?.status === "200") {
-            dispatch(findProductsSuccess(res.data?.data?.content))
-            return res.data?.data?.content
+            dispatch(findProductsSuccess(res.data?.data))
+            return res.data?.data
         }
         else {
             const errorMessage = res.data?.error;
@@ -87,13 +87,22 @@ export const deleteProductsById = (productId) => async(dispatch) => {
     }
 }
 
-export const findProductsByName = (productName) => async(dispatch) => {
+export const findProductsByName = (productName, pageNumber = 1, pageSize = 7) => async(dispatch) => {
     dispatch(findProductsByNameRequest())
     try {
-        const res = await axiosInstance.post(`/api/products/find_by_name`, { productName: productName })
+        const res = await axiosInstance.post(`/api/products/find_by_name`, { 
+            productName, 
+            pageNumber, 
+            pageSize 
+        })
         if (res.data?.status === "200") {
             dispatch(findProductsByNameSuccess(res.data?.products))
-            return res.data?.products
+            return {
+                content: res.data?.products,
+                currentPage: res.data?.currentPage,
+                totalPages: res.data?.totalPages,
+                totalItems: res.data?.totalItems
+            }
         } else {
             const errorMessage = res.data?.error || "Không tìm thấy sản phẩm";
             dispatch(findProductsByNameFailure(errorMessage));
@@ -101,7 +110,7 @@ export const findProductsByName = (productName) => async(dispatch) => {
         }
     }
     catch (error) {
-        const errorMessage = error.response?.data?.error || error.message || "Đã xảy ra lỗi khi tìm kiếm sản phẩm";
+        const errorMessage = error.response?.data?.error || error.message;
         dispatch(findProductsByNameFailure(errorMessage));
         throw new Error(errorMessage);
     }

@@ -37,3 +37,36 @@ body,
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .pro-sidebar {
+    transition: width 0.3s ease-in-out;
+  }
+  .space-y-5::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .space-y-5::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .space-y-5::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .space-y-5::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  #subiz-wrapper {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 10px !important;
+    z-index: 9999 !important;
+}

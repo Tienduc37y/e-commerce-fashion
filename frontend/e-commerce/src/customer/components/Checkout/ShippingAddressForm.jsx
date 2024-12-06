@@ -3,7 +3,7 @@ import { Grid, TextField, Box, Typography, FormControl, InputLabel, Select, Menu
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { useCities, useDistricts, useWards } from '../../../common/handleCity';
 
-const ShippingAddressForm = ({ onShippingInfoChange }) => {
+const ShippingAddressForm = ({ onShippingInfoChange, initialAddress }) => {
   const [shippingInfo, setShippingInfo] = useState({
     firstName: '',
     lastName: '',
@@ -14,34 +14,67 @@ const ShippingAddressForm = ({ onShippingInfoChange }) => {
     streetAddress: ''
   });
 
-  const { cities, selectedCityId, handleCityChange } = useCities();
-  const { districts, selectedDistrictId, handleDistrictChange } = useDistricts(selectedCityId);
+  const [errors, setErrors] = useState({});
+  const { cities, selectedCityId, handleCityChange, setSelectedCityId } = useCities();
+  const { districts, selectedDistrictId, handleDistrictChange, setSelectedDistrictId } = useDistricts(selectedCityId);
   const { wards } = useWards(selectedDistrictId);
 
+  // Set initial data và xử lý city
+  useEffect(() => {
+    if (initialAddress && cities.length > 0) {
+      setShippingInfo({
+        firstName: initialAddress.firstName || '',
+        lastName: initialAddress.lastName || '',
+        mobile: initialAddress.mobile || '',
+        city: initialAddress.city || '',
+        district: initialAddress.district || '',
+        ward: initialAddress.ward || '',
+        streetAddress: initialAddress.streetAddress || ''
+      });
+
+      // Tìm và set city ID
+      const cityFound = cities.find(city => city.province_name === initialAddress.city);
+      if (cityFound) {
+        setSelectedCityId(cityFound.province_id);
+      }
+    }
+  }, [initialAddress, cities, setSelectedCityId]);
+
+  // Xử lý district khi có districts data
+  useEffect(() => {
+    if (initialAddress?.district && districts.length > 0) {
+      const districtFound = districts.find(d => d.district_name === initialAddress.district);
+      if (districtFound) {
+        setSelectedDistrictId(districtFound.district_id);
+      }
+    }
+  }, [initialAddress?.district, districts, setSelectedDistrictId]);
+
+  const handleCitySelect = (e) => {
+    const cityName = e.target.value;
+    setShippingInfo(prev => ({ ...prev, city: cityName, district: '', ward: '' }));
+    handleCityChange(e);
+  };
+
+  const handleDistrictSelect = (e) => {
+    const districtName = e.target.value;
+    setShippingInfo(prev => ({ ...prev, district: districtName, ward: '' }));
+    handleDistrictChange(e);
+  };
+
+  const handleWardSelect = (e) => {
+    const wardName = e.target.value;
+    setShippingInfo(prev => ({ ...prev, ward: wardName }));
+  };
+
+  // Thông báo thay đổi cho component cha
   useEffect(() => {
     onShippingInfoChange(shippingInfo);
   }, [shippingInfo, onShippingInfoChange]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setShippingInfo(prevInfo => ({ ...prevInfo, [name]: value }));
-  };
-
-  const handleCitySelect = (e) => {
-    const cityName = e.target.value;
-    setShippingInfo(prevInfo => ({ ...prevInfo, city: cityName, district: '', ward: '' }));
-    handleCityChange(e);
-  };
-
-  const handleDistrictSelect = (e) => {
-    const districtName = e.target.value;
-    setShippingInfo(prevInfo => ({ ...prevInfo, district: districtName, ward: '' }));
-    handleDistrictChange(e);
-  };
-
-  const handleWardSelect = (e) => {
-    const wardName = e.target.value;
-    setShippingInfo(prevInfo => ({ ...prevInfo, ward: wardName }));
+    setShippingInfo(prev => ({ ...prev, [name]: value }));
   };
 
   return (

@@ -11,6 +11,12 @@ const reviewSchema = new mongoose.Schema({
         ref: "products",
         required: true
     },
+    rating: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 5
+    },
     imgUrl: [{
         type: String,
     }],
@@ -18,9 +24,16 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    reply: {
+        type: String,
+        default: null
+    },
     createdAt: {
-        type:Date,
-        default: Date.now()
+        type: Date,
+        default: () => {
+            const now = new Date();
+            return new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        }
     }
 })
 

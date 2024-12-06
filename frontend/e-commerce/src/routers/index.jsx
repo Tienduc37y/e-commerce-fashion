@@ -16,94 +16,138 @@ import AdminDashBoard from "../admin/pages/AdminDashboard"
 import ProductsTable from "../admin/pages/ProductsTable";
 import CustomersTable from "../admin/pages/CustomersTable";
 import OrdersTable from "../admin/pages/OrdersTable";
-import CreateProduct from "../admin/pages/CreateProduct";
-import AuthMiddleware from "../middleware/AuthMiddleware";
-import OrderSuccess from "../customer/components/Order/OrderSuccess";
+import AdminMiddleware from "../middleware/AdminMiddleware";
+import ReviewProduct from "../customer/components/Review/ReviewProduct";
+import PromotionsTable from "../admin/pages/PromotionsTable";
+import BannersTable from "../admin/pages/BannersTable";
+import ThirdLevelProduct from "../customer/components/Product/ThirdLevelProduct";
+import TopLevelProduct from "../customer/components/Product/TopLevelProduct";
+import ScrollWrapper from "../customer/components/ScrollToTop/ScrollToTop";
+import SizeGuideDetails from "../customer/components/SizeGuide/SizeGuideDetails";
+import ReviewFeedback from "../admin/pages/ReviewFeedback";
+import AuthorizedMiddleware from "../middleware/AuthorizedMiddleware";
+
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <BaseLayout />,
+    element: <ScrollWrapper />,
     children: [
       {
-        path:"/",
-        element: <HomePage />,
+        path: "/",
+        element: <BaseLayout />,
+        children: [
+          {
+            path: "/",
+            element: <HomePage />,
+          },
+          {
+            element: <AuthorizedMiddleware />,
+            children: [
+              {
+                path: "/user-profile",
+                element: <UserProfile/>
+              },
+              {
+                path: "account/order",
+                element: <Order />,
+              },
+              {
+                path: "account/order/:orderId",
+                element: <OrderDetails />,
+              },
+              {
+                path: "review/:productId",
+                element: <ReviewProduct />,
+              },
+            ]
+          },
+          {
+            path: ":levelOne/:levelTwo/:levelThree",
+            element: <Product />,
+          },
+          {
+            path: "product/:slugProduct/:productId",
+            element: <ProductDetails />,
+          },
+          {
+            path: "/third-level-category/:chuoi",
+            element: <ThirdLevelProduct />
+          },
+          {
+            path: "/top-level-category/:chuoi",
+            element: <TopLevelProduct />
+          },
+          {
+            path: "/size-guide",
+            element: <SizeGuideDetails />
+          }
+        ],
       },
       {
-        path: "/user-profile",
-        element: <UserProfile/>
+        path: "/",
+        element: <AuthorizedMiddleware/>,
+        children: [
+          {
+            path: "/checkout",
+            element: <Checkout />
+          }
+        ],
       },
       {
-        path: "product/:slugProduct/:productId",
-        element: <ProductDetails />,
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: "account/order",
-        element: <Order />,
+        path: "/register",
+        element: <Register />,
       },
       {
-        path: "account/order/:orderId",
-        element: <OrderDetails />,
+        path: "/forgot-password",
+        element: <ForgotPassword />,
       },
       {
-        path: ":levelOne/:levelTwo/:levelThree",
-        element: <Product />,
-      },
-    ],
-  },
-  {
-    path: "checkout",
-    element: <Checkout />,
-  },
-  {
-    path:"/login",
-    element:<Login/>
-  },
-  {
-    path:"/register",
-    element:<Register/>
-  },
-  {
-    path:"/forgot-password",
-    element:<ForgotPassword/>
-  },
-  {
-    path: "/order-success/:orderId",
-    element: <OrderSuccess />,
-  },
-  {
-    path:"/admin",
-    element: <AuthMiddleware />,
-    children: [
-      {
-        path: "",
-        element: <Admin />,
+        path: "/admin",
+        element: <AdminMiddleware />,
         children: [
           {
             path: "",
-            element: <AdminDashBoard/>
-          },
-          {
-            path: "products",
-            element: <ProductsTable/>
-          },
-          {
-            path: "customers",
-            element: <CustomersTable/>
-          },
-          {
-            path: "orders",
-            element: <OrdersTable/>
-          },
-          {
-            path: "product/create",
-            element: <CreateProduct/>
-          },
+            element: <Admin />,
+            children: [
+              {
+                path: "",
+                element: <AdminDashBoard/>
+              },
+              {
+                path: "products",
+                element: <ProductsTable/>
+              },
+              {
+                path: "customers",
+                element: <CustomersTable/>
+              },
+              {
+                path: "orders",
+                element: <OrdersTable/>
+              },
+              {
+                path: "promotions",
+                element: <PromotionsTable/>
+              },
+              {
+                path: "reviews",
+                element: <ReviewFeedback/>
+              },
+              {
+                path: "banners",
+                element: <BannersTable/>
+              }
+            ]
+          }
         ]
-      }
-    ]
-  },
-  {
-    path:"*",
-    element:<PageNotFound/>
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
+      },
+    ],
   },
 ]);

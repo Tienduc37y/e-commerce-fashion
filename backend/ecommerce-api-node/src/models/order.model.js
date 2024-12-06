@@ -15,15 +15,20 @@ const orderSchema = new mongoose.Schema({
     orderDate: {
         type: Date,
         required: true,
-        default: Date.now()
+        default: () => {
+            const now = new Date();
+            // now.setMonth(now.getMonth()- 1);
+            // now.setDate(now.getDate() - 2);
+            return new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        }
     },
-    deliveryDate: {
+    completeOrderDate: {
         type: Date,
     },
     shippingAddress: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "address"
+            ref: "addresses"
         },
         address: {
             firstName:{
@@ -51,8 +56,8 @@ const orderSchema = new mongoose.Schema({
                 required:true
             },
             mobile: {
-                type:Number,
-                required:true,
+                type:String,
+                required:true
             }
         }
     },
@@ -62,41 +67,60 @@ const orderSchema = new mongoose.Schema({
             required: true,
             enum: ['COD', 'ZALOPAY'],
         },
-        transactionId: {
-            type: String
+        zalopayTransactionId: {
+            type: String,
+            default: null
         },
-        paymentId: {
-            type: String
-        },
+        statusMessage: String,
+        subReturnCode: String,
+        subReturnMessage: String,
         paymentStatus: {
             type: String,
-            enum: ['Pending', 'Completed'],
+            enum: ['Đang chờ thanh toán', 'Đang trong quá trình thanh toán', 'Đã thanh toán', 'Chưa thanh toán', 'Lỗi thanh toán'],
+            default: 'Đang chờ thanh toán'
+        },
+        isProcessing: {
+            type: String,
+            enum: ["Chưa xử lý", "Đang xử lý", "Đã xử lý"],
+            default: "Chưa xử lý"
+        },
+        appTransactionId: {
+            type: String,
+            default: null
         }
     },
     totalPrice: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     totalDiscountedPrice: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     totalItem: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     discounte: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     orderStatus: {
         type: String,
-        required: true,
-        default: "Pending"
+        enum: ["Đặt hàng thành công", "Đang chờ xử lý", "Xác nhận đơn hàng", "Đang giao hàng", "Đã giao hàng", "Đã hủy", "Đã thanh toán", "Đã hoàn thành","Hoàn trả hàng"],
+        default: "Đặt hàng thành công"
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    promotion: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "promotions"
+    },
+    discountCode: {
+        type: Number,
+        default: 0
     }
 })
 

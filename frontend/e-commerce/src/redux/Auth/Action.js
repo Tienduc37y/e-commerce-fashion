@@ -1,6 +1,6 @@
 import axiosInstance from "../../axios/api"
 import { removeAccessToken, removeRefreshToken, removeRole, setAccessToken, setRefreshToken, setRole} from "../../utils/authFunction"
-import { GET_TOKEN_RESET_PASSWORD_FAILURE, GET_TOKEN_RESET_PASSWORD_REQUEST, GET_TOKEN_RESET_PASSWORD_SUCCESS, GET_USER_FAILURE, GET_USER_REQUESET, GET_USER_SUCCESS, LOGIN_FAILURE, LOGIN_REQUESET, LOGIN_SUCCESS, LOGOUT, REFRESH_TOKEN_FAILURE, REFRESH_TOKEN_REQUESET, REFRESH_TOKEN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUESET, REGISTER_SUCCESS, RESET_PASSWORD_FAILURE, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, CHANGE_PASSWORD_FAILURE, CHANGE_PASSWORD_REQUESET, CHANGE_PASSWORD_SUCCESS } from "./ActionType"
+import { GET_TOKEN_RESET_PASSWORD_FAILURE, GET_TOKEN_RESET_PASSWORD_REQUEST, GET_TOKEN_RESET_PASSWORD_SUCCESS, GET_USER_FAILURE, GET_USER_REQUESET, GET_USER_SUCCESS, LOGIN_FAILURE, LOGIN_REQUESET, LOGIN_SUCCESS, LOGOUT, REFRESH_TOKEN_FAILURE, REFRESH_TOKEN_REQUESET, REFRESH_TOKEN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUESET, REGISTER_SUCCESS, RESET_PASSWORD_FAILURE, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, CHANGE_PASSWORD_FAILURE, CHANGE_PASSWORD_REQUESET, CHANGE_PASSWORD_SUCCESS, UPDATE_ADDRESS_REQUEST, UPDATE_ADDRESS_SUCCESS, UPDATE_ADDRESS_FAILURE } from "./ActionType"
 
 const loginRequest = () => ({type:LOGIN_REQUESET})
 const loginSuccess = (user) => ({type:LOGIN_SUCCESS,payload:user})
@@ -32,6 +32,9 @@ const changePasswordFailure = (error) => ({type:CHANGE_PASSWORD_FAILURE,payload:
 
 const logOut = () => ({type:LOGOUT,payload: null})
 
+const updateAddressRequest = () => ({type: UPDATE_ADDRESS_REQUEST})
+const updateAddressSuccess = (user) => ({type: UPDATE_ADDRESS_SUCCESS, payload: user})
+const updateAddressFailure = (error) => ({type: UPDATE_ADDRESS_FAILURE, payload: error})
 
 export const login = (userData) => async (dispatch) => {
     dispatch(loginRequest());
@@ -155,6 +158,24 @@ export const changePassword = (password) => async (dispatch) => {
         }
     } catch (error) {
         dispatch(changePasswordFailure(error.message))
+        throw new Error(error.response?.data?.error || error.message)
+    }
+}
+
+export const updateAddress = (userId, addressData) => async (dispatch) => {
+    dispatch(updateAddressRequest())
+    try {
+        const res = await axiosInstance.put(`/api/users/update_address/${userId}`, addressData)
+        
+        if(res.data?.status === "200") {
+            const updatedUser = res.data?.data?.user
+            dispatch(updateAddressSuccess(updatedUser))
+            return updatedUser
+        } else {
+            throw new Error(res.data?.error)
+        }
+    } catch (error) {
+        dispatch(updateAddressFailure(error.message))
         throw new Error(error.response?.data?.error || error.message)
     }
 }

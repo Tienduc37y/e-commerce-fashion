@@ -59,7 +59,7 @@ export default function Product() {
   const stockValue = searchParams.get('stock')
   const [selectedPrice, setSelectedPrice] = useState('');
   const [selectedDiscount, setSelectedDiscount] = useState('');
-  const [inStock, setInStock] = useState(false);
+  const [selectedStock, setSelectedStock] = useState(searchParams.get('stock') || '');
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
     let filterValue = searchParams.get(sectionId);
@@ -101,7 +101,7 @@ export default function Product() {
     const searchParams = new URLSearchParams(location.search);
     setSelectedPrice(searchParams.get('price') || '');
     setSelectedDiscount(searchParams.get('discount') || '');
-    setInStock(searchParams.get('stock') === 'true');
+    setSelectedStock(searchParams.get('stock') || '');
 
     const [minPrice, maxPrice] = priceValue === null ? [0, 100000000] : priceValue.split("-").map(Number);
 
@@ -116,7 +116,8 @@ export default function Product() {
       minDiscount: discountValue || 0,
       sort: sortValue || "price_low",
       pageNumber: pageNumberValue - 1 || 1,
-      pageSize: 10
+      pageSize: 10,
+      stock: searchParams.get('stock') || "" // Đảm bảo gửi đúng giá trị stock
     };
 
     dispatch(findProducts(data));
@@ -124,7 +125,7 @@ export default function Product() {
 
   const uniqueColors = useMemo(() => {
     const colorMap = new Map();
-    product.products?.forEach(product => {
+    product.products?.content?.forEach(product => {
       product.variants.forEach(variant => {
         if (!colorMap.has(variant.slugColor)) {
           colorMap.set(variant.slugColor, { value: variant.slugColor, label: variant.nameColor });
@@ -132,7 +133,7 @@ export default function Product() {
       });
     });
     return Array.from(colorMap.values());
-  }, [product.products]);
+  }, [product.products?.content]);
 
   // Cập nhật phần filters
   const updatedFilters = useMemo(() => {
@@ -164,25 +165,27 @@ export default function Product() {
   };
 
   const resetFilters = () => {
-    const basePath = `/${params.levelOne}/${params.levelTwo}/${params.levelThree}`;
     setSelectedPrice('');
     setSelectedDiscount('');
-    setInStock(false);
-    navigate(basePath);
+    setSelectedStock('');
+    const searchParams = new URLSearchParams();
+    navigate({ search: searchParams.toString() });
   };
 
   const handleStockChange = (e) => {
     const searchParams = new URLSearchParams(location.search);
-    const checked = e.target.checked;
-
-    if (checked) {
-      searchParams.set('stock', 'true');
+    const value = e.target.value;
+    
+    if (value) {
+      searchParams.set('stock', value);
+      setSelectedStock(value);
     } else {
       searchParams.delete('stock');
+      setSelectedStock('');
     }
 
-    setInStock(checked);
-    navigate({search: searchParams.toString()});
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
   };
 
   return (
@@ -301,7 +304,7 @@ export default function Product() {
                   </Disclosure>
                 ))}
                 {singleFilter.map((section) => (
-                  <Disclosure key={section.id} as="div" className="border-b border-gray-200 py-6">
+                  <Disclosure key={section.id} as="div" className="border-b border-gray-200 px-4 py-6">
                     <h3 className="-my-3 flow-root">
                       <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
                         {/* <span className="font-medium">{section.name}</span> */}
@@ -317,7 +320,15 @@ export default function Product() {
                         <FormControl>
                           <RadioGroup
                             aria-labelledby="demo-radio-buttons-group-label"
-                            value={section.id === 'price' ? selectedPrice : selectedDiscount}
+                            value={
+                              section.id === 'price' 
+                                ? selectedPrice 
+                                : section.id === 'discount'
+                                  ? selectedDiscount
+                                  : section.id === 'stock'
+                                    ? selectedStock
+                                    : ''
+                            }
                             name="radio-buttons-group"
                           >
                             {section.options.map((option) => (
@@ -493,7 +504,15 @@ export default function Product() {
                         <FormControl>
                           <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
-                                value={section.id === 'price' ? selectedPrice : selectedDiscount}
+                                value={
+                                  section.id === 'price' 
+                                    ? selectedPrice 
+                                    : section.id === 'discount'
+                                      ? selectedDiscount
+                                      : section.id === 'stock'
+                                        ? selectedStock
+                                        : ''
+                                }
                                 name="radio-buttons-group"
                               >
                             {section.options.map((option) => (
@@ -527,9 +546,9 @@ export default function Product() {
 
               {/* Product grid */}
               <div className="col-span-2 lg:col-span-4 w-full">
-                {product.products && product.products.length > 0 ? (
+                {product.products?.content && product.products?.content.length > 0 ? (
                   <div className='flex flex-wrap justify-start bg-white py-5 gap-y-5'>
-                    {product.products.map((item, index) => (
+                    {product.products?.content.map((item, index) => (
                       <div
                         key={index}
                         className="px-2 flex-shrink-0 w-1/2 md:w-1/3 lg:w-1/4"

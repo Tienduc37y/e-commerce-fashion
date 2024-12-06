@@ -1,4 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 const Footer = () => {
+  const navigate = useNavigate();
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
     return (
       <footer className="bg-white text-gray-800">
   <div className="px-8 grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-b border-gray-300 py-8">
@@ -37,14 +43,14 @@ const Footer = () => {
       <ul className="space-y-2">
         <li><a href="#" className="hover:text-gray-600">Hỏi đáp</a></li>
         <li><a href="#" className="hover:text-gray-600">Chính sách vận chuyển</a></li>
-        <li><a href="#" className="hover:text-gray-600">Gợi ý tìm size</a></li>
+        <li><a href='/size-guide' className="hover:text-gray-600">Gợi ý tìm size</a></li>
       </ul>
     </div>
 
     <div>
       <h6 className="font-bold mb-4">PHƯƠNG THỨC THANH TOÁN</h6>
       <div className="flex space-x-4">
-        <img className="w-15 h-10" src="vnpay-seeklogo.svg" alt="Payment Method 1" />
+        <img className="w-15 h-10" src="zalopay-logo.png" alt="Payment Method 1" />
       </div>
     </div>
   </div>

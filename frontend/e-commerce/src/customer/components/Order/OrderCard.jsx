@@ -1,41 +1,60 @@
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import React from 'react'
-import AdjustIcon from '@mui/icons-material/Adjust';
 import { useNavigate } from 'react-router-dom';
+import { convertCurrency, convertDate } from '../../../common/convertCurrency';
 
-const OrderCard = () => {
+const OrderCard = ({ order }) => {
     const navigate = useNavigate()
-  return (
-    <div onClick={() => navigate(`/account/order/${5}`)} className='p-5 shadow-lg hover:shadow-2xl border cursor-pointer'>
-        <Grid container spacing={1} sx={{justifyContent:"space-between"}}>
-            <Grid item xs={6}>
-                <div className='flex cursor-pointer'>
-                    <img className='w-[5rem] h-[5rem] object-cover object-top' src="https://canifa.com/img/500/750/resize/6/t/6ts24s020-fw276-thumb.webp" alt="" />
-                    <div className='ml-5 space-y-2'>
-                        <p className='mb-2'>Áo sơ mi đẹp v</p>
-                        <p className='opacity-50 text-sm font-semibold'>Size: M</p>
-                        <p className='opacity-50 text-sm font-semibold'>Màu sắc: Black</p>
+    
+    return (
+        <div onClick={() => navigate(`/account/order/${order?._id}`)} className='p-4 shadow-lg hover:shadow-2xl border cursor-pointer'>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <div className='flex items-center mb-4'>
+                        <img 
+                            className='w-20 h-20 object-cover object-top mr-4' 
+                            src={order?.orderItems[0]?.product?.variants[0]?.imageUrl} 
+                            alt="" 
+                        />
+                        <div>
+                            <Typography className='mb-2 font-semibold'>{order?._id}</Typography>
+                            <Typography className='text-sm'>
+                                Số lượng sản phẩm: {order?.orderItems?.length}
+                            </Typography>
+                        </div>
                     </div>
-                </div>
+                </Grid>
+                
+                <Grid item xs={12}>
+                    <Typography className='mb-2'>
+                        Tổng tiền: {convertCurrency(order?.totalDiscountedPrice)}
+                    </Typography>
+                    {order?.promotion && 
+                        <Typography className='mb-2'>
+                            Voucher: {order?.promotion?.code}
+                        </Typography>
+                    }
+                    <Typography className='mb-2'>
+                        Hình thức thanh toán: {order?.paymentDetails?.paymentMethod}
+                    </Typography>
+                </Grid>
+                
+                <Grid item xs={12}>
+                    <Typography className='mb-2'>
+                        Ngày đặt hàng: {convertDate(order?.orderDate)}
+                    </Typography>
+                    <Typography className='text-sm font-semibold'>
+                        Trạng thái: {order?.orderStatus}
+                    </Typography>
+                    {order?.completeOrderDate && (
+                        <Typography className='text-sm'>
+                            Ngày hoàn thành: {convertDate(order?.completeOrderDate)}
+                        </Typography>
+                    )}
+                </Grid>
             </Grid>
-            <Grid xs={2}>
-                <p>200.000đ</p>
-            </Grid>
-            <Grid xs={4}>
-                {true ? <div>
-                    <p>
-                    <AdjustIcon sx={{width:"15px",height:"15px"}} className='text-green-600 mr-2'/>
-                    <span>Đã chuyển vào ngày 12 tháng 8 năm 2024</span>
-                </p>
-                    <span className='text-sm'>Đơn hàng đã được giao</span>
-                </div> : ""}
-                {false ? <p>
-                    <span>Thời gian giao dự kiến vào ngày 12 tháng 8 năm 2024</span>
-                </p> : ""}
-            </Grid>
-        </Grid>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default OrderCard

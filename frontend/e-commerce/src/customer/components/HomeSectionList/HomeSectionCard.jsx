@@ -25,6 +25,11 @@ const StyledCard = styled(Card)(({ theme }) => ({
   '&:hover .add-to-cart': {
     opacity: 1,
   },
+  [theme.breakpoints.down('sm')]: {
+    '& .MuiCardContent-root': {
+      padding: '8px',
+    }
+  }
 }));
 
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
@@ -46,6 +51,9 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     objectFit: 'cover',
     objectPosition: 'top',
     transition: 'transform 0.3s ease-in-out',
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: '15rem',
   },
 }));
 
@@ -74,6 +82,24 @@ const ColorButton = styled(IconButton)(({ theme, selected, color }) => ({
   backgroundColor: color,
   border: selected ? `2px solid ${theme.palette.primary.main}` : '2px solid #000',
   margin: theme.spacing(0, 0.5),
+}));
+
+// Thêm styled component mới cho view count
+const ViewCount = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  left: 10,
+  top: 10,
+  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  color: 'white',
+  padding: '4px 8px',
+  borderRadius: '4px',
+  fontSize: '0.75rem',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  backdropFilter: 'blur(4px)',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  zIndex: 1,
 }));
 
 const HomeSectionCard = ({ product }) => {
@@ -113,7 +139,6 @@ const HomeSectionCard = ({ product }) => {
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
-    console.log(`Selected size: ${size}`);
     
     const cartItem = {
       productId: product._id,
@@ -125,27 +150,13 @@ const HomeSectionCard = ({ product }) => {
     dispatch(addItemToCart(cartItem))
       .then(() => {
         dispatch(getCart())
-        toast.success('Sản phẩm đã được thêm vào giỏ hàng', {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.success('Sản phẩm đã được thêm vào giỏ hàng');
         setSelectedSize(null);
         setShowSizes(false);
       })
       .catch((error) => {
         console.error('Lỗi khi thêm vào giỏ hàng:', error);
-        toast.error('Có lỗi xảy ra khi thêm vào giỏ hàng', {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.error('Có lỗi xảy ra khi thêm vào giỏ hàng');
       });
   };
 
@@ -189,6 +200,13 @@ const HomeSectionCard = ({ product }) => {
         >
           <img src={selectedVariant?.imageUrl} alt={product?.title} />
         </StyledCardMedia>
+
+        {/* Thêm view count */}
+        <ViewCount>
+          <i className="fas fa-eye" style={{ fontSize: '12px' }}></i>
+          {product?.view || 0} lượt xem
+        </ViewCount>
+
         {product?.discountedPersent > 0 && (
           <Box
             component="img"
@@ -252,14 +270,33 @@ const HomeSectionCard = ({ product }) => {
       </Box>
       <CardContent>
         <Tooltip title={product?.title} placement="bottom-start">
-          <Typography onClick={()=>navigate(`/product/${product?._id}`, { replace: true })} sx={{cursor:'pointer',":hover":{color:'red'}}} variant="span" component="div" noWrap>
+          <Typography 
+            onClick={() => navigate(`/product/${product?.slugProduct}/${product?._id}`, { replace: true })}
+            sx={{
+              cursor:'pointer',
+              ":hover":{color:'red'},
+              fontSize: { xs: '0.875rem', sm: '1rem' }
+            }} 
+            variant="span" 
+            component="div" 
+            noWrap
+          >
             {product?.title}
           </Typography>
         </Tooltip>
-        <Typography variant="body2" color="text.secondary" >
+        <Typography 
+          variant="body2" 
+          color="text.secondary"
+          sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' } }}
+        >
           {product?.brand}
         </Typography>
-        <Box sx={{ height: '3.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Box sx={{ 
+          height: { xs: '2.5rem', sm: '3.5rem' },
+          display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'center' 
+        }}>
           {product?.discountedPrice !== product?.price ? (
             <>
               <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
@@ -282,7 +319,6 @@ const HomeSectionCard = ({ product }) => {
             </Typography>
           )}
         </Box>
-        {/* Thêm phần chọn màu sắc và số lượt xem ở đây */}
         <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
           {uniqueColors.map(({ color, nameColor }) => (
             <Tooltip key={color} title={nameColor}>
@@ -290,12 +326,34 @@ const HomeSectionCard = ({ product }) => {
                 onClick={() => handleColorChange(color)}
                 selected={selectedColor === color}
                 color={color}
+                sx={{
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: -1,
+                    left: -1,
+                    right: -1,
+                    bottom: -1,
+                    borderRadius: '50%',
+                    background: 'white',
+                    zIndex: -1,
+                  }
+                }}
               />
             </Tooltip>
           ))}
           <Box sx={{ flexGrow: 1 }} />
-          <Typography variant="body2" color="text.secondary">
-            {product?.view} lượt xem
+          <Typography 
+            variant="body2" 
+            color="text.secondary"
+            sx={{ 
+              display: 'flex',
+              alignItems: 'center',
+              gap: 0.5 
+            }}
+          >
+            <i className="fas fa-shopping-cart" style={{ fontSize: '12px' }}></i>
+            Đã bán {product?.sellQuantity || 0}
           </Typography>
         </Box>
       </CardContent>

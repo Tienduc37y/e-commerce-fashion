@@ -237,13 +237,11 @@ const schemas = {
         'string.empty': 'Tên màu sắc không được để trống'
       }),
       imageUrl: Joi.alternatives().try(
-        Joi.string().uri().messages({
-          'string.uri': 'URL ảnh không hợp lệ'
-        }),
-        Joi.object().messages({
-          'object.base': 'File ảnh không hợp lệ'
-        })
-      ),
+        Joi.string().allow(''),
+        Joi.object()
+      ).messages({
+        'alternatives.types': 'Ảnh phải là URL hoặc file hợp lệ'
+      }),
       sizes: Joi.array().items(Joi.object({
         size: Joi.string().messages({
           'string.empty': 'Kích thước không được để trống'

@@ -39,9 +39,6 @@ const CartItem = ({ cartItem }) => {
         try {
             await dispatch(updateCartItem(data))
             dispatch(getCart())
-            toast.success("Cập nhật số lượng sản phẩm thành công", {
-                autoClose: 1000,
-            })
         } catch (error) {
             console.error("Lỗi khi cập nhật giỏ hàng:", error)
         }
@@ -51,14 +48,8 @@ const CartItem = ({ cartItem }) => {
         try {
             await dispatch(removeCartItem(cartItem?._id))
             dispatch(getCart())
-            toast.success("Đã xóa sản phẩm khỏi giỏ hàng", {
-                autoClose: 1000,
-            })
         } catch (error) {
             console.error("Lỗi khi xóa sản phẩm khỏi giỏ hàng:", error)
-            toast.error("Không thể xóa sản phẩm. Vui lòng thử lại sau.", {
-                autoClose: 1000,
-            })
         }
     }
 
@@ -66,7 +57,6 @@ const CartItem = ({ cartItem }) => {
 
     return (
         <Card sx={{ display: 'flex', mb: 2, height: 120, position: 'relative' }}>
-            {/* Phần 1: Ảnh sản phẩm */}
             <Box sx={{ width: 80, height: '100%' }}>
                 <CardMedia
                     component="img"

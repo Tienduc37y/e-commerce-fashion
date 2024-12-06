@@ -66,7 +66,7 @@ export const singleFilter = [
         id: "stock",
         name: "Còn hàng",
         options: [
-            { value: "in_of_stock", label: "Còn hàng" },
+            { value: "in_stock", label: "Còn hàng" },
             { value: "out_of_stock", label: "Hết hàng"}
         ]
     }

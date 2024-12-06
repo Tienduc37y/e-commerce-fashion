@@ -24,7 +24,8 @@ const productSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     variants: [{
         color: {
@@ -49,26 +50,11 @@ const productSchema = new mongoose.Schema({
             },
             quantityItem: {
                 type: Number,
-                required: true
+                required: true,
+                min: 0
             }
         }]
     }],
-    ratings: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "ratings"
-        }
-    ],
-    reviews: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "reviews"
-        }
-    ],
-    numRatings: {
-        type: Number,
-        default: 0
-    },
     slugProduct: {
         type: String,
     },
@@ -101,7 +87,14 @@ const productSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: () => {
+            const now = new Date();
+            return new Date(now.getTime() + 7 * 60 * 60 * 1000);
+        }
+    },
+    sellQuantity: {
+        type: Number,
+        default: 0
     }
 })
 

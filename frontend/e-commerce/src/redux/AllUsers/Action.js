@@ -17,13 +17,16 @@ const updateUserRequest = () => ({type:UPDATE_USER_REQUEST})
 const updateUserSuccess = (user) => ({type:UPDATE_USER_SUCCESS,payload:user})
 const updateUserFailure = (error) => ({type:UPDATE_USER_FAILURE,payload:error})
 
-export const getAllUsers = () => async (dispatch) => {
-    dispatch(getAllUserRequest);
+export const getAllUsers = (page = 1, limit = 7) => async (dispatch) => {
+    dispatch(getAllUserRequest());
     try {
-        const res = await axiosInstance.get('/api/admin/get_all_user');
+        const res = await axiosInstance.get(`/api/admin/get_all_user?page=${page}&limit=${limit}`);
         if (res.data?.status === "200") {
-            dispatch(getAllUserSuccess(res.data.data));
-            return res.data;
+            dispatch(getAllUserSuccess(res.data));
+            return {
+                data: res.data.data,
+                pagination: res.data.pagination
+            };
         } else {
             const errorMessage = res.data?.error;
             dispatch(getAllUserFailure(errorMessage));
@@ -54,17 +57,31 @@ export const deleteUserById = (id) => async (dispatch) => {
     }
 };
 
-export const findUserByName = (name) => async (dispatch) => {
+export const findUserByName = (name, page = 1, limit = 7) => async (dispatch) => {
     dispatch(findUserRequest())
     try {
-        const res = await axiosInstance.post(`/api/admin/find_user`, { username: name });
+        const res = await axiosInstance.post(`/api/admin/find_user?page=${page}&limit=${limit}`, {
+            username: name
+        });
+        
         if (res.data?.status === "200") {
             dispatch(findUserSuccess(res.data.data))
-            return res.data.data; // Trả về dữ liệu thay vì null
+            return {
+                data: res.data.data,
+                pagination: res.data.pagination
+            };
         } else {
             const errorMessage = res.data?.error || "Không tìm thấy người dùng phù hợp";
             dispatch(findUserFailure(errorMessage));
-            return []; // Trả về mảng rỗng nếu không có kết quả
+            return {
+                data: [],
+                pagination: {
+                    currentPage: 1,
+                    totalPages: 0,
+                    totalItems: 0,
+                    itemsPerPage: limit
+                }
+            };
         }
     } catch (error) {
         const errorMessage = error.response?.data?.error || error.message || "Đã xảy ra lỗi khi tìm kiếm người dùng";
