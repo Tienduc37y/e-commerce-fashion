@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllReviewsAdmin, replyToReview, updateReplyReview, deleteReplyReview, findReviewByProduct } from '../../redux/Review/Action';
-import { Rating, TextField, Button, Box, useTheme, IconButton, InputBase } from '@mui/material';
+import { getAllReviewsAdmin, replyToReview, updateReplyReview, deleteReplyReview, findReviewByProduct, deleteReview } from '../../redux/Review/Action';
+import { Rating, TextField, Button, Box, useTheme, IconButton, InputBase, Select, MenuItem } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import { tokens } from "../theme/theme";
 import Header from '../components/Header';
@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
 import useDebounce from "../../hooks/useDebounce";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const ReviewFeedback = () => {
     const theme = useTheme();
@@ -18,6 +19,7 @@ const ReviewFeedback = () => {
     const [replyTexts, setReplyTexts] = useState({});
     const [editingReplyId, setEditingReplyId] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const [ratingFilter, setRatingFilter] = useState('');
     const debouncedSearchTerm = useDebounce(searchQuery, 1000);
 
     useEffect(() => {
@@ -27,9 +29,9 @@ const ReviewFeedback = () => {
                     toast.error('Lỗi khi tìm kiếm đánh giá: ' + error.message);
                 });
         } else {
-            dispatch(getAllReviewsAdmin());
+            dispatch(getAllReviewsAdmin(ratingFilter));
         }
-    }, [dispatch, debouncedSearchTerm]);
+    }, [dispatch, debouncedSearchTerm, ratingFilter]);
 
     const handleReplySubmit = async (reviewId) => {
         if (!replyTexts[reviewId]?.trim()) {
@@ -66,6 +68,16 @@ const ReviewFeedback = () => {
         }
     };
 
+    const handleDeleteReview = async (reviewId) => {
+        if (window.confirm('Bạn có chắc chắn muốn xóa đánh giá này?')) {
+            try {
+                await dispatch(deleteReview(reviewId));
+                toast.success('Xóa đánh giá thành công!');
+            } catch (error) {
+                toast.error('Lỗi khi xóa đánh giá: ' + error.message);
+            }
+        }
+    };
     const handleDeleteReply = async (reviewId) => {
         if (window.confirm('Bạn có chắc chắn muốn xóa phản hồi này?')) {
             try {
@@ -82,30 +94,55 @@ const ReviewFeedback = () => {
             <Box display="flex" justifyContent="space-between" alignItems="center">
                 <Header title="ĐÁNH GIÁ" subtitle="Quản lý đánh giá sản phẩm" />
                 
-                <Box 
-                    display="flex" 
-                    backgroundColor={colors.primary[400]} 
-                    borderRadius="3px"
-                    height="45px"
-                    width="300px"
-                >
-                    <InputBase
-                        sx={{
-                            ml: 2,
-                            flex: 1,
-                            color: colors.grey[100],
-                            '&::placeholder': {
+                <Box display="flex" alignItems="center">
+                    <Box 
+                        display="flex" 
+                        backgroundColor={colors.primary[400]} 
+                        borderRadius="3px"
+                        height="45px"
+                        width="300px"
+                        mr={2}
+                    >
+                        <InputBase
+                            sx={{
+                                ml: 2,
+                                flex: 1,
                                 color: colors.grey[100],
-                                opacity: 0.7
-                            }
+                                '&::placeholder': {
+                                    color: colors.grey[100],
+                                    opacity: 0.7
+                                }
+                            }}
+                            placeholder="Tìm kiếm..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <IconButton type="button">
+                            <SearchIcon sx={{ color: colors.grey[100] }} />
+                        </IconButton>
+                    </Box>
+                    
+                    <Select
+                        value={ratingFilter}
+                        onChange={(e) => setRatingFilter(e.target.value)}
+                        displayEmpty
+                        sx={{
+                            backgroundColor: colors.primary[400],
+                            color: colors.grey[100],
+                            height: '45px',
+                            borderRadius: '3px',
+                            '& .MuiSelect-icon': {
+                                color: colors.grey[100],
+                            },
                         }}
-                        placeholder="Tìm kiếm..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <IconButton type="button">
-                        <SearchIcon sx={{ color: colors.grey[100] }} />
-                    </IconButton>
+                    >
+                        <MenuItem value="">Tất cả</MenuItem>
+                        <MenuItem value={5}>5 sao</MenuItem>
+                        <MenuItem value={4}>4 sao</MenuItem>
+                        <MenuItem value={3}>3 sao</MenuItem>
+                        <MenuItem value={2}>2 sao</MenuItem>
+                        <MenuItem value={1}>1 sao</MenuItem>
+                    </Select>
                 </Box>
             </Box>
             
@@ -128,60 +165,165 @@ const ReviewFeedback = () => {
                             }}
                         >
                             <div className="flex justify-between items-start">
-                                <div>
-                                    <p style={{ color: colors.greenAccent[500] }} className="font-semibold">
-                                        {review.user?.name}
+                                <div className="flex-1">
+                                    <p 
+                                        style={{ 
+                                            color: theme.palette.mode === 'dark' 
+                                                ? colors.greenAccent[300] 
+                                                : colors.greenAccent[600],
+                                            fontWeight: 600 
+                                        }} 
+                                        className="text-base mb-1"
+                                    >
+                                        {review.user?.username}
                                     </p>
-                                    <p style={{ color: colors.grey[300] }} className="text-sm">
+                                    
+                                    <p 
+                                        style={{ 
+                                            color: theme.palette.mode === 'dark' 
+                                                ? colors.grey[200] 
+                                                : colors.grey[700]
+                                        }} 
+                                        className="text-sm mb-1 flex items-center"
+                                    >
+                                        <span style={{ 
+                                            color: theme.palette.mode === 'dark' 
+                                                ? colors.blueAccent[300] 
+                                                : colors.blueAccent[700],
+                                            marginRight: '8px',
+                                            fontWeight: 500
+                                        }}>
+                                            Email:
+                                        </span>
                                         {review.user?.email}
                                     </p>
+                                    
+                                    <p 
+                                        style={{ 
+                                            color: theme.palette.mode === 'dark' 
+                                                ? colors.grey[300] 
+                                                : colors.grey[800]
+                                        }} 
+                                        className="text-sm flex items-center"
+                                    >
+                                        <span style={{ 
+                                            color: theme.palette.mode === 'dark' 
+                                                ? colors.blueAccent[300] 
+                                                : colors.blueAccent[700],
+                                            marginRight: '8px',
+                                            fontWeight: 500
+                                        }}>
+                                            Thời gian:
+                                        </span>
+                                        {new Date(review.createdAt).toLocaleDateString('vi-VN', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric',
+                                            hour: '2-digit',
+                                            minute: '2-digit'
+                                        })}
+                                    </p>
                                 </div>
-                                <Rating 
-                                    value={review.rating} 
-                                    readOnly 
+
+                                <IconButton
+                                    onClick={() => handleDeleteReview(review._id)}
+                                    size="small"
                                     sx={{
-                                        color: colors.greenAccent[500],
-                                        '& .MuiRating-iconFilled': {
-                                            color: colors.greenAccent[500],
+                                        color: theme.palette.mode === 'dark' 
+                                            ? colors.redAccent[400] 
+                                            : colors.redAccent[600],
+                                        marginLeft: '12px',
+                                        padding: '8px',
+                                        '&:hover': {
+                                            color: colors.redAccent[300],
+                                            backgroundColor: theme.palette.mode === 'dark'
+                                                ? 'rgba(255, 82, 82, 0.15)'
+                                                : 'rgba(255, 82, 82, 0.1)',
+                                            transform: 'scale(1.1)'
                                         },
+                                        transition: 'all 0.2s ease-in-out'
                                     }}
-                                />
+                                >
+                                    <DeleteForeverIcon />
+                                </IconButton>
                             </div>
                             
                             <div className="mt-4">
-                                <p style={{ color: colors.grey[100] }} className="font-semibold">
-                                    Sản phẩm: <span style={{ color: colors.greenAccent[500] }}>
-                                        {review.product?.title}
-                                    </span>
-                                </p>
+                                <div className="flex justify-between items-center">
+                                    <p style={{ color: colors.grey[100] }} className="font-semibold">
+                                        Sản phẩm: <span style={{ color: colors.greenAccent[500] }}>
+                                            {review.product?.title}
+                                        </span>
+                                    </p>
+                                    <div className="flex items-center gap-2">
+                                        <Rating 
+                                            value={review.rating} 
+                                            readOnly 
+                                            sx={{
+                                                color: colors.greenAccent[500],
+                                                '& .MuiRating-iconFilled': {
+                                                    color: colors.greenAccent[500],
+                                                },
+                                            }}
+                                        />
+                                    </div>
+                                </div>
                                 
                                 {review.product?.image && (
                                     <div className="mt-2">
                                         <img 
                                             src={review.product.image}
                                             alt={review.product.title}
-                                            className="w-24 h-24 object-cover rounded-lg"
+                                            className="w-24 h-24 object-cover object-top rounded-lg"
                                             style={{ border: `1px solid ${colors.primary[500]}` }}
                                         />
                                     </div>
                                 )}
                                 
-                                <p style={{ color: colors.grey[100] }} className="mt-2">{review.review}</p>
+                                <Box
+                                    mt={2}
+                                    p={2}
+                                    borderRadius="4px"
+                                    sx={{
+                                        backgroundColor: colors.primary[500],
+                                        border: `1px solid ${colors.grey[700]}`,
+                                    }}
+                                >
+                                    <p className='font-semibold mb-2' style={{ color: colors.greenAccent[500] }}>
+                                        Bình luận:
+                                    </p>
+                                    <p style={{ color: colors.grey[100] }}>{review.review}</p>
+                                </Box>
                                 
-                                {/* Hiển thị ảnh đánh giá */}
                                 {review.imgUrl && review.imgUrl.length > 0 && (
-                                    <div className="flex flex-wrap gap-3 mt-4">
-                                        {review.imgUrl.map((url, index) => (
-                                            <div key={index} className="relative group">
-                                                <img 
-                                                    src={url}
-                                                    alt={`review-${index}`}
-                                                    className="w-24 h-24 object-cover rounded-lg"
-                                                    style={{ border: `1px solid ${colors.primary[500]}` }}
-                                                />
-                                            </div>
-                                        ))}
-                                    </div>
+                                    <Box
+                                        mt={2}
+                                        p={2}
+                                        borderRadius="4px"
+                                        sx={{
+                                            backgroundColor: colors.primary[500],
+                                            border: `1px solid ${colors.grey[700]}`,
+                                        }}
+                                    >
+                                        <p className='font-semibold mb-2' style={{ color: colors.greenAccent[500] }}>
+                                            Hình ảnh đánh giá:
+                                        </p>
+                                        <div className="flex flex-wrap gap-3">
+                                            {review.imgUrl.map((url, index) => (
+                                                <div key={index} className="relative group">
+                                                    <img 
+                                                        src={url}
+                                                        alt={`review-${index}`}
+                                                        className="w-24 h-24 object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+                                                        style={{ 
+                                                            border: `1px solid ${colors.grey[700]}`,
+                                                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                                                        }}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </Box>
                                 )}
                                 
                                 {/* Phần phản hồi admin */}

@@ -99,6 +99,7 @@ export const logout = () => (dispatch) => {
     removeAccessToken()
     removeRefreshToken()
     removeRole()
+    window.location.reload()
 }
 
 export const getTokenResetPassword = (email) => async (dispatch) => {

@@ -10,7 +10,8 @@ import { findProductsById, findProducts, incrementProductView } from '../../../r
 import { convertCurrency } from '../../../common/convertCurrency'
 import { addItemToCart, getCart } from '../../../redux/Cart/Action'
 import { toast, ToastContainer } from 'react-toastify'
-import { getProductReviews } from '../../../redux/Review/Action'
+import { getProductReviews, getAverageRating } from '../../../redux/Review/Action'
+import StarIcon from '@mui/icons-material/Star';
 
 const ColorButton = styled(IconButton)(({ theme, selected }) => ({
   width: '3rem',
@@ -51,6 +52,7 @@ export default function ProductDetails() {
   const dispatch = useDispatch()
   const product = useSelector(store => store.product)
   const { reviews, loading: reviewLoading } = useSelector(state => state.review);
+  const [ratingStats, setRatingStats] = useState({ averageRating: 0, totalReviews: 0 });
 
   useEffect(() => {
     if (params.productId) {
@@ -84,6 +86,20 @@ export default function ProductDetails() {
     if (params.productId) {
       dispatch(getProductReviews(params.productId));
     }
+  }, [params.productId, dispatch]);
+
+  useEffect(() => {
+    const fetchRating = async () => {
+      if (params.productId) {
+        try {
+          const data = await dispatch(getAverageRating(params.productId));
+          setRatingStats(data);
+        } catch (error) {
+          console.error("Error fetching rating:", error);
+        }
+      }
+    };
+    fetchRating();
   }, [params.productId, dispatch]);
 
   const uniqueColors = useMemo(() => {
@@ -205,7 +221,20 @@ export default function ProductDetails() {
             <div className="lg:col-span-1 mx-auto w-full px-4 pb-16 sm:px-6 lg:pb-24 lg:px-12">
             <div className="lg:col-span-2">
                 <h1 className="text-2xl lg:text-[2rem] font-semibold text-gray-900">{product.product?.title}</h1>
-                <h1 className='text-[2rem] text-gray-900 mt-2'>{product.product?.brand}</h1>
+                <h1 className='text-[1.5rem] text-gray-900 mt-2'>{product.product?.brand}</h1>
+                
+                <div className="flex items-center mt-2 space-x-2">
+                  <Rating 
+                    value={ratingStats.averageRating} 
+                    precision={0.1} 
+                    readOnly 
+                    size="medium"
+                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  />
+                  <span className="text-sm text-gray-500">
+                    ({ratingStats.averageRating.toFixed(1)}/5 - {ratingStats.totalReviews} đánh giá)
+                  </span>
+                </div>
             </div>
 
             {/* Options */}
@@ -299,17 +328,6 @@ export default function ProductDetails() {
                       </div>
                   </div>
                 </Disclosure.Panel>
-              </Disclosure>
-              <Disclosure as="div" className="border-b border-gray-200 py-6">
-                <h3 className="-my-3 flow-root">
-                  <Disclosure.Button className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                    <span className="font-medium text-gray-900">Bảo Quản</span>
-                    <span className="ml-6 flex items-center">
-                      <PlusIcon aria-hidden="true" className="h-5 w-5 group-data-[open]:hidden" />
-                      <MinusIcon aria-hidden="true" className="h-5 w-5 [.group:not([data-open])_&]:hidden" />
-                    </span>
-                  </Disclosure.Button>
-                </h3>
               </Disclosure>
             </div>
             </div>

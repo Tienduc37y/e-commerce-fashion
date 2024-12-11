@@ -20,7 +20,10 @@ import {
     DELETE_REPLY_FAILURE,
     FIND_REVIEW_BY_PRODUCT,
     FIND_REVIEW_BY_PRODUCT_SUCCESS,
-    FIND_REVIEW_BY_PRODUCT_FAILED
+    FIND_REVIEW_BY_PRODUCT_FAILED,
+    DELETE_REVIEW_REQUEST,
+    DELETE_REVIEW_SUCCESS,
+    DELETE_REVIEW_FAILURE
 } from './ActionType';
 
 // Create Review
@@ -87,11 +90,13 @@ export const getProductReviews = (productId) => async (dispatch) => {
 };
 
 // Get All Reviews (for admin)
-export const getAllReviewsAdmin = () => async (dispatch) => {
+export const getAllReviewsAdmin = (rating) => async (dispatch) => {
     dispatch({ type: GET_ALL_REVIEWS_ADMIN_REQUEST });
     
     try {
-        const { data } = await axiosInstance.get('/api/reviews/admin/all');
+        const { data } = await axiosInstance.get('/api/reviews/admin/all', {
+            params: { rating } // Thêm rating vào query parameters
+        });
         
         dispatch({
             type: GET_ALL_REVIEWS_ADMIN_SUCCESS,
@@ -201,4 +206,42 @@ export const findReviewByProduct = (title) => async (dispatch) => {
         dispatch(findReviewByProductFailed(error.message));
         throw error;
     }
+};
+
+export const deleteReview = (reviewId) => async (dispatch) => {
+    dispatch({ type: DELETE_REVIEW_REQUEST });
+    
+    try {
+        const response = await axiosInstance.delete(`/api/reviews/admin/${reviewId}`);
+        
+        if (response.data?.status === "200") {
+            dispatch({
+                type: DELETE_REVIEW_SUCCESS,
+                payload: reviewId
+            });
+            
+            // Refresh danh sách review
+            dispatch(getAllReviewsAdmin());
+            
+            return response.data;
+        } else {
+            throw new Error(response.data?.message);
+        }
+    } catch (error) {
+        dispatch({
+            type: DELETE_REVIEW_FAILURE,
+            payload: error.message
+        });
+        throw error;
+    }
+};
+
+// Thêm action mới để lấy rating trung bình
+export const getAverageRating = (productId) => async () => {
+  try {
+    const { data } = await axiosInstance.get(`/api/reviews/rating/${productId}`);
+    return data.data;
+  } catch (error) {
+    throw error;
+  }
 };

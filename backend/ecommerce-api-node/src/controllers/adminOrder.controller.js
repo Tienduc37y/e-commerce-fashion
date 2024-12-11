@@ -7,8 +7,8 @@ const getAllOrders = async(req, res) => {
         const status = req.query.status || '';
         const sort = req.query.sort || 'desc';
         const paymentMethod = req.query.paymentMethod || '';
-
-        const ordersData = await orderService.getAllOrders(page, limit, status, sort, paymentMethod);
+        const date = req.query.date || '';
+        const ordersData = await orderService.getAllOrders(page, limit, status, sort, paymentMethod, date);
         
         return res.status(200).send({
             status: "200",

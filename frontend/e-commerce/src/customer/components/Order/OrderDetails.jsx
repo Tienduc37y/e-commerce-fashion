@@ -81,19 +81,31 @@ const OrderDetails = () => {
     <div className='px-4 lg:px-20'>
         <div>
           <div className='flex justify-between items-center'>
-            <h1 className='font-semibold text-xl py-5 md:py-7'>Địa chỉ giao hàng</h1>
-            <Button
-              variant="contained"
-              onClick={handleReorder}
-              sx={{
-                backgroundColor: '#9155FD',
-                '&:hover': {
-                  backgroundColor: '#804BDF'
-                }
-              }}
-            >
-              Mua lại
-            </Button>
+            <div>
+              <h1 className='font-semibold text-xl py-5 md:py-7'>Địa chỉ giao hàng</h1>
+              {order?.order?.completeOrderDate && order?.order?.orderStatus === "Đã hoàn thành" && (
+                <div className='text-gray-600 text-2xl'>
+                  <span className='font-medium'>Ngày hoàn thành: </span>
+                  <span>
+                    {new Date(order?.order?.completeOrderDate).toLocaleString('vi-VN')}
+                  </span>
+                </div>
+              )}
+            </div>
+            {order?.order?.orderStatus === "Đã hoàn thành" && (
+              <Button
+                variant="contained"
+                onClick={handleReorder}
+                sx={{
+                  backgroundColor: '#9155FD',
+                  '&:hover': {
+                    backgroundColor: '#804BDF'
+                  }
+                }}
+              >
+                Mua lại
+              </Button>
+            )}
           </div>
           <AddressCard order={order?.order}/>
         </div>

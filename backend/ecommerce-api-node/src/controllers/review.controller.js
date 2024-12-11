@@ -34,9 +34,11 @@ const getAllReviews = async(req, res) => {
     }
 }
 
+// Cập nhật controller getAllReviewsAdmin
 const getAllReviewsAdmin = async (req, res) => {
     try {
-        const reviews = await reviewService.getAllReviewsAdmin();
+        const { rating } = req.query;
+        const reviews = await reviewService.getAllReviewsAdmin(rating);
         res.status(200).json({
             status: "success",
             data: reviews
@@ -143,6 +145,40 @@ const findReviewByProduct = async(req, res) => {
     }
 }
 
+const deleteReview = async (req, res) => {
+    try {
+        const { reviewId } = req.params;
+        await reviewService.deleteReview(reviewId);
+        
+        return res.status(200).send({
+            status: "200",
+            message: "Xóa đánh giá thành công"
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+}
+
+const getAverageRating = async(req, res) => {
+    const productId = req.params.productId;
+    try {
+        const ratingStats = await reviewService.getAverageRating(productId);
+        return res.status(200).send({
+            status: "200",
+            message: "Lấy thông tin rating thành công",
+            data: ratingStats
+        });
+    } catch (error) {
+        return res.status(500).send({
+            status: "500",
+            error: error.message
+        });
+    }
+}
+
 module.exports = {
     createReview,
     getAllReviews,
@@ -150,5 +186,7 @@ module.exports = {
     replyToReview,
     updateReplyReview,
     deleteReplyReview,
-    findReviewByProduct
+    findReviewByProduct,
+    deleteReview,
+    getAverageRating
 }

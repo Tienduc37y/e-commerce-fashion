@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, useTheme, IconButton, Tooltip, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { Box, useTheme, IconButton, Tooltip, FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../theme/theme";
 import Header from "../components/Header";
@@ -23,6 +23,7 @@ const OrdersTable = () => {
     const [status, setStatus] = useState('');
     const [sort, setSort] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
+    const [selectedDate, setSelectedDate] = useState('');
 
     const orderStatuses = [
         { value: '', label: 'Tất cả trạng thái' },
@@ -54,7 +55,8 @@ const OrdersTable = () => {
             const statusParam = status === '' ? '' : status;
             const sortParam = sort === '' ? '' : sort;
             const paymentMethodParam = paymentMethod === '' ? '' : paymentMethod;
-            await dispatch(getAllOrders(page, rowsPerPage, statusParam, sortParam, paymentMethodParam));
+            const dateParam = selectedDate === '' ? '' : selectedDate;
+            await dispatch(getAllOrders(page, rowsPerPage, statusParam, sortParam, paymentMethodParam, dateParam));
         } catch (error) {
             console.error("Lỗi khi tải danh sách đơn hàng:", error);
             toast.error("Không thể tải danh sách đơn hàng");
@@ -63,15 +65,25 @@ const OrdersTable = () => {
 
     useEffect(() => {
         fetchOrders();
-    }, [dispatch, page, rowsPerPage, status, sort, paymentMethod]);
+    }, [dispatch, page, rowsPerPage, status, sort, paymentMethod, selectedDate]);
+
+    const resetFilters = () => {
+        setStatus('');
+        setSort('');
+        setPaymentMethod('');
+        setSelectedDate('');
+        setPage(1);
+    };
 
     const handleRefresh = async () => {
         try {
             setIsRefreshing(true);
+            resetFilters();
+            
             const response = await axiosInstance.get('/api/payment/all-orders-status');
             if (response.data.status === "200") {
                 toast.success("Cập nhật trạng thái thành công");
-                await fetchOrders();
+                await dispatch(getAllOrders(1, rowsPerPage, '', '', '', ''));
             }
         } catch (error) {
             console.error("Lỗi khi cập nhật trạng thái:", error);
@@ -103,12 +115,55 @@ const OrdersTable = () => {
         setPage(1);
     };
 
+    const handleDateChange = (event) => {
+        const newDate = event.target.value;
+        setSelectedDate(newDate);
+        setPage(1);
+    };
+
     return (
         <>
             <Box m="5px">
                 <Box display="flex" justifyContent="space-between" alignItems="center">
                     <Header title="ĐƠN HÀNG" subtitle="Quản lý đơn hàng" />
                     <Box display="flex" gap={2} alignItems="center">
+                        <TextField
+                            type="date"
+                            value={selectedDate}
+                            onChange={handleDateChange}
+                            InputLabelProps={{
+                                shrink: true,
+                                sx: {
+                                    color: colors.grey[100],
+                                    '&.Mui-focused': {
+                                        color: colors.grey[100]
+                                    },
+                                    backgroundColor: 'transparent',
+                                    padding: '0 4px',
+                                }
+                            }}
+                            label="Lọc theo ngày"
+                            sx={{
+                                minWidth: 200,
+                                '& .MuiOutlinedInput-root': {
+                                    color: colors.grey[100],
+                                    '& fieldset': {
+                                        borderColor: colors.grey[700],
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: colors.grey[500],
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: colors.grey[500],
+                                    },
+                                },
+                                '& input[type="date"]::-webkit-calendar-picker-indicator': {
+                                    filter: 'invert(1)',
+                                    cursor: 'pointer'
+                                }
+                            }}
+                        />
+
                         <FormControl sx={{ minWidth: 200 }}>
                             <InputLabel 
                                 id="status-select-label"
@@ -301,7 +356,7 @@ const OrdersTable = () => {
                             </Select>
                         </FormControl>
 
-                        <Tooltip title="Cập nhật trạng thái">
+                        <Tooltip title="Cập nhật trạng thái và làm mới bộ lọc">
                             <IconButton 
                                 onClick={handleRefresh}
                                 disabled={isRefreshing}

@@ -74,12 +74,20 @@ const OrderInfo = () => {
         const response = await dispatch(createOrder(orderData));
         if (response && response.order) {
           if (paymentMethod === 'COD') {
-            navigate(`/account/order/`);
+            toast.success('Đặt hàng thành công!', {
+              onClose: () => {
+                navigate(`/account/order/`);
+              }
+            });
           } else if (paymentMethod === 'ZALOPAY') {
             try {
               const zaloPayResponse = await axiosInstance.post(`/api/payment/create-zalopay-order/${response.order._id}`);
               if (zaloPayResponse.data && zaloPayResponse.data.order_url) {
-                window.location.href = zaloPayResponse.data.order_url;
+                toast.success('Đặt hàng thành công! Đang chuyển đến trang thanh toán...', {
+                  onClose: () => {
+                    window.location.href = zaloPayResponse.data.order_url;
+                  }
+                });
               } else {
                 toast.error('Không thể tạo đơn hàng ZaloPay. Vui lòng thử lại.');
               }

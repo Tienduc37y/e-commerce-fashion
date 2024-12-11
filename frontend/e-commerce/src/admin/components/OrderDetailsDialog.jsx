@@ -29,7 +29,7 @@ const OrderDetailsDialog = ({ open, handleClose, orderData }) => {
       <Box sx={{ p: 2, borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <Typography variant="h5" fontWeight={600} color="white">
-            Chi tiết đơn hàng #{orderData?._id?.slice(-6)}
+            Chi tiết đơn hàng #{orderData?._id}
           </Typography>
           <IconButton onClick={handleClose} size="small" sx={{ color: 'white' }}>
             <CloseIcon />

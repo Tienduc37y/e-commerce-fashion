@@ -88,7 +88,7 @@ export const getOrderHistory = (page = 1, limit = 8, status = '') => async (disp
     }   
 }
 
-export const getAllOrders = (page = 1, limit = 8, status = '', sort = '', paymentMethod = '') => async (dispatch) => {
+export const getAllOrders = (page = 1, limit = 8, status = '', sort = '', paymentMethod = '', date = '') => async (dispatch) => {
     dispatch(getAllOrdersRequest())
     try {
         let url = `/api/admin/orders?page=${page}&limit=${limit}`;
@@ -103,6 +103,10 @@ export const getAllOrders = (page = 1, limit = 8, status = '', sort = '', paymen
 
         if (paymentMethod) {
             url += `&paymentMethod=${paymentMethod}`;
+        }
+
+        if (date) {
+            url += `&date=${date}`;
         }
 
         const response = await axiosInstance.get(url);

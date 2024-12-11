@@ -17,7 +17,7 @@ const infoPolicyProduct = [
     {
         icon: <WidgetsIcon />,
         title: "Đổi hàng miễn phí",
-        description: "Trong 30 ngày kể từ ngày mua."
+        description: "Trong 7 ngày kể từ ngày mua."
     }
 ];
 

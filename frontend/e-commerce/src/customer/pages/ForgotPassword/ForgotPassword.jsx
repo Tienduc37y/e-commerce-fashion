@@ -108,58 +108,76 @@ export default function ForgotPassword() {
         </div>
         <div className="my-auto flex flex-col justify-center px-6 pt-8 sm:px-24 md:justify-start md:px-8 md:pt-0 lg:px-12">
           <p className="text-center text-3xl font-bold mb-4">Quên mật khẩu</p>
-          <p variant="h5" className="text-gray-900 mb-4 text-center">
+          <p variant="h5" className="text-gray-900 mb-8 text-center">
             {isResetMode ? "Nhập token đã được gửi đến email của bạn" : "Xin vui lòng nhập email đăng ký"}
           </p>
-          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-md mx-auto">
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              variant="outlined"
+              className="rounded-lg"
+              value={formData.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '8px',
+                }
+              }}
+            />
+            {isResetMode && (
+              <>
                 <TextField
                   fullWidth
-                  label="Email"
-                  name="email"
+                  label="Token"
+                  name="token"
                   variant="outlined"
-                  className="rounded"
-                  value={formData.email}
+                  className="rounded-lg"
+                  value={formData.token}
                   onChange={handleChange}
-                  error={!!errors.email}
-                  helperText={errors.email}
+                  error={!!errors.token}
+                  helperText={errors.token}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '8px',
+                    }
+                  }}
                 />
-              </Grid>
-              {isResetMode && (
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    label="Token"
-                    name="token"
-                    variant="outlined"
-                    className="rounded"
-                    value={formData.token}
-                    onChange={handleChange}
-                    error={!!errors.token}
-                    helperText={errors.token}
-                  />
-                </Grid>
-              )}
-            </Grid>
+                <Button
+                  variant="outlined"
+                  onClick={handleGetToken}
+                  disabled={timer > 0}
+                  className="w-full py-3 text-base font-semibold rounded-lg"
+                  sx={{
+                    borderColor: timer > 0 ? 'rgba(0, 0, 0, 0.12)' : '#1976d2',
+                    color: timer > 0 ? 'rgba(0, 0, 0, 0.26)' : '#1976d2',
+                    '&:hover': {
+                      borderColor: '#1565c0',
+                      backgroundColor: 'rgba(25, 118, 210, 0.04)'
+                    }
+                  }}
+                >
+                  {timer > 0 ? `Gửi lại token sau ${timer}s` : 'Gửi lại token'}
+                </Button>
+              </>
+            )}
             <Button
               type="submit"
               variant="contained"
-              className="w-full bg-blue-500 text-white hover:bg-blue-600"
+              className="w-full py-3 text-base font-semibold rounded-lg"
+              sx={{
+                backgroundColor: '#1976d2',
+                '&:hover': {
+                  backgroundColor: '#1565c0'
+                }
+              }}
             >
               {isResetMode ? 'Đặt lại mật khẩu' : 'Gửi token'}
             </Button>
           </form>
-          {!isResetMode && (
-            <Button
-              variant="contained"
-              className="mt-4 bg-blue-500 text-white hover:bg-blue-600"
-              onClick={handleGetToken}
-              disabled={timer > 0}
-            >
-              {timer > 0 ? `Đợi ${timer}s` : 'Gửi lại token'}
-            </Button>
-          )}
         </div>
       </div>
       <div className="pointer-events-none hidden select-none bg-black shadow-2xl md:block md:w-1/2 lg:w-2/3">

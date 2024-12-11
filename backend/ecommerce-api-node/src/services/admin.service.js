@@ -3,6 +3,7 @@ const getAllUser = async (page = 1, limit = 7) => {
     try {
         const skip = (page - 1) * limit;
         const users = await User.find()
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
         

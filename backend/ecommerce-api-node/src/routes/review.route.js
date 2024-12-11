@@ -15,7 +15,13 @@ router.put("/admin/reply/:reviewId", adminAuthMiddleware, reviewController.reply
 router.patch("/admin/reply/:reviewId", adminAuthMiddleware, reviewController.updateReplyReview)
 router.delete("/admin/reply/:reviewId", adminAuthMiddleware, reviewController.deleteReplyReview)
 
-// Thêm route mới
+// Route tìm kiếm review
 router.get("/search", adminAuthMiddleware, reviewController.findReviewByProduct)
+
+// Route xóa review
+router.delete("/admin/:reviewId", adminAuthMiddleware, reviewController.deleteReview)
+
+// Route lấy rating trung bình
+router.get("/rating/:productId", reviewController.getAverageRating)
 
 module.exports = router

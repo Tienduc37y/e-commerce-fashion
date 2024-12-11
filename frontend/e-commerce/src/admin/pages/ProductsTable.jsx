@@ -203,7 +203,7 @@ const ProductsTable = () => {
   const handleSave = useCallback(async (formData) => {
     try {
       await dispatch(updateProduct(formData.get('id'), formData));
-      toast.success("C���p nhật sản phẩm thành công");
+      toast.success("Cập nhật sản phẩm thành công");
       setOpenEditDialog(false);
       setPage(1);
       fetchAllProducts(1);
@@ -301,6 +301,18 @@ const ProductsTable = () => {
     setStockFilter(event.target.value);
   };
 
+  // Style chung cho tất cả InputLabel
+  const commonInputLabelStyle = {
+    color: colors.grey[100],
+    '&.MuiInputLabel-shrink': {
+      backgroundColor: 'transparent !important'
+    },
+    '&.Mui-focused': {
+      color: `${colors.grey[100]} !important`,
+    },
+    
+  };
+
   return (
     <>
       <Box m="5px">
@@ -359,16 +371,7 @@ const ProductsTable = () => {
           <FormControl>
             <InputLabel 
               id="top-level-label"
-              sx={{ 
-                color: colors.grey[100],
-                '&.MuiInputLabel-shrink': {
-                  backgroundColor: `${colors.primary[400]} !important`,
-                  padding: '0 8px',
-                },
-                '&.Mui-focused': {
-                  color: `${colors.grey[100]} !important`,
-                }
-              }}
+              sx={commonInputLabelStyle}
             >
               Danh mục cấp 1
             </InputLabel>
@@ -406,16 +409,7 @@ const ProductsTable = () => {
           <FormControl>
             <InputLabel 
               id="second-level-label"
-              sx={{ 
-                color: colors.grey[100],
-                '&.MuiInputLabel-shrink': {
-                  backgroundColor: `${colors.primary[400]} !important`,
-                  padding: '0 8px',
-                },
-                '&.Mui-focused': {
-                  color: `${colors.grey[100]} !important`,
-                }
-              }}
+              sx={commonInputLabelStyle}
             >
               Danh mục cấp 2
             </InputLabel>
@@ -453,16 +447,7 @@ const ProductsTable = () => {
           <FormControl>
             <InputLabel 
               id="third-level-label"
-              sx={{ 
-                color: colors.grey[100],
-                '&.MuiInputLabel-shrink': {
-                  backgroundColor: `${colors.primary[400]} !important`,
-                  padding: '0 8px',
-                },
-                '&.Mui-focused': {
-                  color: `${colors.grey[100]} !important`,
-                }
-              }}
+              sx={commonInputLabelStyle}
             >
               Danh mục cấp 3
             </InputLabel>
@@ -500,16 +485,7 @@ const ProductsTable = () => {
           <FormControl>
             <InputLabel 
               id="stock-select-label"
-              sx={{ 
-                color: colors.grey[100],
-                '&.MuiInputLabel-shrink': {
-                  backgroundColor: `${colors.primary[400]} !important`,
-                  padding: '0 8px',
-                },
-                '&.Mui-focused': {
-                  color: `${colors.grey[100]} !important`,
-                }
-              }}
+              sx={commonInputLabelStyle}
             >
               Tình trạng hàng
             </InputLabel>
@@ -545,16 +521,7 @@ const ProductsTable = () => {
           <FormControl>
             <InputLabel 
               id="sort-select-label"
-              sx={{ 
-                color: colors.grey[100],
-                '&.MuiInputLabel-shrink': {
-                  backgroundColor: `${colors.primary[400]} !important`,
-                  padding: '0 8px',
-                },
-                '&.Mui-focused': {
-                  color: `${colors.grey[100]} !important`,
-                }
-              }}
+              sx={commonInputLabelStyle}
             >
               Sắp xếp
             </InputLabel>

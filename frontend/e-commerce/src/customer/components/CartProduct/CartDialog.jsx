@@ -184,8 +184,14 @@ const CartDialog = ({ open, onClose }) => {
         </Typography>
         <Typography variant="body1" sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, color: 'green' }}>
           <span>Tiết kiệm:</span>
-          <span>{convertCurrency(cart?.cart?.discounte)}</span>
+          <span>{convertCurrency(cart?.cart?.discounte || 0)}</span>
         </Typography>
+        {cart?.cart?.promotion && (
+          <Typography variant="body1" sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, color: 'green' }}>
+            <span>Mã giảm giá ({cart?.cart?.promotion?.code}):</span>
+            <span>{convertCurrency(cart?.cart?.discountCode || 0)}</span>
+          </Typography>
+        )}
         <Typography variant="h6" sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, fontWeight: 'bold' }}>
           <span>Tổng cộng:</span>
           <span>{convertCurrency(cart?.cart?.totalDiscountedPrice || 0)}</span>

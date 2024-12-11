@@ -15,7 +15,6 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import { theme } from '../theme/theme';
-import { toast } from 'react-toastify';
 
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialog-container': {
@@ -54,10 +53,9 @@ const EditPromotionDialog = ({ open, onClose, promotion, onSave }) => {
   const handleSave = async () => {
     try {
       await onSave(editedPromotion);
-      toast.success('Cập nhật mã giảm giá thành công');
       onClose();
     } catch (error) {
-      toast.error('Có lỗi xảy ra khi cập nhật mã giảm giá');
+      console.log(error)
     }
   };
 

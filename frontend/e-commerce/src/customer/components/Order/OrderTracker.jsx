@@ -2,6 +2,7 @@ import { Step, StepLabel, Stepper } from '@mui/material'
 import React from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 import UndoIcon from '@mui/icons-material/Undo';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const CANCELED_STEPS = [
   "Đặt hàng thành công",
@@ -65,18 +66,30 @@ const OrderTracker = ({ activeStep, paymentMethod }) => {
               StepIconProps={{
                 icon: label === "Đã hủy" ? <ClearIcon sx={{color: 'red'}} /> :
                       label === "Hoàn trả hàng" ? <UndoIcon sx={{color: '#FF9800'}} /> :
+                      label === "Đã hoàn thành" ? (
+                        <CheckCircleIcon 
+                          sx={{
+                            color: activeStep === "Đã hoàn thành" ? 'green' : 'gray',
+                            fontSize: {xs: '2rem', md: '2.5rem'}
+                          }}
+                        />
+                      ) :
                       index + 1,
                 sx: {
-                  width: {xs: '1.5rem', md: '2rem'},
-                  height: {xs: '1.5rem', md: '2rem'}
+                  width: label === "Đã hoàn thành" ? {xs: '2rem', md: '2.5rem'} : {xs: '1.5rem', md: '2rem'},
+                  height: label === "Đã hoàn thành" ? {xs: '2rem', md: '2.5rem'} : {xs: '1.5rem', md: '2rem'}
                 }
               }}
               sx={{
                 color: label === "Đã hủy" ? "red" : 
-                       label === "Hoàn trả hàng" ? "#FF9800" : "#9155FD",
+                       label === "Hoàn trả hàng" ? "#FF9800" : 
+                       (label === "Đã hoàn thành" && activeStep !== "Đã hoàn thành") ? "gray" :
+                       label === "Đã hoàn thành" ? "green" : "#9155FD",
                 '& .MuiStepLabel-label': {
                   color: label === "Đã hủy" ? "red" : 
-                         label === "Hoàn trả hàng" ? "#FF9800" : "inherit",
+                         label === "Hoàn trả hàng" ? "#FF9800" : 
+                         (label === "Đã hoàn thành" && activeStep !== "Đã hoàn thành") ? "gray" :
+                         label === "Đã hoàn thành" ? "green" : "inherit",
                   fontSize: {xs: '0.75rem', md: '1rem'},
                   mt: 1
                 }

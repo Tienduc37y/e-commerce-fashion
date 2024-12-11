@@ -354,7 +354,7 @@ const Dashboard = () => {
           <Box sx={{ height: "600px", overflow: "auto", /* ... các style khác ... */ }}>
             {order.statistics?.topUsers?.map((user, index) => (
               <Box
-                key={user._id}
+                key={user.id}
                 display="flex"
                 alignItems="center"
                 p="15px"
@@ -374,18 +374,17 @@ const Dashboard = () => {
                     {index + 1}
                   </Typography>
                 </Box>
-                <Box
-                  width="50px"
-                  height="50px"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  backgroundColor={colors.greenAccent[500]}
-                  borderRadius="50%"
-                  mr="15px"
+                <Avatar
+                  sx={{
+                    bgcolor: colors.greenAccent[500],
+                    width: 50,
+                    height: 50,
+                    mr: "15px",
+                    fontSize: "1.2rem"
+                  }}
                 >
-                  <PersonIcon sx={{ color: colors.grey[100], fontSize: "30px" }} />
-                </Box>
+                  {user.username?.charAt(0).toUpperCase()}
+                </Avatar>
                 <Box flex="1">
                   <Typography color={colors.grey[100]} mb="5px">
                     {user.username}

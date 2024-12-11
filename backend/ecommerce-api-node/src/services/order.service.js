@@ -204,6 +204,7 @@ async function cancelOrder(orderId) {
         const order = await findOrderById(orderId);
         await updateProductQuantities(order.orderItems, true); // true để tăng số lượng
         order.orderStatus = "Đã hủy";
+        order.completeOrderDate = new Date(new Date().getTime() + 7 * 60 * 60 * 1000);
         return await order.save();
     } catch (error) {
         throw new Error(`Failed to cancel order: ${error.message}`);
@@ -215,6 +216,7 @@ async function refundOrder(orderId) {
         const order = await findOrderById(orderId);
         await updateProductQuantities(order.orderItems, true); // true để tăng số lượng
         order.orderStatus = "Hoàn trả hàng";
+        order.completeOrderDate = new Date(new Date().getTime() + 7 * 60 * 60 * 1000);
         return await order.save();
     } catch (error) {
         throw new Error(`Failed to refund order: ${error.message}`);
@@ -352,7 +354,7 @@ async function usersOrderHistory(userId, statuses, page = 1, limit = 10) {
     }
 }
 
-async function getAllOrders(pageNumber, pageSize, status, sort, paymentMethod) {
+async function getAllOrders(pageNumber, pageSize, status, sort, paymentMethod, date) {
     try {
         let query = {};
 
@@ -366,11 +368,28 @@ async function getAllOrders(pageNumber, pageSize, status, sort, paymentMethod) {
             query['paymentDetails.paymentMethod'] = paymentMethod;
         }
 
+        // Filter theo ngày nếu có
+        if (date && date !== 'null' && date !== 'undefined') {
+            // Tạo startDate là 00:00:00 của ngày được chọn
+            const startDate = new Date(date);
+            startDate.setUTCHours(0, 0, 0, 0);
+            
+            // Tạo endDate là 23:59:59 của ngày được chọn
+            const endDate = new Date(date);
+            endDate.setUTCHours(23, 59, 59, 999);
+
+            query.orderDate = {
+                $gte: startDate,
+                $lte: endDate
+            };
+
+        }
+
         // Tính toán skip để phân trang
         const skip = (pageNumber - 1) * pageSize;
 
         // Mặc định sắp xếp theo ngày mới nhất nếu không có sort
-        let sortCondition = { orderDate: -1 }; // Mặc định sắp xếp theo ngày mới nhất
+        let sortCondition = { orderDate: -1 }; 
         if (sort) {
             sortCondition = sort === 'asc' ? { orderDate: 1 } : { orderDate: -1 };
         }
@@ -390,7 +409,6 @@ async function getAllOrders(pageNumber, pageSize, status, sort, paymentMethod) {
             .sort(sortCondition)
             .skip(skip)
             .limit(pageSize);
-
         // Đếm tổng số orders thỏa mãn điều kiện
         const totalOrders = await Order.countDocuments(query);
 
@@ -671,7 +689,7 @@ async function getOrderStatistics() {
             { $limit: 10 },
             { $unwind: "$userInfo" },
             {
-                $replaceRoot: { // Thay th�� root document
+                $replaceRoot: { // Thay th root document
                     newRoot: {
                         $mergeObjects: ["$userInfo", { 
                             orderCount: "$orderCount" 
