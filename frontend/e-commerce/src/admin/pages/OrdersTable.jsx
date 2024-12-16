@@ -9,7 +9,6 @@ import { getAllOrders } from "../../redux/Order/Action";
 import { Pagination, Stack } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import axiosInstance from '../../axios/api';
-import { toast } from 'react-toastify';
 
 const OrdersTable = () => {
     const theme = useTheme();
@@ -59,7 +58,6 @@ const OrdersTable = () => {
             await dispatch(getAllOrders(page, rowsPerPage, statusParam, sortParam, paymentMethodParam, dateParam));
         } catch (error) {
             console.error("Lỗi khi tải danh sách đơn hàng:", error);
-            toast.error("Không thể tải danh sách đơn hàng");
         }
     };
 
@@ -82,12 +80,10 @@ const OrdersTable = () => {
             
             const response = await axiosInstance.get('/api/payment/all-orders-status');
             if (response.data.status === "200") {
-                toast.success("Cập nhật trạng thái thành công");
                 await dispatch(getAllOrders(1, rowsPerPage, '', '', '', ''));
             }
         } catch (error) {
             console.error("Lỗi khi cập nhật trạng thái:", error);
-            toast.error("Có lỗi xảy ra khi cập nhật trạng thái");
         } finally {
             setIsRefreshing(false);
         }
@@ -125,7 +121,7 @@ const OrdersTable = () => {
         <>
             <Box m="5px">
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <Header title="ĐƠN HÀNG" subtitle="Quản lý đơn hàng" />
+                    <Header title="Quản lý đơn hàng" />
                     <Box display="flex" gap={2} alignItems="center">
                         <TextField
                             type="date"

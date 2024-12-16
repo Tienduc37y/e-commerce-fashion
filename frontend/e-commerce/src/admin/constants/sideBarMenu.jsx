@@ -8,42 +8,42 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 import ClothesIcon from "../components/global/ClothesIcon";
 export const sidebarMenu = [
     {
-        title: 'Dashboard',
+        title: 'Bảng điều khiển',
         icon: HomeOutlinedIcon,
         path: '/admin/',
     },
     {
-        title: 'User',
+        title: 'Quản lý người dùng',
         icon: PeopleOutlinedIcon,
         path: '/admin/customers',
     },
     {
-        title: 'Products',
+        title: 'Quản lý sản phẩm',
         icon: ClothesIcon,
         path: '/admin/products',
     },
     {
-        title: 'Orders',
+        title: 'Quản lý đơn hàng',
         icon: ReceiptOutlinedIcon,
         path: '/admin/orders',
     },
     {
-        title: 'Promotions',
+        title: 'Quản lý mã giảm giá',
         icon: LoyaltyIcon,
         path: '/admin/promotions',
     },
     {
-        title: 'Banner',
+        title: 'Quản lý banner',
         icon: CollectionsIcon,
         path: '/admin/banners',
     },
     {
-        title: 'Reviews',
+        title: 'Quản lý đánh giá',
         icon: ReviewsIcon,
         path: '/admin/reviews',
     },
     {
-        title: 'Log Out',
+        title: 'Đăng xuất',
         icon: LogoutOutlinedIcon,
         action: 'logout'
     }

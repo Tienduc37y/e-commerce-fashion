@@ -100,8 +100,7 @@ export const useNavigationData = () => {
             }
         ],
         pages: [
-            { name: 'Thông tin', id: '/' },
-            { name: 'Liên hệ', id: '/' },
+            { name: 'Liên hệ', id: 'https://www.facebook.com/ChanDuc0307' },
         ]
     };
 

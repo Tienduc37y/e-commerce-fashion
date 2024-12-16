@@ -9,7 +9,6 @@ import {
 } from '@mui/material'
 import { updateCartItem, removeCartItem, getCart } from '../../../redux/Cart/Action'
 import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
 import IconButton from '@mui/material/IconButton'
 

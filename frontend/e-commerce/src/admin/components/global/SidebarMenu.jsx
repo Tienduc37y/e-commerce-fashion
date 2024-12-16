@@ -122,9 +122,6 @@ const SidebarMenu = ({ isCollapsed, setIsCollapsed }) => {
                   >
                     Admin
                   </Typography>
-                  <Typography variant="h5" color={colors.greenAccent[500]}>
-                    Admin đẹp trai
-                  </Typography>
                 </Box>
 
               </Box>

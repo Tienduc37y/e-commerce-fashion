@@ -92,7 +92,7 @@ const ReviewFeedback = () => {
     return (
         <Box m="20px">
             <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="ĐÁNH GIÁ" subtitle="Quản lý đánh giá sản phẩm" />
+                <Header title="Quản lý đánh giá"/>
                 
                 <Box display="flex" alignItems="center">
                     <Box 
@@ -168,9 +168,7 @@ const ReviewFeedback = () => {
                                 <div className="flex-1">
                                     <p 
                                         style={{ 
-                                            color: theme.palette.mode === 'dark' 
-                                                ? colors.greenAccent[300] 
-                                                : colors.greenAccent[600],
+                                            color: colors.greenAccent[300],
                                             fontWeight: 600 
                                         }} 
                                         className="text-base mb-1"
@@ -180,9 +178,7 @@ const ReviewFeedback = () => {
                                     
                                     <p 
                                         style={{ 
-                                            color: theme.palette.mode === 'dark' 
-                                                ? colors.grey[200] 
-                                                : colors.grey[700]
+                                            color: colors.primary[300]
                                         }} 
                                         className="text-sm mb-1 flex items-center"
                                     >
@@ -200,9 +196,7 @@ const ReviewFeedback = () => {
                                     
                                     <p 
                                         style={{ 
-                                            color: theme.palette.mode === 'dark' 
-                                                ? colors.grey[300] 
-                                                : colors.grey[800]
+                                            color: colors.primary[300]
                                         }} 
                                         className="text-sm flex items-center"
                                     >
@@ -285,7 +279,7 @@ const ReviewFeedback = () => {
                                     p={2}
                                     borderRadius="4px"
                                     sx={{
-                                        backgroundColor: colors.primary[500],
+                                        backgroundColor: theme.palette.mode === "dark" ? colors.primary[500] : colors.grey[900],
                                         border: `1px solid ${colors.grey[700]}`,
                                     }}
                                 >
@@ -301,7 +295,7 @@ const ReviewFeedback = () => {
                                         p={2}
                                         borderRadius="4px"
                                         sx={{
-                                            backgroundColor: colors.primary[500],
+                                            backgroundColor: theme.palette.mode === "dark" ? colors.primary[500] : colors.grey[900],
                                             border: `1px solid ${colors.grey[700]}`,
                                         }}
                                     >
@@ -333,9 +327,7 @@ const ReviewFeedback = () => {
                                         p={2}
                                         borderRadius="4px"
                                         sx={{
-                                            backgroundColor: theme.palette.mode === 'dark' 
-                                                ? colors.primary[500] 
-                                                : '#fff',
+                                            backgroundColor: theme.palette.mode === "dark" ? colors.primary[500] : colors.grey[900],
                                             border: `1px solid ${theme.palette.mode === 'dark' 
                                                 ? colors.primary[500] 
                                                 : colors.grey[300]}`,

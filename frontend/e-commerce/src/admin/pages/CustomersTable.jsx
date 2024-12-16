@@ -176,7 +176,7 @@ const CustomersTable = () => {
     <>
       <Box m="5px">
         <div className="flex justify-between items-center">
-          <Header title="Người Dùng" subtitle="Quản lý người dùng" />
+          <Header title="Quản lý người dùng" />
 
           <Box display="flex" gap={2}>
             <Box

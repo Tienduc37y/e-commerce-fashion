@@ -113,7 +113,7 @@ const BannersTable = () => {
             />
 
             <div className="flex justify-between items-center">
-                <Header title="BANNER" subtitle="Quản lý banner" />
+                <Header title="Quản lý banner" />
             </div>
 
             <Button

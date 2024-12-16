@@ -80,14 +80,12 @@ const handleStatusChange = async (orderId, newStatus, onStatusChange) => {
         
         const response = await axiosInstance.put(endpoint);
         if (response.data.status === "200") {
-            toast.success(response.data.message);
             if (onStatusChange) {
                 onStatusChange();
             }
         }
     } catch (error) {
         console.error("Lỗi khi cập nhật trạng thái:", error);
-        toast.error(error.response?.data?.message || "Có lỗi xảy ra khi cập nhật trạng thái");
     }
 };
 

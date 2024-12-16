@@ -94,7 +94,7 @@ const Dashboard = () => {
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Quản lý thông tin " /> 
+        <Header title="Bảng điều khiển" /> 
       </Box>
 
       {/* Stats Grid */}
@@ -177,7 +177,6 @@ const Dashboard = () => {
         </Box>
       </Box>
 
-      {/* Thêm sau Stats Grid đầu tiên và trước Top Products Grid */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -309,11 +308,11 @@ const Dashboard = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  backgroundColor={colors.primary[300]}
+                  backgroundColor={colors.primary[700]}
                   borderRadius="50%"
                   mr="15px"
                 >
-                  <Typography color={colors.grey[100]} fontWeight="bold">
+                  <Typography color={theme.palette.mode === "dark" ? colors.grey[100] : colors.grey[900]} fontWeight="bold">
                     {index + 1}
                   </Typography>
                 </Box>
@@ -366,11 +365,11 @@ const Dashboard = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  backgroundColor={colors.primary[300]}
+                  backgroundColor={colors.primary[700]}
                   borderRadius="50%"
                   mr="15px"
                 >
-                  <Typography color={colors.grey[100]} fontWeight="bold">
+                  <Typography color={theme.palette.mode === "dark" ? colors.grey[100] : colors.grey[900]} fontWeight="bold">
                     {index + 1}
                   </Typography>
                 </Box>
@@ -450,11 +449,11 @@ const Dashboard = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  backgroundColor={colors.primary[300]}
+                  backgroundColor={colors.primary[700]}
                   borderRadius="50%"
                   mr="15px"
                 >
-                  <Typography color={colors.grey[100]} fontWeight="bold">
+                  <Typography color={theme.palette.mode === "dark" ? colors.grey[100] : colors.grey[900]} fontWeight="bold">
                     {index + 1}
                   </Typography>
                 </Box>
@@ -527,11 +526,11 @@ const Dashboard = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  backgroundColor={colors.primary[300]}
+                  backgroundColor={colors.primary[700]}
                   borderRadius="50%"
                   mr="15px"
                 >
-                  <Typography color={colors.grey[100]} fontWeight="bold">
+                  <Typography color={theme.palette.mode === "dark" ? colors.grey[100] : colors.grey[900]} fontWeight="bold">
                     {index + 1}
                   </Typography>
                 </Box>
@@ -715,15 +714,15 @@ const Dashboard = () => {
               <tbody>
                 {revenueStats.monthly?.map((item, index) => (
                   <tr 
-                    key={item.month}
-                    style={{
-                      backgroundColor: index % 2 === 0 ? colors.primary[400] : colors.primary[500],
-                      transition: 'all 0.2s',
-                      '&:hover': {
-                        backgroundColor: colors.primary[300]
-                      }
-                    }}
-                  >
+                  key={item.month}
+                  style={{
+                    backgroundColor: colors.primary[400], // Chỉ để một màu nền duy nhất
+                    transition: 'all 0.2s',
+                    '&:hover': {
+                      backgroundColor: colors.primary[300]
+                    }
+                  }}
+                >
                     <td style={{ 
                       padding: "16px", 
                       textAlign: "left",
@@ -809,16 +808,16 @@ const Dashboard = () => {
               MenuProps={{
                 PaperProps: {
                   sx: {
-                    bgcolor: colors.primary[400],
+                    bgcolor: colors.primary[900],
                     '& .MuiMenuItem-root': {
                       color: colors.grey[100],
                       '&:hover': {
-                        bgcolor: colors.primary[500],
+                        bgcolor: colors.grey[800],
                       },
                       '&.Mui-selected': {
-                        bgcolor: colors.primary[500],
+                        bgcolor: colors.grey[600],
                         '&:hover': {
-                          bgcolor: colors.primary[600],
+                          bgcolor: colors.grey[900],
                         }
                       }
                     }
@@ -951,9 +950,12 @@ const Dashboard = () => {
           {order.statistics?.latestReviews?.map((review) => (
             <Box
               key={review.id}
-              backgroundColor={colors.primary[500]}
+              backgroundColor={theme.palette.mode === "dark" ? colors.primary[500] : colors.grey[900]}
               p="20px"
               borderRadius="4px"
+              sx={{
+                boxShadow: theme.palette.mode === "dark" ? "none" : "0px 2px 4px rgba(0,0,0,0.1)"
+              }}
             >
               {/* User Info */}
               <Box display="flex" alignItems="center" mb="15px">
@@ -1039,7 +1041,7 @@ const Dashboard = () => {
                   WebkitBoxOrient: "vertical"
                 }}
               >
-                {review.review}
+                Bình luận: {review.review}
               </Typography>
 
               {/* Review Images */}

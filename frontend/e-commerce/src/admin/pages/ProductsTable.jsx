@@ -317,7 +317,7 @@ const ProductsTable = () => {
     <>
       <Box m="5px">
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-            <Header title="SẢN PHẨM" subtitle="Quản lý sản phẩm" />
+            <Header title="Quản lý sản phẩm"/>
           <Box display="flex" gap={2}>
             <Box
               display="flex"

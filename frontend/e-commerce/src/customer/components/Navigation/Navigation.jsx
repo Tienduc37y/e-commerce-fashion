@@ -246,7 +246,9 @@ export default function Navigation() {
                     {navigationData.pages.map((page) => (
                       <a
                         key={page.name}
-                        href={page.href}
+                        href={page.id}
+                        target="_blank" 
+                        rel="noopener noreferrer"
                         className="block py-2 text-gray-700 hover:text-gray-900"
                       >
                         {page.name}
@@ -430,7 +432,9 @@ export default function Navigation() {
                   {navigationData.pages.map((page) => (
                     <a
                       key={page.name}
-                      href={page.href}
+                      href={page.id}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}

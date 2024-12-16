@@ -1,21 +1,20 @@
 import PolicyProductCard from './PolicyProductCard';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import WidgetsIcon from '@mui/icons-material/Widgets';
+import { PaymentOutlined, RefreshOutlined } from '@mui/icons-material';
 
 const infoPolicyProduct = [
     {
-        icon: <LocalMallIcon />,
+        icon: <LocalShippingIcon />,
         title: "Thanh toán khi nhận hàng (COD)",
         description: "Giao hàng toàn quốc."
     },
     {
-        icon: <LocalShippingIcon />,
-        title: "Miễn phí giao hàng",
-        description: "Với đơn hàng trên 599.000đ."
+        icon: <PaymentOutlined />,
+        title: "Thanh toán an toàn",
+        description: "Thanh toán Banking"
     },
     {
-        icon: <WidgetsIcon />,
+        icon: <RefreshOutlined />,
         title: "Đổi hàng miễn phí",
         description: "Trong 7 ngày kể từ ngày mua."
     }

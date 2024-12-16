@@ -151,7 +151,7 @@ const PromotionsTable = () => {
                 pauseOnHover
             />
             <div className="flex justify-between items-center">
-                <Header title="KHUYẾN MÃI" subtitle="Quản lý mã giảm giá" />
+                <Header title="Quản lý mã giảm giá" />
                 <Box display="flex" gap={2}>
                     <Box display="flex" borderRadius="3px" backgroundColor={colors.primary[400]} height={50}>
                         <InputBase
