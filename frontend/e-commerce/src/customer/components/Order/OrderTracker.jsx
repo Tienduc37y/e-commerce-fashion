@@ -33,8 +33,8 @@ const COD_STEPS = [
 
 const ZALOPAY_STEPS = [
   "Đặt hàng thành công",
-  "Đang chờ xử lý",
   "Đã thanh toán",
+  "Đang chờ xử lý",
   "Xác nhận đơn hàng",
   "Đang giao hàng",
   "Đã giao hàng",

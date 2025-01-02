@@ -28,7 +28,7 @@ const createZaloPayOrder = async (orderId) => {
 
     // Tạo embed_data là JSON string
     const embed_data = JSON.stringify({
-      redirecturl: `http://localhost:5173/account/order`,
+      redirecturl: `${process.env.FE_URL}/account/order`,
       orderId: orderId
     });
 
@@ -41,7 +41,7 @@ const createZaloPayOrder = async (orderId) => {
       item: JSON.stringify(items),
       embed_data: embed_data,
       amount: orderInfo.totalDiscountedPrice,
-      callback_url: 'https://b1b9-2405-4802-1d8d-d7a0-e8fd-b58c-45d8-eb10.ngrok-free.app/api/payment/zalopay-callback',
+      callback_url: 'https://58c0-2405-4802-1cba-300-89a9-203e-a51-8e56.ngrok-free.app/api/payment/zalopay-callback',
       description: `Thanh toán cho đơn hàng #${orderId}`,
       bank_code: "",
     };

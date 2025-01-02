@@ -7,7 +7,7 @@ export const useCities = () => {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const response = await fetch('https://vapi.vnappmob.com/api/province/');
+        const response = await fetch('https://vapi.vnappmob.com/api/v2/province/');
         const data = await response.json();
         setCities(data.results);
       } catch (error) {
@@ -35,7 +35,7 @@ export const useDistricts = (selectedCityId) => {
     const fetchDistricts = async () => {
       if (selectedCityId) {
         try {
-          const response = await fetch(`https://vapi.vnappmob.com/api/province/district/${selectedCityId}`);
+          const response = await fetch(`https://vapi.vnappmob.com/api/v2/province/district/${selectedCityId}`);
           const data = await response.json();
           setDistricts(data.results);
         } catch (error) {
@@ -63,7 +63,7 @@ export const useWards = (selectedDistrictId) => {
     const fetchWards = async () => {
       if (selectedDistrictId) {
         try {
-          const response = await fetch(`https://vapi.vnappmob.com/api/province/ward/${selectedDistrictId}`);
+          const response = await fetch(`https://vapi.vnappmob.com/api/v2/province/ward/${selectedDistrictId}`);
           const data = await response.json();
           setWards(data.results);
         } catch (error) {
