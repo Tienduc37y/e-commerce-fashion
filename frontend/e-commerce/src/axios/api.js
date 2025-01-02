@@ -5,7 +5,8 @@ import { refreshTokenAuth } from "../redux/Auth/Action";
 
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000',
+  // baseURL: 'http://localhost:5000',
+  baseURL: 'https://e-commerce-fashion-eosin.vercel.app',
   headers: {
     'Content-Type': 'application/json',
   },
