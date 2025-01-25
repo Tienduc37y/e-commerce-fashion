@@ -139,6 +139,7 @@ export const refreshTokenAuth = (token) => async (dispatch) => {
             return res.data?.data?.user
         }
         else {
+            dispatch(refreshTokenFailure(res.data?.error))
             throw new Error(res.data?.error)
         }
     } catch (error) {

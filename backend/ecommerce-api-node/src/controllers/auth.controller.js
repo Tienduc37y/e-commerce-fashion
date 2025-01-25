@@ -64,18 +64,35 @@ const login = async (req, res) => {
             });
         }
 
-        const accessToken = jwtProvider.generateAccessToken(user._id);
-        const refreshToken = jwtProvider.generateRefreshToken(user._id);
+        // Kiểm tra token hiện tại
+        let accessToken = null;
+        let refreshToken = null;
+
+        const now = new Date();
+        // Chuyển đổi sang múi giờ UTC+7
+        now.setHours(now.getHours() + 7);
+
+        if (user.tokens?.access?.expiresAt && new Date(user.tokens.access.expiresAt) > now) {
+            accessToken = {
+                token: user.tokens.access.token,
+                expiresAt: user.tokens.access.expiresAt
+            };
+        } else {
+            accessToken = jwtProvider.generateAccessToken(user._id);
+        }
+
+        if (user.tokens?.refresh?.expiresAt && new Date(user.tokens.refresh.expiresAt) > now) {
+            refreshToken = {
+                token: user.tokens.refresh.token,
+                expiresAt: user.tokens.refresh.expiresAt
+            };
+        } else {
+            refreshToken = jwtProvider.generateRefreshToken(user._id);
+        }
 
         user.tokens = {
-            access: {
-                token: accessToken.token,
-                expiresAt: accessToken.expiresAt,
-            },
-            refresh: {
-                token: refreshToken.token,
-                expiresAt: refreshToken.expiresAt,
-            }
+            access: accessToken,
+            refresh: refreshToken
         };
 
         await user.save();
@@ -107,23 +124,32 @@ const refreshToken = async (req, res) => {
     
     try {
         const decoded = jwtProvider.verifyToken(token);
+        const user = await userService.findUserById(decoded.userId);
 
-        const expiresAt = new Date(decoded.exp * 1000)
-        
-        if (new Date(expiresAt) <= new Date()) {
+        if (!user?.tokens?.refresh?.token || user.tokens.refresh.token !== token) {
+            return res.status(403).send({
+                error: "Refresh token không hợp lệ"
+            });
+        }
+
+        const now = new Date();
+        now.setHours(now.getHours() + 7);
+
+        // Kiểm tra thời gian hết hạn từ database
+        if (new Date(user.tokens.refresh.expiresAt) <= now) {
             return res.status(403).send({
                 error: "Refresh token đã hết hạn"
             });
         }
 
-        const newAccessToken = jwtProvider.generateAccessToken(decoded.userId,decoded.role);
-
-        const user = await userService.findUserById(decoded.userId)
+        const newAccessToken = jwtProvider.generateAccessToken(decoded.userId);
 
         user.tokens.access = {
             token: newAccessToken.token,
             expiresAt: newAccessToken.expiresAt
         } 
+
+        await user.save();
 
         const { password: _, ...userInfo } = user._doc;
 
