@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import HomeSectionCard from '../HomeSectionList/HomeSectionCard';
 import { Typography } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 // Custom arrows cho slider
 const NextArrow = ({ onClick }) => {
@@ -27,7 +27,7 @@ const PrevArrow = ({ onClick }) => {
             onClick={onClick}
             style={{ left: '-15px' }}
         >
-            <ArrowBackIosIcon className="text-gray-600" />
+            <ArrowBackIosNewIcon className="text-gray-600" />
         </div>
     );
 };

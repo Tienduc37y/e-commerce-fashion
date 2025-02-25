@@ -1,0 +1,564 @@
+[{
+  "_id": {
+    "$oid": "673738c5930cc29b6ad545b4"
+  },
+  "user": {
+    "$oid": "673738c5930cc29b6ad545b1"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 4,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "673738fd930cc29b6ad5460b"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 30,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373907930cc29b6ad54616"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 11,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373920930cc29b6ad54621"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 16,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373929930cc29b6ad5462f"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 39,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "6737393a930cc29b6ad5463d"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 36,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "6737394b930cc29b6ad54648"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 35,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "6737395d930cc29b6ad54656"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 28,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "6737396b930cc29b6ad54664"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 25,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "6737397d930cc29b6ad54672"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 24,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373992930cc29b6ad54680"
+  },
+  "user": {
+    "$oid": "67373992930cc29b6ad5467d"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673739bb930cc29b6ad546b1"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 10,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373a02930cc29b6ad546c5"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 10,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373aff930cc29b6ad54756"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 16,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373b13930cc29b6ad54767"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 20,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373b39930cc29b6ad5477e"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 10,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67373bc6930cc29b6ad547a0"
+  },
+  "user": {
+    "$oid": "67373bc6930cc29b6ad5479d"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67373c17930cc29b6ad547b7"
+  },
+  "user": {
+    "$oid": "67373c17930cc29b6ad547b4"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751d2e6022a7c9450b35cb9"
+  },
+  "user": {
+    "$oid": "6751d2e6022a7c9450b35cb6"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759037143e24e82375466f4"
+  },
+  "user": {
+    "$oid": "6759037143e24e82375466f1"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67acc3ac8f6284082bc8414b"
+  },
+  "user": {
+    "$oid": "67acc3ac8f6284082bc84148"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67ad57194c78e3f512acfa23"
+  },
+  "user": {
+    "$oid": "67ad57194c78e3f512acfa20"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67ad57c6c0e30923523e52ad"
+  },
+  "user": {
+    "$oid": "67ad57c6c0e30923523e52aa"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 2,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67ad591bc0e30923523e618d"
+  },
+  "user": {
+    "$oid": "67ad591bc0e30923523e618a"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 3,
+  "promotion": null
+},
+{
+  "_id": {
+    "$oid": "67ad5bbbc0e30923523e91de"
+  },
+  "user": {
+    "$oid": "67ad5bbbc0e30923523e91db"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5ea7c0e30923523e92bb"
+  },
+  "user": {
+    "$oid": "67ad5ea7c0e30923523e92b8"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5f0ec0e30923523e92d1"
+  },
+  "user": {
+    "$oid": "67ad5f0ec0e30923523e92ce"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5faec0e30923523e92e8"
+  },
+  "user": {
+    "$oid": "67ad5faec0e30923523e92e5"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad6000c0e30923523e9300"
+  },
+  "user": {
+    "$oid": "67ad6000c0e30923523e92fd"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad6084c0e30923523e931f"
+  },
+  "user": {
+    "$oid": "67ad6084c0e30923523e931c"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad611ec0e30923523e9332"
+  },
+  "user": {
+    "$oid": "67ad611ec0e30923523e932f"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad612ec0e30923523e9346"
+  },
+  "user": {
+    "$oid": "67ad612ec0e30923523e9343"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad61bfc0e30923523e9367"
+  },
+  "user": {
+    "$oid": "67ad61bfc0e30923523e9364"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67aec1d7c21f050488d8dbc9"
+  },
+  "user": {
+    "$oid": "67aec1d7c21f050488d8dbc6"
+  },
+  "cartItems": [],
+  "totalPrice": 0,
+  "totalItem": 0,
+  "totalDiscountedPrice": 0,
+  "totalPriceAfterDiscount": 0,
+  "discounte": 0,
+  "discountCode": 0,
+  "__v": 2,
+  "promotion": null
+}]

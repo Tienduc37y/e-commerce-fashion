@@ -1,0 +1,3281 @@
+[{
+  "_id": {
+    "$oid": "673c9270b86c66fd19d8d13b"
+  },
+  "product": {
+    "$oid": "673c8be92203b06cc5a469a9"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 900000,
+  "discountedPrice": 810000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9270b86c66fd19d8d13d"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9298b86c66fd19d8ded9"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9298b86c66fd19d8dedb"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9332ff568591bba729ca"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9332ff568591bba729cc"
+  },
+  "product": {
+    "$oid": "673c8be92203b06cc5a469a9"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 900000,
+  "discountedPrice": 810000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9366ff568591bba730bb"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c9379ff568591bba73d6f"
+  },
+  "product": {
+    "$oid": "673ab1efd05a043d2bd91841"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 900000,
+  "discountedPrice": 810000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c93ebff568591bba74677"
+  },
+  "product": {
+    "$oid": "673762a6930cc29b6ad55545"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c93ebff568591bba74679"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c945dff568591bba776bb"
+  },
+  "product": {
+    "$oid": "673754c9930cc29b6ad549a9"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 150000,
+  "discountedPrice": 150000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c945dff568591bba776bd"
+  },
+  "product": {
+    "$oid": "6739f9e62e2be580a324b8b7"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#008000",
+  "price": 200000,
+  "discountedPrice": 180000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c945dff568591bba776bf"
+  },
+  "product": {
+    "$oid": "67375442930cc29b6ad54973"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffff00",
+  "price": 599000,
+  "discountedPrice": 251580,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c94ff36396370b21ad951"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c94ff36396370b21ad953"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c951736396370b21ae63c"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c956236396370b21af99a"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c956236396370b21af99c"
+  },
+  "product": {
+    "$oid": "673759a5930cc29b6ad54e38"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 200000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c958e36396370b21b0143"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c958e36396370b21b0145"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c959c36396370b21b0e32"
+  },
+  "product": {
+    "$oid": "6738155fa56b833835ed5cb3"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 450000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c95d336396370b21b3366"
+  },
+  "product": {
+    "$oid": "673754c9930cc29b6ad549a9"
+  },
+  "size": "L",
+  "quantity": 4,
+  "color": "#808080",
+  "price": 600000,
+  "discountedPrice": 600000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c95d336396370b21b3368"
+  },
+  "product": {
+    "$oid": "67375304930cc29b6ad54909"
+  },
+  "size": "XL",
+  "quantity": 6,
+  "color": "#ffb6c1",
+  "price": 2094000,
+  "discountedPrice": 2094000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c95d336396370b21b336a"
+  },
+  "product": {
+    "$oid": "67375191930cc29b6ad548e1"
+  },
+  "size": "M",
+  "quantity": 6,
+  "color": "#ffffff",
+  "price": 3000000,
+  "discountedPrice": 2250000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c95d336396370b21b336c"
+  },
+  "product": {
+    "$oid": "6739f9432e2be580a324b874"
+  },
+  "size": "XL",
+  "quantity": 6,
+  "color": "#ffffff",
+  "price": 2100000,
+  "discountedPrice": 1680000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c961e36396370b21b4d20"
+  },
+  "product": {
+    "$oid": "673756a7930cc29b6ad54a65"
+  },
+  "size": "L",
+  "quantity": 5,
+  "color": "#1e90ff",
+  "price": 750000,
+  "discountedPrice": 750000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c961e36396370b21b4d22"
+  },
+  "product": {
+    "$oid": "673757d0930cc29b6ad54c05"
+  },
+  "size": "XL",
+  "quantity": 4,
+  "color": "#000000",
+  "price": 800000,
+  "discountedPrice": 640000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c961e36396370b21b4d24"
+  },
+  "product": {
+    "$oid": "673aab81d05a043d2bd90846"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 249000,
+  "discountedPrice": 199200,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c961e36396370b21b4d26"
+  },
+  "product": {
+    "$oid": "673758f3930cc29b6ad54d30"
+  },
+  "size": "L",
+  "quantity": 5,
+  "color": "#a52a2a",
+  "price": 1750000,
+  "discountedPrice": 1400000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca26c5242acfebc5f5531"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "L",
+  "quantity": 9,
+  "color": "#000000",
+  "price": 3600000,
+  "discountedPrice": 3240000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca26c5242acfebc5f5533"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 7,
+  "color": "#000000",
+  "price": 2800000,
+  "discountedPrice": 2520000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca37b5242acfebc5f5eb8"
+  },
+  "product": {
+    "$oid": "673c8be92203b06cc5a469a9"
+  },
+  "size": "XL",
+  "quantity": 2,
+  "color": "#1e90ff",
+  "price": 1800000,
+  "discountedPrice": 1620000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca37b5242acfebc5f5eba"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XXL",
+  "quantity": 3,
+  "color": "#808080",
+  "price": 1200000,
+  "discountedPrice": 900000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca539c9ec7a66450a81e3"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 2,
+  "color": "#000000",
+  "price": 800000,
+  "discountedPrice": 600000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca539c9ec7a66450a81e5"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "S",
+  "quantity": 2,
+  "color": "#ffffff",
+  "price": 1400000,
+  "discountedPrice": 1120000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca562c9ec7a66450a88d6"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca572c9ec7a66450a9746"
+  },
+  "product": {
+    "$oid": "673aae5cd05a043d2bd908e3"
+  },
+  "size": "L",
+  "quantity": 3,
+  "color": "#ffffff",
+  "price": 1050000,
+  "discountedPrice": 945000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca572c9ec7a66450a9748"
+  },
+  "product": {
+    "$oid": "673aac87d05a043d2bd90876"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 250000,
+  "discountedPrice": 225000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca587c9ec7a66450aa4e8"
+  },
+  "product": {
+    "$oid": "673aab81d05a043d2bd90846"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 249000,
+  "discountedPrice": 199200,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca587c9ec7a66450aa4ea"
+  },
+  "product": {
+    "$oid": "673756a7930cc29b6ad54a65"
+  },
+  "size": "XL",
+  "quantity": 3,
+  "color": "#1e90ff",
+  "price": 450000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca59fc9ec7a66450ab2fe"
+  },
+  "product": {
+    "$oid": "6739ffe92e2be580a324bf1c"
+  },
+  "size": "L",
+  "quantity": 5,
+  "color": "#ffffff",
+  "price": 3500000,
+  "discountedPrice": 2800000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca59fc9ec7a66450ab300"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5bcc9ec7a66450ac2c4"
+  },
+  "product": {
+    "$oid": "673abdf1d05a043d2bd9374b"
+  },
+  "size": "XL",
+  "quantity": 7,
+  "color": "#000000",
+  "price": 4193000,
+  "discountedPrice": 4193000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5bcc9ec7a66450ac2c6"
+  },
+  "product": {
+    "$oid": "673abd84d05a043d2bd931ec"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5e3c9ec7a66450adc5e"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5e3c9ec7a66450adc60"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5ffc9ec7a66450aea65"
+  },
+  "product": {
+    "$oid": "673761e4930cc29b6ad5543c"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5ffc9ec7a66450aea67"
+  },
+  "product": {
+    "$oid": "673761e4930cc29b6ad5543c"
+  },
+  "size": "M",
+  "quantity": 2,
+  "color": "#000000",
+  "price": 800000,
+  "discountedPrice": 800000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca5ffc9ec7a66450aea69"
+  },
+  "product": {
+    "$oid": "673761a1930cc29b6ad553d6"
+  },
+  "size": "XL",
+  "quantity": 3,
+  "color": "#808080",
+  "price": 1500000,
+  "discountedPrice": 1350000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca632c9ec7a66450af176"
+  },
+  "product": {
+    "$oid": "67375786930cc29b6ad54bca"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 200000,
+  "discountedPrice": 190000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca632c9ec7a66450af178"
+  },
+  "product": {
+    "$oid": "673aab81d05a043d2bd90846"
+  },
+  "size": "S",
+  "quantity": 2,
+  "color": "#a52a2a",
+  "price": 498000,
+  "discountedPrice": 398400,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffa9"
+  },
+  "product": {
+    "$oid": "673757d0930cc29b6ad54c05"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 200000,
+  "discountedPrice": 160000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffab"
+  },
+  "product": {
+    "$oid": "67375786930cc29b6ad54bca"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 200000,
+  "discountedPrice": 190000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffad"
+  },
+  "product": {
+    "$oid": "673aae5cd05a043d2bd908e3"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 350000,
+  "discountedPrice": 315000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffaf"
+  },
+  "product": {
+    "$oid": "673758f3930cc29b6ad54d30"
+  },
+  "size": "XL",
+  "quantity": 2,
+  "color": "#a52a2a",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffb1"
+  },
+  "product": {
+    "$oid": "67375e97930cc29b6ad5509a"
+  },
+  "size": "L",
+  "quantity": 2,
+  "color": "#a52a2a",
+  "price": 800000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6a75e377ed912e809c1"
+  },
+  "product": {
+    "$oid": "673aba24d05a043d2bd930ba"
+  },
+  "size": "XXL",
+  "quantity": 3,
+  "color": "#ffffff",
+  "price": 1200000,
+  "discountedPrice": 960000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6a75e377ed912e809c3"
+  },
+  "product": {
+    "$oid": "673b319e639600141df915ef"
+  },
+  "size": "M",
+  "quantity": 3,
+  "color": "#1e90ff",
+  "price": 1200000,
+  "discountedPrice": 960000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6a75e377ed912e809c5"
+  },
+  "product": {
+    "$oid": "673b30f5639600141df91583"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6b75e377ed912e81758"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "XXL",
+  "quantity": 2,
+  "color": "#ffffff",
+  "price": 1400000,
+  "discountedPrice": 1120000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca6b75e377ed912e8175a"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca7075e377ed912e820d2"
+  },
+  "product": {
+    "$oid": "673b30f5639600141df91583"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca7075e377ed912e820d4"
+  },
+  "product": {
+    "$oid": "673ab9a3d05a043d2bd93085"
+  },
+  "size": "M",
+  "quantity": 3,
+  "color": "#00ff00",
+  "price": 1800000,
+  "discountedPrice": 1620000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ca7075e377ed912e820d6"
+  },
+  "product": {
+    "$oid": "673abf93d05a043d2bd9381c"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 600000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7357766abdbffaf9c110"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "size": "XXL",
+  "quantity": 3,
+  "color": "#000000",
+  "price": 1500000,
+  "discountedPrice": 1350000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7357766abdbffaf9c112"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "M",
+  "quantity": 3,
+  "color": "#000000",
+  "price": 1500000,
+  "discountedPrice": 1350000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73d4c3eaf9877a084a89"
+  },
+  "product": {
+    "$oid": "673c8be92203b06cc5a469a9"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 900000,
+  "discountedPrice": 810000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73d4c3eaf9877a084a8b"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868d1"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 2,
+  "color": "#000000",
+  "price": 1000000,
+  "discountedPrice": 900000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868d3"
+  },
+  "product": {
+    "$oid": "673754c9930cc29b6ad549a9"
+  },
+  "size": "L",
+  "quantity": 2,
+  "color": "#808080",
+  "price": 300000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868d5"
+  },
+  "product": {
+    "$oid": "6739fa192e2be580a324b8f1"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 150000,
+  "discountedPrice": 150000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868d7"
+  },
+  "product": {
+    "$oid": "6739f9432e2be580a324b874"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 350000,
+  "discountedPrice": 280000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868d9"
+  },
+  "product": {
+    "$oid": "6739f7ed2e2be580a324b061"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868db"
+  },
+  "product": {
+    "$oid": "67375304930cc29b6ad54909"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 349000,
+  "discountedPrice": 349000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868dd"
+  },
+  "product": {
+    "$oid": "67375191930cc29b6ad548e1"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 500000,
+  "discountedPrice": 375000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c8b"
+  },
+  "product": {
+    "$oid": "673aadd1d05a043d2bd908ae"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c8d"
+  },
+  "product": {
+    "$oid": "67376107930cc29b6ad55248"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c8f"
+  },
+  "product": {
+    "$oid": "6739fd512e2be580a324b9f9"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 459000,
+  "discountedPrice": 459000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c91"
+  },
+  "product": {
+    "$oid": "67375f37930cc29b6ad550da"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c93"
+  },
+  "product": {
+    "$oid": "6739fddf2e2be580a324ba2d"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c95"
+  },
+  "product": {
+    "$oid": "67375fa0930cc29b6ad55118"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 1300000,
+  "discountedPrice": 1079000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c97"
+  },
+  "product": {
+    "$oid": "673760b5930cc29b6ad55209"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#e1e100",
+  "price": 1300000,
+  "discountedPrice": 1040000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c99"
+  },
+  "product": {
+    "$oid": "67376043930cc29b6ad55156"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 800000,
+  "discountedPrice": 760000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c9b"
+  },
+  "product": {
+    "$oid": "6739fcc12e2be580a324b9c5"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 599000,
+  "discountedPrice": 599000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d749df586c1f30368b8b5"
+  },
+  "product": {
+    "$oid": "673c88dc2203b06cc5a46409"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 799000,
+  "discountedPrice": 799000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d749df586c1f30368b8b7"
+  },
+  "product": {
+    "$oid": "6739fa982e2be580a324b923"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 279000,
+  "discountedPrice": 248310,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d749df586c1f30368b8b9"
+  },
+  "product": {
+    "$oid": "67375e17930cc29b6ad55055"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 200000,
+  "discountedPrice": 190000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d74c2f586c1f30368ec09"
+  },
+  "product": {
+    "$oid": "673ab099d05a043d2bd91770"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 350000,
+  "discountedPrice": 315000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d74c2f586c1f30368ec0b"
+  },
+  "product": {
+    "$oid": "67375b68930cc29b6ad54fe3"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d74c2f586c1f30368ec0d"
+  },
+  "product": {
+    "$oid": "67375a39930cc29b6ad54e76"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 300000,
+  "discountedPrice": 285000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d74c2f586c1f30368ec0f"
+  },
+  "product": {
+    "$oid": "673aafa9d05a043d2bd916d8"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d74f06e9957c195c98e61"
+  },
+  "product": {
+    "$oid": "673ab23dd05a043d2bd91872"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 799000,
+  "discountedPrice": 799000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d750da4fb8d110292a5cc"
+  },
+  "product": {
+    "$oid": "67375b68930cc29b6ad54fe3"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d750da4fb8d110292a5ce"
+  },
+  "product": {
+    "$oid": "673abc27d05a043d2bd93151"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d751c4628237e0b3c26c5"
+  },
+  "product": {
+    "$oid": "67376804930cc29b6ad598da"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 700000,
+  "discountedPrice": 630000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d752ce022e4fb04e4e6fd"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7579102049f5c658e521"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7593d5bdccd0e6b3f35d"
+  },
+  "product": {
+    "$oid": "673b319e639600141df915ef"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75a3d239cee978173a10"
+  },
+  "product": {
+    "$oid": "673ab940d05a043d2bd93050"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 600000,
+  "discountedPrice": 540000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75aed239cee978175328"
+  },
+  "product": {
+    "$oid": "67376043930cc29b6ad55156"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 800000,
+  "discountedPrice": 760000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75c0fd25d0737ccdeb9e"
+  },
+  "product": {
+    "$oid": "673761e4930cc29b6ad5543c"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75cdfd25d0737cce049c"
+  },
+  "product": {
+    "$oid": "6739ff3d2e2be580a324be8c"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ff0000",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75e7bdf7cb4afac2cba3"
+  },
+  "product": {
+    "$oid": "673b421e639600141df943bf"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 100000,
+  "discountedPrice": 100000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d75e7bdf7cb4afac2cba5"
+  },
+  "product": {
+    "$oid": "67381917a56b833835ed5d6d"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76215d4bec69e15c8688"
+  },
+  "product": {
+    "$oid": "6739fe572e2be580a324be25"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 340000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76215d4bec69e15c868a"
+  },
+  "product": {
+    "$oid": "6739ffb32e2be580a324beec"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 425000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76a65d4bec69e15cb9fc"
+  },
+  "product": {
+    "$oid": "673abfe8d05a043d2bd93851"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76a65d4bec69e15cb9fe"
+  },
+  "product": {
+    "$oid": "673abec1d05a043d2bd937b1"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 600000,
+  "discountedPrice": 510000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76a65d4bec69e15cba00"
+  },
+  "product": {
+    "$oid": "673abcdfd05a043d2bd931b6"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d76bb5d4bec69e15cd355"
+  },
+  "product": {
+    "$oid": "6739fa982e2be580a324b923"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 279000,
+  "discountedPrice": 248310,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d77040a9d7966b7678ebb"
+  },
+  "product": {
+    "$oid": "673c8ad32203b06cc5a468ed"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#800080",
+  "price": 700000,
+  "discountedPrice": 525000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d77040a9d7966b7678ebd"
+  },
+  "product": {
+    "$oid": "673c8ad32203b06cc5a468ed"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#800080",
+  "price": 700000,
+  "discountedPrice": 525000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d77040a9d7966b7678ebf"
+  },
+  "product": {
+    "$oid": "67381861a56b833835ed5cf4"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d774a0a9d7966b7679bc4"
+  },
+  "product": {
+    "$oid": "67375ce0930cc29b6ad55021"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#008000",
+  "price": 200000,
+  "discountedPrice": 150000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d779f947654f0dc4dc39e"
+  },
+  "product": {
+    "$oid": "673b319e639600141df915ef"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7964b83ca3bb0f0086c5"
+  },
+  "product": {
+    "$oid": "6739f9e62e2be580a324b8b7"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#008000",
+  "price": 200000,
+  "discountedPrice": 180000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7964b83ca3bb0f0086c7"
+  },
+  "product": {
+    "$oid": "673abdf1d05a043d2bd9374b"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 599000,
+  "discountedPrice": 599000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d797a6738c76616a291aa"
+  },
+  "product": {
+    "$oid": "673c88dc2203b06cc5a46409"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 799000,
+  "discountedPrice": 799000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d797a6738c76616a291ac"
+  },
+  "product": {
+    "$oid": "6739fddf2e2be580a324ba2d"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d798996e5d299b0ebcdff"
+  },
+  "product": {
+    "$oid": "6739f9432e2be580a324b874"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 350000,
+  "discountedPrice": 280000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79a7518b4c740024640c"
+  },
+  "product": {
+    "$oid": "6739fddf2e2be580a324ba2d"
+  },
+  "size": "S",
+  "quantity": 3,
+  "color": "#ff0000",
+  "price": 2100000,
+  "discountedPrice": 1680000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79a7518b4c740024640e"
+  },
+  "product": {
+    "$oid": "6739fddf2e2be580a324ba2d"
+  },
+  "size": "L",
+  "quantity": 3,
+  "color": "#008000",
+  "price": 2100000,
+  "discountedPrice": 1680000,
+  "userId": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79f3147ecfdce6b00135"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79f3147ecfdce6b00137"
+  },
+  "product": {
+    "$oid": "67375304930cc29b6ad54909"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 349000,
+  "discountedPrice": 349000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79f3147ecfdce6b00139"
+  },
+  "product": {
+    "$oid": "673767a1930cc29b6ad5989c"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 650000,
+  "discountedPrice": 637000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7a07589dd818948b686f"
+  },
+  "product": {
+    "$oid": "673754c9930cc29b6ad549a9"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 150000,
+  "discountedPrice": 150000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7a07589dd818948b6871"
+  },
+  "product": {
+    "$oid": "6739fa192e2be580a324b8f1"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 150000,
+  "discountedPrice": 150000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7a07589dd818948b6873"
+  },
+  "product": {
+    "$oid": "6739fe572e2be580a324be25"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 340000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7a2089a6108b85b8c695"
+  },
+  "product": {
+    "$oid": "673ab1afd05a043d2bd91811"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 800000,
+  "discountedPrice": 680000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d7a2089a6108b85b8c697"
+  },
+  "product": {
+    "$oid": "673ab1afd05a043d2bd91811"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 800000,
+  "discountedPrice": 680000,
+  "userId": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da337ff391d5eefb6e5f1"
+  },
+  "product": {
+    "$oid": "6739fec12e2be580a324be54"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da345ff391d5eefb6febe"
+  },
+  "product": {
+    "$oid": "67376804930cc29b6ad598da"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 700000,
+  "discountedPrice": 630000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da356d31b2adc7bd6eb00"
+  },
+  "product": {
+    "$oid": "673767a1930cc29b6ad5989c"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 650000,
+  "discountedPrice": 637000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da369535f1bfd233e905e"
+  },
+  "product": {
+    "$oid": "67375a39930cc29b6ad54e76"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 300000,
+  "discountedPrice": 285000,
+  "userId": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da388535f1bfd233ec1ee"
+  },
+  "product": {
+    "$oid": "673c87d02203b06cc5a46379"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 525000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da38a6ea7599173b40b45"
+  },
+  "product": {
+    "$oid": "673c87d02203b06cc5a46379"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 525000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da398993ee9a87b7b385d"
+  },
+  "product": {
+    "$oid": "6739ffb32e2be580a324beec"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 425000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3abc4a4a6a04c0bf622"
+  },
+  "product": {
+    "$oid": "673abec1d05a043d2bd937b1"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 600000,
+  "discountedPrice": 510000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3bb06bd1718e6682424"
+  },
+  "product": {
+    "$oid": "673ab182d05a043d2bd917dc"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 375000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3caede9bb0ab22f8a5f"
+  },
+  "product": {
+    "$oid": "67375442930cc29b6ad54973"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffff00",
+  "price": 599000,
+  "discountedPrice": 251580,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3df4bb88abca37a4b7b"
+  },
+  "product": {
+    "$oid": "673aab81d05a043d2bd90846"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 249000,
+  "discountedPrice": 199200,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3fed477fc5c26b8c180"
+  },
+  "product": {
+    "$oid": "673762a6930cc29b6ad55545"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da429ece2c7cd63cc6d40"
+  },
+  "product": {
+    "$oid": "67376804930cc29b6ad598da"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 700000,
+  "discountedPrice": 630000,
+  "userId": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4386f5fa2af9af235ef"
+  },
+  "product": {
+    "$oid": "673ab1efd05a043d2bd91841"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 900000,
+  "discountedPrice": 810000,
+  "userId": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4496f5fa2af9af24ec9"
+  },
+  "product": {
+    "$oid": "673ab72ad05a043d2bd92f82"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#00ff00",
+  "price": 300000,
+  "discountedPrice": 240000,
+  "userId": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da45cb23359237df65a90"
+  },
+  "product": {
+    "$oid": "673abd84d05a043d2bd931ec"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da46d1b87a053b50c2ab0"
+  },
+  "product": {
+    "$oid": "673aadd1d05a043d2bd908ae"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da49353305f3260695d98"
+  },
+  "product": {
+    "$oid": "6739fec12e2be580a324be54"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ff0000",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4a84976754c9f7df49c"
+  },
+  "product": {
+    "$oid": "673abcdfd05a043d2bd931b6"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4c3311f1613dd335f07"
+  },
+  "product": {
+    "$oid": "673b319e639600141df915ef"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4d69b995bf7c2abf297"
+  },
+  "product": {
+    "$oid": "67375e17930cc29b6ad55055"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 200000,
+  "discountedPrice": 190000,
+  "userId": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da4e4dba6e762343ecb48"
+  },
+  "product": {
+    "$oid": "673761a1930cc29b6ad553d6"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5187ac7a01b83bce6d9"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da528de62de2632681026"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da53dde62de2632682ac6"
+  },
+  "product": {
+    "$oid": "673aadd1d05a043d2bd908ae"
+  },
+  "size": "S",
+  "quantity": 3,
+  "color": "#1e90ff",
+  "price": 1200000,
+  "discountedPrice": 960000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da552ce5cdfa74a50b5e8"
+  },
+  "product": {
+    "$oid": "6739ff3d2e2be580a324be8c"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ff0000",
+  "price": 400000,
+  "discountedPrice": 320000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da563e8771dfd9ec1a43b"
+  },
+  "product": {
+    "$oid": "673abf93d05a043d2bd9381c"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 600000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da573a75502bae9ff0601"
+  },
+  "product": {
+    "$oid": "673aae5cd05a043d2bd908e3"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 350000,
+  "discountedPrice": 315000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da587a75502bae9ff201a"
+  },
+  "product": {
+    "$oid": "67375e17930cc29b6ad55055"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffa500",
+  "price": 200000,
+  "discountedPrice": 190000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5b06009c6fc7f65276a"
+  },
+  "product": {
+    "$oid": "673ab1efd05a043d2bd91841"
+  },
+  "size": "L",
+  "quantity": 2,
+  "color": "#1e90ff",
+  "price": 1800000,
+  "discountedPrice": 1620000,
+  "userId": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5e96009c6fc7f654c5d"
+  },
+  "product": {
+    "$oid": "673abdf1d05a043d2bd9374b"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 599000,
+  "discountedPrice": 599000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5f603910713318adfcb"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da609e2b6c818b1143954"
+  },
+  "product": {
+    "$oid": "673c87d02203b06cc5a46379"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 525000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da61cb0e06654cb63319c"
+  },
+  "product": {
+    "$oid": "673760b5930cc29b6ad55209"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#e1e100",
+  "price": 1300000,
+  "discountedPrice": 1040000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da629e88c61f95f17cea9"
+  },
+  "product": {
+    "$oid": "6739fa982e2be580a324b923"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 279000,
+  "discountedPrice": 248310,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da637865980b3ffc7cab3"
+  },
+  "product": {
+    "$oid": "6739fd512e2be580a324b9f9"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffb6c1",
+  "price": 459000,
+  "discountedPrice": 459000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da649028b260e6ac70ab3"
+  },
+  "product": {
+    "$oid": "673abcdfd05a043d2bd931b6"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da67c028b260e6ac73c2b"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da68ee74567867efbcf68"
+  },
+  "product": {
+    "$oid": "673ab940d05a043d2bd93050"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 600000,
+  "discountedPrice": 540000,
+  "userId": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da6b0693d9d94ad740a6b"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da6d6693d9d94ad74245f"
+  },
+  "product": {
+    "$oid": "673760b5930cc29b6ad55209"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#e1e100",
+  "price": 1300000,
+  "discountedPrice": 1040000,
+  "userId": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da6e401b2bf15b3828151"
+  },
+  "product": {
+    "$oid": "673761a1930cc29b6ad553d6"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da722342d2a30a31040d3"
+  },
+  "product": {
+    "$oid": "673ab940d05a043d2bd93050"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 600000,
+  "discountedPrice": 540000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da73082d88556e86a31d0"
+  },
+  "product": {
+    "$oid": "67376107930cc29b6ad55248"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da7427674febd2f8ecffc"
+  },
+  "product": {
+    "$oid": "67381861a56b833835ed5cf4"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da7427674febd2f8ecffe"
+  },
+  "product": {
+    "$oid": "6739fb542e2be580a324b958"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#a52a2a",
+  "price": 500000,
+  "discountedPrice": 400000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da7524bd074e1ef01a46d"
+  },
+  "product": {
+    "$oid": "6739fe572e2be580a324be25"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 340000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da76cd0ccea8df7f758bb"
+  },
+  "product": {
+    "$oid": "67375fa0930cc29b6ad55118"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 1300000,
+  "discountedPrice": 1079000,
+  "userId": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67447e27805bb740173d3562"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67447e27805bb740173d3564"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6744819491419228fdd18b28"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67528b9d93cda7d6bbde779d"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67528bd893cda7d6bbde7f96"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67528c5552507cf8be29b379"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67595d1b4158e2786cb740ef"
+  },
+  "product": {
+    "$oid": "673c89872203b06cc5a467e3"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 360000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67595e6e4158e2786cb748b6"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#808080",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67acc4f0b83d2125494ae808"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "L",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67acc698b83d2125494aed75"
+  },
+  "product": {
+    "$oid": "673c8b0a2203b06cc5a46930"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#ffffff",
+  "price": 700000,
+  "discountedPrice": 560000,
+  "userId": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad581cc0e30923523e59f8"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "XXL",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67ad57c6c0e30923523e52aa"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5969c0e30923523e6be5"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67ad591bc0e30923523e618a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5969c0e30923523e6be7"
+  },
+  "product": {
+    "$oid": "673c8b612203b06cc5a4696a"
+  },
+  "size": "S",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 400000,
+  "discountedPrice": 300000,
+  "userId": {
+    "$oid": "67ad591bc0e30923523e618a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ae98acb986a3c177b881ca"
+  },
+  "product": {
+    "$oid": "673c8f7fb86c66fd19d8aa0b"
+  },
+  "size": "M",
+  "quantity": 1,
+  "color": "#000000",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67aec25dc21f050488d8e39a"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "size": "XL",
+  "quantity": 1,
+  "color": "#1e90ff",
+  "price": 500000,
+  "discountedPrice": 450000,
+  "userId": {
+    "$oid": "67aec1d7c21f050488d8dbc6"
+  },
+  "__v": 0
+}]

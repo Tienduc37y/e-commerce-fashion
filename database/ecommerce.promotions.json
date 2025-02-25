@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "67ad6394c0e30923523e9bb9"
+  },
+  "code": "TIENDUC1",
+  "discountPercentage": 1,
+  "minOrderValue": 300000,
+  "description": "Giảm 1% cho đơn hàng từ 300K trở lên",
+  "visible": true,
+  "endDate": {
+    "$date": "2025-02-28T03:14:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad63b2c0e30923523e9bbf"
+  },
+  "code": "TIENDUC2",
+  "discountPercentage": 2,
+  "minOrderValue": 500000,
+  "description": "Giảm 10% cho đơn hàng từ 500K trở lên",
+  "visible": true,
+  "endDate": {
+    "$date": "2025-02-28T03:14:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad6407c0e30923523e9bcb"
+  },
+  "code": "TIENDUC8",
+  "discountPercentage": 8,
+  "minOrderValue": 2000000,
+  "description": "Giảm 8% cho đơn hàng từ 2000K trở lên",
+  "visible": true,
+  "endDate": {
+    "$date": "2025-02-28T03:14:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad64f5c0e30923523e9bf3"
+  },
+  "code": "TIENDUC4",
+  "discountPercentage": 4,
+  "minOrderValue": 1000000,
+  "description": "Giảm 4% cho đơn hàng từ 1000K trở lên",
+  "visible": true,
+  "endDate": {
+    "$date": "2025-02-28T03:14:00.000Z"
+  },
+  "__v": 0
+}]

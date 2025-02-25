@@ -1,0 +1,318 @@
+[{
+  "_id": {
+    "$oid": "67374fcc930cc29b6ad547eb"
+  },
+  "name": "Nam",
+  "level": 1,
+  "slugCategory": "nam",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "name": "Áo",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547eb"
+  },
+  "level": 2,
+  "slugCategory": "ao",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67374fcc930cc29b6ad547f1"
+  },
+  "name": "Áo sơ mi",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-so-mi",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673755bb930cc29b6ad54a25"
+  },
+  "name": "Áo phông",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-phong",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673758f3930cc29b6ad54d2e"
+  },
+  "name": "Áo len",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-len",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67375e17930cc29b6ad55053"
+  },
+  "name": "Áo polo",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-polo",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67375f37930cc29b6ad550d8"
+  },
+  "name": "Áo khoác",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-khoac",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673761a1930cc29b6ad553d4"
+  },
+  "name": "Áo hoodie",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547ee"
+  },
+  "level": 3,
+  "slugCategory": "ao-hoodie",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673762a6930cc29b6ad55540"
+  },
+  "name": "Quần",
+  "parentCategory": {
+    "$oid": "67374fcc930cc29b6ad547eb"
+  },
+  "level": 2,
+  "slugCategory": "quan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673762a6930cc29b6ad55543"
+  },
+  "name": "Quần dài",
+  "parentCategory": {
+    "$oid": "673762a6930cc29b6ad55540"
+  },
+  "level": 3,
+  "slugCategory": "quan-dai",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739f4a05fd8774b944b4e79"
+  },
+  "name": "Nữ",
+  "level": 1,
+  "slugCategory": "nu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "name": "Áo",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e79"
+  },
+  "level": 2,
+  "slugCategory": "ao",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739f4a05fd8774b944b4e7f"
+  },
+  "name": "Áo sơ mi",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-so-mi",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739fa982e2be580a324b921"
+  },
+  "name": "Áo polo",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-polo",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739fcc12e2be580a324b9c3"
+  },
+  "name": "Áo khoác",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-khoac",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739fe572e2be580a324be23"
+  },
+  "name": "Áo hoodie",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-hoodie",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673aab81d05a043d2bd90844"
+  },
+  "name": "Áo phông",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-phong",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673aafa9d05a043d2bd916d6"
+  },
+  "name": "Áo len",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e7c"
+  },
+  "level": 3,
+  "slugCategory": "ao-len",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "name": "Quần",
+  "parentCategory": {
+    "$oid": "6739f4a05fd8774b944b4e79"
+  },
+  "level": 2,
+  "slugCategory": "quan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ab182d05a043d2bd917da"
+  },
+  "name": "Quần dài",
+  "parentCategory": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "level": 3,
+  "slugCategory": "quan-dai",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ab72ad05a043d2bd92f80"
+  },
+  "name": "Quần short",
+  "parentCategory": {
+    "$oid": "673762a6930cc29b6ad55540"
+  },
+  "level": 3,
+  "slugCategory": "quan-short",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673abc27d05a043d2bd9314f"
+  },
+  "name": "Quần jean",
+  "parentCategory": {
+    "$oid": "673762a6930cc29b6ad55540"
+  },
+  "level": 3,
+  "slugCategory": "quan-jean",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673abdf1d05a043d2bd93749"
+  },
+  "name": "Quần jean",
+  "parentCategory": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "level": 3,
+  "slugCategory": "quan-jean",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b30f5639600141df91581"
+  },
+  "name": "Quần short",
+  "parentCategory": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "level": 3,
+  "slugCategory": "quan-short",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c87d02203b06cc5a46377"
+  },
+  "name": "Quần nỉ",
+  "parentCategory": {
+    "$oid": "673762a6930cc29b6ad55540"
+  },
+  "level": 3,
+  "slugCategory": "quan-ni",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8ad32203b06cc5a468eb"
+  },
+  "name": "Quần nỉ",
+  "parentCategory": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "level": 3,
+  "slugCategory": "quan-ni",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8b0a2203b06cc5a4692e"
+  },
+  "name": "Quẩn nỉ",
+  "parentCategory": {
+    "$oid": "673ab182d05a043d2bd917d7"
+  },
+  "level": 3,
+  "slugCategory": "quan-ni",
+  "__v": 0
+}]

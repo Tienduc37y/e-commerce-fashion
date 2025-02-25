@@ -105,7 +105,7 @@ export default function Register() {
       >
         <img
           class="h-screen w-full object-cover opacity-90"
-          src="https://lh3.googleusercontent.com/xCbtOb-ykOYKEsyushxdbP5OvPJvoScZ662f3OA8fqWdn_-0BjFE32dOR1Pez8ZDr5DVT524nQe4UePefYNgu1_RPemm72BuIac4Ti1EwgCT7b3-YOmmupBKhu1F7UPScNMmxg2KKQ=w1200-h800-no"
+          src="./bg.jpg"
           alt="Ảnh shop quần áo"
         />
       </div>

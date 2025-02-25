@@ -80,17 +80,13 @@ const CustomersTable = () => {
         toast.success("Cập nhật thông tin người dùng thành công");
         setOpen(false);
         setPage(1); // Reset về page 1
-        setFilteredUsers(prevUsers => {
-          if (Array.isArray(prevUsers)) {
-            return prevUsers.map(user => 
-              user.id === result.user.id ? { ...user, ...result.user } : user
-            );
-          } else {
-            console.error('prevUsers is not an array:', prevUsers);
-            return [];
-          }
-        });
-        dispatch(getAllUsers());
+        
+        // Gọi getAllUsers và cập nhật dữ liệu mới
+        const response = await dispatch(getAllUsers(1, rowsPerPage));
+        if (response?.pagination) {
+          setTotalPages(response.pagination.totalPages);
+          setFilteredUsers(response.data || []);
+        }
       } else {
         return { error: result.error };
       }
@@ -114,8 +110,11 @@ const CustomersTable = () => {
       try {
         await dispatch(deleteUserById(userToDelete.id));
         toast.success("Xóa thành công người dùng " + userToDelete.username);
-        setFilteredUsers(prevUsers => prevUsers.filter(user => user.id !== userToDelete.id));
-        dispatch(getAllUsers());
+        const response = await dispatch(getAllUsers(1, rowsPerPage));
+        if (response?.pagination) {
+          setTotalPages(response.pagination.totalPages);
+          setFilteredUsers(response.data || []);
+        }
       } catch (error) {
         toast.error("Xóa không thành công người dùng " + userToDelete.username);
       }

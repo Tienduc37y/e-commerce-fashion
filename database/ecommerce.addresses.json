@@ -1,0 +1,288 @@
+[{
+  "_id": {
+    "$oid": "673c9270b86c66fd19d8d137"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Bắc Ninh",
+  "district": "Huyện Gia Bình",
+  "ward": "Xã Quỳnh Phú",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c945dff568591bba776b7"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Bắc Ninh",
+  "district": "Thành phố Bắc Ninh",
+  "ward": "Xã Hòa Long",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c956236396370b21af996"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Cao Bằng",
+  "district": "Huyện Thông Nông",
+  "ward": "Xã Yên Sơn",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c95d336396370b21b3362"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Đắk Lắk",
+  "district": "Huyện Krông Năng",
+  "ward": "Xã Phú Lộc",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca26c5242acfebc5f552d"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hà Nội",
+  "district": "Huyện Hoài Đức",
+  "ward": "Xã Sơn Đồng",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca539c9ec7a66450a81df"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Đắk Lắk",
+  "district": "Huyện Krông Pắc",
+  "ward": "Xã Hòa Tiến",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca5e3c9ec7a66450adc5a"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hà Nội",
+  "district": "Huyện Gia Lâm",
+  "ward": "Xã Phú Thị",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffa5"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Bạc Liêu",
+  "district": "Huyện Hoà Bình",
+  "ward": "Xã Vĩnh Mỹ A",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7357766abdbffaf9c10c"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hải Phòng",
+  "district": "Quận Lê Chân",
+  "ward": "Phường An Biên",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da429ece2c7cd63cc6d3c"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Tiền Giang",
+  "district": "Thị xã Cai Lậy",
+  "ward": "Xã Thanh Hòa",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da49353305f3260695d94"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Tuyên Quang",
+  "district": "Huyện Yên Sơn",
+  "ward": "Xã Phúc Ninh",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da5187ac7a01b83bce6d5"
+  },
+  "firstName": "Phạm",
+  "lastName": "Minh",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hải Phòng",
+  "district": "Quận Đồ Sơn",
+  "ward": "Phường Ngọc Hải",
+  "mobile": "0982829395",
+  "__v": 0,
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da67c028b260e6ac73c27"
+  },
+  "firstName": "Lại",
+  "lastName": "Dũng",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hà Nội",
+  "district": "Quận Bắc Từ Liêm",
+  "ward": "Phường Thượng Cát",
+  "mobile": "0989796094",
+  "__v": 0,
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da722342d2a30a31040cf"
+  },
+  "firstName": "Lại",
+  "lastName": "Cường",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Bình Dương",
+  "district": "Thị xã Tân Uyên",
+  "ward": "Xã Vĩnh Tân",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  }
+},
+{
+  "_id": {
+    "$oid": "67acc3e48f6284082bc844e5"
+  },
+  "firstName": "Lại",
+  "lastName": "Cường",
+  "streetAddress": "Số nhà 1 tổ 18 đường Nguyễn Đạo An",
+  "city": "Thành phố Hà Nội",
+  "district": "Quận Bắc Từ Liêm",
+  "ward": "Phường Phú Diễn",
+  "mobile": "0981808675",
+  "__v": 0,
+  "user": {
+    "$oid": "67acc3ac8f6284082bc84148"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad57f5c0e30923523e561c"
+  },
+  "firstName": "Đỗ",
+  "lastName": "Quân",
+  "streetAddress": "số nhà 1 ",
+  "city": "Tỉnh Phú Thọ",
+  "district": "Huyện Cẩm Khê",
+  "ward": "Xã Văn Bán",
+  "mobile": "0987697274",
+  "__v": 0,
+  "user": {
+    "$oid": "67ad57c6c0e30923523e52aa"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad5933c0e30923523e650c"
+  },
+  "firstName": "Lại",
+  "lastName": "Dương",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Tỉnh Điện Biên",
+  "district": "Huyện Tủa Chùa",
+  "ward": "Xã Trung Thu",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67ad591bc0e30923523e618a"
+  }
+},
+{
+  "_id": {
+    "$oid": "67aec25dc21f050488d8e396"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "streetAddress": "Quận Bắc Từ LIêm",
+  "city": "Thành phố Hà Nội",
+  "district": "Huyện Sóc Sơn",
+  "ward": "Xã Quang Tiến",
+  "mobile": "01686186246",
+  "__v": 0,
+  "user": {
+    "$oid": "67aec1d7c21f050488d8dbc6"
+  }
+}]

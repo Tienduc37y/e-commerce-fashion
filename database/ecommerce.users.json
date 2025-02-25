@@ -1,0 +1,846 @@
+[{
+  "_id": {
+    "$oid": "673738c5930cc29b6ad545b1"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "administator",
+  "email": "20010851@st.phenikaa-uni.edu.vn",
+  "password": "$2b$10$4ufSj0.wisuGtbxYfXkZAuF8CJMulgAFJ7KjfyPIITteFXloQ9RhW",
+  "mobile": "0981808675",
+  "role": "ADMIN",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-11-15T19:04:21.901Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzhjNTkzMGNjMjliNmFkNTQ1YjEiLCJpYXQiOjE3Mzk1MDM3OTUsImV4cCI6MTczOTUwNzM5NX0.OImUYYSdWBFeHS3JWu6uoTlrVlOuEAwABLs5oJ9qjXk",
+      "expiresAt": {
+        "$date": "2025-02-14T11:29:55.145Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzhjNTkzMGNjMjliNmFkNTQ1YjEiLCJpYXQiOjE3MzkzNDU5OTEsImV4cCI6MTc0MDY0MTk5MX0.ELhLbVc0MbYVcszfgOBxt0VsUkQfH1FUodJp7U0q-4o",
+      "expiresAt": {
+        "$date": "2025-02-27T14:39:51.724Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "laitienduc37",
+  "email": "laitienduc37@gmail.com",
+  "password": "$2b$10$o1ug93dJ74UxV1ygy5XXdOnTmpSE2smTb2vd73VEO5PdNLFBZqhz.",
+  "mobile": "01686186246",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673d7357766abdbffaf9c10c"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:05:17.334Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzhmZDkzMGNjMjliNmFkNTQ2MDgiLCJpYXQiOjE3Mzk0OTQyODQsImV4cCI6MTczOTQ5Nzg4NH0.LThN6hsn5fn47v6L7EI-vIxrYvDpheekNCxLwCODmPY",
+      "expiresAt": {
+        "$date": "2025-02-14T08:51:24.393Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzhmZDkzMGNjMjliNmFkNTQ2MDgiLCJpYXQiOjE3Mzk0OTQyODQsImV4cCI6MTc0MDc5MDI4NH0.43QgBkB27Ie7LNU4DiTYRdhttHSKANtUvimaM1Koggo",
+      "expiresAt": {
+        "$date": "2025-03-01T07:51:24.395Z"
+      }
+    }
+  },
+  "tokenResetPassword": {
+    "token": "",
+    "expiresTime": null
+  }
+},
+{
+  "_id": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "laitienduc371",
+  "email": "laitienduc371@gmail.com",
+  "password": "$2b$10$JPVJP2EgUnWNvHZImj7VEu13eAUsE2td5O5kR1TD8rnG/Va8h1f12",
+  "mobile": "016861862462",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673da722342d2a30a31040cf"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:05:27.762Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkwNzkzMGNjMjliNmFkNTQ2MTMiLCJpYXQiOjE3MzIxOTc1NjQsImV4cCI6MTczMjIwMTE2NH0.vS3ctJLFsoHcXfeOMI4JH8vrPSGKo6WCCG3n23YrLCc",
+      "expiresAt": {
+        "$date": "2024-11-21T14:59:24.694Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkwNzkzMGNjMjliNmFkNTQ2MTMiLCJpYXQiOjE3MzIxOTc1NjQsImV4cCI6MTczMzQ5MzU2NH0.EGRsYYXzimtT1S_PW-N38PKNy1xY4FK7knEtdthm7XI",
+      "expiresAt": {
+        "$date": "2024-12-06T13:59:24.695Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc37",
+  "email": "tienduc37@gmail.com",
+  "password": "$2b$10$orTaf/dJ6nni.9Q3nXqvMuX9GN5HuPc7cD308C3iZ/Qb/hlEnI2Du",
+  "mobile": "01686186245",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673c9270b86c66fd19d8d137"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:05:52.641Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkyMDkzMGNjMjliNmFkNTQ2MWUiLCJpYXQiOjE3Mzc0Njc1NDAsImV4cCI6MTczNzQ2ODE0MH0.ljF68ucpxxOnubH7shjFjH-iz-olG52W9j5BIMOX0gY",
+      "expiresAt": {
+        "$date": "2025-01-21T21:02:20.731Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkyMDkzMGNjMjliNmFkNTQ2MWUiLCJpYXQiOjE3Mzc0NjY4NjgsImV4cCI6MTczODc2Mjg2OH0.p2kJxKZnLm-S2K1cM_dFiqFUPIgziY9b5sqDQRo4yDg",
+      "expiresAt": {
+        "$date": "2025-02-05T20:41:08.874Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc371",
+  "email": "tienduc371@gmail.com",
+  "password": "$2b$10$Hb8B9H79/y3EbN7GwOQBOeJKmIVFk5UycnLYlKwxfllFcL/hBZTqy",
+  "mobile": "016861862453",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673c945dff568591bba776b7"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:06:01.773Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkyOTkzMGNjMjliNmFkNTQ2MmMiLCJpYXQiOjE3MzM0NjI4OTEsImV4cCI6MTczMzQ2NjQ5MX0.HkGYsVc0OAbyUWTjWe0Ro8VzLhTUFW0wX-qHFeaA6d4",
+      "expiresAt": {
+        "$date": "2024-12-06T06:28:11.765Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkyOTkzMGNjMjliNmFkNTQ2MmMiLCJpYXQiOjE3MzM0NjI4OTEsImV4cCI6MTczNDc1ODg5MX0.T7LSIIz1asvYKfFnr03V1hXzZxPzo6-ELAgOVuFLtns",
+      "expiresAt": {
+        "$date": "2024-12-21T05:28:11.766Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc372",
+  "email": "tienduc372@gmail.com",
+  "password": "$2b$10$cdfHxNTpYFsbRgcz0dv/ueS/BBJGjorwvD7UZf1DEKmitnI/E.TxW",
+  "mobile": "016861862456",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673c956236396370b21af996"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:06:18.233Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkzYTkzMGNjMjliNmFkNTQ2M2EiLCJpYXQiOjE3Mzk1MDYzNzEsImV4cCI6MTczOTUwOTk3MX0.TUj4nqkrg9pzF__-oCg3pg1uPZUoFKFjqUFsvy7MIl8",
+      "expiresAt": {
+        "$date": "2025-02-14T12:12:51.670Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzkzYTkzMGNjMjliNmFkNTQ2M2EiLCJpYXQiOjE3MzkzNzU4NDEsImV4cCI6MTc0MDY3MTg0MX0.Q_KVQUI6jwrqmM9VybyWtn_bDRTIgNy_-BRbkzd1iCI",
+      "expiresAt": {
+        "$date": "2025-02-27T22:57:21.354Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc373",
+  "email": "tienduc373@gmail.com",
+  "password": "$2b$10$abaNpqtyttAHrfCl4e.vZ.WfpSxwJeoMd7nDf/GclDb40hcZxrvrG",
+  "mobile": "09872738495",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673c95d336396370b21b3362"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:06:35.144Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk0YjkzMGNjMjliNmFkNTQ2NDUiLCJpYXQiOjE3Mzc0NzE2MjEsImV4cCI6MTczNzQ3MTc0MX0.tTC4hBRhnMjpaXByMm2zhL7OF4y4Sv_iZbinolIq8ag",
+      "expiresAt": {
+        "$date": "2025-01-21T22:02:21.454Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk0YjkzMGNjMjliNmFkNTQ2NDUiLCJpYXQiOjE3Mzc0NzE2MjEsImV4cCI6MTczNzQ3MTkyMX0.Jqz8qFI9xPMY-SmRB1umc9n7YUJHLJLBMbxWcvtY0m8",
+      "expiresAt": {
+        "$date": "2025-01-21T22:05:21.455Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc374",
+  "email": "tienduc374@gmail.com",
+  "password": "$2b$10$AuYfXkr6gBqKaP6AmLaTgOEHwuLlGDUad.dgjnt6/pLMCLPMaSvYu",
+  "mobile": "09872738432",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673ca539c9ec7a66450a81df"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:06:53.701Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk1ZDkzMGNjMjliNmFkNTQ2NTMiLCJpYXQiOjE3MzIwODIxNDAsImV4cCI6MTczMjA4NTc0MH0.D_r9MOTVOcGB7ZBtYCfi9gdkNuP0N-TfxOcngvHKCHA",
+      "expiresAt": {
+        "$date": "2024-11-20T06:55:40.181Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk1ZDkzMGNjMjliNmFkNTQ2NTMiLCJpYXQiOjE3MzIwODIxNDAsImV4cCI6MTczMzM3ODE0MH0.FNPLes5ni1_VNkch_slJ_YV-R9MDBDd8ohi3hcKTCpE",
+      "expiresAt": {
+        "$date": "2024-12-05T05:55:40.182Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc375",
+  "email": "tienduc375@gmail.com",
+  "password": "$2b$10$sh1P4.XIMJHQe84GZl7ameZByowFGn1qbHmdt95JfmQSgu/b0hzeW",
+  "mobile": "09872738423",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673ca6725e377ed912e7ffa5"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:07:07.607Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk2YjkzMGNjMjliNmFkNTQ2NjEiLCJpYXQiOjE3MzIwOTI2OTAsImV4cCI6MTczMjA5NjI5MH0.QszuLSxPkGvefuBCQewoViWG7RPGFfBGlKosqJfQzy8",
+      "expiresAt": {
+        "$date": "2024-11-20T09:51:30.258Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk2YjkzMGNjMjliNmFkNTQ2NjEiLCJpYXQiOjE3MzIwOTI2OTAsImV4cCI6MTczMzM4ODY5MH0.A_XMuPDUcpMZSAQ776AaWCPYgYoBWCrSwZFjmcQ61YY",
+      "expiresAt": {
+        "$date": "2024-12-05T08:51:30.258Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc376",
+  "email": "tienduc376@gmail.com",
+  "password": "$2b$10$.FzCqPqx52nbISMaQ.3/ZeeVXX0t35XJFRgRZK/XE7yFFmZ5bCR1m",
+  "mobile": "09872738476",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673ca5e3c9ec7a66450adc5a"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:07:25.464Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk3ZDkzMGNjMjliNmFkNTQ2NmYiLCJpYXQiOjE3MzIwOTI3ODgsImV4cCI6MTczMjA5NjM4OH0.pFgSmkrhTci3aWooSOc5xtTHeCNt_TY6Mvmp1fvUo9o",
+      "expiresAt": {
+        "$date": "2024-11-20T09:53:08.893Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk3ZDkzMGNjMjliNmFkNTQ2NmYiLCJpYXQiOjE3MzIwOTI3ODgsImV4cCI6MTczMzM4ODc4OH0.F4iFIm1XeXdLCYqxj5Emu3DnsPpzjnAG-BbySULD04o",
+      "expiresAt": {
+        "$date": "2024-12-05T08:53:08.894Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373992930cc29b6ad5467d"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc377",
+  "email": "tienduc377@gmail.com",
+  "password": "$2b$10$M/pAMjw4jqEvZ71oFKwKkOfAsGybctDENe5e2e1Q4ftzwUNvkijn6",
+  "mobile": "098727384763",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-11-15T19:07:46.937Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk5MjkzMGNjMjliNmFkNTQ2N2QiLCJpYXQiOjE3MzE2NzI0NjYsImV4cCI6MTczMTY3NjA2Nn0.2j18eVL6I_2t96r4KQLisdnjYehHi3GnCyJLqbSQH_o",
+      "expiresAt": {
+        "$date": "2024-11-15T13:07:46.939Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3Mzk5MjkzMGNjMjliNmFkNTQ2N2QiLCJpYXQiOjE3MzE2NzI0NjYsImV4cCI6MTczMjk2ODQ2Nn0.mrr8MkFVwU_IyXnuiRMBU0EYhOBEamjQjR9rQgkh81Y",
+      "expiresAt": {
+        "$date": "2024-11-30T12:07:46.940Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc378",
+  "email": "tienduc378@gmail.com",
+  "password": "$2b$10$rLJ3sew3OQzDh0Mk02Ns/.spQaVy4dhgWarlAwm1EjaCWxi/Ce5AO",
+  "mobile": "09876972721",
+  "role": "USER",
+  "address": {
+    "$oid": "673da429ece2c7cd63cc6d3c"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:08:27.001Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzliYjkzMGNjMjliNmFkNTQ2YWUiLCJpYXQiOjE3MzIwOTI5MzcsImV4cCI6MTczMjA5NjUzN30.UNAzj_PdR5Ju76FPn2Eh57xWf664QxR2Jqwt_X55eSk",
+      "expiresAt": {
+        "$date": "2024-11-20T09:55:37.078Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3MzliYjkzMGNjMjliNmFkNTQ2YWUiLCJpYXQiOjE3MzIwOTI5MzcsImV4cCI6MTczMzM4ODkzN30.2-cNBeiM-hhK9OOcfWcA-DqP4LI0_11kZ6vu5zkYXJg",
+      "expiresAt": {
+        "$date": "2024-12-05T08:55:37.079Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc379",
+  "email": "tienduc379@gmail.com",
+  "password": "$2b$10$UPiYF728gt/SstpkT/2rX.8HyydrAeYrG7iE5uRKHAgovahMHCHya",
+  "mobile": "0987697274",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673da49353305f3260695d94"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:09:38.511Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2EwMjkzMGNjMjliNmFkNTQ2YzIiLCJpYXQiOjE3MzIwOTMwNDcsImV4cCI6MTczMjA5NjY0N30.3vMELqh2UvSdOZ6tMWoknTm49PjLnGio1xo3DvVIduA",
+      "expiresAt": {
+        "$date": "2024-11-20T09:57:27.305Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2EwMjkzMGNjMjliNmFkNTQ2YzIiLCJpYXQiOjE3MzIwOTMwNDcsImV4cCI6MTczMzM4OTA0N30.FwF6GwL4A0K6moTrRDcEmQLBnelDxDZ7njS8q9hB4Zw",
+      "expiresAt": {
+        "$date": "2024-12-05T08:57:27.306Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc3710",
+  "email": "tienduc3710@gmail.com",
+  "password": "$2b$10$6orvtlGeDSsB9/dBShAmp.Ux4uOVudU2NgFTBwemgHXU/fhZfUDdy",
+  "mobile": "016861812321",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673da5187ac7a01b83bce6d5"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:13:51.067Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2FmZjkzMGNjMjliNmFkNTQ3NTMiLCJpYXQiOjE3MzIwOTMxNzAsImV4cCI6MTczMjA5Njc3MH0.tpItAr-cKyrE9Yd0ofgcYEsOUl3ImywKxho6MjTzk6A",
+      "expiresAt": {
+        "$date": "2024-11-20T09:59:30.431Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2FmZjkzMGNjMjliNmFkNTQ3NTMiLCJpYXQiOjE3MzIwOTMxNzAsImV4cCI6MTczMzM4OTE3MH0.Mbd8DMVXzf5X7P0Vgr-ZbDiHJwelLeGZmtrG13QARoA",
+      "expiresAt": {
+        "$date": "2024-12-05T08:59:30.431Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc3711",
+  "email": "tienduc3711@gmail.com",
+  "password": "$2b$10$RF1yHVSAYLJEkeDdDJPya.SxB0S5j3Rt5kyATZV86fIRMklKHEAOO",
+  "mobile": "016861812354",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673ca26c5242acfebc5f552d"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:14:11.950Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2IxMzkzMGNjMjliNmFkNTQ3NjQiLCJpYXQiOjE3Mzc0Njg3MTYsImV4cCI6MTczNzQ2ODgzNn0.HwpJpe1ffNm_WzBTf1xTfu-L51lzkfquayl4tswbg94",
+      "expiresAt": {
+        "$date": "2025-01-21T21:13:56.668Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2IxMzkzMGNjMjliNmFkNTQ3NjQiLCJpYXQiOjE3Mzc0Njg3MTYsImV4cCI6MTczNzQ2OTAxNn0.mambFuZhUZk-oxjYPOvWtRIBjGUV50vX4Kkkq5gIkd0",
+      "expiresAt": {
+        "$date": "2025-01-21T21:16:56.671Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc3712",
+  "email": "tienduc3712@gmail.com",
+  "password": "$2b$10$A88scV/F6B90vrUwOiSXK.xDGgy1B725H5GvvqLVPtPHftEEjsnGG",
+  "mobile": "016861812352",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "673da67c028b260e6ac73c27"
+  },
+  "createdAt": {
+    "$date": "2024-11-15T19:14:49.473Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2IzOTkzMGNjMjliNmFkNTQ3N2IiLCJpYXQiOjE3MzIwOTM1MjYsImV4cCI6MTczMjA5NzEyNn0.q8e5SFKC0hxDFtGHZv_iiBhUstDAsjjiHwtzW0fqTwY",
+      "expiresAt": {
+        "$date": "2024-11-20T10:05:26.220Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2IzOTkzMGNjMjliNmFkNTQ3N2IiLCJpYXQiOjE3MzIwOTM1MjYsImV4cCI6MTczMzM4OTUyNn0.bAiPh0_PpuvpxYyvPVfYWCmlb1_uXAb3Nme8wPc09LQ",
+      "expiresAt": {
+        "$date": "2024-12-05T09:05:26.221Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373bc6930cc29b6ad5479d"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "laitienduc3712",
+  "email": "laitienduc3712@gmail.com",
+  "password": "$2b$10$mKIGopaDq9xXZ0oiWB0U9uG5R6ZNw9z23O8sGqW5ORk1.sHgKdzrm",
+  "mobile": "01686184353",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-11-15T19:17:10.604Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2JjNjkzMGNjMjliNmFkNTQ3OWQiLCJpYXQiOjE3MzE2NzMwMzAsImV4cCI6MTczMTY3NjYzMH0.aOf-Rp-7hA2UWnOyI5LrvV1w4KV1Rfz4ZilbxXcMSGs",
+      "expiresAt": {
+        "$date": "2024-11-15T13:17:10.607Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2JjNjkzMGNjMjliNmFkNTQ3OWQiLCJpYXQiOjE3MzE2NzMwMzAsImV4cCI6MTczMjk2OTAzMH0.GaOWBV4Si_2zMmcszW8e5SRcbfI8munf1lyBLz5RQpE",
+      "expiresAt": {
+        "$date": "2024-11-30T12:17:10.608Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67373c17930cc29b6ad547b4"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "laitienduc3713",
+  "email": "laitienduc3713@gmail.com",
+  "password": "$2b$10$rbqxP/NG5l39AtkZaVzfAu4CwBhkbIhVArIpyhClIxod8VZI2XZ6C",
+  "mobile": "016861843534",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-11-15T19:18:31.822Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2MxNzkzMGNjMjliNmFkNTQ3YjQiLCJpYXQiOjE3MzE2NzMxMTEsImV4cCI6MTczMTY3NjcxMX0.UO7jNRfZ5ICgcw6IVisTrcnmNiiB7DA8WjQVOJap3iw",
+      "expiresAt": {
+        "$date": "2024-11-15T13:18:31.825Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM3M2MxNzkzMGNjMjliNmFkNTQ3YjQiLCJpYXQiOjE3MzE2NzMxMTEsImV4cCI6MTczMjk2OTExMX0.74RcbCzSBOQFceE2t4HPQby7zmq-17xjLOr321zfMfg",
+      "expiresAt": {
+        "$date": "2024-11-30T12:18:31.826Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6751d2e6022a7c9450b35cb6"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "tienduc37199",
+  "email": "laitienduc37199@gmail.com",
+  "password": "$2b$10$KK20DNvD.NVbOeKZIbkdbembtkHjvSNyODwZFFYvY7g2g.uKKjtIO",
+  "mobile": "012342342233",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-12-05T23:20:54.061Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUxZDJlNjAyMmE3Yzk0NTBiMzVjYjYiLCJpYXQiOjE3MzM0MTU2NTQsImV4cCI6MTczMzQxOTI1NH0.W1zmtoz_zKk71KW-1iik4adfHtTEVwuvF4wBcHhciRo",
+      "expiresAt": {
+        "$date": "2024-12-05T17:20:54.069Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUxZDJlNjAyMmE3Yzk0NTBiMzVjYjYiLCJpYXQiOjE3MzM0MTU2NTQsImV4cCI6MTczNDcxMTY1NH0.GWbtedudwpp4oClb8TYD5LpD-LLbhAGh5FDAwavvqlQ",
+      "expiresAt": {
+        "$date": "2024-12-20T16:20:54.070Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6759037143e24e82375466f1"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "toibingau1",
+  "email": "laitienduc3217@gmail.com",
+  "password": "$2b$10$gYXHc6feFopTPJbSM8Nd/.1j7avWwtbl/XIUDRukVaL0ZQr7KIozS",
+  "mobile": "01642342342",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2024-12-11T10:13:53.364Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzU5MDM3MTQzZTI0ZTgyMzc1NDY2ZjEiLCJpYXQiOjE3MzM4ODY4MzMsImV4cCI6MTczMzg5MDQzM30.2bouWQx3OxRKIyolV3TVHN4zMK2MvRfMpRGXhVFisiU",
+      "expiresAt": {
+        "$date": "2024-12-11T04:13:53.373Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzU5MDM3MTQzZTI0ZTgyMzc1NDY2ZjEiLCJpYXQiOjE3MzM4ODY4MzMsImV4cCI6MTczNTE4MjgzM30.lTga8YK1r0HQ6Kn51mFtJt54Q7qJ0v9cEzoLIhs3jjg",
+      "expiresAt": {
+        "$date": "2024-12-26T03:13:53.375Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67acc3ac8f6284082bc84148"
+  },
+  "firstName": "Lại",
+  "lastName": "Cường",
+  "username": "vcuong77",
+  "email": "vcuong77@gmail.com",
+  "password": "$2b$10$kpwBs4aCd7w4iVzFlgBpv.isPrWISnntZX0uz/NGSaHfz0xyzAB1q",
+  "mobile": "09876974333",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "67acc3e48f6284082bc844e5"
+  },
+  "createdAt": {
+    "$date": "2025-02-12T22:52:12.078Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYzNhYzhmNjI4NDA4MmJjODQxNDgiLCJpYXQiOjE3MzkzNzU1MzIsImV4cCI6MTczOTM3OTEzMn0.CCB0ibVZtgXWwzUj5J2CzdS5IB9RT8QO9H0jDRvlaKE",
+      "expiresAt": {
+        "$date": "2025-02-12T23:52:12.103Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FjYzNhYzhmNjI4NDA4MmJjODQxNDgiLCJpYXQiOjE3MzkzNzU1MzIsImV4cCI6MTc0MDY3MTUzMn0.CyN55dEEjHu0ubl4bySIKsF7nmnenItlXMkiYJUYCBw",
+      "expiresAt": {
+        "$date": "2025-02-27T22:52:12.104Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad57194c78e3f512acfa20"
+  },
+  "firstName": "Lại",
+  "lastName": "Dũng",
+  "username": "laidung22",
+  "email": "laidung22@gmail.com",
+  "password": "$2b$10$8S.nJ4p/q5/EgiKB4G53xuZ2EdEkBWrVUB8cJTDZDwrHbkQxKjbEi",
+  "mobile": "0989796091",
+  "role": "CUSTOMER",
+  "address": null,
+  "createdAt": {
+    "$date": "2025-02-13T09:21:13.371Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTcxOTRjNzhlM2Y1MTJhY2ZhMjAiLCJpYXQiOjE3Mzk0MTMyNzMsImV4cCI6MTczOTQxNjg3M30.zBntDjwMbNAAEzxm6jQKMaskcXu0tD5l2bYqtK8FTsw",
+      "expiresAt": {
+        "$date": "2025-02-13T10:21:13.465Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTcxOTRjNzhlM2Y1MTJhY2ZhMjAiLCJpYXQiOjE3Mzk0MTMyNzMsImV4cCI6MTc0MDcwOTI3M30.shTNKQCPwO-Bv-RcKoOsv8Ve1owwbBKPlfxD02BFNWw",
+      "expiresAt": {
+        "$date": "2025-02-28T09:21:13.474Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad57c6c0e30923523e52aa"
+  },
+  "firstName": "Đỗ",
+  "lastName": "Quân",
+  "username": "doquan123",
+  "email": "doquan123@gmail.com",
+  "password": "$2b$10$dBjSUVPz46MjKRLYLMRXBegWzQ1snsc2ZKik2ZnQBbR10RiQYhk/e",
+  "mobile": "09872728321",
+  "role": "USER",
+  "address": {
+    "$oid": "67ad57f5c0e30923523e561c"
+  },
+  "createdAt": {
+    "$date": "2025-02-13T09:24:06.505Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTdjNmMwZTMwOTIzNTIzZTUyYWEiLCJpYXQiOjE3Mzk0MTM0NDYsImV4cCI6MTczOTQxNzA0Nn0.6A0GhIeSv3upXNFBnMG4KDfp77iSxDN53fp94AbQ9vs",
+      "expiresAt": {
+        "$date": "2025-02-13T10:24:06.590Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTdjNmMwZTMwOTIzNTIzZTUyYWEiLCJpYXQiOjE3Mzk0MTM0NDYsImV4cCI6MTc0MDcwOTQ0Nn0.ngD2VQMOqHLFUey32ge1LIaAxFmICxmlQAMLZ74ar4E",
+      "expiresAt": {
+        "$date": "2025-02-28T09:24:06.599Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad591bc0e30923523e618a"
+  },
+  "firstName": "Lại",
+  "lastName": "Dương",
+  "username": "laiduong22",
+  "email": "laiduong22@gmail.com",
+  "password": "$2b$10$tOsIMghfYa7u3dNTDjF6UO1MFqvz2AcQH7m/kOu5RDKcOvBXVhYmK",
+  "mobile": "098768292421",
+  "role": "USER",
+  "address": {
+    "$oid": "67ad5933c0e30923523e650c"
+  },
+  "createdAt": {
+    "$date": "2025-02-13T09:29:47.593Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTkxYmMwZTMwOTIzNTIzZTYxOGEiLCJpYXQiOjE3Mzk0MTM3ODcsImV4cCI6MTczOTQxNzM4N30.Fn8OhS5WuDA8neVZlYvydh_ztjylzLq_WQeGIq0fBMs",
+      "expiresAt": {
+        "$date": "2025-02-13T10:29:47.603Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNTkxYmMwZTMwOTIzNTIzZTYxOGEiLCJpYXQiOjE3Mzk0MTM3ODcsImV4cCI6MTc0MDcwOTc4N30.-KTICDz-2B7KxCP0ZrhIzYvNeN9I0tcQNUHtFo-u5BY",
+      "expiresAt": {
+        "$date": "2025-02-28T09:29:47.606Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad61bfc0e30923523e9364"
+  },
+  "firstName": "Lại",
+  "lastName": "Đức",
+  "username": "123123212",
+  "email": "laitiend3232uc41323@gmail.com",
+  "password": "$2b$10$6nfOZk5v/k6g4O7Rm1hQdetOCr1DgeLms3kYu.x3k9e9RRzPyko.m",
+  "mobile": "016861834221",
+  "role": "USER",
+  "address": null,
+  "createdAt": {
+    "$date": "2025-02-13T10:06:39.396Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNjFiZmMwZTMwOTIzNTIzZTkzNjQiLCJpYXQiOjE3Mzk0MTU5OTksImV4cCI6MTczOTQxOTU5OX0.PLToSYLI9gfLV2TQDigwyMOJxnOhwgvW4h0KyMzNHaw",
+      "expiresAt": {
+        "$date": "2025-02-13T11:06:39.401Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FkNjFiZmMwZTMwOTIzNTIzZTkzNjQiLCJpYXQiOjE3Mzk0MTU5OTksImV4cCI6MTc0MDcxMTk5OX0.1ydcIzB8ZrPjDWfGTLHJiFeWG_fr3QTNa6ebKH2Z0Mc",
+      "expiresAt": {
+        "$date": "2025-02-28T10:06:39.404Z"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67aec1d7c21f050488d8dbc6"
+  },
+  "firstName": "Đỗ ",
+  "lastName": "Quân",
+  "username": "doquan333",
+  "email": "duc.laitien2002@gmail.com",
+  "password": "$2b$10$A70f31lgHg7Pi.hAMyXBKOAB.PiEieSn7xZJA.R0LtPNnDSrlXk..",
+  "mobile": "0396181976",
+  "role": "CUSTOMER",
+  "address": {
+    "$oid": "67aec25dc21f050488d8e396"
+  },
+  "createdAt": {
+    "$date": "2025-02-14T11:08:55.296Z"
+  },
+  "__v": 0,
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlYzFkN2MyMWYwNTA0ODhkOGRiYzYiLCJpYXQiOjE3Mzk1MDYxMzUsImV4cCI6MTczOTUwOTczNX0.SAC0TWjVJo_kPjPk7A3l-GhBQNDND_F9pqXG0ZddMXQ",
+      "expiresAt": {
+        "$date": "2025-02-14T12:08:55.337Z"
+      }
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlYzFkN2MyMWYwNTA0ODhkOGRiYzYiLCJpYXQiOjE3Mzk1MDYxMzUsImV4cCI6MTc0MDgwMjEzNX0.rVtEqyzSg0NcbTYRwmeBNT-tcUsKMl4yzZ7dP8I5trc",
+      "expiresAt": {
+        "$date": "2025-03-01T11:08:55.339Z"
+      }
+    }
+  }
+}]

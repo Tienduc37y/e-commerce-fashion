@@ -1,0 +1,5787 @@
+[{
+  "_id": {
+    "$oid": "673c9270b86c66fd19d8d13f"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c9270b86c66fd19d8d13b"
+    },
+    {
+      "$oid": "673c9270b86c66fd19d8d13d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1400000,
+  "totalDiscountedPrice": 1260000,
+  "totalItem": 2,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:28:16.185Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:03:02.653Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c9298b86c66fd19d8dedd"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c9298b86c66fd19d8ded9"
+    },
+    {
+      "$oid": "673c9298b86c66fd19d8dedb"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012587",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c9298b86c66fd19d8dedd",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1200000,
+  "totalDiscountedPrice": 959500,
+  "totalItem": 2,
+  "discounte": 190000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": {
+    "$oid": "6737644d930cc29b6ad56757"
+  },
+  "discountCode": 50500,
+  "orderDate": {
+    "$date": "2024-11-19T20:28:56.542Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:35:37.440Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c9332ff568591bba729ce"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c9332ff568591bba729ca"
+    },
+    {
+      "$oid": "673c9332ff568591bba729cc"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012910",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c9332ff568591bba729ce",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1400000,
+  "totalDiscountedPrice": 1260000,
+  "totalItem": 2,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:31:30.106Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:03:07.924Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c9366ff568591bba730bd"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c9366ff568591bba730bb"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:32:22.344Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:35:10.818Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c9379ff568591bba73d71"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c9379ff568591bba73d6f"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012911",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c9379ff568591bba73d71",
+    "statusMessage": "Thanh toán thành công"
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 810000,
+  "totalItem": 1,
+  "discounte": 90000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:32:41.410Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:35:07.611Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c93ebff568591bba7467b"
+  },
+  "user": {
+    "$oid": "67373920930cc29b6ad5461e"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c93ebff568591bba74677"
+    },
+    {
+      "$oid": "673c93ebff568591bba74679"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c9270b86c66fd19d8d137"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Huyện Gia Bình",
+      "ward": "Xã Quỳnh Phú",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1400000,
+  "totalDiscountedPrice": 1120000,
+  "totalItem": 2,
+  "discounte": 280000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:34:35.709Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:03:35.063Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c945dff568591bba776c1"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c945dff568591bba776bb"
+    },
+    {
+      "$oid": "673c945dff568591bba776bd"
+    },
+    {
+      "$oid": "673c945dff568591bba776bf"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012914",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c945dff568591bba776c1",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 949000,
+  "totalDiscountedPrice": 581580,
+  "totalItem": 3,
+  "discounte": 367420,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-19T20:36:29.622Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:54:13.434Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c94ff36396370b21ad955"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c94ff36396370b21ad951"
+    },
+    {
+      "$oid": "673c94ff36396370b21ad953"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1400000,
+  "totalDiscountedPrice": 1120000,
+  "totalItem": 2,
+  "discounte": 280000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T20:39:11.574Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:54:28.854Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c951736396370b21ae63e"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c951736396370b21ae63c"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012811",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c951736396370b21ae63e",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T20:39:35.988Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T20:54:31.126Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c956236396370b21af99e"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c956236396370b21af99a"
+    },
+    {
+      "$oid": "673c956236396370b21af99c"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012927",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673c956236396370b21af99e",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1100000,
+  "totalDiscountedPrice": 760000,
+  "totalItem": 2,
+  "discounte": 340000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T20:40:50.257Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:05:57.886Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673c958e36396370b21b0147"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c958e36396370b21b0143"
+    },
+    {
+      "$oid": "673c958e36396370b21b0145"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1000000,
+  "totalDiscountedPrice": 900000,
+  "totalItem": 2,
+  "discounte": 100000,
+  "orderStatus": "Hoàn trả hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T20:41:34.829Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c959c36396370b21b0e34"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673c959c36396370b21b0e32"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 450000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 90000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T20:41:48.388Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:05:03.341Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca26c5242acfebc5f5535"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca26c5242acfebc5f5531"
+    },
+    {
+      "$oid": "673ca26c5242acfebc5f5533"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012952",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673ca26c5242acfebc5f5535",
+    "statusMessage": "Thanh toán thành công"
+  },
+  "totalPrice": 6400000,
+  "totalDiscountedPrice": 5760000,
+  "totalItem": 16,
+  "discounte": 640000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-19T21:36:28.109Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T21:46:39.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca37b5242acfebc5f5ebc"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca37b5242acfebc5f5eb8"
+    },
+    {
+      "$oid": "673ca37b5242acfebc5f5eba"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 3000000,
+  "totalDiscountedPrice": 2394000,
+  "totalItem": 5,
+  "discounte": 480000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": {
+    "$oid": "6737644d930cc29b6ad56757"
+  },
+  "discountCode": 126000,
+  "orderDate": {
+    "$date": "2023-12-19T21:40:59.788Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:06:13.044Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca539c9ec7a66450a81e7"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca539c9ec7a66450a81e3"
+    },
+    {
+      "$oid": "673ca539c9ec7a66450a81e5"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012957",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673ca539c9ec7a66450a81e7",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 2200000,
+  "totalDiscountedPrice": 1720000,
+  "totalItem": 4,
+  "discounte": 480000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:48:25.478Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:02:07.617Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca562c9ec7a66450a88d8"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca562c9ec7a66450a88d6"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 300000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:49:06.144Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:05:13.572Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca572c9ec7a66450a974a"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca572c9ec7a66450a9746"
+    },
+    {
+      "$oid": "673ca572c9ec7a66450a9748"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1300000,
+  "totalDiscountedPrice": 1170000,
+  "totalItem": 4,
+  "discounte": 130000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:49:22.938Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:06:14.983Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca587c9ec7a66450aa4ec"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca587c9ec7a66450aa4e8"
+    },
+    {
+      "$oid": "673ca587c9ec7a66450aa4ea"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 699000,
+  "totalDiscountedPrice": 649200,
+  "totalItem": 4,
+  "discounte": 49800,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:49:43.538Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T21:59:52.223Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca59fc9ec7a66450ab302"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca59fc9ec7a66450ab2fe"
+    },
+    {
+      "$oid": "673ca59fc9ec7a66450ab300"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 4000000,
+  "totalDiscountedPrice": 3087500,
+  "totalItem": 6,
+  "discounte": 750000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": {
+    "$oid": "6737644d930cc29b6ad56757"
+  },
+  "discountCode": 162500,
+  "orderDate": {
+    "$date": "2024-01-19T21:50:07.475Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:02:36.924Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca5bcc9ec7a66450ac2c8"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca5bcc9ec7a66450ac2c4"
+    },
+    {
+      "$oid": "673ca5bcc9ec7a66450ac2c6"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 4893000,
+  "totalDiscountedPrice": 4753000,
+  "totalItem": 8,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:50:36.211Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T21:58:18.754Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca5e3c9ec7a66450adc62"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca5e3c9ec7a66450adc5e"
+    },
+    {
+      "$oid": "673ca5e3c9ec7a66450adc60"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1100000,
+  "totalDiscountedPrice": 860000,
+  "totalItem": 2,
+  "discounte": 240000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:51:15.514Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:36.550Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca5ffc9ec7a66450aea6b"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca5ffc9ec7a66450aea65"
+    },
+    {
+      "$oid": "673ca5ffc9ec7a66450aea67"
+    },
+    {
+      "$oid": "673ca5ffc9ec7a66450aea69"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012838",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673ca5ffc9ec7a66450aea6b",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 2700000,
+  "totalDiscountedPrice": 2550000,
+  "totalItem": 6,
+  "discounte": 150000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:51:43.721Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:41.129Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca632c9ec7a66450af17a"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca632c9ec7a66450af176"
+    },
+    {
+      "$oid": "673ca632c9ec7a66450af178"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 698000,
+  "totalDiscountedPrice": 588400,
+  "totalItem": 3,
+  "discounte": 109600,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-19T21:52:34.199Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:06:20.482Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca6725e377ed912e7ffb3"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca6725e377ed912e7ffa9"
+    },
+    {
+      "$oid": "673ca6725e377ed912e7ffab"
+    },
+    {
+      "$oid": "673ca6725e377ed912e7ffad"
+    },
+    {
+      "$oid": "673ca6725e377ed912e7ffaf"
+    },
+    {
+      "$oid": "673ca6725e377ed912e7ffb1"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012839",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673ca6725e377ed912e7ffb3",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 2250000,
+  "totalDiscountedPrice": 1785000,
+  "totalItem": 7,
+  "discounte": 465000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-02-19T21:53:38.477Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:05.353Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca6a75e377ed912e809c7"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca6a75e377ed912e809c1"
+    },
+    {
+      "$oid": "673ca6a75e377ed912e809c3"
+    },
+    {
+      "$oid": "673ca6a75e377ed912e809c5"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 2800000,
+  "totalDiscountedPrice": 2240000,
+  "totalItem": 7,
+  "discounte": 560000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-02-19T21:54:31.572Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:06:22.081Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca6b75e377ed912e8175c"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca6b75e377ed912e81758"
+    },
+    {
+      "$oid": "673ca6b75e377ed912e8175a"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241119000012840",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241119_673ca6b75e377ed912e8175c",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1800000,
+  "totalDiscountedPrice": 1420000,
+  "totalItem": 3,
+  "discounte": 380000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-02-19T21:54:47.833Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:00:02.326Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673ca7075e377ed912e820d8"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673ca7075e377ed912e820d2"
+    },
+    {
+      "$oid": "673ca7075e377ed912e820d4"
+    },
+    {
+      "$oid": "673ca7075e377ed912e820d6"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 2800000,
+  "totalDiscountedPrice": 2390000,
+  "totalItem": 5,
+  "discounte": 410000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-02-19T21:56:07.151Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-19T22:03:12.332Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7357766abdbffaf9c114"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7357766abdbffaf9c110"
+    },
+    {
+      "$oid": "673d7357766abdbffaf9c112"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": "241120_673d7357766abdbffaf9c114"
+  },
+  "totalPrice": 3000000,
+  "totalDiscountedPrice": 2700000,
+  "totalItem": 6,
+  "discounte": 300000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-17T12:27:51.784Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:04:51.494Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d73d4c3eaf9877a084a8d"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d73d4c3eaf9877a084a89"
+    },
+    {
+      "$oid": "673d73d4c3eaf9877a084a8b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1300000,
+  "totalDiscountedPrice": 1110000,
+  "totalItem": 2,
+  "discounte": 190000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-17T12:29:56.167Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:00.822Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d73f8c3eaf9877a0868df"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d73f8c3eaf9877a0868d1"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868d3"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868d5"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868d7"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868d9"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868db"
+    },
+    {
+      "$oid": "673d73f8c3eaf9877a0868dd"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000004790",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d73f8c3eaf9877a0868df",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 3049000,
+  "totalDiscountedPrice": 2674000,
+  "totalItem": 9,
+  "discounte": 375000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-17T12:30:32.246Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:02.321Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7460c3eaf9877a087c9d"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7460c3eaf9877a087c8b"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c8d"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c8f"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c91"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c93"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c95"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c97"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c99"
+    },
+    {
+      "$oid": "673d7460c3eaf9877a087c9b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000004791",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d7460c3eaf9877a087c9d",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 6458000,
+  "totalDiscountedPrice": 5667000,
+  "totalItem": 9,
+  "discounte": 791000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-17T12:32:16.126Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:03.886Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d749df586c1f30368b8bb"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d749df586c1f30368b8b5"
+    },
+    {
+      "$oid": "673d749df586c1f30368b8b7"
+    },
+    {
+      "$oid": "673d749df586c1f30368b8b9"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1278000,
+  "totalDiscountedPrice": 1237310,
+  "totalItem": 3,
+  "discounte": 40690,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-18T12:33:17.720Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:05.860Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d74c2f586c1f30368ec11"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d74c2f586c1f30368ec09"
+    },
+    {
+      "$oid": "673d74c2f586c1f30368ec0b"
+    },
+    {
+      "$oid": "673d74c2f586c1f30368ec0d"
+    },
+    {
+      "$oid": "673d74c2f586c1f30368ec0f"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000004878",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d74c2f586c1f30368ec11",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1450000,
+  "totalDiscountedPrice": 1220000,
+  "totalItem": 4,
+  "discounte": 230000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-18T12:33:54.566Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:07.611Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d74f06e9957c195c98e63"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d74f06e9957c195c98e61"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 799000,
+  "totalDiscountedPrice": 799000,
+  "totalItem": 1,
+  "discounte": 0,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-14T12:34:40.286Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:37.278Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d750da4fb8d110292a5d0"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d750da4fb8d110292a5cc"
+    },
+    {
+      "$oid": "673d750da4fb8d110292a5ce"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 700000,
+  "totalItem": 2,
+  "discounte": 200000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-08T12:35:09.506Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:34.097Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d751c4628237e0b3c26c7"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d751c4628237e0b3c26c5"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 630000,
+  "totalItem": 1,
+  "discounte": 70000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-10T12:35:24.734Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:35.603Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d752ce022e4fb04e4e6ff"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d752ce022e4fb04e4e6fd"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 300000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-14T12:35:40.793Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:04:46.993Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7579102049f5c658e523"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7579102049f5c658e521"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-15T12:36:57.331Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:04:48.623Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7593d5bdccd0e6b3f35f"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7593d5bdccd0e6b3f35d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-03T12:37:23.176Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:28.112Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d75a3d239cee978173a12"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d75a3d239cee978173a10"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 600000,
+  "totalDiscountedPrice": 540000,
+  "totalItem": 1,
+  "discounte": 60000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-04T12:37:39.108Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:30.774Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d75aed239cee97817532a"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d75aed239cee978175328"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 800000,
+  "totalDiscountedPrice": 760000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2023-12-04T12:37:50.805Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:03:32.419Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d75c0fd25d0737ccdeba0"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d75c0fd25d0737ccdeb9e"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 400000,
+  "totalItem": 1,
+  "discounte": 0,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-06T12:38:08.445Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:25.148Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d75cdfd25d0737cce049e"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d75cdfd25d0737cce049c"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-01-06T12:38:21.365Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:27.040Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d75e7bdf7cb4afac2cba7"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d75e7bdf7cb4afac2cba3"
+    },
+    {
+      "$oid": "673d75e7bdf7cb4afac2cba5"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000004902",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d75e7bdf7cb4afac2cba7",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 420000,
+  "totalItem": 2,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-02-10T12:38:47.764Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:49.489Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d76215d4bec69e15c868c"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d76215d4bec69e15c8688"
+    },
+    {
+      "$oid": "673d76215d4bec69e15c868a"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 765000,
+  "totalItem": 2,
+  "discounte": 135000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-04-18T12:39:45.848Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:57.370Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d76a65d4bec69e15cba02"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d76a65d4bec69e15cb9fc"
+    },
+    {
+      "$oid": "673d76a65d4bec69e15cb9fe"
+    },
+    {
+      "$oid": "673d76a65d4bec69e15cba00"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1600000,
+  "totalDiscountedPrice": 1360000,
+  "totalItem": 3,
+  "discounte": 240000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-04-18T12:41:58.553Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:05:55.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d76bb5d4bec69e15cd357"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d76bb5d4bec69e15cd355"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 279000,
+  "totalDiscountedPrice": 248310,
+  "totalItem": 1,
+  "discounte": 30690,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-04-18T12:42:19.099Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:14.288Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d77040a9d7966b7678ec1"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d77040a9d7966b7678ebb"
+    },
+    {
+      "$oid": "673d77040a9d7966b7678ebd"
+    },
+    {
+      "$oid": "673d77040a9d7966b7678ebf"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000005001",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d77040a9d7966b7678ec1",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1900000,
+  "totalDiscountedPrice": 1450000,
+  "totalItem": 3,
+  "discounte": 450000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-03-18T12:43:32.721Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:03.706Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d774a0a9d7966b7679bc6"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d774a0a9d7966b7679bc4"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 200000,
+  "totalDiscountedPrice": 150000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-03-18T12:44:42.316Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:45.491Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d779f947654f0dc4dc3a0"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d779f947654f0dc4dc39e"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-04-18T12:46:07.334Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:11.979Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7964b83ca3bb0f0086c9"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7964b83ca3bb0f0086c5"
+    },
+    {
+      "$oid": "673d7964b83ca3bb0f0086c7"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 799000,
+  "totalDiscountedPrice": 779000,
+  "totalItem": 2,
+  "discounte": 20000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-18T12:53:40.201Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:16.670Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d797a6738c76616a291ae"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d797a6738c76616a291aa"
+    },
+    {
+      "$oid": "673d797a6738c76616a291ac"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1499000,
+  "totalDiscountedPrice": 1359000,
+  "totalItem": 2,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-18T12:54:02.628Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:18.518Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d798996e5d299b0ebce01"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d798996e5d299b0ebcdff"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 350000,
+  "totalDiscountedPrice": 280000,
+  "totalItem": 1,
+  "discounte": 70000,
+  "orderStatus": "Hoàn trả hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-18T12:54:17.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673d79a7518b4c7400246410"
+  },
+  "user": {
+    "$oid": "6737394b930cc29b6ad54645"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d79a7518b4c740024640c"
+    },
+    {
+      "$oid": "673d79a7518b4c740024640e"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c95d336396370b21b3362"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Năng",
+      "ward": "Xã Phú Lộc",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000004928",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673d79a7518b4c7400246410",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 4200000,
+  "totalDiscountedPrice": 3360000,
+  "totalItem": 6,
+  "discounte": 840000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-18T12:54:47.860Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:25.394Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d79f3147ecfdce6b0013b"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d79f3147ecfdce6b00135"
+    },
+    {
+      "$oid": "673d79f3147ecfdce6b00137"
+    },
+    {
+      "$oid": "673d79f3147ecfdce6b00139"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1399000,
+  "totalDiscountedPrice": 1286000,
+  "totalItem": 3,
+  "discounte": 113000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-18T12:56:03.518Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:28.162Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7a07589dd818948b6875"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7a07589dd818948b686f"
+    },
+    {
+      "$oid": "673d7a07589dd818948b6871"
+    },
+    {
+      "$oid": "673d7a07589dd818948b6873"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 640000,
+  "totalItem": 3,
+  "discounte": 60000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-18T12:56:23.471Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T13:06:10.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673d7a2089a6108b85b8c699"
+  },
+  "user": {
+    "$oid": "6737395d930cc29b6ad54653"
+  },
+  "orderItems": [
+    {
+      "$oid": "673d7a2089a6108b85b8c695"
+    },
+    {
+      "$oid": "673d7a2089a6108b85b8c697"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca539c9ec7a66450a81df"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Đắk Lắk",
+      "district": "Huyện Krông Pắc",
+      "ward": "Xã Hòa Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1600000,
+  "totalDiscountedPrice": 1292000,
+  "totalItem": 2,
+  "discounte": 240000,
+  "orderStatus": "Đã giao hàng",
+  "promotion": {
+    "$oid": "6737644d930cc29b6ad56757"
+  },
+  "discountCode": 68000,
+  "orderDate": {
+    "$date": "2024-11-18T12:56:48.369Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da337ff391d5eefb6e5f3"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da337ff391d5eefb6e5f1"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 400000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-17T15:52:07.143Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:50.406Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da345ff391d5eefb6fec0"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da345ff391d5eefb6febe"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 630000,
+  "totalItem": 1,
+  "discounte": 70000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-17T15:52:21.633Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:48.484Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da356d31b2adc7bd6eb02"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da356d31b2adc7bd6eb00"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 650000,
+  "totalDiscountedPrice": 637000,
+  "totalItem": 1,
+  "discounte": 13000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-10T15:52:38.051Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:54.189Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da369535f1bfd233e9060"
+  },
+  "user": {
+    "$oid": "6737396b930cc29b6ad54661"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da369535f1bfd233e905e"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca6725e377ed912e7ffa5"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bạc Liêu",
+      "district": "Huyện Hoà Bình",
+      "ward": "Xã Vĩnh Mỹ A",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 300000,
+  "totalDiscountedPrice": 285000,
+  "totalItem": 1,
+  "discounte": 15000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-18T15:52:57.941Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:05.606Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da38a6ea7599173b40b47"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da38a6ea7599173b40b45"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 525000,
+  "totalItem": 1,
+  "discounte": 175000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-17T15:53:30.019Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da398993ee9a87b7b385f"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da398993ee9a87b7b385d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 425000,
+  "totalItem": 1,
+  "discounte": 75000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-05-15T15:53:44.260Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:52.644Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da3abc4a4a6a04c0bf624"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da3abc4a4a6a04c0bf622"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 600000,
+  "totalDiscountedPrice": 510000,
+  "totalItem": 1,
+  "discounte": 90000,
+  "orderStatus": "Đặt hàng thành công",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-15T15:54:03.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da3bb06bd1718e6682426"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da3bb06bd1718e6682424"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 375000,
+  "totalItem": 1,
+  "discounte": 125000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-14T15:54:19.500Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:57.969Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da3caede9bb0ab22f8a61"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da3caede9bb0ab22f8a5f"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 599000,
+  "totalDiscountedPrice": 251580,
+  "totalItem": 1,
+  "discounte": 347420,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-13T15:54:34.018Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:10:59.769Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da3df4bb88abca37a4b7d"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da3df4bb88abca37a4b7b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 249000,
+  "totalDiscountedPrice": 199200,
+  "totalItem": 1,
+  "discounte": 49800,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-11T15:54:55.074Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:01.369Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da3fed477fc5c26b8c182"
+  },
+  "user": {
+    "$oid": "6737397d930cc29b6ad5466f"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da3fed477fc5c26b8c180"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca5e3c9ec7a66450adc5a"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 532000,
+  "totalItem": 1,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": {
+    "$oid": "6737644d930cc29b6ad56757"
+  },
+  "discountCode": 28000,
+  "orderDate": {
+    "$date": "2024-06-10T15:55:26.394Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:02.714Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da429ece2c7cd63cc6d42"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da429ece2c7cd63cc6d40"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da429ece2c7cd63cc6d3c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tiền Giang",
+      "district": "Thị xã Cai Lậy",
+      "ward": "Xã Thanh Hòa",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 630000,
+  "totalItem": 1,
+  "discounte": 70000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-06-08T15:56:09.331Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:03.898Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4386f5fa2af9af235f1"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4386f5fa2af9af235ef"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da429ece2c7cd63cc6d3c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tiền Giang",
+      "district": "Thị xã Cai Lậy",
+      "ward": "Xã Thanh Hòa",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 810000,
+  "totalItem": 1,
+  "discounte": 90000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-08T15:56:24.451Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:20.173Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4496f5fa2af9af24ecb"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4496f5fa2af9af24ec9"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da429ece2c7cd63cc6d3c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tiền Giang",
+      "district": "Thị xã Cai Lậy",
+      "ward": "Xã Thanh Hòa",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 300000,
+  "totalDiscountedPrice": 240000,
+  "totalItem": 1,
+  "discounte": 60000,
+  "orderStatus": "Hoàn trả hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-08T15:56:41.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da45db23359237df65a92"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da45cb23359237df65a90"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da429ece2c7cd63cc6d3c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tiền Giang",
+      "district": "Thị xã Cai Lậy",
+      "ward": "Xã Thanh Hòa",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 560000,
+  "totalItem": 1,
+  "discounte": 140000,
+  "orderStatus": "Đặt hàng thành công",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-01T15:57:01.008Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da46d1b87a053b50c2ab2"
+  },
+  "user": {
+    "$oid": "673739bb930cc29b6ad546ae"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da46d1b87a053b50c2ab0"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da429ece2c7cd63cc6d3c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tiền Giang",
+      "district": "Thị xã Cai Lậy",
+      "ward": "Xã Thanh Hòa",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-03T15:57:17.692Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:23.758Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da49353305f3260695d9a"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da49353305f3260695d98"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da49353305f3260695d94"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tuyên Quang",
+      "district": "Huyện Yên Sơn",
+      "ward": "Xã Phúc Ninh",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 400000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-05T15:57:55.372Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:21.603Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4a84976754c9f7df49e"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4a84976754c9f7df49c"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da49353305f3260695d94"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tuyên Quang",
+      "district": "Huyện Yên Sơn",
+      "ward": "Xã Phúc Ninh",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-07-14T15:58:16.156Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:16.171Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4c3311f1613dd335f09"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4c3311f1613dd335f07"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da49353305f3260695d94"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tuyên Quang",
+      "district": "Huyện Yên Sơn",
+      "ward": "Xã Phúc Ninh",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-14T15:58:43.634Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:29.658Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4d69b995bf7c2abf299"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4d69b995bf7c2abf297"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da49353305f3260695d94"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tuyên Quang",
+      "district": "Huyện Yên Sơn",
+      "ward": "Xã Phúc Ninh",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 200000,
+  "totalDiscountedPrice": 190000,
+  "totalItem": 1,
+  "discounte": 10000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-01T15:59:02.644Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:39.619Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da4e4dba6e762343ecb4a"
+  },
+  "user": {
+    "$oid": "67373a02930cc29b6ad546c2"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da4e4dba6e762343ecb48"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da49353305f3260695d94"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Tuyên Quang",
+      "district": "Huyện Yên Sơn",
+      "ward": "Xã Phúc Ninh",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-05T15:59:16.905Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:38.224Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da5187ac7a01b83bce6db"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da5187ac7a01b83bce6d9"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-08T16:00:08.826Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:33.374Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da528de62de2632681028"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da528de62de2632681026"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-12T16:00:24.334Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:36.812Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da53dde62de2632682ac8"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da53dde62de2632682ac6"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1200000,
+  "totalDiscountedPrice": 960000,
+  "totalItem": 3,
+  "discounte": 240000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-12T16:00:45.553Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:31.675Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da552ce5cdfa74a50b5ea"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da552ce5cdfa74a50b5e8"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 320000,
+  "totalItem": 1,
+  "discounte": 80000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-01T16:01:06.687Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:53.040Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da563e8771dfd9ec1a43d"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da563e8771dfd9ec1a43b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 600000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 150000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-03T16:01:23.055Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:51.276Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da573a75502bae9ff0603"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da573a75502bae9ff0601"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 350000,
+  "totalDiscountedPrice": 315000,
+  "totalItem": 1,
+  "discounte": 35000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-06T16:01:39.235Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:48.525Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da587a75502bae9ff201c"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da587a75502bae9ff201a"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 200000,
+  "totalDiscountedPrice": 190000,
+  "totalItem": 1,
+  "discounte": 10000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-06T16:01:59.119Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5b06009c6fc7f65276c"
+  },
+  "user": {
+    "$oid": "67373aff930cc29b6ad54753"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da5b06009c6fc7f65276a"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da5187ac7a01b83bce6d5"
+    },
+    "address": {
+      "firstName": "Phạm",
+      "lastName": "Minh",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Đồ Sơn",
+      "ward": "Phường Ngọc Hải",
+      "mobile": "0982829395"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "241120000009558",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "241120_673da5b06009c6fc7f65276c",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 1800000,
+  "totalDiscountedPrice": 1458000,
+  "totalItem": 2,
+  "discounte": 180000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": {
+    "$oid": "6737645f930cc29b6ad5675d"
+  },
+  "discountCode": 162000,
+  "orderDate": {
+    "$date": "2024-09-15T16:02:40.537Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da5e96009c6fc7f654c5f"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da5e96009c6fc7f654c5d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 599000,
+  "totalDiscountedPrice": 599000,
+  "totalItem": 1,
+  "discounte": 0,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-15T16:03:37.081Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:04.797Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da5f603910713318adfcd"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da5f603910713318adfcb"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 300000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đang giao hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-10T16:03:50.067Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da609e2b6c818b1143956"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da609e2b6c818b1143954"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 525000,
+  "totalItem": 1,
+  "discounte": 175000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-08-07T16:04:09.721Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:35.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da61cb0e06654cb63319e"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da61cb0e06654cb63319c"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1300000,
+  "totalDiscountedPrice": 1040000,
+  "totalItem": 1,
+  "discounte": 260000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-19T16:04:28.779Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:02.010Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da629e88c61f95f17ceab"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da629e88c61f95f17cea9"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 279000,
+  "totalDiscountedPrice": 248310,
+  "totalItem": 1,
+  "discounte": 30690,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-03T16:04:41.794Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:49.831Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da637865980b3ffc7cab5"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da637865980b3ffc7cab3"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 459000,
+  "totalDiscountedPrice": 459000,
+  "totalItem": 1,
+  "discounte": 0,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-09-07T16:04:55.582Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:45.128Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da649028b260e6ac70ab5"
+  },
+  "user": {
+    "$oid": "67373b13930cc29b6ad54764"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da649028b260e6ac70ab3"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673ca26c5242acfebc5f552d"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Hoài Đức",
+      "ward": "Xã Sơn Đồng",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Xác nhận đơn hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-07T16:05:13.742Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da67c028b260e6ac73c2d"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da67c028b260e6ac73c2b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da67c028b260e6ac73c27"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dũng",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Bắc Từ Liêm",
+      "ward": "Phường Thượng Cát",
+      "mobile": "0989796094"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-07T16:06:04.631Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:22.518Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da68ee74567867efbcf6a"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da68ee74567867efbcf68"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da67c028b260e6ac73c27"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dũng",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Bắc Từ Liêm",
+      "ward": "Phường Thượng Cát",
+      "mobile": "0989796094"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 600000,
+  "totalDiscountedPrice": 540000,
+  "totalItem": 1,
+  "discounte": 60000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-01T16:06:22.512Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:00.716Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da6b0693d9d94ad740a6d"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da6b0693d9d94ad740a6b"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da67c028b260e6ac73c27"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dũng",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Bắc Từ Liêm",
+      "ward": "Phường Thượng Cát",
+      "mobile": "0989796094"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-10T16:06:56.312Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:21.273Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da6d6693d9d94ad742461"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da6d6693d9d94ad74245f"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da67c028b260e6ac73c27"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dũng",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Bắc Từ Liêm",
+      "ward": "Phường Thượng Cát",
+      "mobile": "0989796094"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1300000,
+  "totalDiscountedPrice": 1040000,
+  "totalItem": 1,
+  "discounte": 260000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-10T16:07:34.061Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:19.627Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da6e401b2bf15b3828153"
+  },
+  "user": {
+    "$oid": "67373b39930cc29b6ad5477b"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da6e401b2bf15b3828151"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da67c028b260e6ac73c27"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dũng",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Bắc Từ Liêm",
+      "ward": "Phường Thượng Cát",
+      "mobile": "0989796094"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-17T16:07:48.681Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da722342d2a30a31040d5"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da722342d2a30a31040d3"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da722342d2a30a31040cf"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Cường",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bình Dương",
+      "district": "Thị xã Tân Uyên",
+      "ward": "Xã Vĩnh Tân",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 600000,
+  "totalDiscountedPrice": 540000,
+  "totalItem": 1,
+  "discounte": 60000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-02T16:08:50.303Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:11:59.362Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da73082d88556e86a31d2"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da73082d88556e86a31d0"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da722342d2a30a31040cf"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Cường",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bình Dương",
+      "district": "Thị xã Tân Uyên",
+      "ward": "Xã Vĩnh Tân",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-06T16:09:04.597Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673da7427674febd2f8ed000"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da7427674febd2f8ecffc"
+    },
+    {
+      "$oid": "673da7427674febd2f8ecffe"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da722342d2a30a31040cf"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Cường",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bình Dương",
+      "district": "Thị xã Tân Uyên",
+      "ward": "Xã Vĩnh Tân",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1000000,
+  "totalDiscountedPrice": 800000,
+  "totalItem": 2,
+  "discounte": 200000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-12T16:09:22.849Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:18.146Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da7524bd074e1ef01a46f"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da7524bd074e1ef01a46d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da722342d2a30a31040cf"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Cường",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bình Dương",
+      "district": "Thị xã Tân Uyên",
+      "ward": "Xã Vĩnh Tân",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 340000,
+  "totalItem": 1,
+  "discounte": 60000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-15T16:09:38.946Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-20T16:12:16.909Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673da76cd0ccea8df7f758bd"
+  },
+  "user": {
+    "$oid": "67373907930cc29b6ad54613"
+  },
+  "orderItems": [
+    {
+      "$oid": "673da76cd0ccea8df7f758bb"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673da722342d2a30a31040cf"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Cường",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bình Dương",
+      "district": "Thị xã Tân Uyên",
+      "ward": "Xã Vĩnh Tân",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 1300000,
+  "totalDiscountedPrice": 1079000,
+  "totalItem": 1,
+  "discounte": 221000,
+  "orderStatus": "Đã giao hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-10-18T16:10:04.446Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67447e27805bb740173d3566"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "67447e27805bb740173d3562"
+    },
+    {
+      "$oid": "67447e27805bb740173d3564"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 750000,
+  "totalItem": 2,
+  "discounte": 150000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-25T20:39:51.354Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-25T20:58:55.696Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6744819491419228fdd18b2a"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "6744819491419228fdd18b28"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Hoàn trả hàng",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-11-25T20:54:28.771Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-11-25T20:59:09.322Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67528b9d93cda7d6bbde779f"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "67528b9d93cda7d6bbde779d"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-12-06T12:29:01.856Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-12-06T12:32:23.672Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67528bd893cda7d6bbde7f98"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "67528bd893cda7d6bbde7f96"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-12-06T12:30:00.885Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-12-06T12:32:21.796Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67528c5552507cf8be29b37b"
+  },
+  "user": {
+    "$oid": "67373929930cc29b6ad5462c"
+  },
+  "orderItems": [
+    {
+      "$oid": "67528c5552507cf8be29b379"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c945dff568591bba776b7"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Bắc Ninh",
+      "district": "Thành phố Bắc Ninh",
+      "ward": "Xã Hòa Long",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-12-06T12:32:05.986Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2024-12-06T12:32:20.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67595d1b4158e2786cb740f1"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "67595d1b4158e2786cb740ef"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 360000,
+  "totalItem": 1,
+  "discounte": 40000,
+  "orderStatus": "Đặt hàng thành công",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-12-11T16:36:27.615Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67595e6e4158e2786cb748b8"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "67595e6e4158e2786cb748b6"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 300000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đặt hàng thành công",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2024-12-11T16:42:06.894Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67acc4f0b83d2125494ae80a"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "67acc4f0b83d2125494ae808"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "0",
+    "paymentStatus": "Lỗi thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "250212_67acc4f0b83d2125494ae80a",
+    "statusMessage": "Thanh toán thất bại",
+    "subReturnCode": "-217",
+    "subReturnMessage": "[UserAndSystem] Thanh toán thất bại"
+  },
+  "totalPrice": 400000,
+  "totalDiscountedPrice": 300000,
+  "totalItem": 1,
+  "discounte": 100000,
+  "orderStatus": "Đã hủy",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-12T22:57:36.092Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67acc698b83d2125494aed77"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "orderItems": [
+    {
+      "$oid": "67acc698b83d2125494aed75"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673c956236396370b21af996"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Cao Bằng",
+      "district": "Huyện Thông Nông",
+      "ward": "Xã Yên Sơn",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "250212000020636",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "250212_67acc698b83d2125494aed77",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 700000,
+  "totalDiscountedPrice": 560000,
+  "totalItem": 1,
+  "discounte": 140000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-12T23:04:40.449Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2025-02-13T09:39:21.089Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ad581cc0e30923523e59fa"
+  },
+  "user": {
+    "$oid": "67ad57c6c0e30923523e52aa"
+  },
+  "orderItems": [
+    {
+      "$oid": "67ad581cc0e30923523e59f8"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "67ad57f5c0e30923523e561c"
+    },
+    "address": {
+      "firstName": "Đỗ",
+      "lastName": "Quân",
+      "streetAddress": "số nhà 1 ",
+      "city": "Tỉnh Phú Thọ",
+      "district": "Huyện Cẩm Khê",
+      "ward": "Xã Văn Bán",
+      "mobile": "0987697274"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "0",
+    "paymentStatus": "Lỗi thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "250213_67ad581cc0e30923523e59fa",
+    "statusMessage": "Thanh toán thất bại",
+    "subReturnCode": "-54",
+    "subReturnMessage": "[Merchant] Giao dịch hết hạn thanh toán, quý khách vui lòng thử lại."
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã hủy",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-13T09:25:32.705Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ad5969c0e30923523e6be9"
+  },
+  "user": {
+    "$oid": "67ad591bc0e30923523e618a"
+  },
+  "orderItems": [
+    {
+      "$oid": "67ad5969c0e30923523e6be5"
+    },
+    {
+      "$oid": "67ad5969c0e30923523e6be7"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "67ad5933c0e30923523e650c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Dương",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Tỉnh Điện Biên",
+      "district": "Huyện Tủa Chùa",
+      "ward": "Xã Trung Thu",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "250213000000707",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "250213_67ad5969c0e30923523e6be9",
+    "statusMessage": "Thanh toán thành công",
+    "subReturnCode": "1",
+    "subReturnMessage": "Giao dịch thành công"
+  },
+  "totalPrice": 900000,
+  "totalDiscountedPrice": 750000,
+  "totalItem": 2,
+  "discounte": 150000,
+  "orderStatus": "Đã hoàn thành",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-13T09:31:05.755Z"
+  },
+  "__v": 0,
+  "completeOrderDate": {
+    "$date": "2025-02-13T09:39:14.131Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ae98acb986a3c177b881cc"
+  },
+  "user": {
+    "$oid": "673738fd930cc29b6ad54608"
+  },
+  "orderItems": [
+    {
+      "$oid": "67ae98acb986a3c177b881ca"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "673d7357766abdbffaf9c10c"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hải Phòng",
+      "district": "Quận Lê Chân",
+      "ward": "Phường An Biên",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "COD",
+    "zalopayTransactionId": null,
+    "paymentStatus": "Đang chờ thanh toán",
+    "isProcessing": "Chưa xử lý",
+    "appTransactionId": null
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đặt hàng thành công",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-14T08:13:16.906Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67aec25dc21f050488d8e39c"
+  },
+  "user": {
+    "$oid": "67aec1d7c21f050488d8dbc6"
+  },
+  "orderItems": [
+    {
+      "$oid": "67aec25dc21f050488d8e39a"
+    }
+  ],
+  "shippingAddress": {
+    "id": {
+      "$oid": "67aec25dc21f050488d8e396"
+    },
+    "address": {
+      "firstName": "Lại",
+      "lastName": "Đức",
+      "streetAddress": "Quận Bắc Từ LIêm",
+      "city": "Thành phố Hà Nội",
+      "district": "Huyện Sóc Sơn",
+      "ward": "Xã Quang Tiến",
+      "mobile": "01686186246"
+    }
+  },
+  "paymentDetails": {
+    "paymentMethod": "ZALOPAY",
+    "zalopayTransactionId": "250214000001544",
+    "paymentStatus": "Đã thanh toán",
+    "isProcessing": "Đã xử lý",
+    "appTransactionId": "250214_67aec25dc21f050488d8e39c",
+    "statusMessage": "Thanh toán thành công"
+  },
+  "totalPrice": 500000,
+  "totalDiscountedPrice": 450000,
+  "totalItem": 1,
+  "discounte": 50000,
+  "orderStatus": "Đã thanh toán",
+  "promotion": null,
+  "discountCode": 0,
+  "orderDate": {
+    "$date": "2025-02-14T11:11:09.943Z"
+  },
+  "__v": 0
+}]

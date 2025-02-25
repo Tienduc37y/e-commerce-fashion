@@ -110,12 +110,16 @@ const PromotionsTable = () => {
     const handleSaveEdit = async (editedPromotion) => {
         try {
             await dispatch(updatePromotion(editedPromotion._id, editedPromotion));
-            setFilteredPromotions((prevPromotions) =>
-                prevPromotions.map((promo) =>
-                    promo._id === editedPromotion._id ? editedPromotion : promo
-                )
-            );
             toast.success("Cập nhật mã giảm giá thành công");
+            
+            // Gọi lại API để lấy danh sách mới nhất
+            const response = await dispatch(getPromotions(page, rowsPerPage));
+            if (response?.promotions) {
+                setFilteredPromotions(response.promotions || []);
+                setTotalPages(response.totalPages);
+            }
+            
+            setOpenEditDialog(false); // Đóng dialog sau khi cập nhật thành công
         } catch (error) {
             toast.error("Cập nhật mã giảm giá thất bại: " + error.message);
         }

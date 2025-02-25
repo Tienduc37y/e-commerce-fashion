@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "675925f24f952e299daf76eb"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "product": {
+    "$oid": "6739fe572e2be580a324be25"
+  },
+  "rating": 5,
+  "imgUrl": [
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895666/ecommerce_reviews/umavzrnp2dpzbqyte4uv.webp"
+  ],
+  "review": "rất đẹp",
+  "reply": "cảm ơn",
+  "createdAt": {
+    "$date": "2024-12-11T05:41:06.633Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675926234f952e299daf78fd"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "product": {
+    "$oid": "6739ff3d2e2be580a324be8c"
+  },
+  "rating": 3,
+  "imgUrl": [
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895713/ecommerce_reviews/az7ysu2zsmbjgd2uziko.jpg",
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895715/ecommerce_reviews/i4ks8rrd3wbwibtagpcd.webp",
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895715/ecommerce_reviews/xi7yovuw68crogmqvgvs.webp"
+  ],
+  "review": "Bình thường",
+  "reply": null,
+  "createdAt": {
+    "$date": "2024-12-11T05:41:55.579Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6759263c4f952e299daf79d3"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "product": {
+    "$oid": "673c88582203b06cc5a463c2"
+  },
+  "rating": 5,
+  "imgUrl": [
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895740/ecommerce_reviews/e5qblitk9o3wmyygulo5.webp",
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895740/ecommerce_reviews/dbcw4mssupnuu0ncbl54.webp",
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895740/ecommerce_reviews/ijgixncx1nxwhjjximrh.webp",
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733895740/ecommerce_reviews/ttqd01kd1jie5m66aty5.webp"
+  ],
+  "review": "Quá chất lượng",
+  "reply": null,
+  "createdAt": {
+    "$date": "2024-12-11T05:42:20.643Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675959bf323d4a32a9a3ae30"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "product": {
+    "$oid": "6739ffb32e2be580a324beec"
+  },
+  "rating": 4,
+  "imgUrl": [
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1733908927/ecommerce_reviews/pwfenepax8kmhwylvuic.webp"
+  ],
+  "review": "đẹp quá",
+  "reply": null,
+  "createdAt": {
+    "$date": "2024-12-11T09:22:07.921Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675f010d77d2f5b1d6f12ac8"
+  },
+  "user": {
+    "$oid": "6737393a930cc29b6ad5463a"
+  },
+  "product": {
+    "$oid": "6739fe572e2be580a324be25"
+  },
+  "rating": 5,
+  "imgUrl": [
+    "https://res.cloudinary.com/dmeggoabc/image/upload/v1734279437/ecommerce_reviews/g0bi5ntd1gim9jxgvnro.png"
+  ],
+  "review": "đẹp",
+  "reply": "shop cảm ơn",
+  "createdAt": {
+    "$date": "2024-12-15T16:17:17.931Z"
+  },
+  "__v": 0
+}]

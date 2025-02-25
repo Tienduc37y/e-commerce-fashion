@@ -41,7 +41,7 @@ const createZaloPayOrder = async (orderId) => {
       item: JSON.stringify(items),
       embed_data: embed_data,
       amount: orderInfo.totalDiscountedPrice,
-      callback_url: 'https://e-commerce-fashion-eosin.vercel.app/api/payment/zalopay-callback',
+      callback_url: 'https://a3e8-118-70-182-219.ngrok-free.app/api/payment/zalopay-callback',
       description: `Thanh toán cho đơn hàng #${orderId}`,
       bank_code: "",
     };

@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "67376357930cc29b6ad55925"
+  },
+  "name": "banner1",
+  "imageUrl": "https://res.cloudinary.com/dmeggoabc/image/upload/v1733459402/ecommerce_banners/hcbqjgntfwwp1wwp9kkw.webp",
+  "visible": true,
+  "createdAt": {
+    "$date": "2024-11-15T15:05:59.179Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-13T03:28:52.166Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67376362930cc29b6ad55929"
+  },
+  "name": "banner2",
+  "imageUrl": "https://res.cloudinary.com/dmeggoabc/image/upload/v1731683170/ecommerce_banners/owidoeyovo1qdmdpz9mt.webp",
+  "visible": true,
+  "createdAt": {
+    "$date": "2024-11-15T15:06:10.842Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-15T15:06:10.842Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737636f930cc29b6ad5592d"
+  },
+  "name": "banner3",
+  "imageUrl": "https://res.cloudinary.com/dmeggoabc/image/upload/v1731683182/ecommerce_banners/vhi8cdjrhgz8v782qu20.webp",
+  "visible": true,
+  "createdAt": {
+    "$date": "2024-11-15T15:06:23.791Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-15T15:06:23.791Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737637b930cc29b6ad55931"
+  },
+  "name": "banner4",
+  "imageUrl": "https://res.cloudinary.com/dmeggoabc/image/upload/v1731683194/ecommerce_banners/lazxpvzhffajok2ic8an.webp",
+  "visible": true,
+  "createdAt": {
+    "$date": "2024-11-15T15:06:35.646Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-15T15:06:35.646Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67376388930cc29b6ad55935"
+  },
+  "name": "banner5",
+  "imageUrl": "https://res.cloudinary.com/dmeggoabc/image/upload/v1731683207/ecommerce_banners/wepcshweqplfyidbsbcy.webp",
+  "visible": true,
+  "createdAt": {
+    "$date": "2024-11-15T15:06:48.593Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-15T15:06:48.593Z"
+  },
+  "__v": 0
+}]

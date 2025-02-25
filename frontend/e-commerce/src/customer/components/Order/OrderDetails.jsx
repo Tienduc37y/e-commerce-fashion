@@ -255,8 +255,7 @@ const OrderDetails = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} className='flex justify-center sm:justify-end'> 
-                {order?.order?.orderStatus === "Đã giao hàng" || 
-                  order?.order?.orderStatus === "Đã thanh toán" ||
+                {
                   order?.order?.orderStatus === "Đã hoàn thành" ||
                   order?.order?.orderStatus === "Hoàn trả hàng" ? (
                   <Box 

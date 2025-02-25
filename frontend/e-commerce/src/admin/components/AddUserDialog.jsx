@@ -96,6 +96,15 @@ const AddUserDialog = ({ open, onClose, onUserCreated }) => {
       const result = await dispatch(register(formData, true));
       if (result.success) {
         toast.success('Tạo người dùng mới thành công');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          username: '',
+          email: '',
+          mobile: '',
+          password: '',
+        });
+        setConfirmPassword('');
         onUserCreated();
         onClose();
         // Do not navigate to home page

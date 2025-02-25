@@ -78,7 +78,6 @@ const EditUserDialog = ({ open, onClose, user, onSave }) => {
       if (result && result.error) {
         toast.error(result.error);
       } else {
-        // Không hiển thị toast ở đây, để component cha xử lý
         onClose();
       }
     } catch (validationErrors) {
